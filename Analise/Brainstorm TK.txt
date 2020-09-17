@@ -1,0 +1,22 @@
+Tema: anuncios de roupa.
+
+Página Inicial(Apresentação)
+
+Cadastrar login
+Login
+Minha conta(Alterar login)
+
+Tela com os anuncios
+Tela de anuncio mais detelhado
+
+Meus anúncios
+Alterar anuncio
+Inativar anuncio
+Excluir anuncio
+Tela anunciar
+
+O usuario podera pesquisar anuncios mais especificos usando a barra de pesquisa.
+Filtrar anuncios por estado.
+Filtrar por genero.
+Filtrar por tamanho.
+Filtrar por condição.
