@@ -10,6 +10,7 @@ Tela com os anuncios
 Tela de anuncio mais detelhado
 
 Meus anúncios
+Tela de anuncios favoritados
 Alterar anuncio
 Inativar anuncio
 Excluir anuncio
