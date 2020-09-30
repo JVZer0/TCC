@@ -42,7 +42,6 @@ create table tb_anuncio(
     ds_tamanho				varchar(50),
     vl_preco				decimal(15,2),
     ds_cep					varchar(50),
-    bt_ativo				bool,
     bt_vendido				bool,
     ds_situacao				varchar(255),
     dt_publicacao			datetime,
@@ -54,6 +53,15 @@ create table tb_imagem(
 	id_imagem				int primary key auto_increment,
     img_anuncio				varchar(255),
     id_anuncio				int,
+    foreign key (id_anuncio) references tb_anuncio(id_anuncio)
+);
+
+create table tb_favoritos(
+	id_favorito				int primary key auto_increment,
+    bt_favorito				bool,
+    id_usuario				int,
+    id_anuncio				int,
+    foreign key (id_usuario) references tb_usuario(id_usuario),
     foreign key (id_anuncio) references tb_anuncio(id_anuncio)
 );
 
@@ -79,14 +87,14 @@ insert into tb_usuario(nm_usuario, dt_nascimento, ds_sexo, ds_cpf, ds_rg, ds_ema
 				values('José Cauã Nogueira','2002-05-12','Masculino','062.491.408-91','21.588.358-5','josecauanogueira-87@avantii.com.br','(92) 98783-4441', 'AM', 'Manaus','69090-799','Rua Doutor Solon Pinheiro'
                 ,'Cidade Nova','423','',true,4);
                 
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_ativo, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
-				values('bermuda obey camuflada','bermuda tamanho m obey camuflada, vai na altura do joelho um pouco pra cima','Bermuda','Usado','Masculino','obey','M',149.00,'90640-002',true,false,'Publicado','2020-09-25',1);
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_ativo, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
-				values('moletom amarelo nike','moletom tamanho m da nike ediçao especial track field, pouco usado, ótimo estado', 'Moletom','Usado','Masculino','nike','M',189.00,'69915-314',true,false,'Publicado','2020-09-25',2);                
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_ativo, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
-				values('Tenis Nike','Tenis Nike 12 molas', 'Tênis','Usado','Unisex','Nike','38',728.00,'53625-213',true,false,'Publicado','2020-09-25',3);
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_ativo, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
-				values('bermuda bmw bordado masculino','bermuda bmw bordado masculino tamanhos: m, g, gg, xxl.diversas cores: segue fotos.', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00,'53625-213',true,false,'Publicado','2020-09-25',3);
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
+				values('bermuda obey camuflada','bermuda tamanho m obey camuflada, vai na altura do joelho um pouco pra cima','Bermuda','Usado','Masculino','obey','M',149.00,'90640-002',false,'Publicado','2020-09-25',1);
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
+				values('moletom amarelo nike','moletom tamanho m da nike ediçao especial track field, pouco usado, ótimo estado', 'Moletom','Usado','Masculino','nike','M',189.00,'69915-314',false,'Publicado','2020-09-25',2);                
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
+				values('Tenis Nike','Tenis Nike 12 molas', 'Tênis','Usado','Unisex','Nike','38',728.00,'53625-213',false,'Publicado','2020-09-25',3);
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
+				values('bermuda bmw bordado masculino','bermuda bmw bordado masculino tamanhos: m, g, gg, xxl.diversas cores: segue fotos.', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00,'53625-213',false,'Publicado','2020-09-25',3);
                 
 insert into tb_imagem(img_anuncio, id_anuncio)
 			   values('aionjfianfinaudnfa8935R89RFN3QU7D29',1);
@@ -97,8 +105,21 @@ insert into tb_imagem(img_anuncio, id_anuncio)
 insert into tb_imagem(img_anuncio, id_anuncio)
 			   values('davu849jf34c2378nc93jc30fj387v9-24jv9234nv4',4);
                
+insert into tb_favoritos(bt_favorito, id_usuario, id_anuncio)
+				  values(true,1,1);
+insert into tb_favoritos(bt_favorito, id_usuario, id_anuncio)
+				  values(true,1,3);
+insert into tb_favoritos(bt_favorito, id_usuario, id_anuncio)
+				  values(true,3,2);
+insert into tb_favoritos(bt_favorito, id_usuario, id_anuncio)
+				  values(true,3,4);
+               
                
 select * from tb_login;
 select * from tb_usuario;
 select * from tb_anuncio;
 select * from tb_imagem;
+select * from tb_favoritos;
+
+
+select * from tb_favoritos f join tb_anuncio a on f.id_anuncio = a.id_anuncio join tb_usuario u on f.id_usuario = u.id_usuario where nm_usuario like "%Sophia%"
