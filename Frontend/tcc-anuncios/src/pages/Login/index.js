@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 import '../../components/Cabecalho/cabecalho.css'
 import '../Login/style.css'
@@ -15,16 +17,28 @@ export default function Login(){
     const [username, setUsername] = useState("");
     const [senha, setSenha] = useState("");
 
+    const logar = async (e)=> {
+        e.preventDefault();
+        try {
+            const m = {
+                username:username,
+                senha:senha
+            };
+            const resp = "A";
+            navegacao.push("/Home")
+        } catch (e) {
+            toast.error(e.response)
+        }
+    }
+
     return(
         <div>
             <div className="cabecalho">
                 <div>
                     <Link className="hihi" to="/" ><img class="logo" src={Logo} width="150" height="27px"/></Link>
                 </div>
-                <div className="barraPesquisa">
-                </div>
-                <div className="meio">
-                </div>
+                <div className="barraPesquisa"></div>
+                <div className="meio"></div>
             </div>
 
 

@@ -12,17 +12,15 @@ export default function Inicial(){
                 <div>
                     <Link className="hihi" to="/" ><img class="logo" src={Logo} width="150" height="27px"/></Link>
                 </div>
-                <div className="barraPesquisa">
-                    fmaifvianvi
-                </div>
-                <div className="meio">
-                    <div>
-                        Meus anuncios
-                    </div>
-                </div>
+                <div className="barraPesquisa"></div>
+                <div className="meio"></div>
                 <div>
-                    <Link  class="hihi" to="./Login"><button class="botao">Entrar</button></Link>
+                    <Link  class="hihi" to="/Login"><button class="botao">Entrar</button></Link>
                 </div>
+            </div>
+
+            <div>
+                <h5>Inicial</h5>
             </div>
         </div>
     )
