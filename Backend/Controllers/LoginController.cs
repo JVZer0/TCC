@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,9 +9,8 @@ namespace Backend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class AnuncioController : ControllerBase
+    public class LoginController : ControllerBase
     {
-        Business.LoginBusiness business = new Business.LoginBusiness();
-        Utils.LoginConversor conversor = new Utils.LoginConversor();
+        
     }
 }
