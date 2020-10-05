@@ -16,15 +16,21 @@ namespace Backend.Business
             ValidarTexto(tabela.DsUsername);
             ValidarTexto(tabela.DsSenha);  
         }
+
+
+
+        private void Data(DateTime? data)
+        {
+            if(data == new DateTime()) throw new ArgumentException("Data incorreta.");    
+        }
         private void ValidarTexto(string texto)
         {
-              if(string.IsNullOrEmpty(texto)) throw new ArgumentException("Campo obrigatorio.");
-                
+            if(string.IsNullOrEmpty(texto)) throw new ArgumentException("Campo obrigatorio.");    
         }
         private void ValidarId(int? id)
         {
-            if(id<=0)
-            throw new ArgumentException("Id inválido.");
+            if(id <= 0) throw new ArgumentException("Id inválido.");
         }
+
     }
 }

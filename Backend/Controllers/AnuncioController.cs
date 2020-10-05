@@ -11,7 +11,6 @@ namespace Backend.Controllers
     [Route("[controller]")]
     public class AnuncioController : ControllerBase
     {
-        Business.LoginBusiness business = new Business.LoginBusiness();
-        Utils.LoginConversor conversor = new Utils.LoginConversor();
+
     }
 }
