@@ -14,6 +14,7 @@ namespace Backend.Utils
             Models.TbLogin final = new Models.TbLogin();
             final.DsUsername = request.Username;
             final.DsSenha = request.Senha;
+
             return final;
         }
         public Models.Response.AnuncioRoupasResponse.Login ConversorDeTabelaParaResponse(Models.TbLogin entrada)
