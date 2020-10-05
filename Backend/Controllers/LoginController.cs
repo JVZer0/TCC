@@ -28,5 +28,17 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(400,e.Message));
             }
         }
+        [HttpPost("Criarlogin")]
+        public ActionResult<Models.Response.AnuncioRoupasResponse.Usuario> CadastrarLogin(Models.Request.AnuncioRoupasRequest.Usuario request)
+        {
+            try
+            {
+                return null;
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(new Models.Response.Erro(400,e.Message));
+            }
+        }
     }
 }
