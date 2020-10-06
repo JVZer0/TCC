@@ -16,8 +16,9 @@ namespace Backend.Models.Response
         }
         public class Usuario
         {
+            public int IdUsuario { get; set; }
             public string NomeUsuario { get; set; }
-            public DateTime DataDeNascimento { get; set; }
+            public DateTime? DataDeNascimento { get; set; }
             public string Sexo { get; set; }
             public string CPF { get; set; }
             public string RG { get; set; }
@@ -30,8 +31,8 @@ namespace Backend.Models.Response
             public string Bairro { get; set; }
             public string N_Enderoco { get; set; }
             public string ComplementoEndereco { get; set; }
-            public bool ConcordoTermos { get; set; }
-            public int IdLogin { get; set; }
+            public bool? ConcordoTermos { get; set; }
+            public int? IdLogin { get; set; }
         }
     }
 }

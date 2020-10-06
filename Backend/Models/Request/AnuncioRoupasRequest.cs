@@ -11,6 +11,7 @@ namespace Backend.Models.Request
         }
         public class Usuario
         {
+            public int IdUsuario { get; set; }
             public Login Login { get; set; }
             public string NomeUsuario { get; set; }
             public DateTime DataDeNascimento { get; set; }
@@ -24,7 +25,7 @@ namespace Backend.Models.Request
             public string CEP { get; set; }
             public string Endereco { get; set; }
             public string Bairro { get; set; }
-            public string N_Enderoco { get; set; }
+            public string N_Endereco { get; set; }
             public string ComplementoEndereco { get; set; }
             public bool ConcordoTermos { get; set; }
         }

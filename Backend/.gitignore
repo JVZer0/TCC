@@ -1,7 +1,7 @@
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
 
-# Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,csharp,dotnetcore
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,csharp,dotnetcore
+# Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,dotnetcore,csharp
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,dotnetcore,csharp
 
 ### Csharp ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -378,6 +378,7 @@ obj/
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+.ionide
 
 ### Windows ###
 # Windows thumbnail cache files
@@ -405,7 +406,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,csharp,dotnetcore
+# End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,dotnetcore,csharp
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
