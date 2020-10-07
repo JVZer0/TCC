@@ -12,7 +12,8 @@ namespace Backend.Models.Request
         public class Usuario
         {
             public int IdUsuario { get; set; }
-            public Login Login { get; set; }
+            public string Username { get; set; }
+            public string Senha { get; set; }
             public string NomeUsuario { get; set; }
             public DateTime DataDeNascimento { get; set; }
             public string Sexo { get; set; }

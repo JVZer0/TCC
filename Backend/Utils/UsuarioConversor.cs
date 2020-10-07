@@ -13,7 +13,11 @@ namespace Backend.Utils
         {
             Models.TbUsuario usuario = new Models.TbUsuario();
             usuario.IdUsuario = req.IdUsuario;
-            usuario.NmUsuario = req.NomeUsuario;
+            usuario.IdLoginNavigation = new Models.TbLogin(){
+                DsSenha = req.Senha,
+                DsUsername = req.Username
+            };
+            usuario.NmUsuario = req.NomeCompleto;
             usuario.DtNascimento = req.DataDeNascimento;
             usuario.DsSexo = req.Sexo;
             usuario.DsCpf = req.CPF;
@@ -37,7 +41,7 @@ namespace Backend.Utils
             Models.Response.AnuncioRoupasResponse.Usuario resp = new Models.Response.AnuncioRoupasResponse.Usuario();
             resp.IdUsuario = entrada.IdUsuario;
             resp.IdLogin = entrada.IdLogin;
-            resp.NomeUsuario = entrada.NmUsuario;
+            resp.NomeCompleto = entrada.NmUsuario;
             resp.DataDeNascimento = entrada.DtNascimento;
             resp.Sexo = entrada.DsSexo;
             resp.CPF = entrada.DsCpf;

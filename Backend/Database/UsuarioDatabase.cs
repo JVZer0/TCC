@@ -11,6 +11,8 @@ namespace Backend.Database
         {
             Models.TbUsuario atual = ctx.TbUsuario.First(x => x.IdUsuario == usuario.IdUsuario);
             atual.NmUsuario = usuario.NmUsuario;
+            atual.IdLoginNavigation.DsUsername = usuario.IdLoginNavigation.DsUsername;
+            atual.IdLoginNavigation.DsSenha = usuario.IdLoginNavigation.DsSenha;
             atual.DtNascimento = usuario.DtNascimento;
             atual.DsSexo = usuario.DsSexo;
             atual.DsCpf = usuario.DsCpf;
@@ -26,6 +28,7 @@ namespace Backend.Database
             atual.DsComplementoEndereco = usuario.DsComplementoEndereco;
             atual.BtConcordoTermos = usuario.BtConcordoTermos;
 
+            ctx.SaveChanges();
             return atual;
         }
     }
