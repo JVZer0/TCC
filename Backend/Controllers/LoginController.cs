@@ -29,11 +29,13 @@ namespace Backend.Controllers
             }
         }
         [HttpPost("Criarlogin")]
-        public ActionResult<Models.Response.AnuncioRoupasResponse.Usuario> CadastrarLogin(Models.Request.AnuncioRoupasRequest.Usuario request)
+        public ActionResult<Models.Response.AnuncioRoupasResponse.Cadastro> CadastrarLogin(Models.Request.AnuncioRoupasRequest.Cadastro request)
         {
             try
             {
-                return null;
+                Models.TbLogin primeiro = conversor.ConversorTabelaLoginRequestCadastrar(request);
+                Models.TbLogin segundo = business.Cadastrar(primeiro, request.ConfirmarSenha);
+                return conversor.ConversorTabelaLoginResponseCadastrar(segundo);
             }
             catch (System.Exception e)
             {

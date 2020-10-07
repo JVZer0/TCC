@@ -60,6 +60,6 @@ namespace Backend.Utils
             resp.ConcordoTermos = entrada.BtConcordoTermos;
 
             return resp;
-        } 
+        }
     }
 }

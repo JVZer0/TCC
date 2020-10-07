@@ -36,7 +36,26 @@ namespace Backend.Business
             ValidarId(usuario.IdUsuario);
             ValidarTexto(usuario.IdLoginNavigation.DsSenha);
             ValidarTexto(usuario.IdLoginNavigation.DsUsername);
-            
+        }
+        public void Cadastrar(Models.TbLogin req, string ConfirmarSenha)
+        {
+            if(req.DsSenha != ConfirmarSenha) throw new ArgumentException("Senhas diferente. Tente conferir a senha novamente.");
+            ValidarTexto(req.DsUsername);
+            ValidarTexto(req.DsUsername);
+            ValidarTexto(req.TbUsuario.FirstOrDefault().NmUsuario);
+            ValidarTexto(req.TbUsuario.FirstOrDefault().DsEmail);
+            ValidarData(req.TbUsuario.FirstOrDefault().DtNascimento);
+            ValidarTexto(req.TbUsuario.FirstOrDefault().DsSexo);
+            ValidarTexto(req.TbUsuario.FirstOrDefault().DsCpf);
+            ValidarTexto(req.TbUsuario.FirstOrDefault().DsRg);
+            ValidarTexto(req.TbUsuario.FirstOrDefault().DsCelular);
+            ValidarTexto(req.TbUsuario.FirstOrDefault().DsEstado);
+            ValidarTexto(req.TbUsuario.FirstOrDefault().DsCidade);
+            ValidarTexto(req.TbUsuario.FirstOrDefault().DsCep);
+            ValidarTexto(req.TbUsuario.FirstOrDefault().DsBairro);
+            ValidarTexto(req.TbUsuario.FirstOrDefault().DsNEndereco);
+            ValidarTexto(req.TbUsuario.FirstOrDefault().DsEndereco);
+            ValidarTermos(req.TbUsuario.FirstOrDefault().BtConcordoTermos);
         }
 
 
