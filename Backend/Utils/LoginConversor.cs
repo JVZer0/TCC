@@ -22,7 +22,7 @@ namespace Backend.Utils
             Models.Response.AnuncioRoupasResponse.Login final = new Models.Response.AnuncioRoupasResponse.Login();
             final.IdLogin = entrada.IdLogin;
             
-            final.NomeCompleto = entrada.TbUsuario.FirstOrDefault().NmUsuario;
+            final.NomeUsuario = entrada.TbUsuario.FirstOrDefault().NmUsuario;
             final.IdUsuario = entrada.TbUsuario.FirstOrDefault().IdUsuario;
             final.RG = entrada.TbUsuario.FirstOrDefault().DsRg;
             final.Email = entrada.TbUsuario.FirstOrDefault().DsEmail;

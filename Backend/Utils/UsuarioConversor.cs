@@ -17,7 +17,7 @@ namespace Backend.Utils
                 DsSenha = req.Senha,
                 DsUsername = req.Username
             };
-            usuario.NmUsuario = req.NomeCompleto;
+            usuario.NmUsuario = req.NomeUsuario;
             usuario.DtNascimento = req.DataDeNascimento;
             usuario.DsSexo = req.Sexo;
             usuario.DsCpf = req.CPF;
@@ -41,7 +41,9 @@ namespace Backend.Utils
             Models.Response.AnuncioRoupasResponse.Usuario resp = new Models.Response.AnuncioRoupasResponse.Usuario();
             resp.IdUsuario = entrada.IdUsuario;
             resp.IdLogin = entrada.IdLogin;
-            resp.NomeCompleto = entrada.NmUsuario;
+            resp.Username = entrada.IdLoginNavigation.DsUsername;
+            resp.Senha = entrada.IdLoginNavigation.DsSenha;
+            resp.NomeUsuario = entrada.NmUsuario;
             resp.DataDeNascimento = entrada.DtNascimento;
             resp.Sexo = entrada.DsSexo;
             resp.CPF = entrada.DsCpf;

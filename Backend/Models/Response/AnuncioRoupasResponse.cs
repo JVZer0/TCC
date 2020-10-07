@@ -7,7 +7,7 @@ namespace Backend.Models.Response
         public class Login
         {
             public int IdUsuario { get; set; }
-            public string NomeCompleto { get; set; }
+            public string NomeUsuario { get; set; }
             public string CPF { get; set; }
             public string RG { get; set; }
             public string Email { get; set; }
@@ -19,7 +19,7 @@ namespace Backend.Models.Response
             public int IdUsuario { get; set; }
             public string Username { get; set; }
             public string Senha { get; set; }
-            public string NomeCompleto { get; set; }
+            public string NomeUsuario{ get; set; }
             public DateTime? DataDeNascimento { get; set; }
             public string Sexo { get; set; }
             public string CPF { get; set; }
@@ -38,7 +38,7 @@ namespace Backend.Models.Response
         }
         public class Cadastro
         {
-            public string NomeCompleto { get; set; }
+            public string NomeUsuario { get; set; }
             public string Email { get; set; }
             public string Username { get; set; }
             public string Senha { get; set; }

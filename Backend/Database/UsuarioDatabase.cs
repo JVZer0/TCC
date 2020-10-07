@@ -9,27 +9,28 @@ namespace Backend.Database
         Models.anunciosRoupasContext ctx = new Models.anunciosRoupasContext();
         public Models.TbUsuario Alterar(Models.TbUsuario usuario)
         {
-            Models.TbUsuario atual = ctx.TbUsuario.First(x => x.IdUsuario == usuario.IdUsuario);
-            atual.NmUsuario = usuario.NmUsuario;
-            atual.IdLoginNavigation.DsUsername = usuario.IdLoginNavigation.DsUsername;
-            atual.IdLoginNavigation.DsSenha = usuario.IdLoginNavigation.DsSenha;
-            atual.DtNascimento = usuario.DtNascimento;
-            atual.DsSexo = usuario.DsSexo;
-            atual.DsCpf = usuario.DsCpf;
-            atual.DsRg = usuario.DsRg;
-            atual.DsEmail = usuario.DsEmail;
-            atual.DsCelular = usuario.DsCelular;
-            atual.DsEstado = usuario.DsEstado;
-            atual.DsCidade = usuario.DsCidade;
-            atual.DsCep = usuario.DsCep;
-            atual.DsEndereco = usuario.DsEndereco; 
-            atual.DsBairro = usuario.DsBairro;
-            atual.DsNEndereco = usuario.DsNEndereco;
-            atual.DsComplementoEndereco = usuario.DsComplementoEndereco;
-            atual.BtConcordoTermos = usuario.BtConcordoTermos;
+            Models.TbUsuario atualUser = ctx.TbUsuario.First(x => x.IdUsuario == usuario.IdUsuario);
+            Models.TbLogin atualLogin = ctx.TbLogin.First(y => y.IdLogin == atualUser.IdLogin);
+            atualUser.NmUsuario = usuario.NmUsuario;
+            atualLogin.DsSenha = usuario.IdLoginNavigation.DsSenha;
+            atualLogin.DsUsername = usuario.IdLoginNavigation.DsUsername;
+            atualUser.DtNascimento = usuario.DtNascimento;
+            atualUser.DsSexo = usuario.DsSexo;
+            atualUser.DsCpf = usuario.DsCpf;
+            atualUser.DsRg = usuario.DsRg;
+            atualUser.DsEmail = usuario.DsEmail;
+            atualUser.DsCelular = usuario.DsCelular;
+            atualUser.DsEstado = usuario.DsEstado;
+            atualUser.DsCidade = usuario.DsCidade;
+            atualUser.DsCep = usuario.DsCep;
+            atualUser.DsEndereco = usuario.DsEndereco; 
+            atualUser.DsBairro = usuario.DsBairro;
+            atualUser.DsNEndereco = usuario.DsNEndereco;
+            atualUser.DsComplementoEndereco = usuario.DsComplementoEndereco;
+            atualUser.BtConcordoTermos = usuario.BtConcordoTermos;
 
             ctx.SaveChanges();
-            return atual;
+            return atualUser;
         }
     }
 }
