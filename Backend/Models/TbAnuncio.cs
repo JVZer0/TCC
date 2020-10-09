@@ -10,7 +10,7 @@ namespace Backend.Models
     {
         public TbAnuncio()
         {
-            TbFavoritos = new HashSet<TbFavoritos>();
+            TbFavorito = new HashSet<TbFavorito>();
             TbImagem = new HashSet<TbImagem>();
         }
 
@@ -48,7 +48,7 @@ namespace Backend.Models
         [InverseProperty(nameof(TbUsuario.TbAnuncio))]
         public virtual TbUsuario IdUsuarioNavigation { get; set; }
         [InverseProperty("IdAnuncioNavigation")]
-        public virtual ICollection<TbFavoritos> TbFavoritos { get; set; }
+        public virtual ICollection<TbFavorito> TbFavorito { get; set; }
         [InverseProperty("IdAnuncioNavigation")]
         public virtual ICollection<TbImagem> TbImagem { get; set; }
     }

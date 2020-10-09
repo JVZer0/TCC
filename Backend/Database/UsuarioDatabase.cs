@@ -6,7 +6,7 @@ namespace Backend.Database
 {
     public class UsuarioDatabase
     {
-        Models.anunciosRoupasContext ctx = new Models.anunciosRoupasContext();
+        Models.anuncioRoupaContext ctx = new Models.anuncioRoupaContext();
         public Models.TbUsuario Alterar(Models.TbUsuario usuario)
         {
             Models.TbUsuario atualUser = ctx.TbUsuario.First(x => x.IdUsuario == usuario.IdUsuario);

@@ -4,19 +4,19 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Backend.Models
 {
-    public partial class anunciosRoupasContext : DbContext
+    public partial class anuncioRoupaContext : DbContext
     {
-        public anunciosRoupasContext()
+        public anuncioRoupaContext()
         {
         }
 
-        public anunciosRoupasContext(DbContextOptions<anunciosRoupasContext> options)
+        public anuncioRoupaContext(DbContextOptions<anuncioRoupaContext> options)
             : base(options)
         {
         }
 
         public virtual DbSet<TbAnuncio> TbAnuncio { get; set; }
-        public virtual DbSet<TbFavoritos> TbFavoritos { get; set; }
+        public virtual DbSet<TbFavorito> TbFavorito { get; set; }
         public virtual DbSet<TbImagem> TbImagem { get; set; }
         public virtual DbSet<TbLogin> TbLogin { get; set; }
         public virtual DbSet<TbUsuario> TbUsuario { get; set; }
@@ -25,7 +25,7 @@ namespace Backend.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("server=localhost;user id=root;password=1234;database=anunciosRoupas", x => x.ServerVersion("8.0.21-mysql"));
+                optionsBuilder.UseMySql("server=localhost;user id=root;password=1234;database=anuncioRoupa", x => x.ServerVersion("8.0.21-mysql"));
             }
         }
 
@@ -81,7 +81,7 @@ namespace Backend.Models
                     .HasConstraintName("tb_anuncio_ibfk_1");
             });
 
-            modelBuilder.Entity<TbFavoritos>(entity =>
+            modelBuilder.Entity<TbFavorito>(entity =>
             {
                 entity.HasKey(e => e.IdFavorito)
                     .HasName("PRIMARY");
@@ -93,14 +93,14 @@ namespace Backend.Models
                     .HasName("id_usuario");
 
                 entity.HasOne(d => d.IdAnuncioNavigation)
-                    .WithMany(p => p.TbFavoritos)
+                    .WithMany(p => p.TbFavorito)
                     .HasForeignKey(d => d.IdAnuncio)
-                    .HasConstraintName("tb_favoritos_ibfk_2");
+                    .HasConstraintName("tb_favorito_ibfk_2");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
-                    .WithMany(p => p.TbFavoritos)
+                    .WithMany(p => p.TbFavorito)
                     .HasForeignKey(d => d.IdUsuario)
-                    .HasConstraintName("tb_favoritos_ibfk_1");
+                    .HasConstraintName("tb_favorito_ibfk_1");
             });
 
             modelBuilder.Entity<TbImagem>(entity =>

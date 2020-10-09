@@ -5,8 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Backend.Models
 {
-    [Table("tb_favoritos")]
-    public partial class TbFavoritos
+    [Table("tb_favorito")]
+    public partial class TbFavorito
     {
         [Key]
         [Column("id_favorito")]
@@ -19,10 +19,10 @@ namespace Backend.Models
         public int? IdAnuncio { get; set; }
 
         [ForeignKey(nameof(IdAnuncio))]
-        [InverseProperty(nameof(TbAnuncio.TbFavoritos))]
+        [InverseProperty(nameof(TbAnuncio.TbFavorito))]
         public virtual TbAnuncio IdAnuncioNavigation { get; set; }
         [ForeignKey(nameof(IdUsuario))]
-        [InverseProperty(nameof(TbUsuario.TbFavoritos))]
+        [InverseProperty(nameof(TbUsuario.TbFavorito))]
         public virtual TbUsuario IdUsuarioNavigation { get; set; }
     }
 }
