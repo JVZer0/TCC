@@ -1,8 +1,8 @@
-drop database anunciosRoupas;
+drop database anuncioRoupa;
 
-create database anunciosRoupas;
+create database anuncioRoupa;
 
-use anunciosRoupas;
+use anuncioRoupa;
 
 create table tb_login(
 	id_login 	int primary key auto_increment,
@@ -56,7 +56,7 @@ create table tb_imagem(
     foreign key (id_anuncio) references tb_anuncio(id_anuncio)
 );
 
-create table tb_favoritos(
+create table tb_favorito(
 	id_favorito				int primary key auto_increment,
     bt_favorito				bool,
     id_usuario				int,
@@ -105,13 +105,13 @@ insert into tb_imagem(img_anuncio, id_anuncio)
 insert into tb_imagem(img_anuncio, id_anuncio)
 			   values('davu849jf34c2378nc93jc30fj387v9-24jv9234nv4',4);
                
-insert into tb_favoritos(bt_favorito, id_usuario, id_anuncio)
+insert into tb_favorito(bt_favorito, id_usuario, id_anuncio)
 				  values(true,1,1);
-insert into tb_favoritos(bt_favorito, id_usuario, id_anuncio)
+insert into tb_favorito(bt_favorito, id_usuario, id_anuncio)
 				  values(true,1,3);
-insert into tb_favoritos(bt_favorito, id_usuario, id_anuncio)
+insert into tb_favorito(bt_favorito, id_usuario, id_anuncio)
 				  values(true,3,2);
-insert into tb_favoritos(bt_favorito, id_usuario, id_anuncio)
+insert into tb_favorito(bt_favorito, id_usuario, id_anuncio)
 				  values(true,3,4);
                
                
@@ -119,7 +119,7 @@ select * from tb_login;
 select * from tb_usuario;
 select * from tb_anuncio;
 select * from tb_imagem;
-select * from tb_favoritos;
+select * from tb_favorito;
 
 
-select * from tb_favoritos f join tb_anuncio a on f.id_anuncio = a.id_anuncio join tb_usuario u on f.id_usuario = u.id_usuario where nm_usuario like "%Sophia%"
+select * from tb_favorito f join tb_anuncio a on f.id_anuncio = a.id_anuncio join tb_usuario u on f.id_usuario = u.id_usuario where nm_usuario like "%Sophia%"
