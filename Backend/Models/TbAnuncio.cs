@@ -33,6 +33,8 @@ namespace Backend.Models
         public string DsTamanho { get; set; }
         [Column("vl_preco", TypeName = "decimal(15,2)")]
         public decimal? VlPreco { get; set; }
+        [Column("ds_estado", TypeName = "varchar(50)")]
+        public string DsEstado { get; set; }
         [Column("ds_cep", TypeName = "varchar(50)")]
         public string DsCep { get; set; }
         [Column("bt_vendido")]

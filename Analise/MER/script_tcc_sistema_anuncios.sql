@@ -41,6 +41,7 @@ create table tb_anuncio(
     nm_marca				varchar(255),
     ds_tamanho				varchar(50),
     vl_preco				decimal(15,2),
+    ds_estado				varchar(50),
     ds_cep					varchar(50),
     bt_vendido				bool,
     ds_situacao				varchar(255),
@@ -87,14 +88,14 @@ insert into tb_usuario(nm_usuario, dt_nascimento, ds_sexo, ds_cpf, ds_rg, ds_ema
 				values('José Cauã Nogueira','2002-05-12','Masculino','062.491.408-91','21.588.358-5','josecauanogueira-87@avantii.com.br','(92) 98783-4441', 'AM', 'Manaus','69090-799','Rua Doutor Solon Pinheiro'
                 ,'Cidade Nova','423','',true,4);
                 
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
-				values('bermuda obey camuflada','bermuda tamanho m obey camuflada, vai na altura do joelho um pouco pra cima','Bermuda','Usado','Masculino','obey','M',149.00,'90640-002',false,'Publicado','2020-09-25',1);
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
-				values('moletom amarelo nike','moletom tamanho m da nike ediçao especial track field, pouco usado, ótimo estado', 'Moletom','Usado','Masculino','nike','M',189.00,'69915-314',false,'Publicado','2020-09-25',2);                
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
-				values('Tenis Nike','Tenis Nike 12 molas', 'Tênis','Usado','Unisex','Nike','38',728.00,'53625-213',false,'Publicado','2020-09-25',3);
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
-				values('bermuda bmw bordado masculino','bermuda bmw bordado masculino tamanhos: m, g, gg, xxl.diversas cores: segue fotos.', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00,'53625-213',false,'Publicado','2020-09-25',3);
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
+				values('bermuda obey camuflada','bermuda tamanho m obey camuflada, vai na altura do joelho um pouco pra cima','Bermuda','Usado','Masculino','obey','M',149.00, 'PE'	, '90640-002',false,'Publicado','2020-09-25',1);
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
+				values('moletom amarelo nike','moletom tamanho m da nike ediçao especial track field, pouco usado, ótimo estado', 'Moletom','Usado','Masculino','nike','M',189.00, 'MG', '69915-314',false,'Publicado','2020-09-25',2);                
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
+				values('Tenis Nike','Tenis Nike 12 molas', 'Tênis','Usado','Unisex','Nike','38',728.00, 'SP','53625-213',false,'Publicado','2020-09-25',3);
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario)
+				values('bermuda bmw bordado masculino','bermuda bmw bordado masculino tamanhos: m, g, gg, xxl.diversas cores: segue fotos.', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'RS','53625-213',false,'Publicado','2020-09-25',3);
                 
 insert into tb_imagem(img_anuncio, id_anuncio)
 			   values('aionjfianfinaudnfa8935R89RFN3QU7D29',1);
@@ -122,4 +123,7 @@ select * from tb_imagem;
 select * from tb_favorito;
 
 
-select * from tb_favorito f join tb_anuncio a on f.id_anuncio = a.id_anuncio join tb_usuario u on f.id_usuario = u.id_usuario where nm_usuario like "%Sophia%"
+select * from tb_favorito f join tb_anuncio a on f.id_anuncio = a.id_anuncio join tb_usuario u on f.id_usuario = u.id_usuario where nm_usuario like "%Sophia%";
+
+select id_anuncio, ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_vendido, ds_situacao, dt_publicacao, ds_estado 
+from tb_anuncio where ds_descricao like '%%' and ds_estado like '%%' and ds_tamanho like '%%' and ds_genero like '%%' and ds_condicao like '%%';

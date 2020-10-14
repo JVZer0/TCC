@@ -14,7 +14,7 @@ namespace Backend.Controllers
         Business.LoginBusiness business1 = new Business.LoginBusiness();
         Utils.UsuarioConversor conversor = new Utils.UsuarioConversor();
         [HttpPut]
-        public ActionResult<Models.Response.AnuncioRoupasResponse.Usuario> Alterar (Models.Request.AnuncioRoupasRequest.Usuario req)
+        public ActionResult<Models.Response.AnuncioRoupasResponse.Usuario> Alterar(Models.Request.AnuncioRoupasRequest.Usuario req)
         {
             try
             {
