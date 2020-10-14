@@ -12,7 +12,7 @@ namespace Backend.Controllers
     [Route("[controller]")]
     public class LoginController : ControllerBase
     {
-        Business.LoginBusiness business = new Business.LoginBusiness();
+        Business.LoginBusiness businessLogin = new Business.LoginBusiness();
         Utils.LoginConversor conversor = new Utils.LoginConversor();
         [HttpPost]
         public ActionResult<Models.Response.AnuncioRoupasResponse.Login> Logar(Models.Request.AnuncioRoupasRequest.Login request)
@@ -20,7 +20,7 @@ namespace Backend.Controllers
             try
             {
                 Models.TbLogin primeiro = conversor.ConvesorParaTabelaLogin(request);
-                Models.TbLogin segundo = business.Logar(primeiro);
+                Models.TbLogin segundo = businessLogin.Logar(primeiro);
                 return conversor.ConversorDeTabelaParaResponse(segundo);
             }
             catch (System.Exception e)
@@ -34,7 +34,7 @@ namespace Backend.Controllers
             try
             {
                 Models.TbLogin primeiro = conversor.ConversorTabelaLoginRequestCadastrar(request);
-                Models.TbLogin segundo = business.Cadastrar(primeiro, request.ConfirmarSenha);
+                Models.TbLogin segundo = businessLogin.Cadastrar(primeiro, request.ConfirmarSenha);
                 return conversor.ConversorTabelaLoginResponseCadastrar(segundo);
             }
             catch (System.Exception e)

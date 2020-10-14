@@ -11,7 +11,7 @@ namespace Backend.Controllers
     [Route("[controller]")]
     public class UsuarioController : ControllerBase
     {
-        Business.LoginBusiness business1 = new Business.LoginBusiness();
+        Business.UsuarioBusiness businessUsuario = new Business.UsuarioBusiness();
         Utils.UsuarioConversor conversor = new Utils.UsuarioConversor();
         [HttpPut]
         public ActionResult<Models.Response.AnuncioRoupasResponse.Usuario> Alterar(Models.Request.AnuncioRoupasRequest.Usuario req)
@@ -20,7 +20,7 @@ namespace Backend.Controllers
             {
                 Models.TbUsuario usuario = conversor.ConversorTabelaUsuario(req);
                 
-                usuario = business1.Alterar(usuario);
+                usuario = businessUsuario.Alterar(usuario);
 
                 Models.Response.AnuncioRoupasResponse.Usuario resp = conversor.ConversorTabelaResponse(usuario);
                 
@@ -31,6 +31,19 @@ namespace Backend.Controllers
                 return BadRequest(
                     new Models.Response.Erro(400, ex.Message)
                 );
+            }
+        }
+        [HttpGet("{IdUsuario}")]
+        public ActionResult<Models.Response.AnuncioRoupasResponse.Usuario> ConsultarInfomacoesDoUsuario(int IdUsuario)
+        {
+            try
+            {
+                Models.TbUsuario modeloTabela = businessUsuario.ConsultarUsuario(IdUsuario);
+                return conversor.ConversorTabelaResponse(modeloTabela);
+            }
+            catch (System.Exception ex)
+            {
+                return NotFound(new Models.Response.Erro(400, ex.Message));
             }
         }
     }

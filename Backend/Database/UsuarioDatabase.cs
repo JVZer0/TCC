@@ -32,5 +32,10 @@ namespace Backend.Database
             ctx.SaveChanges();
             return atualUser;
         }
+        public Models.TbUsuario Consultar(int IdUsuario)
+        {
+            Models.TbUsuario resp = ctx.TbUsuario.Include(y => y.IdLoginNavigation).FirstOrDefault(x => x.IdUsuario == IdUsuario);
+            return resp;
+        }
     }
 }
