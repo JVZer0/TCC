@@ -55,5 +55,23 @@ namespace Backend.Models.Response
             public string Endereco { get; set; }
             public string ComplementoEndereco { get; set; }
         }
+        public class Anuncio
+        {
+            public int IdAnuncio { get; set; }
+            public string Titulo { get; set; }
+            public string Descricao { get; set; }
+            public string Produto { get; set; }
+            public string Condicao { get; set; }
+            public string Genero { get; set; }
+            public string Marca { get; set; }
+            public string Tamanho { get; set; }
+            public decimal? Preco { get; set; }
+            public string Estado { get; set; }
+            public string Cep { get; set; }
+            public bool? Vendido { get; set; }
+            public string Situacao { get; set; }
+            public DateTime? Publicacao { get; set; }
+            public int? IdUsuario { get; set; }
+        }
     }
 }

@@ -59,7 +59,6 @@ namespace Backend.Business
         }
 
 
-
         public void ValidarData(DateTime? data)
         {
             if(data == new DateTime()) throw new ArgumentException("Data incorreta.");    
