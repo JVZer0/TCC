@@ -1,6 +1,6 @@
 .ko{
     width: 100vw;
-    height: 80vh;
+    height: 83.3vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,4 +26,19 @@
     height: 65px;
     background-color: #fe8d27;
     color: white;
+}
+
+.botao2{
+    border: 0px;
+    padding: 6px 24px;
+    color: white;
+    border-radius: 6px;
+    font-weight: bolder;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    background:  #fe8d27;
+    color: white;
+    position: relative;
+    top: 25px;
 }
