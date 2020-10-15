@@ -6,3 +6,17 @@
     min-width: 100vw;
     min-height: 80vh;
 }
+
+div{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fe8d27;
+}
+
+.btnbtn-primary{
+    height: 40px;
+    width: 150px;
+    border: 2px solid #fe8d27;
+    color: #fe8d27;
+}
+
+

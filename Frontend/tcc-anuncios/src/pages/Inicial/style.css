@@ -1,0 +1,29 @@
+.ko{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.kk{
+    display: flex;
+    text-align: center  ;
+    width: 840px;
+    color: #fe8d27;
+}
+
+.k{
+    display: flex;
+    color: #fe8d27;
+}
+
+.tey{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+    background-color: #fe8d27;
+    color: white;
+}

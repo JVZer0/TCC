@@ -10,7 +10,6 @@ import '../Login/style.css'
 import Logo from '../../assets/image/Capturar.PNG'
 
 
-
 export default function Login(){
     const navegacao = useHistory();
 
@@ -40,9 +39,7 @@ export default function Login(){
                 <div className="barraPesquisa"></div>
                 <div className="meio"></div>
             </div>
-
-
-            <div className="menuLogin">
+         <div className="menuLogin">
                 <div className="display-4 text-center mb-5">Fazer login</div>
                 <div className="form-group row" style={{minWidth:"500px"}}>
                     <label className="col-sm-2 col-form-label"> Username: </label>
@@ -57,7 +54,7 @@ export default function Login(){
                     </div>
                 </div>
                 <div>
-                    <button type="submit" className="btn btn-primary">Logar</button>
+                    <button type="submit" className="btnbtn-primary">Logar</button>
                 </div>
             </div>
         </div>
