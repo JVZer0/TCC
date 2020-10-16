@@ -43,7 +43,20 @@ namespace Backend.Controllers
             }
             catch (System.Exception ex)
             {
-                return NotFound(new Models.Response.Erro(400, ex.Message));
+                return NotFound(new Models.Response.Erro(404, ex.Message));
+            }
+        }
+        [HttpPost("RecuperarSenha/")]
+        public ActionResult<string> RecuperarSenha(Models.Request.AnuncioRoupasRequest.Recuperação RGeCPF)
+        {
+            try
+            {
+                Models.TbUsuario resp = businessUsuario.RecuperarSenha(RGeCPF.CPF,RGeCPF.RG);
+                return resp.IdLoginNavigation.DsSenha;
+            }
+            catch (System.Exception ex)
+            {
+                return NotFound(new Models.Response.Erro(404, ex.Message));
             }
         }
     }

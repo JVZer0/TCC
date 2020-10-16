@@ -39,9 +39,9 @@ namespace Backend.Controllers
                 List<Models.TbAnuncio> anuncios = businessanuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Tamanho, Genero, Condicao);
                 return conversoranuncio.ListaTabela(anuncios);
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                throw;
+                return NotFound(new Models.Response.Erro(404, ex.Message));
             }
         }
     }

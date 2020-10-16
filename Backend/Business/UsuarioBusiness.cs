@@ -23,5 +23,10 @@ namespace Backend.Business
             if(resp == null) throw new ArgumentException("Usuario não encontrado.");
             return resp;
         }
+        public Models.TbUsuario RecuperarSenha(string CPF, string RG)
+        {
+            
+            return databaseUsuario.RecuperarSenha(CPF,RG);
+        }
     }
 }

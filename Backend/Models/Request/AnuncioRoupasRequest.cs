@@ -51,5 +51,10 @@ namespace Backend.Models.Request
             public string ComplementoEndereco { get; set; }
             public bool? ConcordoTermos { get; set; }
         }
+        public class Recuperação
+        {
+            public string CPF { get; set; }
+            public string RG { get; set; }
+        }
     }
 }

@@ -37,5 +37,10 @@ namespace Backend.Database
             Models.TbUsuario resp = ctx.TbUsuario.Include(y => y.IdLoginNavigation).FirstOrDefault(x => x.IdUsuario == IdUsuario);
             return resp;
         }
+        public Models.TbUsuario RecuperarSenha(string CPF, string RG)
+        {
+            Models.TbUsuario resp = ctx.TbUsuario.Include(x => x.IdLoginNavigation).FirstOrDefault(x => x.DsCpf == CPF && x.DsRg == RG);
+            return resp;
+        }
     }
 }

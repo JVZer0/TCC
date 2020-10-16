@@ -57,6 +57,11 @@ namespace Backend.Business
             ValidarTexto(req.TbUsuario.FirstOrDefault().DsEndereco);
             ValidarTermos(req.TbUsuario.FirstOrDefault().BtConcordoTermos);
         }
+        public void RecuperarSenha(string CPF, string RG)
+        {
+            ValidarTexto(CPF);
+            ValidarTexto(RG);
+        }
 
 
         public void ValidarData(DateTime? data)
