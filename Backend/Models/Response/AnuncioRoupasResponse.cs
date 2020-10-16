@@ -68,6 +68,7 @@ namespace Backend.Models.Response
             public string Tamanho { get; set; }
             public decimal? Preco { get; set; }
             public string Estado { get; set; }
+            public string Cidade { get; set; }
             public string Cep { get; set; }
             public bool? Vendido { get; set; }
             public string Situacao { get; set; }

@@ -36,6 +36,8 @@ namespace Backend.Models
         public decimal? VlPreco { get; set; }
         [Column("ds_estado", TypeName = "varchar(50)")]
         public string DsEstado { get; set; }
+        [Column("ds_cidade", TypeName = "varchar(130)")]
+        public string DsCidade { get; set; }
         [Column("ds_cep", TypeName = "varchar(50)")]
         public string DsCep { get; set; }
         [Column("bt_vendido")]

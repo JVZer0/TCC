@@ -31,12 +31,12 @@ namespace Backend.Controllers
             }
 
         }
-        [HttpGet("{BarraPesquisa}/{Estado}/{Tamanho}/{Genero}/{Condicao}")]
-        public ActionResult<List<Models.Response.AnuncioRoupasResponse.Anuncio>> ConsultarAnuncios(string BarraPesquisa, string Estado, string Tamanho, string Genero, string Condicao)
+        [HttpGet("{BarraPesquisa}/{Estado}/{Cidade}/{Tamanho}/{Genero}/{Condicao}")]
+        public ActionResult<List<Models.Response.AnuncioRoupasResponse.Anuncio>> ConsultarAnuncios(string BarraPesquisa, string Estado, string Cidade, string Tamanho, string Genero, string Condicao)
         {
             try
             {
-                List<Models.TbAnuncio> anuncios = businessanuncio.ConsultarAnuncios(BarraPesquisa, Estado, Tamanho, Genero, Condicao);
+                List<Models.TbAnuncio> anuncios = businessanuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Tamanho, Genero, Condicao);
                 return conversoranuncio.ListaTabela(anuncios);
             }
             catch (System.Exception)
