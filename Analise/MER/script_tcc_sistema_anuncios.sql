@@ -66,6 +66,18 @@ create table tb_favorito(
     foreign key (id_anuncio) references tb_anuncio(id_anuncio)
 );
 
+create table tb_pergunta_resposta(
+	id_pergunta_respota		int primary key auto_increment,
+    ds_pergunta				varchar(255),
+	dt_pergunta				datetime,
+    bt_respondida			bool,
+    ds_resposta				varchar(255),
+    id_usuario				int,
+    id_anuncio				int,
+    foreign key (id_usuario) references tb_usuario(id_usuario),
+    foreign key (id_anuncio) references tb_anuncio(id_anuncio)
+);
+
 insert into tb_login(ds_username, ds_senha)
 			  values('admin','1234');
 insert into tb_login(ds_username, ds_senha)
@@ -98,13 +110,17 @@ insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_gene
 				values('bermuda bmw bordado masculino','bermuda bmw bordado masculino tamanhos: m, g, gg, xxl.diversas cores: segue fotos.', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'RS','53625-213',false,'Publicado','2020-09-25',3);
                 
 insert into tb_imagem(img_anuncio, id_anuncio)
-			   values('aionjfianfinaudnfa8935R89RFN3QU7D29',1);
+			   values('semimagem.png',1);
 insert into tb_imagem(img_anuncio, id_anuncio)
-			   values('asdgf8ayg30f893vc3mg4j509vfio4hv78v34',2);
+			   values('semimagem.png',1);
 insert into tb_imagem(img_anuncio, id_anuncio)
-			   values('va8jv94mnf4mvu8hvb0wnrg04nmv043mv8c7n9cq',3);
+			   values('semimagem.png',1);
 insert into tb_imagem(img_anuncio, id_anuncio)
-			   values('davu849jf34c2378nc93jc30fj387v9-24jv9234nv4',4);
+			   values('semimagem.png',2);
+insert into tb_imagem(img_anuncio, id_anuncio)
+			   values('semimagem.png',3);
+insert into tb_imagem(img_anuncio, id_anuncio)
+			   values('semimagem.png',4);
                
 insert into tb_favorito(bt_favorito, id_usuario, id_anuncio)
 				  values(true,1,1);
@@ -114,6 +130,15 @@ insert into tb_favorito(bt_favorito, id_usuario, id_anuncio)
 				  values(true,3,2);
 insert into tb_favorito(bt_favorito, id_usuario, id_anuncio)
 				  values(true,3,4);
+                  
+insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_usuario, 	id_anuncio)
+						  values('Oi, tudo bem? É original?','2020-10-16',true,'Sim é original.',3,4);
+insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_usuario, 	id_anuncio)
+						  values('Ainda disponivel?','2020-10-16',true,'Sim',3,4);
+insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_usuario, 	id_anuncio)
+						  values('Tem mais de uma peça?','2020-10-16',true,'Não',3,4);
+insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_usuario, 	id_anuncio)
+						  values('Oi, tudo bem? É original?','2020-10-16',false,null,3,4);
                
                
 select * from tb_login;
@@ -121,9 +146,15 @@ select * from tb_usuario;
 select * from tb_anuncio;
 select * from tb_imagem;
 select * from tb_favorito;
+select * from tb_pergunta_resposta;
 
 
 select * from tb_favorito f join tb_anuncio a on f.id_anuncio = a.id_anuncio join tb_usuario u on f.id_usuario = u.id_usuario where nm_usuario like "%Sophia%";
 
-select id_anuncio, ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_cep, bt_vendido, ds_situacao, dt_publicacao, ds_estado 
-from tb_anuncio where ds_descricao like '%%' and ds_estado like '%%' and ds_tamanho like '%%' and ds_genero like '%%' and ds_condicao like '%%';
+select a.id_anuncio, a.ds_titulo, a.ds_descricao, a.tp_produto, a.ds_condicao, a.ds_genero, a.nm_marca, a.ds_tamanho, a.vl_preco, a.ds_cep, a.bt_vendido, a.ds_situacao, a.dt_publicacao, a.ds_estado, i.img_anuncio
+from tb_anuncio a join tb_imagem i on a.id_anuncio = i.id_anuncio
+where ds_descricao like '%%' and ds_estado like '%%' and ds_tamanho like '%%' and ds_genero like '%%' and ds_condicao like '%%';
+
+select a.id_anuncio, a.ds_titulo, a.ds_descricao, a.tp_produto, a.ds_condicao, a.ds_genero, a.nm_marca, a.ds_tamanho, a.vl_preco, a.ds_cep, a.bt_vendido, a.ds_situacao, a.dt_publicacao, a.ds_estado, i.img_anuncio
+from tb_anuncio a join tb_imagem i on a.id_anuncio = i.id_anuncio join tb_usuario u on a.id_usuario = u.id_usuario
+where ds_descricao like '%%' and ds_estado like '%%' and ds_tamanho like '%%' and ds_genero like '%%' and ds_condicao like '%%';

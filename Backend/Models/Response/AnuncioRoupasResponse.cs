@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Backend.Models.Response
 {
@@ -71,7 +72,27 @@ namespace Backend.Models.Response
             public bool? Vendido { get; set; }
             public string Situacao { get; set; }
             public DateTime? Publicacao { get; set; }
+            public string NomeVendedor { get; set; }
+            public string CelularVendedor { get; set; }
+            public List<Imagem> Imagens { get; set; }
+            public List<PerguntaEResposta> PerguntasERespotas { get; set; }
+
+        }
+        public class Imagem
+        {
+            public int IdImagem { get; set; }
+            public int? IdDoAnuncio { get; set; }
+            public string TextoImagem { get; set; }
+        }
+        public class PerguntaEResposta
+        {
+            public int IdPerguntaResposta { get; set; }
+            public string Pergunta { get; set; }
+            public DateTime? DataPergunta { get; set; }
+            public bool? Respondida { get; set; }
+            public string Resposta { get; set; }
             public int? IdUsuario { get; set; }
+            public int? IdAnuncio { get; set; }
         }
     }
 }

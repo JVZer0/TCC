@@ -19,6 +19,7 @@ namespace Backend.Models
         public virtual DbSet<TbFavorito> TbFavorito { get; set; }
         public virtual DbSet<TbImagem> TbImagem { get; set; }
         public virtual DbSet<TbLogin> TbLogin { get; set; }
+        public virtual DbSet<TbPerguntaResposta> TbPerguntaResposta { get; set; }
         public virtual DbSet<TbUsuario> TbUsuario { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -137,6 +138,36 @@ namespace Backend.Models
                 entity.Property(e => e.DsUsername)
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");
+            });
+
+            modelBuilder.Entity<TbPerguntaResposta>(entity =>
+            {
+                entity.HasKey(e => e.IdPerguntaRespota)
+                    .HasName("PRIMARY");
+
+                entity.HasIndex(e => e.IdAnuncio)
+                    .HasName("id_anuncio");
+
+                entity.HasIndex(e => e.IdUsuario)
+                    .HasName("id_usuario");
+
+                entity.Property(e => e.DsPergunta)
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.DsResposta)
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.HasOne(d => d.IdAnuncioNavigation)
+                    .WithMany(p => p.TbPerguntaResposta)
+                    .HasForeignKey(d => d.IdAnuncio)
+                    .HasConstraintName("tb_pergunta_resposta_ibfk_2");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.TbPerguntaResposta)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .HasConstraintName("tb_pergunta_resposta_ibfk_1");
             });
 
             modelBuilder.Entity<TbUsuario>(entity =>

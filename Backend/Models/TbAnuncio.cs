@@ -12,6 +12,7 @@ namespace Backend.Models
         {
             TbFavorito = new HashSet<TbFavorito>();
             TbImagem = new HashSet<TbImagem>();
+            TbPerguntaResposta = new HashSet<TbPerguntaResposta>();
         }
 
         [Key]
@@ -53,5 +54,7 @@ namespace Backend.Models
         public virtual ICollection<TbFavorito> TbFavorito { get; set; }
         [InverseProperty("IdAnuncioNavigation")]
         public virtual ICollection<TbImagem> TbImagem { get; set; }
+        [InverseProperty("IdAnuncioNavigation")]
+        public virtual ICollection<TbPerguntaResposta> TbPerguntaResposta { get; set; }
     }
 }

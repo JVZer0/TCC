@@ -27,7 +27,24 @@ namespace Backend.Utils
             resp.Vendido = anuncio.BtVendido;
             resp.Situacao = anuncio.DsSituacao;
             resp.Publicacao = anuncio.DtPublicacao;
-            resp.IdUsuario = anuncio.IdUsuario;
+            resp.NomeVendedor = anuncio.IdUsuarioNavigation.NmUsuario;
+            resp.CelularVendedor = anuncio.IdUsuarioNavigation.DsCelular;
+
+            resp.PerguntasERespotas = anuncio.TbPerguntaResposta.Select(x => new Models.Response.AnuncioRoupasResponse.PerguntaEResposta(){
+                IdPerguntaResposta = x.IdPerguntaRespota,
+                Pergunta = x.DsPergunta,
+                DataPergunta = x.DtPergunta,
+                Respondida = x.BtRespondida,
+                Resposta = x.DsResposta,
+                IdUsuario = x.IdUsuario,
+                IdAnuncio = x.IdAnuncio
+            }).ToList();
+
+            resp.Imagens = anuncio.TbImagem.Select(x => new Models.Response.AnuncioRoupasResponse.Imagem(){
+                IdImagem = x.IdImagem,
+                IdDoAnuncio = x.IdAnuncio,
+                TextoImagem = x.ImgAnuncio
+            }).ToList();
 
             return resp;
         }

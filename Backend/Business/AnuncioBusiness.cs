@@ -11,9 +11,15 @@ namespace Backend.Business
     {
         Database.AnuncioDatabase databaseanuncio = new Database.AnuncioDatabase();
         Validadores validadores = new Validadores();
-        public List<Models.TbAnuncio> TodosAnuncios ()
+        public List<Models.TbAnuncio> ConsultarAnuncios(string BarraPesquisa, string Estado, string Tamanho, string Genero, string Condicao)
         {
-            List<Models.TbAnuncio> anuncios = databaseanuncio.TodosAnuncios();
+            if(string.IsNullOrEmpty(BarraPesquisa) || BarraPesquisa == "BarraPesquisa") { BarraPesquisa = "";};
+            if(string.IsNullOrEmpty(Estado) || Estado == "Estado") { Estado = "";};
+            if(string.IsNullOrEmpty(Tamanho) || Tamanho == "Tamanho") { Tamanho = "";};
+            if(string.IsNullOrEmpty(Tamanho) || Genero == "Genero") { Genero = "";};
+            if(string.IsNullOrEmpty(Condicao) || Condicao == "Condicao") { Condicao = "";};
+
+            List<Models.TbAnuncio> anuncios = databaseanuncio.ConsultarAnuncios(BarraPesquisa, Estado, Tamanho, Genero, Condicao);
             return anuncios;
         }
 
