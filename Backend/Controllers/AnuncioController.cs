@@ -37,7 +37,7 @@ namespace Backend.Controllers
             try
             {
                 List<Models.TbAnuncio> anuncios = businessanuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Tamanho, Genero, Condicao);
-                return conversoranuncio.ListaTabela(anuncios);
+                return conversoranuncio.ConversorAnuncioListaResponse(anuncios);
             }
             catch (System.Exception ex)
             {
