@@ -10,7 +10,7 @@ namespace Backend.Utils
 {
     public class AnuncioConversor
     {
-        public Models.Response.AnuncioRoupasResponse.Anuncio ConversorAnuncioResponse (Models.TbAnuncio anuncio)
+        public Models.Response.AnuncioRoupasResponse.Anuncio ConversorAnuncioResponse(Models.TbAnuncio anuncio)
         {
             Models.Response.AnuncioRoupasResponse.Anuncio resp = new Models.Response.AnuncioRoupasResponse.Anuncio();
             resp.IdAnuncio = anuncio.IdAnuncio;
