@@ -9,7 +9,7 @@ namespace Backend.Business
 {
     public class AnuncioBusiness
     {
-        Database.AnuncioDatabase databaseanuncio = new Database.AnuncioDatabase();
+        Database.AnuncioDatabase databaseAnuncio = new Database.AnuncioDatabase();
         Validadores validadores = new Validadores();
         public List<Models.TbAnuncio> ConsultarAnuncios(string BarraPesquisa, string Estado, string Cidade, string Tamanho, string Genero, string Condicao)
         {
@@ -20,9 +20,15 @@ namespace Backend.Business
             if(string.IsNullOrEmpty(Tamanho) || Genero == "Genero" || Genero == "Gênero") { Genero = "";};
             if(string.IsNullOrEmpty(Condicao) || Condicao == "Condicao") { Condicao = "";};
 
-            List<Models.TbAnuncio> anuncios = databaseanuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Tamanho, Genero, Condicao);
+            List<Models.TbAnuncio> anuncios = databaseAnuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Tamanho, Genero, Condicao);
             return anuncios;
         }
-
+        public Models.TbAnuncio ConsultadoAnuncioDetalhado(int IdAnuncio)
+        {
+            validadores.ValidarId(IdAnuncio);
+            Models.TbAnuncio resp = databaseAnuncio.ConsultarAnuncioDetalhado(IdAnuncio);
+            if(resp == null) throw new ArgumentException("Anuncio não encontrado.");
+            return resp;
+        }
     }
 }

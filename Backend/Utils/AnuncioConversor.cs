@@ -22,6 +22,7 @@ namespace Backend.Utils
             resp.Marca = anuncio.NmMarca;
             resp.Tamanho = anuncio.DsTamanho;
             resp.Preco = anuncio.VlPreco;
+            resp.DataPublicacao = anuncio.DtPublicacao;
 
             resp.Imagens = anuncio.TbImagem.Select(x => new Models.Response.AnuncioRoupasResponse.Imagem(){
                 IdImagem = x.IdImagem,

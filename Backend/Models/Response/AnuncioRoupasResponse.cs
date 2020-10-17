@@ -67,7 +67,7 @@ namespace Backend.Models.Response
             public string Marca { get; set; }
             public string Tamanho { get; set; }
             public decimal? Preco { get; set; }
-            public DateTime? Publicacao { get; set; }
+            public DateTime? DataPublicacao { get; set; }
             public List<Imagem> Imagens { get; set; }
             
 

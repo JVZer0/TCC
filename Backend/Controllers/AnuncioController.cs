@@ -12,7 +12,7 @@ namespace Backend.Controllers
     public class AnuncioController : ControllerBase
     {
         Business.AnuncioBusiness businessanuncio = new Business.AnuncioBusiness();
-        Utils.AnuncioConversor conversoranuncio = new Utils.AnuncioConversor();
+        Utils.AnuncioConversor conversorAnuncio = new Utils.AnuncioConversor();
         Business.GerenciadorImagem gerenciadorImagem = new Business.GerenciadorImagem();
         [HttpGet("foto/{nome}")]
         public ActionResult BuscarFoto(string nome)
@@ -37,7 +37,20 @@ namespace Backend.Controllers
             try
             {
                 List<Models.TbAnuncio> anuncios = businessanuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Tamanho, Genero, Condicao);
-                return conversoranuncio.ConversorAnuncioListaResponse(anuncios);
+                return conversorAnuncio.ConversorAnuncioListaResponse(anuncios);
+            }
+            catch (System.Exception ex)
+            {
+                return NotFound(new Models.Response.Erro(404, ex.Message));
+            }
+        }
+        [HttpGet("AnuncioDetalhado/{IdAnuncio}")]
+        public ActionResult<Models.Response.AnuncioRoupasResponse.AnuncioDetalhado> ConsultarAnuncioDetalhado(int IdAnuncio)
+        {
+            try
+            {
+                Models.TbAnuncio resp = businessanuncio.ConsultadoAnuncioDetalhado(IdAnuncio);
+                return conversorAnuncio.AnuncioDetalhadoResponse(resp);
             }
             catch (System.Exception ex)
             {

@@ -23,9 +23,9 @@ namespace Backend.Controllers
                 Models.TbLogin segundo = businessLogin.Logar(primeiro);
                 return conversor.ConversorDeTabelaParaResponse(segundo);
             }
-            catch (System.Exception e)
+            catch (System.Exception ex)
             {
-                return BadRequest(new Models.Response.Erro(400,e.Message));
+                return BadRequest(new Models.Response.Erro(400,ex.Message));
             }
         }
         [HttpPost("Criarlogin")]
@@ -37,9 +37,9 @@ namespace Backend.Controllers
                 Models.TbLogin segundo = businessLogin.Cadastrar(primeiro, request.ConfirmarSenha);
                 return conversor.ConversorTabelaLoginResponseCadastrar(segundo);
             }
-            catch (System.Exception e)
+            catch (System.Exception ex)
             {
-                return BadRequest(new Models.Response.Erro(400,e.Message));
+                return BadRequest(new Models.Response.Erro(400,ex.Message));
             }
         }
     }
