@@ -24,7 +24,6 @@ export default function AlterarAnuncio(props){
                 <div className="meio"></div>
             </div>
 
-
             <h5>AlterarAnuncio</h5>
         </div>
     )
