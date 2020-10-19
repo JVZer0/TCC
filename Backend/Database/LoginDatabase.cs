@@ -9,7 +9,7 @@ namespace Backend.Database
         Models.anuncioRoupaContext ctx = new Models.anuncioRoupaContext();
         public Models.TbLogin Logar(Models.TbLogin request)
         {
-            Models.TbLogin resp = ctx.TbLogin.Include(x => x.TbUsuario).FirstOrDefault(x => x.DsUsername == request.DsUsername && x.DsSenha == request.DsSenha);
+            Models.TbLogin resp = ctx.TbLogin.Include(x => x.TbUsuario).FirstOrDefault(x => x.DsSenha == request.DsSenha && x.DsUsername == request.DsUsername);
             return resp;
         }
         public Models.TbLogin Cadastrar(Models.TbLogin request)

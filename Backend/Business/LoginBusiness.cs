@@ -14,7 +14,9 @@ namespace Backend.Business
         public Models.TbLogin Logar(Models.TbLogin request)
         {
             validadores.VerificarLogin(request);
-            return databaseLogin.Logar(request);
+            Models.TbLogin resp = databaseLogin.Logar(request);
+            if(resp == null) throw new ArgumentException("Username ou senha errados.");  
+            return resp;
         }
 
         public Models.TbLogin Cadastrar(Models.TbLogin request, string ConfirmarSenha)

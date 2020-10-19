@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import '../../components/Cabecalho/cabecalho.css'
@@ -18,13 +17,14 @@ export default function Home(props){
         <div>
             <div className="cabecalho">
                 <div>
-                    <Link className="hihi" to="/" ><img class="logo" src={Logo} width="150" height="27px"/></Link>
+                    <Link className="hihi" to="/" ><img class="logo" src={Logo} width="150" height="27px" alt=''/></Link>
                 </div>
                 <div className="barraPesquisa">
                     Barra de pesquisa
                 </div>
                 <div className="meio">
-                    MeusafvoritosMeuanunsiosMueperfil
+                    
+                <Link  class="hihi" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
                 </div>
                 <div>
                     <Link  class="hihi" to="/Anunciar"><button class="botao">Anunciar</button></Link>
