@@ -56,13 +56,10 @@ export default function CadastrarLogin(){
                 ComplementoEndereco: complemento,
                 ConcordoTermos: concordo
             };
-            console.log(modelo)
             const resp = await
             api.cadastrar(modelo);
-            console.log(resp)
             toast.success("Cadastrado com sucesso.")
         } catch (e) {
-            console.log(e.response)
             toast.error(e.response.data.mensagem)
         }
     }
