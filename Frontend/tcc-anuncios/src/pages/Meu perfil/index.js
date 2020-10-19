@@ -19,6 +19,33 @@ export default function MeuPerfil(props){
 
     const [infos, setInfos] = useState(props.location.state);
 
+    console.log(infos);
+
+    const alterarInfosUser = async () => {
+        try {
+            const modelo = await api.alterarInfosUsuario({
+                IdUsuario: infos.idUsuario,
+                Username: username,
+                Senha: senha,
+                NomeUsuario: nome,
+                Email: email,
+                DataDeNascimento: nascimento,
+                Sexo: sexo,
+                Celular: celular,
+                Estado: estado,
+                Cidade: cidade,
+                CEP: cep,
+                Bairro: bairro,
+                N_Endereco: numero,
+                Endereco: endereco,
+                ComplementoEndereco: complemento
+            });
+            toast.success("Informações alteradas com sucesso")
+        } catch (e) {
+            toast.error(e.response.data.mensagem)
+        }
+    }
+
     const consultarInformacoesDoUsuario = async () => {
         try {
             const resp = await api.consultarUsuario(infos.idUsuario);
@@ -208,7 +235,7 @@ export default function MeuPerfil(props){
 
                     <div className="ct">
                         <button className="botox1">Cancelar</button>
-                        <button className="botox2">Salvar Alterações</button>
+                        <button className="botox2"  onClick={alterarInfosUser}>Salvar Alterações</button>
                     </div>
 
                 </div>

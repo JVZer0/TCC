@@ -21,8 +21,6 @@ namespace Backend.Business
         {
             ValidarTexto(usuario.NmUsuario);
             ValidarTexto(usuario.DsSexo);
-            ValidarTexto(usuario.DsCpf);
-            ValidarTexto(usuario.DsRg);
             ValidarTexto(usuario.DsEmail);
             ValidarTexto(usuario.DsCelular);
             ValidarTexto(usuario.DsEstado);
@@ -32,7 +30,6 @@ namespace Backend.Business
             ValidarTexto(usuario.DsBairro);
             ValidarTexto(usuario.DsNEndereco);
             ValidarData(usuario.DtNascimento);
-            ValidarTermos(usuario.BtConcordoTermos);
             ValidarId(usuario.IdUsuario);
             ValidarTexto(usuario.IdLoginNavigation.DsSenha);
             ValidarTexto(usuario.IdLoginNavigation.DsUsername);

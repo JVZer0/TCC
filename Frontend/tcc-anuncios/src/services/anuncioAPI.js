@@ -16,8 +16,8 @@ export default class anuncioAPI{
         return resp;
     }
 
-    async alterarInfos(req){
-        const resp = await api.post('/Login', req);
+    async alterarInfosUsuario(req) {
+        const resp = await api.put(`/Usuario`,req);
         return resp;
     }
 

@@ -16,8 +16,6 @@ namespace Backend.Database
             atualLogin.DsUsername = usuario.IdLoginNavigation.DsUsername;
             atualUser.DtNascimento = usuario.DtNascimento;
             atualUser.DsSexo = usuario.DsSexo;
-            atualUser.DsCpf = usuario.DsCpf;
-            atualUser.DsRg = usuario.DsRg;
             atualUser.DsEmail = usuario.DsEmail;
             atualUser.DsCelular = usuario.DsCelular;
             atualUser.DsEstado = usuario.DsEstado;
@@ -27,7 +25,6 @@ namespace Backend.Database
             atualUser.DsBairro = usuario.DsBairro;
             atualUser.DsNEndereco = usuario.DsNEndereco;
             atualUser.DsComplementoEndereco = usuario.DsComplementoEndereco;
-            atualUser.BtConcordoTermos = usuario.BtConcordoTermos;
 
             ctx.SaveChanges();
             return atualUser;

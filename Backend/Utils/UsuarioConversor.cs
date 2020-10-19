@@ -20,8 +20,6 @@ namespace Backend.Utils
             usuario.NmUsuario = req.NomeUsuario;
             usuario.DtNascimento = req.DataDeNascimento;
             usuario.DsSexo = req.Sexo;
-            usuario.DsCpf = req.CPF;
-            usuario.DsRg = req.RG;
             usuario.DsEmail = req.Email;
             usuario.DsCelular = req.Celular;
             usuario.DsEstado = req.Estado;
