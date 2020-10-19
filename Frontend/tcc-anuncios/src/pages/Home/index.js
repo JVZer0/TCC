@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import '../../components/Cabecalho/cabecalho.css'
-import '../Login/style.css'
+import '../Home/style.css';
 
 import Logo from '../../assets/image/Capturar.PNG'
 
@@ -22,9 +22,8 @@ export default function Home(props){
                 <div className="barraPesquisa">
                     Barra de pesquisa
                 </div>
-                <div className="meio">
-                    
-                <Link  class="hihi" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
+                <div className="meio"> 
+                    <Link  class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
                 </div>
                 <div>
                     <Link  class="hihi" to="/Anunciar"><button class="botao">Anunciar</button></Link>

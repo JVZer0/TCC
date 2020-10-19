@@ -63,7 +63,7 @@ export default function Login(){
                 </div>
                 
             </form>
-            <div className='d-flex justify-content-center'>
+            <div className='d-flex justify-content-center abc'>
                 <Link to='/RecuperarSenha'>Recuperar Senha</Link>
             </div>
             <ToastContainer/>

@@ -69,6 +69,10 @@ export default function MeuPerfil(props){
         }
     };
 
+    const voltar = () => {
+        navegacao.push('/Home',infos)
+    }
+
     useEffect(() => {
         consultarInformacoesDoUsuario();
       }, []);
@@ -234,8 +238,8 @@ export default function MeuPerfil(props){
                     </div>
 
                     <div className="ct">
-                        <button className="botox1">Cancelar</button>
-                        <button className="botox2"  onClick={alterarInfosUser}>Salvar Alterações</button>
+                        <button className='botox1' onClick={voltar}>Voltar</button>
+                        <button className="botox1"  onClick={alterarInfosUser}>Salvar Alterações</button>
                     </div>
 
                 </div>

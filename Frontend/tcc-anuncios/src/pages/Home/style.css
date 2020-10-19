@@ -19,12 +19,12 @@
     color: #fe8d27;
 }
 
-.abc{
-
+.meio{
 }
 
-.abc a{
-    color: #fe8d27;
-    text-decoration: none;
+.meio a{
+    color: white;
+    text-decoration: white;
     text-transform: none;
+    background-color: transparent;
 }
