@@ -10,15 +10,61 @@ import Logo from '../../assets/image/Capturar.PNG'
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
+import AnuncioAPI from '../../services/anuncioAPI'
+const api = new AnuncioAPI();
 
-export default function CadastrarLogin(props){
-    const [infos, setInfos] = useState(props.location.state);
+
+export default function CadastrarLogin(){
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [senha, setSenha] = useState('');
+    const [confirmar, setConfirmar] = useState('');
+    const [nascimento, setNascimento] = useState();
+    const [genero, setGenero] = useState('');
+    const [cpf, setCpf] = useState('');
+    const [rg, setRg] = useState('');
+    const [celular, setCelular] = useState('');
+    const [estado, setEstado] = useState('');
+    const [cidade, setCidade] = useState('');
+    const [cep, setCep] = useState('');
+    const [bairro, setBairro] = useState('');
+    const [numero, setNumero] = useState('');
+    const [endereco, setEndereco] = useState('');
+    const [complemento, setComplemento] = useState('');
+    const [concordo, setConcordo] = useState(false);
+
+    const salvarClick = async() => {
+        const resp = await
+            api.cadastrar({
+                NomeUsuario: nome,
+                Email: email,
+                Username: username,
+                Senha: senha,
+                ConfirmarSenha: confirmar,
+                DataDeNascimento: nascimento,
+                Sexo: genero,
+                CPF: cpf,
+                RG: rg,
+                Celular: celular,
+                Estado: estado,
+                Cidade: cidade,
+                CEP: cep,
+                Bairro: bairro,
+                N_Endereco: numero,
+                Endereco: endereco,
+                ComplementoEndereco: complemento,
+                ConcordoTermos: concordo
+            });
+        
+        alert('Cadastrado');
+    }
 
     return(
         <div>
             <div className="cabecalho">
                 <div>
-                    <Link className="hihi" to="/" ><img class="logo" src={Logo} width="150" height="27px" alt=''/></Link>
+                    <Link className="hihi" to="/" ><img class="logo" src={Logo} width="150" height="27px"/></Link>
                 </div>
                 <div className="barraPesquisa"></div>
                 <div className="meio"></div>
@@ -28,67 +74,82 @@ export default function CadastrarLogin(props){
 
                 <div className="teco">Cadastrar</div>
 
-                <input className="koko" type="text" placeholder="Nome Completo"></input>
-                <input className="koko" type="text" placeholder="Email"></input>
-                <input className="koko" type="text" placeholder="Username"></input>
-                <input className="koko" type="password" placeholder="Senha"></input>
-                <input className="koko" type="password" placeholder="Confirmar senha"></input>
+                <input className="koko" type="text" value={nome} onChange={e => setNome(e.target.value)} placeholder="Nome Completo"></input>
+
+                <input className="koko" type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email"></input>
+                
+                <input className="koko" type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username"></input>
+                
+                <input className="koko" type="password" value={senha} onChange={e => setSenha(e.target.value)} placeholder="Senha"></input>
+                
+                <input className="koko" type="password" value={confirmar} onChange={e => setConfirmar(e.target.value)} placeholder="Confirmar senha"></input>
+                
                 <div className="b"> Data de Nascimento</div>
-                <input className="kaka" type="date"></input>
-                <select className="kuku">
-                    <option value="Selecione">Gênero</option>
-                    <option value="Selecione">Masculino</option>
-                    <option value="Selecione">Feminino</option>
-                    <option value="Selecione">Não Binário</option>
+                <input className="kaka" type="date" value={nascimento} onChange={e => setNascimento(e.target.value)}></input>
+                
+                <select className="kuku" onChange={e => setGenero(e.target.value)}>
+                    <option value="">Gênero</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Não Binário">Não Binário</option>
                 </select>
-                <input className="koko" type="text" placeholder="CPF"></input>
-                <input className="koko" type="text" placeholder="RG"></input>
-                <input className="koko" type="text" placeholder="Número de celular"></input>
-                <select className="keliki">
-                    <option value="Selecione">Estado</option>
-                    <option value="Selecione">Acre</option>
-                    <option value="Selecione">Alagoas</option>
-                    <option value="Selecione">Amapá</option>
-                    <option value="Selecione">Amazonas</option>
-                    <option value="Selecione">Bahia</option>
-                    <option value="Selecione">Ceará</option>
-                    <option value="Selecione">Distrito Federal</option>
-                    <option value="Selecione">Espírito Santo</option>
-                    <option value="Selecione">Goiás</option>
-                    <option value="Selecione">Maranhão</option>
-                    <option value="Selecione">Mato Grosso</option>
-                    <option value="Selecione">Mato Grosso do Sul</option>
-                    <option value="Selecione">Minas Gerais</option>
-                    <option value="Selecione">Pará</option>
-                    <option value="Selecione">Paraíba</option>
-                    <option value="Selecione">Paraná</option>
-                    <option value="Selecione">Pernambuco</option>
-                    <option value="Selecione">Piauí</option>
-                    <option value="Selecione">Rio de Janeiro</option>
-                    <option value="Selecione">Rio Grande do Norte</option>
-                    <option value="Selecione">Rio Grande do Sul</option>
-                    <option value="Selecione">Rondônia</option>
-                    <option value="Selecione">Roraima</option>
-                    <option value="Selecione">Santa Catarina</option>
-                    <option value="Selecione">São Paulo</option>
-                    <option value="Selecione">Sergipe</option>
-                    <option value="Selecione">Tocantins</option>
+
+                <input className="koko" type="text" value={cpf} onChange={e => setCpf(e.target.value)} placeholder="CPF"></input>
+                
+                <input className="koko" type="text" value={rg} onChange={e => setRg(e.target.value)} placeholder="RG"></input>
+                
+                <input className="koko" type="text" value={celular} onChange={e => setCelular(e.target.value)} placeholder="Número de celular"></input>
+                
+                <select className="keliki" onChange={e => setEstado(e.target.value)}>
+                    <option value="">Estado</option>
+                    <option value="Acre">Acre</option>
+                    <option value="Alagoas">Alagoas</option>
+                    <option value="Amapá">Amapá</option>
+                    <option value="Amazonas">Amazonas</option>
+                    <option value="Bahia">Bahia</option>
+                    <option value="Ceará">Ceará</option>
+                    <option value="Distrito Federal">Distrito Federal</option>
+                    <option value="Espírito Santo">Espírito Santo</option>
+                    <option value="Goiás">Goiás</option>
+                    <option value="Maranhão">Maranhão</option>
+                    <option value="Mato Grosso">Mato Grosso</option>
+                    <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                    <option value="Minas Gerais">Minas Gerais</option>
+                    <option value="Pará">Pará</option>
+                    <option value="Paraíba">Paraíba</option>
+                    <option value="Paraná">Paraná</option>
+                    <option value="Pernambuco">Pernambuco</option>
+                    <option value="Piauí">Piauí</option>
+                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                    <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                    <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                    <option value="Rondônia">Rondônia</option>
+                    <option value="Roraima">Roraima</option>
+                    <option value="Santa Catarina">Santa Catarina</option>
+                    <option value="São Paulo">São Paulo</option>
+                    <option value="Sergipe">Sergipe</option>
+                    <option value="Tocantins ">Tocantins</option>
                 </select>
-                <input className="koko" type="text" placeholder="Cidade"></input>
+
+                <input className="koko" type="text" value={cidade} onChange={e => setCidade(e.target.value)} placeholder="Cidade"></input>
+                
                 <div className="ki">
-                    <input className="kruso" type="text" placeholder="CEP"></input>
-                    <input className="kverna" type="text" placeholder="Bairro"></input>
-                    <input className="kdete" type="number" placeholder="N°"></input>
+                    <input className="kruso" type="text" value={cep} onChange={e => setCep(e.target.value)} placeholder="CEP"></input>
+                    <input className="kverna" type="text" value={bairro} onChange={e => setBairro(e.target.value)} placeholder="Bairro"></input>
+                    <input className="kdete" type="text" value={numero} onChange={e => setNumero(e.target.value)} placeholder="N°"></input>
                 </div>
-                <input className="koko" type="text" placeholder="Endereço"></input>
-                <input className="koko" type="text" placeholder="Complemento"></input>
+
+                <input className="koko" type="text" value={endereco} onChange={e => setEndereco(e.target.value)} placeholder="Endereço"></input>
+                
+                <input className="koko" type="text" value={complemento} onChange={e => setComplemento(e.target.value)} placeholder="Complemento"></input>
 
                 <div className="ka">
-                    <input className="ktia" type="checkbox"></input>
+                    <input className="ktia" type="checkbox" value={concordo} onChange={e => setConcordo(e.target.value)}></input>
                     <h5>Li e concordo com os termos de uso</h5>
                 </div>
 
-                <button className="botox">Cadastrar</button>
+                <button onClick={salvarClick} className="botox">Cadastrar</button>
+
             </div>
 
             <div className="rodape">

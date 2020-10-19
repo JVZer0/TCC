@@ -20,4 +20,9 @@ export default class anuncioAPI{
         const resp = await api.post('/Login', req);
         return resp;
     }
+
+    async cadastrar(ln){
+        const resp = await api.post('/Login/Criarlogin', ln)
+        return resp;
+    }
 }
