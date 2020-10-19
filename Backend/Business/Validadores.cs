@@ -53,6 +53,7 @@ namespace Backend.Business
             ValidarTexto(req.TbUsuario.FirstOrDefault().DsNEndereco);
             ValidarTexto(req.TbUsuario.FirstOrDefault().DsEndereco);
             ValidarTermos(req.TbUsuario.FirstOrDefault().BtConcordoTermos);
+            if(req.TbUsuario.FirstOrDefault().DsCpf.Length > 14) throw new ArgumentException("CPF incorreto.");
         }
         public void RecuperarSenha(string CPF, string RG)
         {

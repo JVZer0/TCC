@@ -35,8 +35,8 @@ export default function CadastrarLogin(){
     const [concordo, setConcordo] = useState(false);
 
     const salvarClick = async() => {
-        const resp = await
-            api.cadastrar({
+        try {
+            const modelo = {
                 NomeUsuario: nome,
                 Email: email,
                 Username: username,
@@ -55,9 +55,16 @@ export default function CadastrarLogin(){
                 Endereco: endereco,
                 ComplementoEndereco: complemento,
                 ConcordoTermos: concordo
-            });
-        
-        alert('Cadastrado');
+            };
+            console.log(modelo)
+            const resp = await
+            api.cadastrar(modelo);
+            console.log(resp)
+            toast.success("Cadastrado com sucesso.")
+        } catch (e) {
+            console.log(e.response)
+            toast.error(e.response.data.mensagem)
+        }
     }
 
     return(
@@ -144,7 +151,7 @@ export default function CadastrarLogin(){
                 <input className="koko" type="text" value={complemento} onChange={e => setComplemento(e.target.value)} placeholder="Complemento"></input>
 
                 <div className="ka">
-                    <input className="ktia" type="checkbox" value={concordo} onChange={e => setConcordo(e.target.value)}></input>
+                    <input className="ktia" type="checkbox" value={concordo} onChange={e => setConcordo(e.target.checked ? true : false)}></input>
                     <h5>Li e concordo com os termos de uso</h5>
                 </div>
 
@@ -157,6 +164,7 @@ export default function CadastrarLogin(){
                     <h5>Site criado pelo time TK Soluções de Informática. Todos os direitos reservados</h5>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     )
 }
