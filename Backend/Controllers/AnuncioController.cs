@@ -11,7 +11,7 @@ namespace Backend.Controllers
     [Route("[controller]")]
     public class AnuncioController : ControllerBase
     {
-        Business.AnuncioBusiness businessanuncio = new Business.AnuncioBusiness();
+        Business.AnuncioBusiness businessAnuncio = new Business.AnuncioBusiness();
         Utils.AnuncioConversor conversorAnuncio = new Utils.AnuncioConversor();
         Business.GerenciadorImagem gerenciadorImagem = new Business.GerenciadorImagem();
         [HttpGet("foto/{nome}")]
@@ -36,7 +36,7 @@ namespace Backend.Controllers
         {
             try
             {
-                List<Models.TbAnuncio> anuncios = businessanuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Tamanho, Genero, Condicao);
+                List<Models.TbAnuncio> anuncios = businessAnuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Tamanho, Genero, Condicao);
                 return conversorAnuncio.ConversorAnuncioListaResponse(anuncios);
             }
             catch (System.Exception ex)
@@ -49,12 +49,40 @@ namespace Backend.Controllers
         {
             try
             {
-                Models.TbAnuncio resp = businessanuncio.ConsultadoAnuncioDetalhado(IdAnuncio);
+                Models.TbAnuncio resp = businessAnuncio.ConsultadoAnuncioDetalhado(IdAnuncio);
                 return conversorAnuncio.AnuncioDetalhadoResponse(resp);
             }
             catch (System.Exception ex)
             {
                 return NotFound(new Models.Response.Erro(404, ex.Message));
+            }
+        }
+        [HttpPost("Perguntar/")]
+        public ActionResult<Models.Response.AnuncioRoupasResponse.PerguntaEResposta> Perguntar(Models.Request.AnuncioRoupasRequest.Pergunta req)
+        {
+            try
+            {
+                Models.TbPerguntaResposta a = conversorAnuncio.PerguntarParaTabela(req);
+                Models.TbPerguntaResposta b = businessAnuncio.Perguntar(a);
+                return conversorAnuncio.PerguntarParaResponse(b);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new Models.Response.Erro(400, ex.Message));
+            }
+        }
+        [HttpPut("Responder/")]
+        public ActionResult<Models.Response.AnuncioRoupasResponse.PerguntaEResposta> Responder(Models.Request.AnuncioRoupasRequest.Resposta req)
+        {
+            try
+            {
+                Models.TbPerguntaResposta a = conversorAnuncio.ResponderParaTabela(req);
+                Models.TbPerguntaResposta b = businessAnuncio.Responder(a);
+                return conversorAnuncio.ResponderParaResponse(b);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new Models.Response.Erro(400, ex.Message));
             }
         }
     }

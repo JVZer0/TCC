@@ -46,6 +46,7 @@ namespace Backend.Utils
         {
             Models.Response.AnuncioRoupasResponse.AnuncioDetalhado resp = new Models.Response.AnuncioRoupasResponse.AnuncioDetalhado();
             resp.IdAnuncio = anuncio.IdAnuncio;
+            resp.IdDonoAnuncio = anuncio.IdUsuario;
             resp.Titulo = anuncio.DsTitulo;
             resp.Descricao = anuncio.DsDescricao;
             resp.Produto = anuncio.TpProduto;
@@ -64,12 +65,13 @@ namespace Backend.Utils
             resp.Cidade = anuncio.DsCidade;
 
             resp.PerguntasERespotas = anuncio.TbPerguntaResposta.Select(x => new Models.Response.AnuncioRoupasResponse.PerguntaEResposta(){
-                IdPerguntaResposta = x.IdPerguntaRespota,
+                IdPerguntaResposta = x.IdPerguntaResposta,
                 Pergunta = x.DsPergunta,
                 DataPergunta = x.DtPergunta,
                 Respondida = x.BtRespondida,
                 Resposta = x.DsResposta,
-                IdUsuario = x.IdUsuario,
+                IdPerguntador = x.IdPerguntador,
+                IdRespondedor = x.IdRespondedor,
                 IdAnuncio = x.IdAnuncio
             }).ToList();
 
@@ -79,6 +81,56 @@ namespace Backend.Utils
                 TextoImagem = x.ImgAnuncio
             }).ToList();
 
+            return resp;
+        }
+
+        public Models.TbPerguntaResposta PerguntarParaTabela(Models.Request.AnuncioRoupasRequest.Pergunta req)
+        {
+            Models.TbPerguntaResposta resp = new Models.TbPerguntaResposta();
+            resp.BtRespondida = false;
+            resp.DsPergunta = req.Texto;
+            resp.DtPergunta = DateTime.Now;
+            resp.IdAnuncio = req.IdAnuncio;
+            resp.IdPerguntador = req.IdUsuarioPerguntador;
+            resp.IdRespondedor = req.IdUsuarioRespondedor;
+            return resp;
+        }
+
+        public Models.Response.AnuncioRoupasResponse.PerguntaEResposta PerguntarParaResponse(Models.TbPerguntaResposta req)
+        {
+            Models.Response.AnuncioRoupasResponse.PerguntaEResposta resp = new Models.Response.AnuncioRoupasResponse.PerguntaEResposta();
+            resp.IdPerguntaResposta = req.IdPerguntaResposta;
+            resp.Pergunta = req.DsPergunta;
+            resp.DataPergunta = req.DtPergunta;
+            resp.Respondida = req.BtRespondida;
+            resp.IdPerguntador = req.IdPerguntador;
+            resp.IdRespondedor = req.IdRespondedor;
+            resp.IdAnuncio = req.IdAnuncio;
+
+            return resp;
+        }
+
+        public Models.TbPerguntaResposta ResponderParaTabela(Models.Request.AnuncioRoupasRequest.Resposta req)
+        {
+            Models.TbPerguntaResposta resp = new Models.TbPerguntaResposta();
+            resp.IdRespondedor = req.IdUsuarioRespondedor;
+            resp.IdPerguntaResposta = req.IdPerguntaResposta;
+            resp.DsResposta = req.Texto;
+            resp.BtRespondida = true;
+            return resp;
+        }
+
+        public Models.Response.AnuncioRoupasResponse.PerguntaEResposta ResponderParaResponse(Models.TbPerguntaResposta req)
+        {
+            Models.Response.AnuncioRoupasResponse.PerguntaEResposta resp = new Models.Response.AnuncioRoupasResponse.PerguntaEResposta();
+            resp.IdPerguntaResposta = req.IdPerguntaResposta;
+            resp.Pergunta = req.DsPergunta;
+            resp.Resposta = req.DsResposta;
+            resp.DataPergunta = req.DtPergunta;
+            resp.Respondida = req.BtRespondida;
+            resp.IdPerguntador = req.IdPerguntador;
+            resp.IdRespondedor = req.IdRespondedor;
+            resp.IdAnuncio = req.IdAnuncio;
             return resp;
         }
     }

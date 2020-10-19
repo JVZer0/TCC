@@ -58,7 +58,7 @@ namespace Backend.Models
         public virtual ICollection<TbAnuncio> TbAnuncio { get; set; }
         [InverseProperty("IdUsuarioNavigation")]
         public virtual ICollection<TbFavorito> TbFavorito { get; set; }
-        [InverseProperty("IdUsuarioNavigation")]
+        [InverseProperty("IdPerguntadorNavigation")]
         public virtual ICollection<TbPerguntaResposta> TbPerguntaResposta { get; set; }
     }
 }

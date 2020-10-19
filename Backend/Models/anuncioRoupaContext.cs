@@ -146,14 +146,14 @@ namespace Backend.Models
 
             modelBuilder.Entity<TbPerguntaResposta>(entity =>
             {
-                entity.HasKey(e => e.IdPerguntaRespota)
+                entity.HasKey(e => e.IdPerguntaResposta)
                     .HasName("PRIMARY");
 
                 entity.HasIndex(e => e.IdAnuncio)
                     .HasName("id_anuncio");
 
-                entity.HasIndex(e => e.IdUsuario)
-                    .HasName("id_usuario");
+                entity.HasIndex(e => e.IdPerguntador)
+                    .HasName("id_perguntador");
 
                 entity.Property(e => e.DsPergunta)
                     .HasCharSet("utf8mb4")
@@ -166,12 +166,12 @@ namespace Backend.Models
                 entity.HasOne(d => d.IdAnuncioNavigation)
                     .WithMany(p => p.TbPerguntaResposta)
                     .HasForeignKey(d => d.IdAnuncio)
-                    .HasConstraintName("tb_pergunta_resposta_ibfk_2");
-
-                entity.HasOne(d => d.IdUsuarioNavigation)
-                    .WithMany(p => p.TbPerguntaResposta)
-                    .HasForeignKey(d => d.IdUsuario)
                     .HasConstraintName("tb_pergunta_resposta_ibfk_1");
+
+                entity.HasOne(d => d.IdPerguntadorNavigation)
+                    .WithMany(p => p.TbPerguntaResposta)
+                    .HasForeignKey(d => d.IdPerguntador)
+                    .HasConstraintName("tb_pergunta_resposta_ibfk_2");
             });
 
             modelBuilder.Entity<TbUsuario>(entity =>

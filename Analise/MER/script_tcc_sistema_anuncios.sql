@@ -68,15 +68,16 @@ create table tb_favorito(
 );
 
 create table tb_pergunta_resposta(
-	id_pergunta_respota		int primary key auto_increment,
+	id_pergunta_resposta		int primary key auto_increment,
     ds_pergunta				varchar(255),
 	dt_pergunta				datetime,
     bt_respondida			bool,
     ds_resposta				varchar(255),
-    id_usuario				int,
     id_anuncio				int,
-    foreign key (id_usuario) references tb_usuario(id_usuario),
-    foreign key (id_anuncio) references tb_anuncio(id_anuncio)
+    id_perguntador			int,
+    id_respondedor			int,
+    foreign key (id_anuncio) references tb_anuncio(id_anuncio),
+    foreign key (id_perguntador) references tb_usuario(id_usuario)
 );
 
 insert into tb_login(ds_username, ds_senha)
@@ -132,14 +133,14 @@ insert into tb_favorito(bt_favorito, id_usuario, id_anuncio)
 insert into tb_favorito(bt_favorito, id_usuario, id_anuncio)
 				  values(true,3,4);
                   
-insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_usuario, 	id_anuncio)
-						  values('Oi, tudo bem? É original?','2020-10-16',true,'Sim é original.',3,4);
-insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_usuario, 	id_anuncio)
-						  values('Ainda disponivel?','2020-10-16',true,'Sim',3,4);
-insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_usuario, 	id_anuncio)
-						  values('Tem mais de uma peça?','2020-10-16',true,'Não',3,4);
-insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_usuario, 	id_anuncio)
-						  values('Oi, tudo bem? É original?','2020-10-16',false,null,3,4);
+insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_perguntador, 	id_anuncio, id_respondedor)
+						  values('Oi, tudo bem? É original?','2020-10-16',true,'Sim é original.',3,4,3);
+insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_perguntador, 	id_anuncio, id_respondedor)
+						  values('Ainda disponivel?','2020-10-16',true,'Sim',3,4,3);
+insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_perguntador, 	id_anuncio, id_respondedor)
+						  values('Tem mais de uma peça?','2020-10-16',true,'Não',3,4,3);
+insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_perguntador, 	id_anuncio, id_respondedor)
+						  values('Oi, tudo bem? É original?','2020-10-16',false,null,3,4,3);
                
                
 select * from tb_login;

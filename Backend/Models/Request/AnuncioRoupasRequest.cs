@@ -56,5 +56,18 @@ namespace Backend.Models.Request
             public string CPF { get; set; }
             public string RG { get; set; }
         }
+        public class Pergunta
+        {
+            public string Texto { get; set; }
+            public int IdAnuncio { get; set; }
+            public int? IdUsuarioPerguntador { get; set; }
+            public int? IdUsuarioRespondedor { get; set; }
+        }
+        public class Resposta
+        {
+            public int IdPerguntaResposta { get; set; }
+            public string Texto { get; set; }
+            public int? IdUsuarioRespondedor { get; set; }
+        }
     }
 }

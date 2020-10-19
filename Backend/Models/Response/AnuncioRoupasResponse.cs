@@ -75,6 +75,7 @@ namespace Backend.Models.Response
         public class AnuncioDetalhado
         {
             public int IdAnuncio { get; set; }
+            public int? IdDonoAnuncio { get; set; }
             public string Titulo { get; set; }
             public string Descricao { get; set; }
             public string Produto { get; set; }
@@ -108,8 +109,9 @@ namespace Backend.Models.Response
             public DateTime? DataPergunta { get; set; }
             public bool? Respondida { get; set; }
             public string Resposta { get; set; }
-            public int? IdUsuario { get; set; }
+            public int? IdPerguntador { get; set; }
             public int? IdAnuncio { get; set; }
+            public int? IdRespondedor { get; set; }
         }
     }
 }

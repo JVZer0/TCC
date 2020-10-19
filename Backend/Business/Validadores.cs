@@ -60,7 +60,21 @@ namespace Backend.Business
             ValidarTexto(CPF);
             ValidarTexto(RG);
         }
-
+        public void Perguntar(Models.TbPerguntaResposta req)
+        {
+            ValidarTexto(req.DsPergunta);
+            ValidarData(req.DtPergunta);
+            ValidarId(req.IdAnuncio);
+            ValidarId(req.IdPerguntador);
+            ValidarId(req.IdRespondedor);
+        }
+        public void Responder(Models.TbPerguntaResposta req)
+        {
+            ValidarTexto(req.DsResposta);
+            ValidarId(req.IdAnuncio);
+            ValidarId(req.IdPerguntador);
+            ValidarId(req.IdRespondedor);
+        }
 
         public void ValidarData(DateTime? data)
         {

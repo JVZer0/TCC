@@ -30,5 +30,17 @@ namespace Backend.Business
             if(resp == null) throw new ArgumentException("Anuncio não encontrado.");
             return resp;
         }
+        public Models.TbPerguntaResposta Perguntar(Models.TbPerguntaResposta req)
+        {
+            validadores.Perguntar(req);
+            return databaseAnuncio.Perguntar(req);
+        }
+        public Models.TbPerguntaResposta Responder(Models.TbPerguntaResposta req)
+        {
+            validadores.Responder(req);
+            Models.TbPerguntaResposta paraValidarRespondedor = databaseAnuncio.ConsultarTBPergundaERespota(req.IdPerguntaResposta);
+            if(paraValidarRespondedor.IdRespondedor != req.IdRespondedor) throw new ArgumentException("Você não é o dono desse anuncio. Você não pode responder perguntas dele.");
+            return databaseAnuncio.Responder(req);
+        }
     }
 }
