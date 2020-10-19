@@ -21,7 +21,7 @@ export default function CadastrarLogin(){
     const [senha, setSenha] = useState('');
     const [confirmar, setConfirmar] = useState('');
     const [nascimento, setNascimento] = useState();
-    const [genero, setGenero] = useState('');
+    const [sexo, setSexo] = useState('');
     const [cpf, setCpf] = useState('');
     const [rg, setRg] = useState('');
     const [celular, setCelular] = useState('');
@@ -43,7 +43,7 @@ export default function CadastrarLogin(){
                 Senha: senha,
                 ConfirmarSenha: confirmar,
                 DataDeNascimento: nascimento,
-                Sexo: genero,
+                Sexo: sexo,
                 CPF: cpf,
                 RG: rg,
                 Celular: celular,
@@ -87,7 +87,7 @@ export default function CadastrarLogin(){
                 <div className="b"> Data de Nascimento</div>
                 <input className="kaka" type="date" value={nascimento} onChange={e => setNascimento(e.target.value)}></input>
                 
-                <select className="kuku" onChange={e => setGenero(e.target.value)}>
+                <select className="kuku" value={sexo} onChange={e => setSexo(e.target.value)}>
                     <option value="">Gênero</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminino</option>

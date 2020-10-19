@@ -28,9 +28,9 @@ export default function MeuPerfil(props){
             setUsername(resp.data.username);
             setSenha(resp.data.senha);
             setNascimento(resp.data.dataDeNascimento.substring(0,10));
-            setGenero(resp.data.genero);
+            setSexo(resp.data.sexo);
             setCelular(resp.data.celular);
-            setEstado(resp.data);
+            setEstado(resp.data.estado);
             setCidade(resp.data.cidade);
             setCep(resp.data.cep);
             setBairro(resp.data.bairro);
@@ -51,7 +51,7 @@ export default function MeuPerfil(props){
     const [username, setUsername] = useState();
     const [senha, setSenha] = useState();
     const [nascimento, setNascimento] = useState();
-    const [genero, setGenero] = useState();
+    const [sexo, setSexo] = useState();
     const [celular, setCelular] = useState();
     const [estado, setEstado] = useState();
     const [cidade, setCidade] = useState();
@@ -60,7 +60,6 @@ export default function MeuPerfil(props){
     const [numero, setNumero] = useState();
     const [endereco, setEndereco] = useState();
     const [complemento, setComplemento] = useState();
-
 
     return(
         <div>
@@ -112,13 +111,12 @@ export default function MeuPerfil(props){
                     </div>
 
                     <div className='form-group row d-flex justify-content-between align-items-center'>
-                        <label className='col-sm-2 col-form-label'>Gênero: </label>
+                        <label className='col-sm-2 col-form-label'>Sexo: </label>
                         <div className='col-sm-8'>
-                            <select className="kuku form-control" value={genero} onChange={(e) => setGenero(e.target.value)}>
-                                <option value="Selecione">Gênero</option>
-                                <option value="Selecione">Masculino</option>
-                                <option value="Selecione">Feminino</option>
-                                <option value="Selecione">Não Binário</option>
+                            <select className="kuku form-control" value={sexo} onChange={(e) => setSexo(e.target.value)}>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
+                                <option value="Não quero informar">Não quero informar</option>
                             </select>
                         </div>
                     </div>
@@ -135,33 +133,33 @@ export default function MeuPerfil(props){
                         <div className='col-sm-8'>
                             <select className="keliki form-control" value={estado} onChange={(e) => setEstado(e.target.value)}>
                                 <option value="Selecione">Estado</option>
-                                <option value="Selecione">Acre</option>
-                                <option value="Selecione">Alagoas</option>
-                                <option value="Selecione">Amapá</option>
-                                <option value="Selecione">Amazonas</option>
-                                <option value="Selecione">Bahia</option>
-                                <option value="Selecione">Ceará</option>
-                                <option value="Selecione">Distrito Federal</option>
-                                <option value="Selecione">Espírito Santo</option>
-                                <option value="Selecione">Goiás</option>
-                                <option value="Selecione">Maranhão</option>
-                                <option value="Selecione">Mato Grosso</option>
-                                <option value="Selecione">Mato Grosso do Sul</option>
-                                <option value="Selecione">Minas Gerais</option>
-                                <option value="Selecione">Pará</option>
-                                <option value="Selecione">Paraíba</option>
-                                <option value="Selecione">Paraná</option>
-                                <option value="Selecione">Pernambuco</option>
-                                <option value="Selecione">Piauí</option>
-                                <option value="Selecione">Rio de Janeiro</option>
-                                <option value="Selecione">Rio Grande do Norte</option>
-                                <option value="Selecione">Rio Grande do Sul</option>
-                                <option value="Selecione">Rondônia</option>
-                                <option value="Selecione">Roraima</option>
-                                <option value="Selecione">Santa Catarina</option>
-                                <option value="Selecione">São Paulo</option>
-                                <option value="Selecione">Sergipe</option>
-                                <option value="Selecione">Tocantins</option>
+                                <option value="Acre">Acre</option>
+                                <option value="Alagoas">Alagoas</option>
+                                <option value="Amapá">Amapá</option>
+                                <option value="Amazonas">Amazonas</option>
+                                <option value="Bahia">Bahia</option>
+                                <option value="Ceará">Ceará</option>
+                                <option value="Distrito Federal">Distrito Federal</option>
+                                <option value="Espírito Santo">Espírito Santo</option>
+                                <option value="Goiás">Goiás</option>
+                                <option value="Maranhão">Maranhão</option>
+                                <option value="Mato Grosso">Mato Grosso</option>
+                                <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                                <option value="Minas Gerais">Minas Gerais</option>
+                                <option value="Pará">Pará</option>
+                                <option value="Paraíba">Paraíba</option>
+                                <option value="Paraná">Paraná</option>
+                                <option value="Pernambuco">Pernambuco</option>
+                                <option value="Piauí">Piauí</option>
+                                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                                <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                                <option value="Rondônia">Rondônia</option>
+                                <option value="Roraima">Roraima</option>
+                                <option value="Santa Catarina">Santa Catarina</option>
+                                <option value="São Paulo">São Paulo</option>
+                                <option value="Sergipe">Sergipe</option>
+                                <option value="Tocantins">Tocantins</option>
                             </select>
                         </div>
                     </div>
