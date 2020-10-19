@@ -61,7 +61,11 @@ export default function Login(){
                         <button type="submit" className="btnbtn-primary" onClick={logar}>Logar</button>
                     </div>
                 </div>
+                
             </form>
+            <div className='d-flex justify-content-center'>
+                <Link to='/RecuperarSenha'>Recuperar Senha</Link>
+            </div>
             <ToastContainer/>
         </div>
     )
