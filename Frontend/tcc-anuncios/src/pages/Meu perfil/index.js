@@ -216,7 +216,7 @@ export default function MeuPerfil(props){
                             </div>
                         </div>
                         <div className='form-group row d-flex justify-content-between align-items-center'>
-                            <label className='col-sm-2 col-form-label'>Numero: </label>
+                            <label className='bolota col-sm-2 col-form-label'>Numero: </label>
                             <div className='col-sm-8'>
                                 <input className="kdete form-control" type="number" value={numero} onChange={(e) => setNumero(e.target.value)}></input>
                             </div>
@@ -239,7 +239,7 @@ export default function MeuPerfil(props){
 
                     <div className="ct">
                         <button className='botox1' onClick={voltar}>Voltar</button>
-                        <button className="botox1"  onClick={alterarInfosUser}>Salvar Alterações</button>
+                        <button className="botox2"  onClick={alterarInfosUser}>Salvar Alterações</button>
                     </div>
 
                 </div>

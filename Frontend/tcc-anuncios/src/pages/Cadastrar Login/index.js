@@ -138,9 +138,9 @@ export default function CadastrarLogin(){
                 <input className="koko" type="text" value={cidade} onChange={e => setCidade(e.target.value)} placeholder="Cidade"></input>
                 
                 <div className="ki">
-                    <input className="kruso" type="text" value={cep} onChange={e => setCep(e.target.value)} placeholder="CEP"></input>
-                    <input className="kverna" type="text" value={bairro} onChange={e => setBairro(e.target.value)} placeholder="Bairro"></input>
-                    <input className="kdete" type="text" value={numero} onChange={e => setNumero(e.target.value)} placeholder="N°"></input>
+                    <input className="kruso1" type="text" value={cep} onChange={e => setCep(e.target.value)} placeholder="CEP"></input>
+                    <input className="kverna2" type="text" value={bairro} onChange={e => setBairro(e.target.value)} placeholder="Bairro"></input>
+                    <input className="kdete3" type="text" value={numero} onChange={e => setNumero(e.target.value)} placeholder="N°"></input>
                 </div>
 
                 <input className="koko" type="text" value={endereco} onChange={e => setEndereco(e.target.value)} placeholder="Endereço"></input>
