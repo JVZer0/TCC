@@ -133,5 +133,67 @@ namespace Backend.Utils
             resp.IdAnuncio = req.IdAnuncio;
             return resp;
         }
+        public Models.TbAnuncio AnuncioParaTabela(Models.Request.AnuncioRoupasRequest.Anunciar anuncio)
+        {
+            Models.TbAnuncio resp = new Models.TbAnuncio();
+            resp.IdUsuario = anuncio.IdUsuario;
+            resp.NmMarca = anuncio.Marca;
+            resp.TpProduto = anuncio.TipoDoProduto;
+            resp.VlPreco = anuncio.Preco;
+            resp.BtVendido = false;
+            resp.DsCep = anuncio.CEP;
+            resp.DsCidade = anuncio.Cidade;
+            resp.DsCondicao = anuncio.Condicao;
+            resp.DsDescricao = anuncio.Descricao;
+            resp.DsEstado = anuncio.Estado;
+            resp.DsGenero = anuncio.Genero;
+            resp.DsSituacao = "Publicado";
+            resp.DsTamanho = anuncio.Tamanho;
+            resp.DsTitulo = anuncio.Titulo;
+            resp.DtPublicacao = DateTime.Now;
+            resp.TbPerguntaResposta = new List<Models.TbPerguntaResposta>();
+            resp.TbImagem = new List<Models.TbImagem>();
+            return resp;
+        }
+        public Models.Response.AnuncioRoupasResponse.Anuncio AnuncioParaResponse(Models.TbAnuncio anuncio)
+        {
+            Models.Response.AnuncioRoupasResponse.Anuncio resp = new Models.Response.AnuncioRoupasResponse.Anuncio();
+            resp.Titulo = anuncio.DsTitulo;
+            resp.TipoProduto = anuncio.TpProduto;
+            resp.Tamanho = anuncio.DsTamanho;
+            resp.Preco = anuncio.VlPreco;
+            resp.Marca = anuncio.NmMarca;
+            resp.Condicao = anuncio.DsCondicao;
+            resp.DataPublicacao = anuncio.DtPublicacao;
+            resp.Descricao = anuncio.DsDescricao;
+            resp.Genero = anuncio.DsGenero;
+            resp.IdAnuncio = anuncio.IdAnuncio;
+            resp.Imagens = anuncio.TbImagem.Select(x => new Models.Response.AnuncioRoupasResponse.Imagem(){
+                IdDoAnuncio = x.IdAnuncio,
+                IdImagem = x.IdImagem,
+                TextoImagem = x.ImgAnuncio
+            }).ToList();
+            return resp;
+        }
+        public Models.TbAnuncio test(Models.Request.AnuncioRoupasRequest.test anuncio)
+        {
+            Models.TbAnuncio resp = new Models.TbAnuncio();
+            resp.IdUsuario = anuncio.IdUsuario;
+            resp.NmMarca = anuncio.Marca;
+            resp.TpProduto = anuncio.TipoDoProduto;
+            resp.VlPreco = anuncio.Preco;
+            resp.BtVendido = false;
+            resp.DsCep = anuncio.CEP;
+            resp.DsCidade = anuncio.Cidade;
+            resp.DsCondicao = anuncio.Condicao;
+            resp.DsDescricao = anuncio.Descricao;
+            resp.DsEstado = anuncio.Estado;
+            resp.DsGenero = anuncio.Genero;
+            resp.DsSituacao = "Publicado";
+            resp.DsTamanho = anuncio.Tamanho;
+            resp.DsTitulo = anuncio.Titulo;
+            resp.DtPublicacao = DateTime.Now;
+            return resp;
+        }
     }
 }

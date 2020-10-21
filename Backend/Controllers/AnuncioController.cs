@@ -85,5 +85,32 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(400, ex.Message));
             }
         }
+        [HttpPost("Anunciar/")]
+        public ActionResult<Models.Response.AnuncioRoupasResponse.Anuncio> Anunciar([FromForm] Models.Request.AnuncioRoupasRequest.Anunciar anuncio)
+        {
+            try
+            {
+                Models.TbAnuncio anu1 = conversorAnuncio.AnuncioParaTabela(anuncio);
+                anu1.TbImagem = gerenciadorImagem.GerarMuitosNomes(anuncio.Imagens);
+                Models.TbAnuncio resp = businessAnuncio.Anunciar(anu1);
+                return conversorAnuncio.AnuncioParaResponse(resp);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new Models.Response.Erro(400, ex.Message));
+            }
+        }
+        [HttpPost("test/")]
+        public ActionResult<Models.Response.AnuncioRoupasResponse.Anuncio> testando([FromForm] Models.Request.AnuncioRoupasRequest.test anuncio)
+        {
+            try
+            {
+                return null;
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new Models.Response.Erro(400, ex.Message));
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 
@@ -6,10 +7,32 @@ namespace Backend.Business
 {
     public class GerenciadorImagem
     {
+        public List<Models.TbImagem> GerarMuitosNomes(List<Models.Request.AnuncioRoupasRequest.Imagem> a)
+        {
+            List<Models.TbImagem> resp = new List<Models.TbImagem>();
+            if(a == null || a.Count == 0)
+            {
+                IFormFile xama = null;
+                string dale = GerarNovoNome(xama);
+                Models.TbImagem foi = new Models.TbImagem();
+                foi.ImgAnuncio = dale;
+                resp.Add(foi);
+            }
+            else{
+                foreach (IFormFile Foto in a)
+                {
+                    string nome = GerarNovoNome(Foto);
+                    Models.TbImagem fo = new Models.TbImagem();
+                    fo.ImgAnuncio = nome;
+                    resp.Add(fo);
+                }
+            }
+            return resp;
+        }
         public string GerarNovoNome(IFormFile f)
         {
             if(f == null){
-                return "user.PNG";
+                return "semimagem.PNG";
             }
             else{
                 string novoNome = Guid.NewGuid().ToString();

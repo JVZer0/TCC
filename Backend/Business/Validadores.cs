@@ -76,6 +76,21 @@ namespace Backend.Business
             ValidarId(req.IdPerguntador);
             ValidarId(req.IdRespondedor);
         }
+        public void Anunciar(Models.TbAnuncio anuncio)
+        {
+            ValidarTexto(anuncio.DsTitulo);
+            ValidarData(anuncio.DtPublicacao);
+            ValidarId(anuncio.IdUsuario);
+            ValidarTexto(anuncio.TpProduto);
+            ValidarTexto(anuncio.DsCep);
+            ValidarTexto(anuncio.DsCidade);
+            ValidarTexto(anuncio.DsCondicao);
+            ValidarTexto(anuncio.DsEstado);
+            ValidarTexto(anuncio.DsTamanho);
+            ValidarTexto(anuncio.DsGenero);
+            ValidarTexto(anuncio.NmMarca);
+        }
+
 
         public void ValidarData(DateTime? data)
         {

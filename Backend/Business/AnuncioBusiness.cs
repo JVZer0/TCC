@@ -42,5 +42,11 @@ namespace Backend.Business
             if(paraValidarRespondedor.IdRespondedor != req.IdRespondedor) throw new ArgumentException("Você não é o dono desse anuncio. Você não pode responder perguntas dele.");
             return databaseAnuncio.Responder(req);
         }
+        public Models.TbAnuncio Anunciar(Models.TbAnuncio anuncio)
+        {
+            validadores.Anunciar(anuncio);
+            if(anuncio.TbImagem.Count > 10) throw new ArgumentException("Você só pode colocar 10 imagens no anuncio.");
+            return databaseAnuncio.Anunciar(anuncio);
+        }
     }
 }

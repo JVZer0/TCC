@@ -69,8 +69,6 @@ namespace Backend.Models.Response
             public decimal? Preco { get; set; }
             public DateTime? DataPublicacao { get; set; }
             public List<Imagem> Imagens { get; set; }
-            
-
         }
         public class AnuncioDetalhado
         {
