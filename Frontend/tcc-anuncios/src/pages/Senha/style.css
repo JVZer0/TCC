@@ -1,0 +1,16 @@
+.in{
+    display: flex;
+    flex-direction: column;
+}
+
+.ini{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+
+.su{
+    font-size: 22px;
+}
