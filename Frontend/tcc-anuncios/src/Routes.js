@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Cadastrar from './pages/Cadastrar Login';
 import MeuPerfil from './pages/Meu perfil';
 import RecuperarSenha from './pages/RecuperarSenha'
+import Senha from './pages/Senha'
 
 export default function Routes(){
     return(
@@ -19,6 +20,7 @@ export default function Routes(){
                 <Route path="/Cadastrar" component={Cadastrar}></Route>
                 <Route path="/MeuPerfil" component={MeuPerfil}></Route>
                 <Route path="/RecuperarSenha" component={RecuperarSenha}></Route>
+                <Route path="/Senha" component={Senha}></Route>
             </Switch>
         </BrowserRouter>
     )
