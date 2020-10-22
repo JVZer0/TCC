@@ -49,5 +49,11 @@ namespace Backend.Database
             ctx.SaveChanges();
             return resp;
         }
+        public Models.TbAnuncio Anunciar(Models.TbAnuncio anuncio)
+        {
+            ctx.Add(anuncio);
+            ctx.SaveChanges();
+            return anuncio;
+        }
     }
 }
