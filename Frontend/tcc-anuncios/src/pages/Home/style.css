@@ -19,12 +19,117 @@
     color: #fe8d27;
 }
 
-.meio{
-}
-
 .meio a{
     color: white;
     text-decoration: white;
     text-transform: none;
     background-color: transparent;
+}
+
+
+.pedroga{
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+}
+
+.pedrin{
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(0, 0, 0, 0.151);
+    height: 100%;
+    width: 30vw;
+}
+
+.keliki1, .keliki2, .keliki3, .keliki4{
+    margin-top: 10px;
+    height: 40px;
+    width: 300px;
+    padding-left: 5px;
+}
+
+.keliki1{
+    position: relative;
+    left: 10px;
+}
+
+.keliki2{
+    position: relative;
+    left: -8px;
+}
+
+.keliki3{
+    position: relative;
+    left: 6px;
+}
+
+.keliki4{
+    position: relative;
+    left: -9px;
+}
+
+.koko1{
+    margin-top: 10px;
+    width: 300px;
+    height: 40px;
+    padding: 10px;
+    position: relative;
+    left: 8px;
+}
+
+.koko2{
+    margin-top: 10px;
+    width: 250px;
+    height: 35px;
+    padding: 10px;
+    position: relative;
+    bottom: 4px;
+    left: 8px;
+}
+
+.pedrox{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 50px;
+    left: 10px;
+}
+
+.matiolas{
+    position: relative;
+    top: 15px;
+    margin-right: 30px;
+}
+
+.flow{
+    display: flex;
+    align-items: center;
+}
+
+.quadradin{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 520px;
+    width: 400px;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+}
+
+.ima{
+    position: relative;
+    bottom: 70px;
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.alin{
+    position: relative;
+    bottom: 25px;
+    right: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end
 }

@@ -163,7 +163,7 @@ export default function MeuPerfil(props){
                         <label className='col-sm-2 col-form-label'>Estado: </label>
                         <div className='col-sm-8'>
                             <select className="keliki form-control" value={estado} onChange={(e) => setEstado(e.target.value)}>
-                                <option value="Selecione">Estado</option>
+                                <option value="">Estado</option>
                                 <option value="Acre">Acre</option>
                                 <option value="Alagoas">Alagoas</option>
                                 <option value="Amapá">Amapá</option>
