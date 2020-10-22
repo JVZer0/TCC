@@ -62,6 +62,7 @@ namespace Backend.Utils
             resp.Publicacao = anuncio.DtPublicacao;
             resp.NomeVendedor = anuncio.IdUsuarioNavigation.NmUsuario;
             resp.CelularVendedor = anuncio.IdUsuarioNavigation.DsCelular;
+            resp.Email = anuncio.IdUsuarioNavigation.DsEmail;
             resp.Cidade = anuncio.DsCidade;
 
             resp.PerguntasERespotas = anuncio.TbPerguntaResposta.Select(x => new Models.Response.AnuncioRoupasResponse.PerguntaEResposta(){

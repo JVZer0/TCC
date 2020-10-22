@@ -90,6 +90,7 @@ namespace Backend.Models.Response
             public DateTime? Publicacao { get; set; }
             public string NomeVendedor { get; set; }
             public string CelularVendedor { get; set; }
+            public string Email { get; set; }
             public List<Imagem> Imagens { get; set; }
             public List<PerguntaEResposta> PerguntasERespotas { get; set; }
 
