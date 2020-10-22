@@ -1,0 +1,113 @@
+.patota{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 90vh;
+}
+
+.patota1{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.aha{
+    display: flex;
+    flex-direction: column;
+}
+
+.linin{
+    border: 1px solid black;
+    height: 300px;
+    width: 325px;
+}
+
+.linin1{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.linin2{
+    border: 1px solid black;
+    margin-right: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+.lin{
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+}
+
+.ehe{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.uhu{
+    margin-top: 54px;
+}
+
+.ihi{
+    margin-top: 150px;
+}
+
+.oho{
+    margin-top: 43px;
+}
+
+.perguntas{
+    display: flex;
+    flex-direction: column;
+}
+
+.hum{
+    border-top: 1px solid rgba(0, 0, 0, 0.356);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 20vh;
+}
+
+.an{
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.caixa{
+    width: 500px;
+    height: 60px;
+}
+
+.de{
+    margin-left: 20px;
+    border: 1px solid black;
+    width: 100px;
+    height: 35px;
+    font-weight: bolder;
+}
+
+.vaiamerda{
+    display: flex;
+    justify-content: center;
+}
+
+.ham{
+    border: 1px solid rgba(0, 0, 0, 0.356);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 17vh;
+}
+
+.him{
+    font-size: 20px;
+    margin-left: 172px;
+}

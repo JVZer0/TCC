@@ -76,16 +76,12 @@ export default function Home(props){
                     </div>
 
                     <div className="pedrox">
-                        <label className="matiolas">Tamanho:</label>
-                        <select className="keliki2 form-control">
-                            <option value="">Tamanho</option>
-                        </select>
-                    </div>
-
-                    <div className="pedrox">
                         <label className="matiolas">Gênero:</label>
                         <select className="keliki3 form-control">
                             <option value="">Gênero</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Unissex">Unissex</option>
                         </select>
                     </div>
 
@@ -93,6 +89,9 @@ export default function Home(props){
                         <label className="matiolas">Condição:</label>
                         <select className="keliki4 form-control">
                             <option value="">Condição</option>
+                            <option value="">Novo</option>
+                            <option value="">Semi-novo</option>
+                            <option value="">Usado</option>
                         </select>
                     </div>
                 </div>
@@ -107,6 +106,7 @@ export default function Home(props){
                             <h4>Titulo:</h4>
                             <h6>Preço:</h6>
                             <h6>Marca:</h6>
+                            <h6>Tamanho:</h6>
                             <h6>Condição:</h6>
                         </div>
                     </div> 
