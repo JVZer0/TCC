@@ -48,5 +48,10 @@ namespace Backend.Business
             if(anuncio.TbImagem.Count > 10) throw new ArgumentException("Você só pode colocar 10 imagens no anuncio.");
             return databaseAnuncio.Anunciar(anuncio);
         }
+        public List<Models.TbAnuncio> ConsultarMeusAnuncios(int IdUsuario)
+        {
+            validadores.ValidarId(IdUsuario);
+            return databaseAnuncio.ConsultarMeusAnuncios(IdUsuario);
+        }
     }
 }

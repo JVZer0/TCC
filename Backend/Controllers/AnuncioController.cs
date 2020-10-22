@@ -114,5 +114,21 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(400, ex.Message));
             }
         }
+
+
+
+        [HttpGet("MeusAnuncios/{IdUsuario}")]
+        public ActionResult<List<Models.Response.AnuncioRoupasResponse.MeusAnuncios>> ConsultarMeusAnuncios(int IdUsuario)
+        {
+            try
+            {
+                List<Models.TbAnuncio> resp = businessAnuncio.ConsultarMeusAnuncios(IdUsuario);
+                return conversorAnuncio.ConversorVariosMeusAnunciosParaResponse(resp);
+            }
+            catch (System.Exception ex)
+            {
+                return NotFound(new Models.Response.Erro(400, ex.Message));
+            }
+        }
     }
 }

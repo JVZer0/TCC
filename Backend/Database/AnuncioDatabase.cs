@@ -55,5 +55,14 @@ namespace Backend.Database
             ctx.SaveChanges();
             return anuncio;
         }
+        public List<Models.TbAnuncio> ConsultarMeusAnuncios(int? IdUsuario)
+        {
+            List<Models.TbAnuncio> meusanuncios = ctx.TbAnuncio
+                                                        .Include(x => x.IdUsuarioNavigation)
+                                                        .Where(x => x.IdUsuario == IdUsuario)      
+                                                        .ToList();
+
+            return meusanuncios;
+        }
     }
 }

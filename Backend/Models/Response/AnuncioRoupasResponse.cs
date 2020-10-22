@@ -111,5 +111,14 @@ namespace Backend.Models.Response
             public int? IdAnuncio { get; set; }
             public int? IdRespondedor { get; set; }
         }
+        public class MeusAnuncios
+        {
+            public int IdAnuncio { get; set; }
+            public int? IdUsuario { get; set; }
+            public string Titulo { get; set; }
+            public decimal? Preco { get; set; }
+            public string Situacao { get; set; }
+            public DateTime? DataDePublicacao { get; set; }
+        }
     }
 }

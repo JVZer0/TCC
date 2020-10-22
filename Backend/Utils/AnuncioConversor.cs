@@ -195,5 +195,26 @@ namespace Backend.Utils
             resp.DtPublicacao = DateTime.Now;
             return resp;
         }
+        public Models.Response.AnuncioRoupasResponse.MeusAnuncios ConversorMeusAnunciosParaResponse(Models.TbAnuncio req)
+        {
+            Models.Response.AnuncioRoupasResponse.MeusAnuncios resp = new Models.Response.AnuncioRoupasResponse.MeusAnuncios();
+            resp.IdAnuncio = req.IdAnuncio;
+            resp.IdUsuario = req.IdUsuario;
+            resp.Preco = req.VlPreco;
+            resp.Situacao = req.DsSituacao;
+            resp.Titulo = req.DsTitulo;
+            resp.DataDePublicacao = req.DtPublicacao;
+            return resp;
+        }
+        public List<Models.Response.AnuncioRoupasResponse.MeusAnuncios> ConversorVariosMeusAnunciosParaResponse(List<Models.TbAnuncio> req)
+        {
+            List<Models.Response.AnuncioRoupasResponse.MeusAnuncios> resp = new List<Models.Response.AnuncioRoupasResponse.MeusAnuncios>();
+            foreach (Models.TbAnuncio anuncios in req)
+            {
+                Models.Response.AnuncioRoupasResponse.MeusAnuncios x = this.ConversorMeusAnunciosParaResponse(anuncios);
+                resp.Add(x);       
+            }
+            return resp;
+        }
     }
 }
