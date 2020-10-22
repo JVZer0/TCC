@@ -31,12 +31,12 @@ namespace Backend.Controllers
             }
 
         }
-        [HttpGet("{BarraPesquisa}/{Estado}/{Cidade}/{Tamanho}/{Genero}/{Condicao}")]
-        public ActionResult<List<Models.Response.AnuncioRoupasResponse.Anuncio>> ConsultarAnuncios(string BarraPesquisa, string Estado, string Cidade, string Tamanho, string Genero, string Condicao)
+        [HttpGet("{BarraPesquisa}/{Estado}/{Cidade}/{Genero}/{Condicao}")]
+        public ActionResult<List<Models.Response.AnuncioRoupasResponse.Anuncio>> ConsultarAnuncios(string BarraPesquisa, string Estado, string Cidade, string Genero, string Condicao)
         {
             try
             {
-                List<Models.TbAnuncio> anuncios = businessAnuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Tamanho, Genero, Condicao);
+                List<Models.TbAnuncio> anuncios = businessAnuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Genero, Condicao);
                 return conversorAnuncio.ConversorAnuncioListaResponse(anuncios);
             }
             catch (System.Exception ex)
@@ -85,6 +85,11 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(400, ex.Message));
             }
         }
+
+
+
+
+
         [HttpPost("Anunciar/")]
         public ActionResult<Models.Response.AnuncioRoupasResponse.Anuncio> Anunciar([FromForm] Models.Request.AnuncioRoupasRequest.Anunciar anuncio)
         {
@@ -117,6 +122,8 @@ namespace Backend.Controllers
 
 
 
+
+
         [HttpGet("MeusAnuncios/{IdUsuario}")]
         public ActionResult<List<Models.Response.AnuncioRoupasResponse.MeusAnuncios>> ConsultarMeusAnuncios(int IdUsuario)
         {
@@ -127,19 +134,20 @@ namespace Backend.Controllers
             }
             catch (System.Exception ex)
             {
-                return NotFound(new Models.Response.Erro(400, ex.Message));
+                return NotFound(new Models.Response.Erro(404, ex.Message));
             }
         }
-        [HttpDelete("{IdAnuncio}")]
-        public ActionResult<string> DeletarAnuncio (Models.TbAnuncio Anuncio)
+        [HttpDelete("DeletarAnuncio/{IdAnuncio}")]
+        public ActionResult<string> DeletarAnuncio (int IdAnuncio)
         {
             try
             {
+                businessAnuncio.DeletarAnuncio(IdAnuncio);
                 return "Apagado com sucesso";
             }
-            catch (System.Exception )
+            catch (System.Exception ex)
             {
-                return NotFound(null);
+                return NotFound(new Models.Response.Erro(404, ex.Message));
             }
 
         }      
