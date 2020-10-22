@@ -9,6 +9,8 @@ import Cadastrar from './pages/Cadastrar Login';
 import MeuPerfil from './pages/Meu perfil';
 import RecuperarSenha from './pages/RecuperarSenha'
 import Senha from './pages/Senha'
+import MeusAnuncios from './pages/Meus anuncios'
+import MeusFavoritos from './pages/Meus Favoritos'
 
 export default function Routes(){
     return(
@@ -21,6 +23,8 @@ export default function Routes(){
                 <Route path="/MeuPerfil" component={MeuPerfil}></Route>
                 <Route path="/RecuperarSenha" component={RecuperarSenha}></Route>
                 <Route path="/Senha" component={Senha}></Route>
+                <Route path="/MeusAnuncios" component={MeusAnuncios}></Route>
+                <Route path="/MeusFavoritos" component={MeusFavoritos}></Route>
             </Switch>
         </BrowserRouter>
     )

@@ -6,6 +6,7 @@ body{
     margin: 0px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .cabecalho{
     font-size: 17px;
     display: flex;
@@ -17,16 +18,20 @@ body{
     padding-right: 2cm;
     padding-left: 2cm;
 }
+
 .barraPesquisa{
     display: flex;
     flex-grow: 1;
     justify-content: center;
+    color: white;
 }
+
 .meio{
     display: flex;
     flex-grow: 1;
     justify-content: center;
 }
+
 .botao{
     border: 2px solid  white;
     box-shadow: black;
