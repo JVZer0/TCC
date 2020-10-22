@@ -131,18 +131,17 @@ namespace Backend.Controllers
             }
         }
         [HttpDelete("{IdAnuncio}")]
-        public ActionResult<Models.TbAnuncio> DeletarAnuncio (int? IdAnuncio)
+        public ActionResult<string> DeletarAnuncio (Models.TbAnuncio Anuncio)
         {
-            try     
+            try
             {
-                Models.TbAnuncio anuncios = businessAnuncio.DeletarAnuncio(IdAnuncio);
-                
-                return anuncios;
+                return "Apagado com sucesso";
             }
             catch (System.Exception )
             {
                 return NotFound(null);
             }
+
         }      
     }
 }

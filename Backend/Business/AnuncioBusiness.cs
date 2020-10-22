@@ -53,11 +53,10 @@ namespace Backend.Business
             validadores.ValidarId(IdUsuario);
             return databaseAnuncio.ConsultarMeusAnuncios(IdUsuario);
         }
-        public Models.TbAnuncio DeletarAnuncio (int? IdAnuncio)
+        public void DeletarAnuncio (Models.TbAnuncio Anuncio)
         {
-            validadores.ValidarId(IdAnuncio);
-            Models.TbAnuncio anuncios = databaseAnuncio.DeletarAnuncio(IdAnuncio);
-            return anuncios;
+            validadores.ValidarId(Anuncio.IdAnuncio);
+            return ;
         }
     }
 }

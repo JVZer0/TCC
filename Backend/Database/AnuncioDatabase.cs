@@ -64,12 +64,13 @@ namespace Backend.Database
 
             return meusanuncios;
         }
-        public Models.TbAnuncio DeletarAnuncio (int? IdAnuncio)
+        public void DeletarAnuncio (Models.TbAnuncio Anuncio)
         {
-            Models.TbAnuncio deletar = ctx.TbAnuncio.FirstOrDefault(x => x.IdAnuncio == IdAnuncio);
-            ctx.Remove(deletar);
+            Models.TbAnuncio deletar = ctx.TbAnuncio.Include(x => x.TbImagem)
+                                                    .Include(x => x.TbPerguntaResposta)
+                                                    .FirstOrDefault(x => x.IdAnuncio == Anuncio.IdAnuncio);
+            ctx.RemoveRange(deletar);
             ctx.SaveChanges();
-            return deletar;
         }
     }
 }
