@@ -63,7 +63,7 @@ namespace Backend.Database
 
             return meusanuncios;
         }
-        public void DeletarAnuncio (int IdAnuncio)
+        public void DeletarAnuncio (int IdAnuncio, int IdUsuario)
         {
             Models.TbAnuncio deletar = ctx.TbAnuncio.Include(x => x.TbImagem)
                                                     .Include(x => x.TbPerguntaResposta)

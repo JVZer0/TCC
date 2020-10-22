@@ -137,19 +137,18 @@ namespace Backend.Controllers
                 return NotFound(new Models.Response.Erro(404, ex.Message));
             }
         }
-        [HttpDelete("DeletarAnuncio/{IdAnuncio}")]
-        public ActionResult<string> DeletarAnuncio (int IdAnuncio)
+        [HttpDelete("DeletarAnuncio/{IdAnuncio}/{IdUsuario}")]
+        public ActionResult<string> DeletarAnuncio (int IdAnuncio, int IdUsuario)
         {
             try
             {
-                businessAnuncio.DeletarAnuncio(IdAnuncio);
+                businessAnuncio.DeletarAnuncio(IdAnuncio, IdUsuario);
                 return "Apagado com sucesso";
             }
             catch (System.Exception ex)
             {
                 return NotFound(new Models.Response.Erro(404, ex.Message));
             }
-
         }      
     }
 }

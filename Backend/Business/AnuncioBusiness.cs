@@ -52,10 +52,13 @@ namespace Backend.Business
             validadores.ValidarId(IdUsuario);
             return databaseAnuncio.ConsultarMeusAnuncios(IdUsuario);
         }
-        public void DeletarAnuncio (int IdAnuncio)
+        public void DeletarAnuncio (int IdAnuncio, int IdUsuario)
         {
             validadores.ValidarId(IdAnuncio);
-            databaseAnuncio.DeletarAnuncio(IdAnuncio);
+            validadores.ValidarId(IdUsuario);
+            Models.TbAnuncio ValidarUsuario = databaseAnuncio.ConsultarAnuncioDetalhado(IdAnuncio);
+            if(ValidarUsuario.IdUsuario != IdUsuario) throw new ArgumentException("Você não é o dono desse anuncio.");
+            databaseAnuncio.DeletarAnuncio(IdAnuncio, IdUsuario);
         }
     }
 }
