@@ -130,5 +130,19 @@ namespace Backend.Controllers
                 return NotFound(new Models.Response.Erro(400, ex.Message));
             }
         }
+        [HttpDelete("{IdAnuncio}")]
+        public ActionResult<Models.TbAnuncio> DeletarAnuncio (int? IdAnuncio)
+        {
+            try     
+            {
+                Models.TbAnuncio anuncios = businessAnuncio.DeletarAnuncio(IdAnuncio);
+                
+                return anuncios;
+            }
+            catch (System.Exception )
+            {
+                return NotFound(null);
+            }
+        }      
     }
 }
