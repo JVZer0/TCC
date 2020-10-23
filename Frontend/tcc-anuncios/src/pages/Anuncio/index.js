@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import '../../components/Cabecalho/cabecalho.css'
 import '../Anuncio/style.css'
 
-import Logo from '../../assets/image/Capturar.PNG'
-import Favoritar from '../../assets/image/favoritar.png'
+import Logo from '../../assets/image/Capturar.PNG';
+import CoracaoBranco from '../../assets/image/imagemCoracaoBranco.png';
+import CoracaoPreto from '../../assets/image/imagemCoracaoPreto.png';
 
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,6 +15,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Anuncio(props){
     const [infos, setInfos] = useState(props.location.state);
+
+    const [anuncio, setAnuncio] = useState(props.location.state);
+
+    const [favorito, setFavorito] = useState(true);
 
     return(
         <div>
@@ -26,8 +31,8 @@ export default function Anuncio(props){
                 </div>
                 <div className="meio"> 
                     <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infos}}>Meus Anuncios</Link>
-                    <Link class="hihi meio" to={{pathname: "/MeusFavoritos", state: infos}}>Meus Favoritos</Link>
+                    <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infos }}>Meus Anuncios</Link>
+                    <Link class="hihi meio" to={{ pathname: "/MeusFavoritos", state: infos }}>Meus Favoritos</Link>
                 </div>
                 <div>
                     <Link  class="hihi" to="/Anunciar"><button class="botao">Anunciar</button></Link>
@@ -66,7 +71,10 @@ export default function Anuncio(props){
                             <h5>Descrição:</h5>
                         </div>
                         <div className="uin">
-                        <button className="ain"><img class="imag" src={Favoritar} width="50px" height="45px" alt=''></img></button>
+                            {
+                                favorito == true ? <div className="ain"><img class="imag" src={CoracaoPreto} width="50px" height="45px" alt=''/></div>
+                                :   <button className="ain"><img class="imag" src={CoracaoBranco} width="50px" height="45px" alt=''></img></button>
+                            }
                         </div>
                     </div>
 
