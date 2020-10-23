@@ -86,6 +86,14 @@
     flex-direction: column;
 }
 
+.uin{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 50px;
+    width: 60vh;
+}
+
 .ain{
     border: 0px;
 }
