@@ -44,7 +44,7 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(404, ex.Message));
             }
         }
-        [HttpGet("Imagem/{nome}")]
+        [HttpGet("{nome}")]
         public ActionResult BuscarFoto(string nome)
         {
             try 

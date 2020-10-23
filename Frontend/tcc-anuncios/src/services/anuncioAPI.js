@@ -32,7 +32,12 @@ export default class anuncioAPI{
         return resp;
     }
 
-    async consultarAnuncios(){
-        
+    async consultarAnuncios(BarraPesquisa, Estado, Cidade, Genero, Condicao){
+        const resp = await api.get(`/Anuncio/${BarraPesquisa}/${Estado}/${Cidade}/${Genero}/${Condicao}`)
+        return resp.data;
     }
+    consultarImagem(imagem) {
+        const urlFoto = api.defaults.baseURL + "/Imagem/" + imagem;
+        return urlFoto;
+      }
 }

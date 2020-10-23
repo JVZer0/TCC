@@ -45,25 +45,26 @@ export default function RecuperarSenha(){
                 <div className="barraPesquisa"></div>
                 <div className="meio"></div>
             </div>
+            <form>
+                <div className="pai">
+                    <div className="fi">
 
-            <div className="pai">
-                <div className="fi">
+                        <label className="v1">Digite o seu CPF e seu RG para recuperar sua senha</label>
 
-                    <label className="v1">Digite o seu CPF e seu RG para recuperar sua senha</label>
+                        <div>
+                        <label className="mama1">CPF:</label>
+                        <input className="v25" type="text" value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="CPF"></input>
+                        </div>
+                        
+                        <div>
+                        <label className="mama2">RG:</label>
+                        <input className="v2" type="text" value={rg} onChange={(e) => setRg(e.target.value)} placeholder="RG"></input>
+                        </div>
 
-                    <div>
-                    <label className="mama1">CPF:</label>
-                    <input className="v25" type="text" value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="CPF"></input>
+                        <button className="v3" onClick={recuperar}>Verificar</button>
                     </div>
-                    
-                    <div>
-                    <label className="mama2">RG:</label>
-                    <input className="v2" type="text" value={rg} onChange={(e) => setRg(e.target.value)} placeholder="RG"></input>
-                    </div>
-
-                    <button className="v3" onClick={recuperar}>Verificar</button>
                 </div>
-            </div>
+            </form>
             <ToastContainer/>
         </div>
     )
