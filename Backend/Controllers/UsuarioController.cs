@@ -46,7 +46,7 @@ namespace Backend.Controllers
                 return NotFound(new Models.Response.Erro(404, ex.Message));
             }
         }
-        [HttpPost("RecuperarSenha/")]
+        [HttpPost("RecuperarSenha")]
         public ActionResult<string> RecuperarSenha(Models.Request.AnuncioRoupasRequest.Recuperação RGeCPF)
         {
             try

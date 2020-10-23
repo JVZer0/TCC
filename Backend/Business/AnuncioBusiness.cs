@@ -58,7 +58,7 @@ namespace Backend.Business
             validadores.ValidarId(IdUsuario);
             Models.TbAnuncio ValidarUsuario = databaseAnuncio.ConsultarAnuncioDetalhado(IdAnuncio);
             if(ValidarUsuario.IdUsuario != IdUsuario) throw new ArgumentException("Você não é o dono desse anuncio.");
-            databaseAnuncio.DeletarAnuncio(IdAnuncio, IdUsuario);
+            databaseAnuncio.DeletarAnuncio(IdAnuncio);
         }
     }
 }
