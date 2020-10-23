@@ -36,6 +36,10 @@ export default function CadastrarLogin(){
 
     const salvarClick = async() => {
         try {
+            let celularMask = `(${celular.substring(0,2)}) ${celular.substring(2,7)}-${celular.substring(8,12)}`;
+            let cepMask = `${cep.substring(0,5)}-${cep.substring(5,8)}`;
+            let cpfMask = `${cpf.substring(0,3)}.${cpf.substring(3,6)}.${cpf.substring(6,9)}-${cpf.substring(9,11)}`;
+
             const modelo = {
                 NomeUsuario: nome,
                 Email: email,
@@ -44,12 +48,12 @@ export default function CadastrarLogin(){
                 ConfirmarSenha: confirmar,
                 DataDeNascimento: nascimento,
                 Sexo: sexo,
-                CPF: cpf,
+                CPF: cpfMask,
                 RG: rg,
-                Celular: celular,
+                Celular: celularMask,
                 Estado: estado,
                 Cidade: cidade,
-                CEP: cep,
+                CEP: cepMask,
                 Bairro: bairro,
                 N_Endereco: numero,
                 Endereco: endereco,
@@ -129,7 +133,7 @@ export default function CadastrarLogin(){
                 </div>
 
                 <div className="a">
-                    <label  className="b1">Número de celular</label>
+                    <label  className="b1">Número de celular com DDD</label>
                     <input className="koko" type="text" value={celular} onChange={e => setCelular(e.target.value)} placeholder="Número de celular"></input>
                 </div>
 
