@@ -66,7 +66,7 @@ export default function Anuncio(props){
                             <h5>Descrição:</h5>
                         </div>
                         <div className="uin">
-                        <button className="ain"><img class="imag" src={Favoritar} width="50px" height="50px" alt=''></img></button>
+                        <button className="ain"><img class="imag" src={Favoritar} width="50px" height="45px" alt=''></img></button>
                         </div>
                     </div>
 
