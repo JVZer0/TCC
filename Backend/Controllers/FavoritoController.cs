@@ -33,8 +33,23 @@ namespace Backend.Controllers
         {
             try
             {
-                List<Models.Response.AnuncioRoupasResponse.Anuncio> resp = null;
-                return resp;
+                List<Models.TbFavorito> resp = businessFavorito.ConsultarMeusAnunciosFavoritos(IdUsuario);
+                return conversorFavorito.ConverterVariosFavoritosParaResponse(resp);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new Models.Response.Erro(400, ex.Message));
+            }
+        }
+        [HttpPost("FavoritarAnuncio/{IdAnuncio}/{IdUsuario}")]
+        public ActionResult<Models.Response.AnuncioRoupasResponse.Anuncio> FavoritarAnuncio(int IdAnuncio, int IdUsuario)
+        {
+            try
+            {
+                Models.TbFavorito favoritando = conversorFavorito.ConversorFavoritarTabela(IdAnuncio, IdUsuario);
+                Models.TbFavorito resp = businessFavorito.FavoritarAnuncio(favoritando);
+                Models.TbFavorito final = businessFavorito.ConsultarFavorito(resp.IdFavorito);
+                return conversorFavorito.FavoritoParaResponse(final);
             }
             catch (System.Exception ex)
             {
