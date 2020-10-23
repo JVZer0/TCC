@@ -85,7 +85,7 @@ namespace Backend.Models.Request
             public string Cidade { get; set; }
             public string CEP { get; set; }
             public int IdUsuario { get; set; }
-            public List<Imagem> Imagens { get; set; }
+            public List<IFormFile> Imagens { get; set; }
         }
         public class test
         {
@@ -102,10 +102,6 @@ namespace Backend.Models.Request
             public string CEP { get; set; }
             public int IdUsuario { get; set; }
             public IFormFile Imagens { get; set; }
-        }
-        public class Imagem
-        {
-            public IFormFile Foto { get; set; }
         }
     }
 }

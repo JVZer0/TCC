@@ -7,10 +7,10 @@ namespace Backend.Business
 {
     public class GerenciadorImagem
     {
-        public List<Models.TbImagem> GerarMuitosNomes(List<Models.Request.AnuncioRoupasRequest.Imagem> a)
+        public List<Models.TbImagem> GerarMuitosNomes(List<IFormFile> req)
         {
             List<Models.TbImagem> resp = new List<Models.TbImagem>();
-            if(a == null || a.Count == 0)
+            if(req == null || req.Count == 0)
             {
                 IFormFile xama = null;
                 string dale = GerarNovoNome(xama);
@@ -19,9 +19,9 @@ namespace Backend.Business
                 resp.Add(foi);
             }
             else{
-                foreach (IFormFile Foto in a)
+                foreach (IFormFile Imagens in req)
                 {
-                    string nome = GerarNovoNome(Foto);
+                    string nome = GerarNovoNome(Imagens);
                     Models.TbImagem fo = new Models.TbImagem();
                     fo.ImgAnuncio = nome;
                     resp.Add(fo);

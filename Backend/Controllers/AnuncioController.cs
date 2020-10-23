@@ -57,7 +57,7 @@ namespace Backend.Controllers
                 return NotFound(new Models.Response.Erro(404, ex.Message));
             }
         }
-        [HttpPost("Perguntar/")]
+        [HttpPost("Perguntar")]
         public ActionResult<Models.Response.AnuncioRoupasResponse.PerguntaEResposta> Perguntar(Models.Request.AnuncioRoupasRequest.Pergunta req)
         {
             try
@@ -71,7 +71,7 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(400, ex.Message));
             }
         }
-        [HttpPut("Responder/")]
+        [HttpPut("Responder")]
         public ActionResult<Models.Response.AnuncioRoupasResponse.PerguntaEResposta> Responder(Models.Request.AnuncioRoupasRequest.Resposta req)
         {
             try
@@ -90,7 +90,7 @@ namespace Backend.Controllers
 
 
 
-        [HttpPost("Anunciar/")]
+        [HttpPost("Anunciar")]
         public ActionResult<Models.Response.AnuncioRoupasResponse.Anuncio> Anunciar([FromForm] Models.Request.AnuncioRoupasRequest.Anunciar anuncio)
         {
             try
@@ -107,7 +107,7 @@ namespace Backend.Controllers
         }
 
         
-        [HttpPost("test/")]
+        [HttpPost("test")]
         public ActionResult<Models.Response.AnuncioRoupasResponse.Anuncio> testando([FromForm] Models.Request.AnuncioRoupasRequest.test anuncio)
         {
             try
