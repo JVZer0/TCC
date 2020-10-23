@@ -104,7 +104,7 @@ namespace Backend.Controllers
             }
         }
 
-        
+        /*
         [HttpPost("test")]
         public ActionResult<Models.Response.AnuncioRoupasResponse.Anuncio> testando([FromForm] Models.Request.AnuncioRoupasRequest.test anuncio)
         {
@@ -117,7 +117,7 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(400, ex.Message));
             }
         }
-
+        */
 
 
 
@@ -141,7 +141,7 @@ namespace Backend.Controllers
             try
             {
                 businessAnuncio.DeletarAnuncio(IdAnuncio, IdUsuario);
-                return "Apagado com sucesso";
+                return "Anuncio apagado com sucesso";
             }
             catch (System.Exception ex)
             {

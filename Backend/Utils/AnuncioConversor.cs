@@ -176,6 +176,8 @@ namespace Backend.Utils
             }).ToList();
             return resp;
         }
+
+        /*
         public Models.TbAnuncio test(Models.Request.AnuncioRoupasRequest.test anuncio)
         {
             Models.TbAnuncio resp = new Models.TbAnuncio();
@@ -196,6 +198,8 @@ namespace Backend.Utils
             resp.DtPublicacao = DateTime.Now;
             return resp;
         }
+        */
+
         public Models.Response.AnuncioRoupasResponse.MeusAnuncios ConversorMeusAnunciosParaResponse(Models.TbAnuncio req)
         {
             Models.Response.AnuncioRoupasResponse.MeusAnuncios resp = new Models.Response.AnuncioRoupasResponse.MeusAnuncios();

@@ -45,15 +45,13 @@ namespace Backend.Business
         {
             if(nome == "semimagem.PNG")
             {
-                return ;
+                return;
             }
-            else{
-                string caminhoFoto = Path.Combine(AppContext.BaseDirectory, "Storage", "Fotos", nome);
+            string caminhoFoto = Path.Combine(AppContext.BaseDirectory, "Storage", "Fotos", nome);
 
-                using (FileStream fs = new FileStream(caminhoFoto, FileMode.Create))
-                {
-                    foto.CopyTo(fs);
-                }
+            using (FileStream fs = new FileStream(caminhoFoto, FileMode.Create))
+            {
+                foto.CopyTo(fs);
             }
         }
 
