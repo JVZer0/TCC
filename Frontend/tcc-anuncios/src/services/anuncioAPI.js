@@ -26,4 +26,13 @@ export default class anuncioAPI{
         console.log(resp);
         return resp;
     }
+
+    async recuperar(req){
+        const resp = await api.post('/Usuario/RecuperarSenha/', req)
+        return resp;
+    }
+
+    async consultarAnuncios(){
+        
+    }
 }

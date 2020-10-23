@@ -130,7 +130,7 @@ export default function MeuPerfil(props){
                     <div className='form-group row d-flex justify-content-between align-items-center'>
                         <label className='col-sm-2 col-form-label'>Senha: </label>
                         <div className='col-sm-8'>
-                            <input className="koko form-control" type="text" value={senha} onChange={(e) => setSenha(e.target.value)}></input>
+                            <input className="koko form-control" type="password" value={senha} onChange={(e) => setSenha(e.target.value)}></input>
                         </div>
                     </div>
 

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from "react-router-dom";
 
 import '../../components/Cabecalho/cabecalho.css'
 import '../Inicial/style.css'
@@ -7,7 +7,15 @@ import '../Senha/style.css'
 
 import Logo from '../../assets/image/Capturar.PNG';
 
-export default function Senha(){
+import anuncioAPI from '../../services/anuncioAPI';
+const api = new anuncioAPI();
+
+export default function Senha(props){
+
+    const [senha, setSenha] = useState(props.location.state);
+
+    console.log(senha)
+
     return(
         <div className="in">
             <div className="cabecalho">
@@ -19,7 +27,10 @@ export default function Senha(){
             </div>
 
             <div className="ini">
-                <label className="su">Sua senha é:</label>
+                <div>
+                    <label className="su">Sua senha é:&nbsp;</label>
+                    <b className="su">{senha}</b>
+                </div>
                 <button className="botox1">Fazer login</button>
             </div>
         </div>
