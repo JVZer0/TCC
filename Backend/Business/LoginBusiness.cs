@@ -22,6 +22,10 @@ namespace Backend.Business
         public Models.TbLogin Cadastrar(Models.TbLogin request, string ConfirmarSenha)
         {
             validadores.Cadastrar(request, ConfirmarSenha);
+            int cep = Convert.ToInt32(request.TbUsuario.FirstOrDefault().DsCep.Replace("-",""));
+            long cpf = Convert.ToInt64(request.TbUsuario.FirstOrDefault().DsCpf.Replace(".","").Replace("/","").Replace("-",""));
+            int celular = Convert.ToInt32(request.TbUsuario.FirstOrDefault().DsCelular.Replace("(","").Replace(")","").Replace(" ","").Replace("-",""));
+            if(request.TbUsuario.FirstOrDefault().DtNascimento >= DateTime.Now) throw new ArgumentException("Data de nascimento errada."); 
             return databaseLogin.Cadastrar(request);
         }
     }
