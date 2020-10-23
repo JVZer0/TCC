@@ -26,7 +26,9 @@ namespace Backend.Business
         public Models.TbUsuario RecuperarSenha(string CPF, string RG)
         {
             
-            return databaseUsuario.RecuperarSenha(CPF,RG);
+            Models.TbUsuario resp = databaseUsuario.RecuperarSenha(CPF,RG);
+            if(resp == null) throw new ArgumentException("Verifique os campos de CPF e RG");
+            return resp;
         }
     }
 }
