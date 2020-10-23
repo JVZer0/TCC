@@ -6,6 +6,7 @@ import '../../components/Cabecalho/cabecalho.css'
 import '../Anuncio/style.css'
 
 import Logo from '../../assets/image/Capturar.PNG'
+import Favoritar from '../../assets/image/favoritar.png'
 
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -59,9 +60,12 @@ export default function Anuncio(props){
 
                 <div className="ehe">
                     <div className="uhu">
-                        <h3>Titulo:</h3>
-                        <h5>Preço:</h5>
-                        <h5>Descrição:</h5>
+                        <div className="kkkk">
+                            <h3>Titulo:</h3>
+                            <h5>Preço:</h5>
+                            <h5>Descrição:</h5>
+                        </div>
+                        <button className="ain"><img class="imag" src={Favoritar} alt=''></img></button>
                     </div>
 
                     <h5 className="ihi">Informações do anunciante</h5>
@@ -78,9 +82,11 @@ export default function Anuncio(props){
 
             <div className="perguntas">
                 <div className="hum">
-                    <label className="an">Dúvida:</label>
-                    <input className="caixa" type="text"></input>
-                    <button className="de">Perguntar</button>
+                    <div>
+                        <label className="an">Dúvida:</label>
+                        <input className="caixa" type="text"></input>
+                        <button className="de">Perguntar</button>
+                    </div>
                 </div>
 
                 <h3 className="vaiamerda">Perguntas</h3>
