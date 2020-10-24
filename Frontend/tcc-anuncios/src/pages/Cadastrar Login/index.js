@@ -123,12 +123,12 @@ export default function CadastrarLogin(){
                 </div>
 
                 <div className="a">
-                    <label  className="b1">CPF</label>
+                    <label  className="b1">CPF(Somente o número)</label>
                     <input className="koko" type="text" value={cpf} onChange={e => setCpf(e.target.value)} placeholder="CPF"></input>
                 </div>
 
                 <div className="a">
-                    <label  className="b1">RG</label>
+                    <label  className="b1">RG(Somente o número)</label>
                     <input className="koko" type="text" value={rg} onChange={e => setRg(e.target.value)} placeholder="RG"></input>
                 </div>
 

@@ -55,7 +55,7 @@ export default function Home(props){
                 </div> 
                 <div className="barraPesquisa">
                     <input className="koko2 form-control" type="text" placeholder="Pesquisa" value={barraPesquisa} onChange={(e) => setBarraPesquisa(e.target.value)}></input>
-                    <button onClick={consultarAnuncios}>Consultar</button>
+                    <button className="botao1" onClick={consultarAnuncios}>Consultar</button>
                 </div>
                 <div className="meio"> 
                     <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
@@ -69,39 +69,40 @@ export default function Home(props){
 
 
             <div className="pedroga">
+               
                 <div className="pedrin">
 
                     <div className="pedrox">
                         <label className="matiolas">Estado:</label>
                         <select className="keliki1 form-control" onChange={(e) => setEstado(e.target.value)}>
                             <option value="">Estado</option>
-                            <option value="Acre">Acre</option>
-                            <option value="Alagoas">Alagoas</option>
-                            <option value="Amapá">Amapá</option>
-                            <option value="Amazonas">Amazonas</option>
-                            <option value="Bahia">Bahia</option>
-                            <option value="Ceará">Ceará</option>
-                            <option value="Distrito Federal">Distrito Federal</option>
-                            <option value="Espírito Santo">Espírito Santo</option>
-                            <option value="Goiás">Goiás</option>
-                            <option value="Maranhão">Maranhão</option>
-                            <option value="Mato Grosso">Mato Grosso</option>
-                            <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
-                            <option value="Minas Gerais">Minas Gerais</option>
-                            <option value="Pará">Pará</option>
-                            <option value="Paraíba">Paraíba</option>
-                            <option value="Paraná">Paraná</option>
-                            <option value="Pernambuco">Pernambuco</option>
-                            <option value="Piauí">Piauí</option>
-                            <option value="Rio de Janeiro">Rio de Janeiro</option>
-                            <option value="Rio Grande do Norte">Rio Grande do Norte</option>
-                            <option value="Rio Grande do Sul">Rio Grande do Sul</option>
-                            <option value="Rondônia">Rondônia</option>
-                            <option value="Roraima">Roraima</option>
-                            <option value="Santa Catarina">Santa Catarina</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
                             <option value="SP">São Paulo</option>
-                            <option value="Sergipe">Sergipe</option>
-                            <option value="Tocantins">Tocantins</option>            
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>            
                         </select>
                     </div>
 
@@ -129,24 +130,25 @@ export default function Home(props){
                         </select>
                     </div>
                 </div>
-                {anuncios.map(x =>
-                    <div className="flow">
-                        <div className="quadradin"> 
-                            <div className="ima">
-                                <img src={x.imagens.map(y => api.consultarImagem(y.textoImagem))}></img>
-                            </div>
 
-                            <div className="alin">
-                                <h4>Titulo:{x.titulo}</h4>
-                                <h6>Preço:{x.preco}</h6>
-                                <h6>Marca:{x.marca}</h6>
-                                <h6>Tamanho:{x.tamanho}</h6>
-                                <h6>Condição:{x.condicao}</h6>
-                                <h6>Genero:{x.genero}</h6>
-                            </div>
-                        </div> 
-                    </div>
-                )}
+                    {anuncios.map(x =>
+                        <div className="flow">
+                            <div className="quadradin"> 
+                                <div className="ima">
+                                    <img src={x.imagens.map(y => api.consultarImagem(y.textoImagem))} width="200px" height="200px"></img>
+                                </div>
+
+                                <div className="alin">
+                                    <h5>Titulo:&nbsp;{x.titulo}</h5>
+                                    <h6>Preço:&nbsp;{x.preco}</h6>
+                                    <h6>Marca:&nbsp;{x.marca}</h6>
+                                    <h6>Tamanho:&nbsp;{x.tamanho}</h6>
+                                    <h6>Condição:&nbsp;{x.condicao}</h6>
+                                    <h6>Genero:&nbsp;{x.genero}</h6>
+                                </div>
+                            </div> 
+                        </div>
+                    )}
 
             </div>
             
