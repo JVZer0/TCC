@@ -22,7 +22,7 @@ namespace Backend.Business
             List<Models.TbAnuncio> anuncios = databaseAnuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Genero, Condicao);
             return anuncios;
         }
-        public Models.TbAnuncio ConsultadoAnuncioDetalhado(int IdAnuncio)
+        public Models.TbAnuncio ConsultadoAnuncioDetalhado(int? IdAnuncio)
         {
             validadores.ValidarId(IdAnuncio);
             Models.TbAnuncio resp = databaseAnuncio.ConsultarAnuncioDetalhado(IdAnuncio);

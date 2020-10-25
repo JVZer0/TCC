@@ -10,6 +10,7 @@ namespace Backend.Business
     public class ImagemBusiness
     {
         Database.ImagemDatabase databaseImagem = new Database.ImagemDatabase();
+        Business.AnuncioBusiness businessAnuncio = new Business.AnuncioBusiness();
         Validadores validadores = new Validadores();
         public Models.TbImagem ApagarImagem(int IdImagem, int IdAnuncio)
         {
@@ -21,6 +22,8 @@ namespace Backend.Business
         }
         public Models.TbImagem InserirImagem(Models.TbImagem req)
         {
+            Models.TbAnuncio val = businessAnuncio.ConsultadoAnuncioDetalhado(req.IdAnuncio);
+            if(val.TbImagem.Count() >= 10) throw new ArgumentException("Você só pode inserir 10 imagens por anuncio.");
             return databaseImagem.InserirImagem(req);
         }
         
