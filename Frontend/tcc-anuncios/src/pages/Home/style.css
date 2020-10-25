@@ -39,7 +39,7 @@
     flex-direction: column;
     border-right: 1px solid rgba(0, 0, 0, 0.151);
     height: 100%;
-    width: 30%;
+    max-width: 30%;
 }
 
 .keliki1, .keliki2, .keliki3, .keliki4{
