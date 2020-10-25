@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import '../../components/Cabecalho/cabecalho.css'
-import '../Anuncio/style.css'
+import '../../components/Cabecalho/cabecalho.css';
+import '../Anuncio/style.css';
 
 import Logo from '../../assets/image/Capturar.PNG';
 import CoracaoBranco from '../../assets/image/imagemCoracaoBranco.png';
 import CoracaoPreto from '../../assets/image/imagemCoracaoPreto.png';
 
-import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import anuncioAPI from '../../services/anuncioAPI';
+const api = new anuncioAPI();
 
 
 export default function Anuncio(props){
@@ -18,7 +18,46 @@ export default function Anuncio(props){
 
     const [anuncio, setAnuncio] = useState(props.location.state);
 
-    const [favorito, setFavorito] = useState(true);
+    const consultarAnuncioDetalhado = async () => {
+        try{
+            const resp = await api.consultarAnuncioDetalhado(infos.idAnuncio);
+            console.log(resp)
+            setTitulo(resp.data.titulo);
+            setDescricao(resp.data.descricao);
+            setProduto(resp.data.tipoDoProduto);
+            setCondicao(resp.data.condicao);
+            setGenero(resp.data.genero);
+            setMarca(resp.data.marca);
+            setTamanho(resp.data.tamanho);
+            setPreco(resp.data.preco);
+            setEstado(resp.data.estado);
+            setCidade(resp.data.cidade);
+            setCelular(resp.data.celular);
+            setEmail(resp.data.email)
+        }
+        catch (e) {
+            console.log(e.response)
+        }
+    }
+
+    useEffect(() => {
+        consultarAnuncioDetalhado();
+      }, []);
+
+    const [titulo, setTitulo] = useState();
+    const [descricao, setDescricao] = useState();
+    const [produto, setProduto] = useState();
+    const [condicao, setCondicao] = useState();
+    const [genero, setGenero] = useState();
+    const [marca, setMarca] = useState();
+    const [tamanho, setTamanho] = useState();
+    const [preco, setPreco] = useState();
+    const [estado, setEstado] = useState();
+    const [cidade, setCidade] = useState();
+    const [celular, setCelular] = useState();
+    const [email, setEmail] = useState();
+
+    const [favorito, setFavorito] = useState(false);
 
     return(
         <div>
@@ -55,20 +94,20 @@ export default function Anuncio(props){
                     </div>
 
                     <div className="lin">
-                            <h6>Marca:</h6>
-                            <h6>Tamanho:</h6>
-                            <h6>Gênero:</h6>
-                            <h6>Condição:</h6>
-                            <h6>Tipo de produto:</h6>
+                            <h6>Marca: {marca}</h6>
+                            <h6>Tamanho: {tamanho}</h6>
+                            <h6>Gênero: {genero}</h6>
+                            <h6>Condição: {condicao}</h6>
+                            <h6>Tipo de produto: {produto}</h6>
                     </div>
                 </div>
 
                 <div className="ehe">
                     <div className="uhu">
                         <div className="kkkk">
-                            <h3>Titulo:</h3>
-                            <h5>Preço:</h5>
-                            <h5>Descrição:</h5>
+                            <h3>Titulo: {titulo}</h3>
+                            <h5>Preço: {preco}</h5>
+                            <h5>Descrição: {descricao}</h5>
                         </div>
                         <div className="uin">
                             {
@@ -80,10 +119,11 @@ export default function Anuncio(props){
 
                     <h5 className="ihi">Informações do anunciante</h5>
 
-                    <div className="oho">
-                        <h6>Celular:</h6>
-                        <h6>Email:</h6>
-                        <h6>Cidade:</h6>
+                    <div className="oho">             
+                        <h6>Celular: {celular}</h6>
+                        <h6>Email: {email}</h6>
+                        <h6>Estado: {estado}</h6>
+                        <h6>Cidade: {cidade}</h6>
                     </div>
                 </div>
             </div>

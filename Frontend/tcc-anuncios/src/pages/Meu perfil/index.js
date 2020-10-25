@@ -23,7 +23,7 @@ export default function MeuPerfil(props){
 
     const alterarInfosUser = async () => {
         try {
-            const modelo = await api.alterarInfosUsuario({
+                const modelo = await api.alterarInfosUsuario({
                 IdUsuario: infos.idUsuario,
                 Username: username,
                 Senha: senha,

@@ -105,14 +105,9 @@
 .flow{
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
-    max-width: 55%;
-}
-
-.fan{
-    display: flex;
-    flex-direction: row;
+    margin-top: 37px;
+    width: 100vw;
 }
 
 .quadradin{

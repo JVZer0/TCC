@@ -28,16 +28,22 @@ export default class anuncioAPI{
     }
 
     async recuperar(req){
-        const resp = await api.post('/Usuario/RecuperarSenha/', req)
+        const resp = await api.post('/Usuario/RecuperarSenha/', req);
         return resp;
     }
 
     async consultarAnuncios(BarraPesquisa, Estado, Cidade, Genero, Condicao){
-        const resp = await api.get(`/Anuncio/${BarraPesquisa}/${Estado}/${Cidade}/${Genero}/${Condicao}`)
+        const resp = await api.get(`/Anuncio/${BarraPesquisa}/${Estado}/${Cidade}/${Genero}/${Condicao}`);
         return resp.data;
     }
+
     consultarImagem(imagem) {
         const urlFoto = api.defaults.baseURL + "/Imagem/" + imagem;
         return urlFoto;
-      }
+    }
+
+    async consultarAnuncioDetalhado(idAnuncio){
+        const resp = await api.get(`/Anuncio/AnuncioDetalhado/${idAnuncio}`);
+        return resp;
+    }
 }

@@ -31,7 +31,7 @@ export default function Senha(props){
                     <label className="su">Sua senha é:&nbsp;</label>
                     <b className="su">{senha}</b>
                 </div>
-                <button className="botox1">Fazer login</button>
+                <Link to="/Login"><button className="botox1">Fazer login</button></Link>
             </div>
         </div>
     )

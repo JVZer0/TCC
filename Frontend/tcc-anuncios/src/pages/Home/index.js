@@ -134,9 +134,11 @@ export default function Home(props){
                     {anuncios.map(x =>
                         <div className="flow">
                             <div className="quadradin"> 
+                                <Link to="/Anuncio">
                                 <div className="ima">
                                     <img src={x.imagens.map(y => api.consultarImagem(y.textoImagem))} width="200px" height="200px"></img>
                                 </div>
+                                </Link>
 
                                 <div className="alin">
                                     <h5>Titulo:&nbsp;{x.titulo}</h5>
@@ -152,11 +154,7 @@ export default function Home(props){
 
             </div>
             
-            <div className="rodape">
-                <div className="tey">
-                    <h4>Site criado pelo time TK Soluções de Informática. Todos os direitos reservados</h4>
-                </div>
-            </div>
+            
         </div>
     )
 }
