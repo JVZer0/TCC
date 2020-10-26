@@ -48,22 +48,8 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(404, ex.Message));
             }
         }
-        [HttpGet("LerImagem")]
-        public ActionResult BuscarImagem(Models.Request.AnuncioRoupasRequest.ConsultarImagem i)
-        {
-            try 
-            {
-                byte[] imagem = gerenciadorImagem.LerImagem(i.TextoImagem);
-                string contentType = gerenciadorImagem.GerarContentType(i.TextoImagem);
-                return File(imagem, contentType);
-            }
-            catch (System.Exception ex)
-            {
-                return NotFound(new Models.Response.Erro(404, ex.Message));
-            }
-        }
-        [HttpGet("BuscarImagem")]
-        public ActionResult BuscarImagemTest(string nome)
+        [HttpGet("BuscarImagem/{nome}")]
+        public ActionResult BuscarImagem(string nome)
         {
             try 
             {

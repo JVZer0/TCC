@@ -135,8 +135,7 @@ export default function Home(props){
                             <div className="quadradin"> 
                                 <Link to={{ pathname: "/Anuncio", state: x}}>
                                     <div className="ima">
-                                        {console.log(x.imagens[0].textoImagem)}
-                                        <img src={api.consultarImagem(x.imagens[0])} width="200px" height="200px"></img>
+                                        <img src={api.consultarImagem(x.imagens[0].textoImagem)} width="200px" height="200px"></img>
                                     </div>
                                 </Link>
 

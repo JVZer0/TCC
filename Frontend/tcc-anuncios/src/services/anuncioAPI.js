@@ -1,6 +1,6 @@
 import axios from 'axios';
 const api = axios.create({
-    baseURL: "http://3.84.250.220:5000"
+    baseURL: "http://localhost:5000"
   });
 
 
@@ -38,12 +38,12 @@ export default class anuncioAPI{
     }
 
     consultarImagem(imagem) {
-        const urlFoto = api.defaults.baseURL + "/Imagem/LerImagem" + imagem;
-        return urlFoto;
+        const modeloImagem = api.defaults.baseURL + "/Imagem/BuscarImagem/" + imagem;
+        return modeloImagem;
     }
 
     async consultarAnuncioDetalhado(idAnuncio){
         const resp = await api.get(`/Anuncio/AnuncioDetalhado/${idAnuncio}`);
-        return resp;
+        return resp.data;
     }
 }
