@@ -134,14 +134,18 @@ export default function Home(props){
                     {anuncios.map(x =>
                         <div className="flow">
                             <div className="quadradin"> 
-                                <Link to="/Anuncio">
-                                <div className="ima">
-                                    <img src={x.imagens.map(y => api.consultarImagem(y.textoImagem))} width="200px" height="200px"></img>
-                                </div>
+                                <Link to={{ pathname: "/Anuncio", state: x}}>
+                                    <div className="ima">
+                                        <img src={x.imagens.map(y => api.consultarImagem(y.textoImagem))} width="200px" height="200px"></img>
+                                    </div>
                                 </Link>
 
                                 <div className="alin">
-                                    <h5>Titulo:&nbsp;{x.titulo}</h5>
+                                    <h5>
+                                        <Link to={{ pathname: "/Anuncio", state: {x,infos}}}>
+                                            Titulo:&nbsp;{x.titulo}
+                                        </Link>
+                                    </h5>
                                     <h6>Preço:&nbsp;{x.preco}</h6>
                                     <h6>Marca:&nbsp;{x.marca}</h6>
                                     <h6>Tamanho:&nbsp;{x.tamanho}</h6>

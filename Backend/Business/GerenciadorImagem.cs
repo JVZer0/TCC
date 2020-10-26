@@ -29,19 +29,19 @@ namespace Backend.Business
             }
             return resp;
         }
-        public string GerarNovoNome(IFormFile f)
+        public string GerarNovoNome(IFormFile i)
         {
-            if(f == null){
+            if(i == null){
                 return "semimagem.PNG";
             }
             else{
                 string novoNome = Guid.NewGuid().ToString();
-                novoNome = novoNome + Path.GetExtension(f.FileName);
+                novoNome = novoNome + Path.GetExtension(i.FileName);
                 return novoNome;
             }
         }
 
-        public void SalvarFoto(string nome, IFormFile foto)
+        public void SalvarImagem(string nome, IFormFile imagem)
         {
             if(nome == "semimagem.PNG")
             {
@@ -51,11 +51,11 @@ namespace Backend.Business
 
             using (FileStream fs = new FileStream(caminhoFoto, FileMode.Create))
             {
-                foto.CopyTo(fs);
+                imagem.CopyTo(fs);
             }
         }
 
-        public byte[] LerFoto(string nome)
+        public byte[] LerImagem(string nome)
         {
             string caminhoFoto = Path.Combine(AppContext.BaseDirectory, "Storage", "Fotos", nome);
             byte[] foto = File.ReadAllBytes(caminhoFoto);
@@ -68,6 +68,11 @@ namespace Backend.Business
             string extensao = System.IO.Path.GetExtension(nome).Replace(".", "");
             string contentType = "application/" + extensao;
             return contentType;
+        }
+        public void DeletarImagem(string nome)
+        {
+            string caminhoFoto = Path.Combine(AppContext.BaseDirectory, "Storage", "Fotos", nome);
+            File.Delete(caminhoFoto);
         }
     }
 }

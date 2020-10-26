@@ -14,13 +14,13 @@ const api = new anuncioAPI();
 
 
 export default function Anuncio(props){
-    const [infos, setInfos] = useState(props.location.state);
 
-    const [anuncio, setAnuncio] = useState(props.location.state);
+    console.log(props.location.state);
+    const [infos, setInfos] = useState(props.location.state);
 
     const consultarAnuncioDetalhado = async () => {
         try{
-            const resp = await api.consultarAnuncioDetalhado(infos.idAnuncio);
+            const resp = await api.consultarAnuncioDetalhado(infos.x.idAnuncio);
             console.log(resp)
             setTitulo(resp.data.titulo);
             setDescricao(resp.data.descricao);
@@ -63,7 +63,7 @@ export default function Anuncio(props){
         <div>
             <div className="cabecalho">
                 <div>
-                    <Link className="hihi" to="/" ><img class="logo" src={Logo} width="150" height="27px" alt=''/></Link>
+                    <Link className="hihi" to="/Home" ><img class="logo" src={Logo} width="150" height="27px" alt=''/></Link>
                 </div> 
                 <div className="barraPesquisa">
                     <input className="koko2 form-control" type="text" placeholder="Pesquisa"></input>

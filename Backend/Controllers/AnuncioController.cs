@@ -14,21 +14,7 @@ namespace Backend.Controllers
         Business.AnuncioBusiness businessAnuncio = new Business.AnuncioBusiness();
         Utils.AnuncioConversor conversorAnuncio = new Utils.AnuncioConversor();
         Business.GerenciadorImagem gerenciadorImagem = new Business.GerenciadorImagem();
-        [HttpGet("foto/{nome}")]
-        public ActionResult BuscarFoto(string nome)
-        {
-            try 
-            {
-                byte[] foto = gerenciadorImagem.LerFoto(nome);
-                string contentType = gerenciadorImagem.GerarContentType(nome);
-                return File(foto, contentType);
-            }
-            catch (System.Exception ex)
-            {
-                return BadRequest(new Models.Response.Erro(404, ex.Message));
-            }
 
-        }
         [HttpGet("{BarraPesquisa}/{Estado}/{Cidade}/{Genero}/{Condicao}")]
         public ActionResult<List<Models.Response.AnuncioRoupasResponse.Anuncio>> ConsultarAnuncios(string BarraPesquisa, string Estado, string Cidade, string Genero, string Condicao)
         {

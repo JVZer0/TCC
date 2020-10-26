@@ -20,6 +20,10 @@ namespace Backend.Controllers
             try
             {
                 Models.TbImagem resp = businessImagem.ApagarImagem(IdImagem, IdAnuncio);
+                if(resp.ImgAnuncio != "semimagem.PNG")
+                {
+                    gerenciadorImagem.DeletarImagem(resp.ImgAnuncio);
+                }
                 return conversorImagem.ConverterImagemParaResponse(resp);
             }
             catch (System.Exception ex)
@@ -36,7 +40,7 @@ namespace Backend.Controllers
                 resp.IdAnuncio = IdAnuncio;
                 resp.ImgAnuncio = gerenciadorImagem.GerarNovoNome(imagem.Foto);
                 businessImagem.InserirImagem(resp);
-                gerenciadorImagem.SalvarFoto(resp.ImgAnuncio, imagem.Foto);
+                gerenciadorImagem.SalvarImagem(resp.ImgAnuncio, imagem.Foto);
                 return conversorImagem.ConverterImagemParaResponse(resp);
             }
             catch (System.Exception ex)
@@ -45,11 +49,25 @@ namespace Backend.Controllers
             }
         }
         [HttpGet("{nome}")]
-        public ActionResult BuscarFoto(string nome)
+        public ActionResult BuscarImagem(string nome)
         {
             try 
             {
-                byte[] imagem = gerenciadorImagem.LerFoto(nome);
+                byte[] imagem = gerenciadorImagem.LerImagem(nome);
+                string contentType = gerenciadorImagem.GerarContentType(nome);
+                return File(imagem, contentType);
+            }
+            catch (System.Exception ex)
+            {
+                return NotFound(new Models.Response.Erro(404, ex.Message));
+            }
+        }
+        [HttpGet("BuscarImagem")]
+        public ActionResult BuscarImagemTest(string nome)
+        {
+            try 
+            {
+                byte[] imagem = gerenciadorImagem.LerImagem(nome);
                 string contentType = gerenciadorImagem.GerarContentType(nome);
                 return File(imagem, contentType);
             }
