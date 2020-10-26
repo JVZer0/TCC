@@ -36,7 +36,6 @@ export default function Home(props){
             if(condicao == "") {cond = "Condicao"} else {cond = condicao};
             const resp = await api.consultarAnuncios(barra,e,ci,g,cond);
             setAnuncios(resp);
-            console.log(anuncios) 
         }
         catch (e) {
         }
@@ -129,7 +128,6 @@ export default function Home(props){
                         </select>
                     </div>
                 </div>
-
                     {anuncios.map(x =>
                         <div className="flow">
                             <div className="quadradin"> 

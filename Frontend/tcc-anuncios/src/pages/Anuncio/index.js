@@ -14,10 +14,12 @@ const api = new anuncioAPI();
 
 
 export default function Anuncio(props){
+    const navegacao = useHistory();
 
     const [infos, setInfos] = useState(props.location.state);
     const [anuncioDetalhado, setAnuncioDetalhado] = useState(props.location.state);
     const [imagem1, setImagens1] = useState();
+    const [barraPesquisa, setBarraPesquisa] = useState('');
 
     const consultarAnuncioDetalhado = async () => {
         try{
@@ -41,8 +43,8 @@ export default function Anuncio(props){
                 <div>
                     <Link className="hihi" to={{pathname:"/Home", state: infos.infos}} ><img class="logo" src={Logo} width="150" height="27px" alt=''/></Link>
                 </div> 
-                <div className="barraPesquisa">
-                    <input className="koko2 form-control" type="text" placeholder="Pesquisa"></input>
+                <div className="barraPesquisa hihi">
+                    <Link to={{pathname:"/Home"}}>Fazer novas consultas</Link>
                 </div>
                 <div className="meio"> 
                     <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos.infos }}>Meu perfil</Link>
@@ -56,26 +58,26 @@ export default function Anuncio(props){
                 <div className="patota">
                 
                     <div className="patota1">
-                            <div className="aha">
-                                <div className="linin">
-                                    <img src={api.consultarImagem(imagem1)} width='100%' height='100%' alt=''></img>
-                                </div>
-                                <div className="linin1">
-                                    <div className="linin2"></div>
-                                    <div className="linin2"></div>
-                                    <div className="linin2"></div>
-                                    <div className="linin2"></div>
-                                    <div className="linin2"></div>
-                                    <div className="linin2"></div>
-                                </div>
+                        <div className="aha">
+                            <div className="linin">
+                                <img src={api.consultarImagem(imagem1)} width='100%' height='100%' alt=''></img>
                             </div>
+                            <div className="linin1">
+                                <div className="linin2"></div>
+                                <div className="linin2"></div>
+                                <div className="linin2"></div>
+                                <div className="linin2"></div>
+                                <div className="linin2"></div>
+                                <div className="linin2"></div>
+                            </div>
+                        </div>
 
                         <div className="lin">
-                                <h6>Marca: {anuncioDetalhado.marca}</h6>
-                                <h6>Tamanho: {anuncioDetalhado.tamanho}</h6>
-                                <h6>Gênero: {anuncioDetalhado.genero}</h6>
-                                <h6>Condição: {anuncioDetalhado.condicao}</h6>
-                                <h6>Tipo de produto: {anuncioDetalhado.produto}</h6>
+                            <h6>Marca: {anuncioDetalhado.marca}</h6>
+                            <h6>Tamanho: {anuncioDetalhado.tamanho}</h6>
+                            <h6>Gênero: {anuncioDetalhado.genero}</h6>
+                            <h6>Condição: {anuncioDetalhado.condicao}</h6>
+                            <h6>Tipo de produto: {anuncioDetalhado.produto}</h6>
                         </div>
                     </div>
 

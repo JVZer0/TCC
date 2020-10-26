@@ -1,8 +1,9 @@
 .patota{
     display: flex;
     flex-direction: row;
-    width: 100%;
+    max-width: 100vw;
     height: 90vh;
+    padding-right: 2cm;
 }
 
 .patota1{
@@ -135,4 +136,11 @@
 .him{
     font-size: 20px;
     margin-left: 172px;
+}
+
+.hihi a{
+    color: white;
+    text-decoration: white;
+    text-transform: none;
+    background-color: transparent;
 }
