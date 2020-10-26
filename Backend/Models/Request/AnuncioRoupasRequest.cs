@@ -91,5 +91,11 @@ namespace Backend.Models.Request
         {
             public IFormFile Foto { get; set; }
         }
+        public class ConsultarImagem
+        {
+            public int IdImagem { get; set; }
+            public int? IdDoAnuncio { get; set; }
+            public string TextoImagem { get; set; }
+        }
     }
 }

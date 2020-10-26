@@ -38,7 +38,7 @@ export default class anuncioAPI{
     }
 
     consultarImagem(imagem) {
-        const urlFoto = api.defaults.baseURL + "/Imagem/" + imagem;
+        const urlFoto = api.defaults.baseURL + "/Imagem/LerImagem" + imagem;
         return urlFoto;
     }
 

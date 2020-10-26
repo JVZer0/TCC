@@ -36,10 +36,9 @@ export default function Home(props){
             if(condicao == "") {cond = "Condicao"} else {cond = condicao};
             const resp = await api.consultarAnuncios(barra,e,ci,g,cond);
             setAnuncios(resp);
-            console.log(anuncios)
+            console.log(anuncios) 
         }
         catch (e) {
-            toast.error(e.response.data.mensagem)
         }
     }
 
@@ -136,7 +135,8 @@ export default function Home(props){
                             <div className="quadradin"> 
                                 <Link to={{ pathname: "/Anuncio", state: x}}>
                                     <div className="ima">
-                                        <img src={x.imagens.map(y => api.consultarImagem(y.textoImagem))} width="200px" height="200px"></img>
+                                        {console.log(x.imagens[0].textoImagem)}
+                                        <img src={api.consultarImagem(x.imagens[0])} width="200px" height="200px"></img>
                                     </div>
                                 </Link>
 
