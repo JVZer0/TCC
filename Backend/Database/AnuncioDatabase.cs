@@ -72,5 +72,13 @@ namespace Backend.Database
             ctx.Remove(deletar);
             ctx.SaveChanges();
         }
+        public Models.TbAnuncio InativarAnuncio (Models.TbAnuncio Anuncios)
+        {
+            Models.TbAnuncio UserAnuncio = ctx.TbAnuncio.First(x => x.IdAnuncio == Anuncios.IdAnuncio);
+            UserAnuncio.DsSituacao = Anuncios.DsSituacao;
+
+            ctx.SaveChanges();
+            return UserAnuncio;
+        }
     }
 }

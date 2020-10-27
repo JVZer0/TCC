@@ -221,6 +221,12 @@ namespace Backend.Utils
             }
             return resp;
         }
-        
+        public Models.TbAnuncio ConversorMeusAnunciosParaRequest (Models.Request.AnuncioRoupasRequest.MeusAnuncios req)
+        {
+            Models.TbAnuncio anuncios = new Models.TbAnuncio();
+            anuncios.IdAnuncio = req.IdAnuncio;
+            anuncios.DsSituacao = req.Situacao;
+            return anuncios;
+        }
     }
 }

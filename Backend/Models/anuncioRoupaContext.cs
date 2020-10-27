@@ -14,7 +14,7 @@ namespace Backend.Models
             : base(options)
         {
         }
-
+        
         public virtual DbSet<TbAnuncio> TbAnuncio { get; set; }
         public virtual DbSet<TbFavorito> TbFavorito { get; set; }
         public virtual DbSet<TbImagem> TbImagem { get; set; }

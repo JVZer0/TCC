@@ -90,7 +90,10 @@ namespace Backend.Business
             ValidarTexto(anuncio.DsGenero);
             ValidarTexto(anuncio.NmMarca);
         }
-
+        public void InativarAnuncio(Models.TbAnuncio Anuncios)
+        {
+            ValidarTexto(Anuncios.DsSituacao);
+        }
 
         public void ValidarData(DateTime? data)
         {
