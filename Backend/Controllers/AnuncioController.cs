@@ -69,11 +69,6 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(400, ex.Message));
             }
         }
-
-
-
-
-
         [HttpPost("Anunciar")]
         public ActionResult<Models.Response.AnuncioRoupasResponse.Anuncio> Anunciar([FromForm] Models.Request.AnuncioRoupasRequest.Anunciar anuncio)
         {
@@ -90,25 +85,6 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(400, ex.Message));
             }
         }
-
-        /*
-        [HttpPost("test")]
-        public ActionResult<Models.Response.AnuncioRoupasResponse.Anuncio> testando([FromForm] Models.Request.AnuncioRoupasRequest.test anuncio)
-        {
-            try
-            {
-                return null;
-            }
-            catch (System.Exception ex)
-            {
-                return BadRequest(new Models.Response.Erro(400, ex.Message));
-            }
-        }
-        */
-
-
-
-
         [HttpGet("MeusAnuncios/{IdUsuario}")]
         public ActionResult<List<Models.Response.AnuncioRoupasResponse.MeusAnuncios>> ConsultarMeusAnuncios(int IdUsuario)
         {
@@ -136,7 +112,7 @@ namespace Backend.Controllers
             }
         } 
         [HttpPut("InativarAnuncio/{IdAnuncio}")]
-        public ActionResult<Models.Response.AnuncioRoupasResponse.MeusAnuncios> InativarAnuncio (int IdAnuncio)
+        public ActionResult<Models.Response.AnuncioRoupasResponse.MeusAnuncios> InativarAnuncio(int IdAnuncio)
         {
             try
             {
@@ -149,7 +125,7 @@ namespace Backend.Controllers
             }
         } 
         [HttpPut("AnuncioVendido/{IdAnuncio}")]
-        public ActionResult<Models.Response.AnuncioRoupasResponse.AnuncioVendido> AnuncioVendido (int IdAnuncio)
+        public ActionResult<Models.Response.AnuncioRoupasResponse.AnuncioVendido> AnuncioVendido(int IdAnuncio)
         {
             try
             {
@@ -160,6 +136,20 @@ namespace Backend.Controllers
             {
                 return NotFound(new Models.Response.Erro(404, ex.Message));
             }
-        }  
+        }
+        [HttpPut("AlterarAnuncio")]
+        public ActionResult<Models.Response.AnuncioRoupasResponse.Anuncio> AlterarAnuncio(Models.Request.AnuncioRoupasRequest.AlterarAnuncio a)
+        {
+            try
+            {
+                Models.TbAnuncio NovoAnuncio = conversorAnuncio.AlterarAnuncioParaTabela(a);
+                Models.TbAnuncio resp = businessAnuncio.AlterarAnuncio(NovoAnuncio);
+                return conversorAnuncio.ConversorAnuncioResponse(resp);
+            }
+            catch (System.Exception ex)
+            {
+                return NotFound(new Models.Response.Erro(404, ex.Message));
+            }
+        }
     }
 }

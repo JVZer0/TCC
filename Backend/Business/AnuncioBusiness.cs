@@ -52,7 +52,7 @@ namespace Backend.Business
             validadores.ValidarId(IdUsuario);
             return databaseAnuncio.ConsultarMeusAnuncios(IdUsuario);
         }
-        public void DeletarAnuncio (int IdAnuncio, int IdUsuario)
+        public void DeletarAnuncio(int IdAnuncio, int IdUsuario)
         {
             validadores.ValidarId(IdAnuncio);
             validadores.ValidarId(IdUsuario);
@@ -60,15 +60,24 @@ namespace Backend.Business
             if(ValidarUsuario.IdUsuario != IdUsuario) throw new ArgumentException("Você não é o dono desse anuncio.");
             databaseAnuncio.DeletarAnuncio(IdAnuncio);
         }
-        public Models.TbAnuncio InativarAnuncio (int IdAnuncio)
+        public Models.TbAnuncio InativarAnuncio(int IdAnuncio)
         {
             validadores.ValidarId(IdAnuncio);
             return databaseAnuncio.InativarAnuncio(IdAnuncio);
         }
-        public Models.TbAnuncio AnuncioVendido (int IdAnuncio)
+        public Models.TbAnuncio AnuncioVendido(int IdAnuncio)
         {
             validadores.ValidarId(IdAnuncio);
             return databaseAnuncio.AnuncioVendido(IdAnuncio);
+        }
+        public Models.TbAnuncio AlterarAnuncio(Models.TbAnuncio NovoAnuncio)
+        {
+            validadores.ValidarAlterarAnuncio(NovoAnuncio);
+            Models.TbAnuncio resp = databaseAnuncio.ConsultarAnuncioDetalhado(NovoAnuncio.IdAnuncio);
+            if(resp == null) throw new ArgumentException("Você não é o dono desse anuncio.");
+            if(resp.IdUsuario != NovoAnuncio.IdUsuario)throw new ArgumentException("Você não é o dono desse anuncio.");
+            resp = databaseAnuncio.AlterarAnuncio(NovoAnuncio);
+            return resp;
         }
     }
 }

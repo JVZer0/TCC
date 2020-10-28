@@ -11,6 +11,7 @@ namespace Backend.Business
     {
         Database.ImagemDatabase databaseImagem = new Database.ImagemDatabase();
         Business.AnuncioBusiness businessAnuncio = new Business.AnuncioBusiness();
+        Business.GerenciadorImagem gerenciadorImagem = new Business.GerenciadorImagem();
         Validadores validadores = new Validadores();
         public Models.TbImagem ApagarImagem(int IdImagem, int IdAnuncio)
         {
@@ -18,6 +19,14 @@ namespace Backend.Business
             validadores.ValidarId(IdAnuncio);
             Models.TbImagem imagem = databaseImagem.ConsultarImagem(IdImagem, IdAnuncio);
             if(imagem == null) throw new ArgumentException("Imagem não encontrada, ou você não é o dono dessa imagem.");
+            Models.TbAnuncio anuncio = businessAnuncio.ConsultadoAnuncioDetalhado(IdAnuncio);
+            if(anuncio.TbImagem.Count() <= 1)
+            {
+                Models.TbImagem a = new Models.TbImagem();
+                a.ImgAnuncio = "semimagem.PNG";
+                a.IdAnuncio = IdAnuncio;
+                databaseImagem.InserirImagem(a);
+            }
             return databaseImagem.ApagarImagem(IdImagem, IdAnuncio);
         }
         public Models.TbImagem InserirImagem(Models.TbImagem req)

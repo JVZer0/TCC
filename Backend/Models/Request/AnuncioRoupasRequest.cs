@@ -87,15 +87,27 @@ namespace Backend.Models.Request
             public int IdUsuario { get; set; }
             public List<IFormFile> Imagens { get; set; }
         }
-        public class Imagem
-        {
-            public IFormFile Foto { get; set; }
-        }
         public class ConsultarImagem
         {
             public int IdImagem { get; set; }
             public int? IdDoAnuncio { get; set; }
             public string TextoImagem { get; set; }
+        }
+        public class AlterarAnuncio
+        {
+            public int IdAnuncio { get; set; }
+            public int IdUsuario { get; set; }
+            public string Titulo { get; set; }
+            public string Descricao { get; set; }
+            public string TipoDoProduto { get; set; }
+            public string Condicao { get; set; }
+            public string Genero { get; set; }
+            public string Marca { get; set; }
+            public string Tamanho { get; set; }
+            public decimal Preco { get; set; }
+            public string Estado { get; set; }
+            public string Cidade { get; set; }
+            public string CEP { get; set; }
         }
     }
 }

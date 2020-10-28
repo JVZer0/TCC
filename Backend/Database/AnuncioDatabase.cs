@@ -72,7 +72,7 @@ namespace Backend.Database
             ctx.Remove(deletar);
             ctx.SaveChanges();
         }
-        public Models.TbAnuncio InativarAnuncio (int IdAnuncio)
+        public Models.TbAnuncio InativarAnuncio(int IdAnuncio)
         {
             Models.TbAnuncio UserAnuncio = ctx.TbAnuncio.First(x => x.IdAnuncio == IdAnuncio);
             UserAnuncio.DsSituacao = "Inativo";
@@ -80,7 +80,7 @@ namespace Backend.Database
             ctx.SaveChanges();
             return UserAnuncio;
         }
-        public Models.TbAnuncio AnuncioVendido (int IdAnuncio)
+        public Models.TbAnuncio AnuncioVendido(int IdAnuncio)
         {
             Models.TbAnuncio UserAnuncio = ctx.TbAnuncio.First(x => x.IdAnuncio == IdAnuncio);
             UserAnuncio.BtVendido = true;
@@ -88,6 +88,27 @@ namespace Backend.Database
 
             ctx.SaveChanges();
             return UserAnuncio; 
+        }
+        public Models.TbAnuncio AlterarAnuncio(Models.TbAnuncio NovoAnuncio)
+        {
+            Models.TbAnuncio anuncio = ctx.TbAnuncio
+                                          .Include(x => x.TbImagem)
+                                          .First(x => x.IdAnuncio == NovoAnuncio.IdAnuncio && x.IdUsuario == NovoAnuncio.IdUsuario);
+            anuncio.BtVendido = NovoAnuncio.BtVendido;
+            anuncio.DsCep = NovoAnuncio.DsCep;
+            anuncio.DsCidade = NovoAnuncio.DsCidade;
+            anuncio.DsCondicao = NovoAnuncio.DsCondicao;
+            anuncio.DsDescricao = NovoAnuncio.DsDescricao;
+            anuncio.DsEstado = NovoAnuncio.DsEstado;
+            anuncio.DsGenero = NovoAnuncio.DsGenero;
+            anuncio.DsSituacao = NovoAnuncio.DsSituacao;
+            anuncio.DsTamanho = NovoAnuncio.DsTamanho;
+            anuncio.DsTitulo = NovoAnuncio.DsTitulo;
+            anuncio.NmMarca = NovoAnuncio.NmMarca;
+            anuncio.TpProduto = NovoAnuncio.TpProduto;
+            anuncio.VlPreco = NovoAnuncio.VlPreco;
+            ctx.SaveChanges();
+            return anuncio;
         }
     }
 }

@@ -94,6 +94,25 @@ namespace Backend.Business
         {
             ValidarTexto(Anuncios.DsSituacao);
         }
+        public void ValidarAlterarAnuncio(Models.TbAnuncio anuncio)
+        {
+            ValidarTexto(anuncio.DsTitulo);
+            ValidarData(anuncio.DtPublicacao);
+            ValidarId(anuncio.IdAnuncio);
+            ValidarId(anuncio.IdUsuario);
+            ValidarTexto(anuncio.TpProduto);
+            ValidarTexto(anuncio.DsCep);
+            ValidarTexto(anuncio.DsCidade);
+            ValidarTexto(anuncio.DsCondicao);
+            ValidarTexto(anuncio.DsEstado);
+            ValidarTexto(anuncio.DsTamanho);
+            ValidarTexto(anuncio.DsGenero);
+            ValidarTexto(anuncio.NmMarca);
+        }
+
+
+
+
 
         public void ValidarData(DateTime? data)
         {

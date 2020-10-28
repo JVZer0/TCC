@@ -177,29 +177,6 @@ namespace Backend.Utils
             return resp;
         }
 
-        /*
-        public Models.TbAnuncio test(Models.Request.AnuncioRoupasRequest.test anuncio)
-        {
-            Models.TbAnuncio resp = new Models.TbAnuncio();
-            resp.IdUsuario = anuncio.IdUsuario;
-            resp.NmMarca = anuncio.Marca;
-            resp.TpProduto = anuncio.TipoDoProduto;
-            resp.VlPreco = anuncio.Preco;
-            resp.BtVendido = false;
-            resp.DsCep = anuncio.CEP;
-            resp.DsCidade = anuncio.Cidade;
-            resp.DsCondicao = anuncio.Condicao;
-            resp.DsDescricao = anuncio.Descricao;
-            resp.DsEstado = anuncio.Estado;
-            resp.DsGenero = anuncio.Genero;
-            resp.DsSituacao = "Publicado";
-            resp.DsTamanho = anuncio.Tamanho;
-            resp.DsTitulo = anuncio.Titulo;
-            resp.DtPublicacao = DateTime.Now;
-            return resp;
-        }
-        */
-
         public Models.Response.AnuncioRoupasResponse.MeusAnuncios ConversorMeusAnunciosParaResponse(Models.TbAnuncio req)
         {
             Models.Response.AnuncioRoupasResponse.MeusAnuncios resp = new Models.Response.AnuncioRoupasResponse.MeusAnuncios();
@@ -232,6 +209,26 @@ namespace Backend.Utils
             resp.DataDePublicacao = req.DtPublicacao;
             resp.Vendido = req.BtVendido;
 
+            return resp;
+        }
+        public Models.TbAnuncio AlterarAnuncioParaTabela(Models.Request.AnuncioRoupasRequest.AlterarAnuncio anuncio)
+        {
+            Models.TbAnuncio resp = new Models.TbAnuncio();
+            resp.NmMarca = anuncio.Marca;
+            resp.TpProduto = anuncio.TipoDoProduto;
+            resp.VlPreco = anuncio.Preco;
+            resp.BtVendido = false;
+            resp.DsCep = anuncio.CEP;
+            resp.DsCidade = anuncio.Cidade;
+            resp.DsCondicao = anuncio.Condicao;
+            resp.DsDescricao = anuncio.Descricao;
+            resp.DsEstado = anuncio.Estado;
+            resp.DsGenero = anuncio.Genero;
+            resp.DsSituacao = "Publicado";
+            resp.DsTamanho = anuncio.Tamanho;
+            resp.DsTitulo = anuncio.Titulo;
+            resp.IdUsuario = anuncio.IdUsuario;
+            resp.IdAnuncio = anuncio.IdAnuncio;
             return resp;
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 
 namespace Backend.Controllers
 {
@@ -32,15 +33,15 @@ namespace Backend.Controllers
             }
         }
         [HttpPost("{IdAnuncio}")]
-        public ActionResult<Models.Response.AnuncioRoupasResponse.Imagem> AdicionarImagem([FromForm] Models.Request.AnuncioRoupasRequest.Imagem imagem, int IdAnuncio)
+        public ActionResult<Models.Response.AnuncioRoupasResponse.Imagem> AdicionarImagem([FromForm] IFormFile imagem, int IdAnuncio)
         {
             try
             {
                 Models.TbImagem resp = new Models.TbImagem();
                 resp.IdAnuncio = IdAnuncio;
-                resp.ImgAnuncio = gerenciadorImagem.GerarNovoNome(imagem.Foto);
+                resp.ImgAnuncio = gerenciadorImagem.GerarNovoNome(imagem);
                 businessImagem.InserirImagem(resp);
-                gerenciadorImagem.SalvarImagem(resp.ImgAnuncio, imagem.Foto);
+                gerenciadorImagem.SalvarImagem(resp.ImgAnuncio, imagem);
                 return conversorImagem.ConverterImagemParaResponse(resp);
             }
             catch (System.Exception ex)
