@@ -41,6 +41,25 @@ namespace Backend.Business
             }
         }
 
+        public void SalvarVariasImagens(List<IFormFile> req, List<Models.TbImagem> nomes)
+        {   
+            if(req == null)
+            {
+                foreach (Models.TbImagem item in nomes)
+                {
+                    SalvarImagem(item.ImgAnuncio,null);
+                }
+            }
+            else{
+                foreach (IFormFile imagem in req)
+                {
+                    foreach (Models.TbImagem item in nomes)
+                    {
+                        SalvarImagem(item.ImgAnuncio,imagem);
+                    }
+                }
+            };
+        }
         public void SalvarImagem(string nome, IFormFile imagem)
         {
             if(nome == "semimagem.PNG")

@@ -82,6 +82,7 @@ namespace Backend.Controllers
                 Models.TbAnuncio anu1 = conversorAnuncio.AnuncioParaTabela(anuncio);
                 anu1.TbImagem = gerenciadorImagem.GerarMuitosNomes(anuncio.Imagens);
                 Models.TbAnuncio resp = businessAnuncio.Anunciar(anu1);
+                gerenciadorImagem.SalvarVariasImagens(anuncio.Imagens,resp.TbImagem.ToList());
                 return conversorAnuncio.AnuncioParaResponse(resp);
             }
             catch (System.Exception ex)
