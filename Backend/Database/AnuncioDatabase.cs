@@ -72,10 +72,10 @@ namespace Backend.Database
             ctx.Remove(deletar);
             ctx.SaveChanges();
         }
-        public Models.TbAnuncio InativarAnuncio (Models.TbAnuncio Anuncios)
+        public Models.TbAnuncio InativarAnuncio (int IdAnuncio)
         {
-            Models.TbAnuncio UserAnuncio = ctx.TbAnuncio.First(x => x.IdAnuncio == Anuncios.IdAnuncio);
-            UserAnuncio.DsSituacao = Anuncios.DsSituacao;
+            Models.TbAnuncio UserAnuncio = ctx.TbAnuncio.First(x => x.IdAnuncio == IdAnuncio);
+            UserAnuncio.DsSituacao = "Inativo";
 
             ctx.SaveChanges();
             return UserAnuncio;

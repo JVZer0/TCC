@@ -134,13 +134,12 @@ namespace Backend.Controllers
                 return NotFound(new Models.Response.Erro(404, ex.Message));
             }
         } 
-        [HttpPut]
-        public ActionResult<Models.Response.AnuncioRoupasResponse.MeusAnuncios> InativarAnuncio (Models.Request.AnuncioRoupasRequest.MeusAnuncios req)
+        [HttpPut("InativarAnuncio/{IdAnuncio}")]
+        public ActionResult<Models.Response.AnuncioRoupasResponse.MeusAnuncios> InativarAnuncio (int IdAnuncio)
         {
             try
             {
-                Models.TbAnuncio Anuncio = conversorAnuncio.ConversorMeusAnunciosParaRequest(req);
-                Models.TbAnuncio resp = businessAnuncio.InativarAnuncio(Anuncio);
+                Models.TbAnuncio resp = businessAnuncio.InativarAnuncio(IdAnuncio);
                 return conversorAnuncio.ConversorMeusAnunciosParaResponse(resp);
             }
             catch (System.Exception ex)
