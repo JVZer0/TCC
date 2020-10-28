@@ -43,9 +43,11 @@ export default function Anuncio(props){
                 <div>
                     <Link className="hihi" to={{pathname:"/Home", state: infos.infos}} ><img class="logo" src={Logo} width="150" height="27px" alt=''/></Link>
                 </div> 
+
                 <div className="barraPesquisa hihi">
                     <Link to={{pathname:"/Home"}}>Fazer novas consultas</Link>
                 </div>
+                
                 <div className="meio"> 
                     <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos.infos }}>Meu perfil</Link>
                     <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infos.infos }}>Meus Anuncios</Link>
@@ -91,7 +93,7 @@ export default function Anuncio(props){
                             <div className="uin">
                                 {
                                     favorito == true ? <div className="ain"><img class="imag" src={CoracaoPreto} width="50px" height="45px" alt=''/></div>
-                                    :   <button className="ain"><img class="imag" src={CoracaoBranco} width="50px" height="45px" alt=''></img></button>
+                                                    :   <button className="ain"><img class="imag" src={CoracaoBranco} width="50px" height="45px" alt=''></img></button>
                                 }
                             </div>
                         </div>
@@ -99,7 +101,7 @@ export default function Anuncio(props){
                         <h5 className="ihi">Informações do anunciante</h5>
 
                         <div className="oho">             
-                            <h6>Celular: {anuncioDetalhado.celular}</h6>
+                            <h6>Celular: {anuncioDetalhado.celularVendedor}</h6>
                             <h6>Email: {anuncioDetalhado.email}</h6>
                             <h6>Estado: {anuncioDetalhado.estado}</h6>
                             <h6>Cidade: {anuncioDetalhado.cidade}</h6>

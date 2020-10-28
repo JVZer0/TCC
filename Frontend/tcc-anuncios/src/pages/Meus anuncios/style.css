@@ -1,0 +1,19 @@
+.aiai{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.tabela{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+.shit{
+    display: flex;
+    justify-content: center;
+    width: 1200px;
+    border: 1px solid rgba(0, 0, 0, 0.205);
+}

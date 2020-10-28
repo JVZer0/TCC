@@ -46,4 +46,15 @@ export default class anuncioAPI{
         const resp = await api.get(`/Anuncio/AnuncioDetalhado/${idAnuncio}`);
         return resp.data;
     }
+
+    async consultarMeusAnuncios(idUsuario){
+        const resp = await api.get(`/Anuncio/MeusAnuncios/${idUsuario}`);
+        console.log(resp.data);
+        return resp.data;
+    }
+
+    async consultarMeusFavoritos(idUsuario){
+        const resp = await api.get(`/Favorito/MeusFavoritos/${idUsuario}`);
+        return resp.data;
+    }
 }
