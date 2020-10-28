@@ -79,5 +79,10 @@ namespace Backend.Business
             resp = databaseAnuncio.AlterarAnuncio(NovoAnuncio);
             return resp;
         }
+        public Models.TbAnuncio AtivarAnuncio(int IdAnuncio)
+        {
+            validadores.ValidarId(IdAnuncio);
+            return databaseAnuncio.AtivarAnuncio(IdAnuncio);
+        }
     }
 }

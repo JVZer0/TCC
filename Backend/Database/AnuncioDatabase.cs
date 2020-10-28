@@ -110,5 +110,13 @@ namespace Backend.Database
             ctx.SaveChanges();
             return anuncio;
         }
+        public Models.TbAnuncio AtivarAnuncio(int IdAnuncio)
+        {
+            Models.TbAnuncio UserAnuncio = ctx.TbAnuncio.First(x => x.IdAnuncio == IdAnuncio);
+            UserAnuncio.DsSituacao = "Publicado";
+
+            ctx.SaveChanges();
+            return UserAnuncio;
+        }
     }
 }

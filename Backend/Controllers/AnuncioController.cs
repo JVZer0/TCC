@@ -151,5 +151,18 @@ namespace Backend.Controllers
                 return NotFound(new Models.Response.Erro(404, ex.Message));
             }
         }
+        [HttpPut("AtivarAnuncio/{IdAnuncio}")]
+        public ActionResult<Models.Response.AnuncioRoupasResponse.MeusAnuncios> AtivarAnuncio(int IdAnuncio)
+        {
+            try
+            {
+                Models.TbAnuncio resp = businessAnuncio.AtivarAnuncio(IdAnuncio);
+                return conversorAnuncio.ConversorMeusAnunciosParaResponse(resp);
+            }
+            catch (System.Exception ex)
+            {
+                return NotFound(new Models.Response.Erro(404, ex.Message));
+            }
+        } 
     }
 }
