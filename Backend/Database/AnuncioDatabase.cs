@@ -84,7 +84,7 @@ namespace Backend.Database
         {
             Models.TbAnuncio UserAnuncio = ctx.TbAnuncio.First(x => x.IdAnuncio == IdAnuncio);
             UserAnuncio.BtVendido = true;
-            UserAnuncio.DsSituacao = "Inativo";
+            UserAnuncio.DsSituacao = "Vendido";
 
             ctx.SaveChanges();
             return UserAnuncio; 
