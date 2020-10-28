@@ -221,5 +221,18 @@ namespace Backend.Utils
             }
             return resp;
         }
+        public Models.Response.AnuncioRoupasResponse.AnuncioVendido ConversorAnuncioVendidoResponse (Models.TbAnuncio req)
+        {
+            Models.Response.AnuncioRoupasResponse.AnuncioVendido resp = new Models.Response.AnuncioRoupasResponse.AnuncioVendido();
+            resp.IdAnuncio = req.IdAnuncio;
+            resp.IdUsuario = req.IdUsuario;
+            resp.Titulo = req.DsTitulo;
+            resp.Preco = req.VlPreco;
+            resp.Situacao = req.DsSituacao;
+            resp.DataDePublicacao = req.DtPublicacao;
+            resp.Vendido = req.BtVendido;
+
+            return resp;
+        }
     }
 }

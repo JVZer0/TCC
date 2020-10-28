@@ -65,6 +65,10 @@ namespace Backend.Business
             validadores.ValidarId(IdAnuncio);
             return databaseAnuncio.InativarAnuncio(IdAnuncio);
         }
-
+        public Models.TbAnuncio AnuncioVendido (int IdAnuncio)
+        {
+            validadores.ValidarId(IdAnuncio);
+            return databaseAnuncio.AnuncioVendido(IdAnuncio);
+        }
     }
 }

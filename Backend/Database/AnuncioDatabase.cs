@@ -80,5 +80,14 @@ namespace Backend.Database
             ctx.SaveChanges();
             return UserAnuncio;
         }
+        public Models.TbAnuncio AnuncioVendido (int IdAnuncio)
+        {
+            Models.TbAnuncio UserAnuncio = ctx.TbAnuncio.First(x => x.IdAnuncio == IdAnuncio);
+            UserAnuncio.BtVendido = true;
+            UserAnuncio.DsSituacao = "Inativo";
+
+            ctx.SaveChanges();
+            return UserAnuncio; 
+        }
     }
 }
