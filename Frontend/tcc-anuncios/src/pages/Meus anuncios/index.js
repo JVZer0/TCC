@@ -74,7 +74,7 @@ export default function MeusAnuncios(props){
                                 <tr>
                                     <td>{item.titulo}</td>
                                     <td>{item.preco}</td>
-                                    <td>{item.dataDePublicacao}</td>
+                                    <td>{item.dataDePublicacao.substring(0,10)}</td>
                                     <td>{item.situacao}</td>
                                     <td>Editar</td>
                                     <td>Excluir</td>

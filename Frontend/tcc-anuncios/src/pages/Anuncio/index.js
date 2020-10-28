@@ -45,7 +45,7 @@ export default function Anuncio(props){
                 </div> 
 
                 <div className="barraPesquisa hihi">
-                    <Link to={{pathname:"/Home"}}>Fazer novas consultas</Link>
+                    <Link to={{pathname:"/Home", state: infos.infos}}>Fazer novas consultas</Link>
                 </div>
                 
                 <div className="meio"> 
