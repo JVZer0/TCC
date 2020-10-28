@@ -12,7 +12,7 @@ namespace Backend.Business
         Database.AnuncioDatabase databaseAnuncio = new Database.AnuncioDatabase();
         Validadores validadores = new Validadores();
         public List<Models.TbAnuncio> ConsultarAnuncios(string BarraPesquisa, string Estado, string Cidade, string Genero, string Condicao)
-        {{}
+        {
             if(string.IsNullOrEmpty(BarraPesquisa) || BarraPesquisa == "BarraPesquisa") { BarraPesquisa = "";};
             if(string.IsNullOrEmpty(Estado) || Estado == "Estado") { Estado = "";};
             if(string.IsNullOrEmpty(Cidade) || Cidade == "Cidade") { Cidade = "";};
