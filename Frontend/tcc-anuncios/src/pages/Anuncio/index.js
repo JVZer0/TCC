@@ -65,14 +65,6 @@ export default function Anuncio(props){
                             <div className="linin">
                                 <img src={api.consultarImagem(imagem1)} width='100%' height='100%' alt=''></img>
                             </div>
-                            <div className="linin1">
-                                <div className="linin2"></div>
-                                <div className="linin2"></div>
-                                <div className="linin2"></div>
-                                <div className="linin2"></div>
-                                <div className="linin2"></div>
-                                <div className="linin2"></div>
-                            </div>
                         </div>
 
                         <div className="lin">

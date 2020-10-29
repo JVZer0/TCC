@@ -8,7 +8,6 @@ import '../Meus anuncios/style.css'
 import Logo from '../../assets/image/Capturar.PNG'
 
 import anuncioAPI from '../../services/anuncioAPI';
-import { toast } from "react-toastify";
 const api = new anuncioAPI();
 
 
@@ -20,8 +19,7 @@ export default function MeusAnuncios(props){
 
     const anuncioVendido = async (idAnuncio) => {
         try{
-            const resp = await api.anuncioVendido(idAnuncio);
-            console.log(infos);
+            const resp = await api.anuncioVendido(idAnuncio);      
         }
         catch (e){
 
@@ -55,7 +53,7 @@ export default function MeusAnuncios(props){
 
             <div className="cabecalho">
                 <div>
-                    <Link className="hihi" to={{pathname: "/Home", state: infos}} ><img class="logo" src={Logo} width="150" height="27px" alt=''/></Link>
+                    <Link className="hihi" to={{pathname: "/Home", state: {meusAnuncios}}} ><img class="logo" src={Logo} width="150" height="27px" alt=''/></Link>
                 </div>
 
                 <div className="barraPesquisa hihi">
@@ -90,22 +88,22 @@ export default function MeusAnuncios(props){
                         </thead>
 
                         <tbody>
-                            {meusAnuncios.map(item =>
+                            {meusAnuncios.map(x =>
                                 <tr>
-                                    <td ><Link to={{ pathname: "/Anuncio", state: {infos}}}>{item.titulo}</Link></td>
-                                    <td>{item.preco}</td>
-                                    <td>{item.dataDePublicacao.substring(0,10)}</td>
-                                    <td>{item.situacao}</td>
+                                    <td ><Link to={{ pathname: "/Anuncio", state: {x,infos}}}>{x.titulo}</Link></td>
+                                    <td>{x.preco}</td>
+                                    <td>{x.dataDePublicacao.substring(0,10)}</td>
+                                    <td>{x.situacao}</td>
                                     <td>Editar</td>
-                                    <td><Link to={{ pathname: "/ExcluirAnuncio", state: {infos, item}}}>Excluir</Link></td>
+                                    <td><Link to={{ pathname: "/ExcluirAnuncio", state: {infos, x}}}>Excluir</Link></td>
                                     <td>
                                         {
-                                            item.situacao == "Publicado" 
-                                            ? <Link to={{ pathname: "/Desativar", state: {infos, item}}}>Inativar</Link>
-                                            : <button className="fanda" onClick={() => ativarAnuncio(item.idAnuncio)}>Ativar</button>
+                                            x.situacao == "Publicado" 
+                                            ? <Link to={{ pathname: "/Desativar", state: {infos, x}}}>Inativar</Link>
+                                            : <button className="fanda" onClick={() => ativarAnuncio(x.idAnuncio)}>Ativar</button>
                                         }
                                     </td>
-                                    <td><button className="fanda" onClick={() => anuncioVendido(item.idAnuncio)}>Já vendi</button></td>
+                                    <td><button className="fanda" onClick={() => anuncioVendido(x.idAnuncio)}>Já vendi</button></td>
                                 </tr>    
                             )}
                         </tbody>

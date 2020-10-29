@@ -22,27 +22,13 @@ export default function ExcluirAnuncio(props){
 
     const inativarAnuncio = async () => {
         try{
-            const resp = await api.inativarAnuncio(infosUser.item.idAnuncio)
+            const resp = await api.inativarAnuncio(infosUser.x.idAnuncio)
             navegacao.goBack();
         }
         catch (e){
 
         }
     }
-
-    const consultarMeusAnuncios = async () => {
-        try{
-            const resp = await api.consultarAnuncioDetalhado(infosUser.item.idAnuncio);
-            setMeusAnuncios(resp);
-        }
-        catch (e){
-
-        }
-    }
-
-    useEffect(() => {
-        consultarMeusAnuncios();
-      }, []);
 
     return(
         <div className="nin">
@@ -66,7 +52,7 @@ export default function ExcluirAnuncio(props){
             </div>
             
             <div className="nan">
-                <h5>O anuncio: <b>{meusanuncios.titulo}</b> será inativado</h5>
+                <h5>O anuncio: <b>{infosUser.x.titulo}</b> será inativado</h5>
                 <h5>Tem certeza disso?</h5> 
 
                 <div className="sahaha">

@@ -8,7 +8,7 @@ import Logo from '../../assets/image/Capturar.PNG';
 
 export default function Inicial(){
     return(
-        <div>
+        <div className="sentiu">
             <div className="cabecalho">
                 <div>
                     <Link className="hihi" to="/" ><img class="logo" src={Logo} width="150" height="27px" alt=''/></Link>

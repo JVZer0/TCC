@@ -21,29 +21,14 @@ export default function ExcluirAnuncio(props){
 
     const deletarAnuncio = async () => {
         try{
-            const resp = await api.deletarAnuncio(infosUser.item.idAnuncio, infosUser.item.idUsuario);
+            const resp = await api.deletarAnuncio(infosUser.x.idAnuncio, infosUser.x.idUsuario);
             console.log(infosUser)
             navegacao.goBack();
-            toast.success("Anuncio deletado com sucesso")
         }
         catch (e){
 
         }
     }
-
-    const consultarMeusAnuncios = async () => {
-        try{
-            const resp = await api.consultarAnuncioDetalhado(infosUser.item.idAnuncio);
-            setMeusAnuncios(resp);
-        }
-        catch (e){
-
-        }
-    }
-
-    useEffect(() => {
-        consultarMeusAnuncios();
-      }, []);
 
     return(
         <div className="nin">
@@ -67,8 +52,8 @@ export default function ExcluirAnuncio(props){
             </div>
             
             <div className="nan">
-                <h5 className="nat">Tem certeza que deseja excluir o anuncio: <h5><b>{meusanuncios.titulo}</b></h5></h5> 
-                <h5 className="nat">publicado em <h5><b>{meusanuncios.publicacao}</b></h5></h5>
+                <h5 className="nat">Tem certeza que deseja excluir o anuncio: <h5><b>{infosUser.x.titulo}</b></h5></h5> 
+                <h5 className="nat">publicado em <h5><b>{infosUser.x.dataDePublicacao}</b></h5></h5>
 
                 <div className="sahaha">
                     <Link to={{ pathname: "/MeusAnuncios", state: infosUser.infos}}><button className="botoxo">Não</button></Link>
