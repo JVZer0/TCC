@@ -57,4 +57,9 @@ export default class anuncioAPI{
         const resp = await api.get(`/Favorito/MeusFavoritos/${idUsuario}`);
         return resp.data;
     }
+
+    async deletarAnuncio(idAnuncio, idUsuario){
+        const resp = await api.delete(`/Anuncio/DeletarAnuncio/${idAnuncio}/${idUsuario}`);
+        return resp.data;
+    }
 }

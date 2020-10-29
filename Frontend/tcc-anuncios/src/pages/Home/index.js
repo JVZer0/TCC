@@ -49,7 +49,7 @@ export default function Home(props){
         <div className="matheus">
             <div className="cabecalho">
                 <div>
-                    <Link className="hihi" to="/" ><img class="logo" src={Logo} width="150" height="27px" alt=''/></Link>
+                    <Link className="hihi" to="/" ><button class="botao">Sair</button></Link>
                 </div> 
                 <div className="barraPesquisa">
                     <input className="koko2 form-control" type="text" placeholder="Pesquisa" value={barraPesquisa} onChange={(e) => setBarraPesquisa(e.target.value)}></input>

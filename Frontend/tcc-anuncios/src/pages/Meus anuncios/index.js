@@ -12,9 +12,8 @@ const api = new anuncioAPI();
 
 
 export default function MeusAnuncios(props){
-
     const [infos, setInfos] = useState(props.location.state);
-    const [meusanuncios, setMeusAnuncios] = useState([]);
+    const [meusAnuncios, setMeusAnuncios] = useState([]);
 
     const consultarMeusAnuncios = async () => {
         try{
@@ -25,7 +24,6 @@ export default function MeusAnuncios(props){
 
         }
     }
-
     useEffect(() => {
         consultarMeusAnuncios();
       }, []);
@@ -70,15 +68,15 @@ export default function MeusAnuncios(props){
                         </thead>
 
                         <tbody>
-                            {meusanuncios.map(item =>
+                            {meusAnuncios.map(item =>
                                 <tr>
                                     <td>{item.titulo}</td>
                                     <td>{item.preco}</td>
                                     <td>{item.dataDePublicacao.substring(0,10)}</td>
                                     <td>{item.situacao}</td>
                                     <td>Editar</td>
-                                    <td>Excluir</td>
-                                    <td>Inativar</td>
+                                    <td><Link to={{ pathname: "/ExcluirAnuncio", state: {infos, item}}}>Excluir</Link></td>
+                                    <td><Link to={{ pathname: "/InativarAnuncio", state: infos}}>Inativar</Link></td>
                                     <td>Já vendi</td>
                                 </tr>    
                             )}

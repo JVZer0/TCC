@@ -12,6 +12,8 @@ import RecuperarSenha from './pages/RecuperarSenha'
 import Senha from './pages/Senha'
 import MeusAnuncios from './pages/Meus anuncios'
 import MeusFavoritos from './pages/Meus Favoritos'
+import ExcluirAnuncio from './pages/Excluir anuncio'
+import InativarAnuncio from './pages/Inativar anuncio'
 
 export default function Routes(){
     return(
@@ -27,6 +29,8 @@ export default function Routes(){
                 <Route path="/Senha" component={Senha}></Route>
                 <Route path="/MeusAnuncios" component={MeusAnuncios}></Route>
                 <Route path="/MeusFavoritos" component={MeusFavoritos}></Route>
+                <Route path="/ExcluirAnuncio" component={ExcluirAnuncio}></Route>
+                <Route path="/InativarAnuncio" componet={InativarAnuncio}></Route>
             </Switch>
         </BrowserRouter>
     )
