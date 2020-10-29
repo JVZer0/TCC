@@ -62,4 +62,19 @@ export default class anuncioAPI{
         const resp = await api.delete(`/Anuncio/DeletarAnuncio/${idAnuncio}/${idUsuario}`);
         return resp.data;
     }
+
+    async inativarAnuncio(idAnuncio){
+        const resp = await api.put(`/Anuncio/InativarAnuncio/${idAnuncio}`);
+        return resp.data;
+    }
+
+    async anuncioVendido(idAnuncio){
+        const resp = await api.put(`Anuncio/AnuncioVendido/${idAnuncio}`);
+        return resp.data;
+    }
+
+    async ativarAnuncio(idAnuncio){
+        const resp = await api.put(`Anuncio/AtivarAnuncio/${idAnuncio}`);
+        return resp.data;
+    }
 }

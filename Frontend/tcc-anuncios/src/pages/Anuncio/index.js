@@ -20,6 +20,7 @@ export default function Anuncio(props){
     const [anuncioDetalhado, setAnuncioDetalhado] = useState(props.location.state);
     const [imagem1, setImagens1] = useState();
     const [barraPesquisa, setBarraPesquisa] = useState('');
+    
 
     const consultarAnuncioDetalhado = async () => {
         try{
@@ -98,7 +99,7 @@ export default function Anuncio(props){
                             </div>
                         </div>
 
-                        <h5 className="ihi">Informações do anunciante</h5>
+                        <h5 className="ihia">Informações do anunciante</h5>
 
                         <div className="oho">             
                             <h6>Celular: {anuncioDetalhado.celularVendedor}</h6>

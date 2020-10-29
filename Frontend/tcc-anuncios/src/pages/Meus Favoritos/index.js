@@ -14,6 +14,7 @@ export default function Home(props){
 
     const [infos, setInfos] = useState(props.location.state);
     const [meusFavoritos, setMeusFavoritos] = useState([]);
+    console.log(infos)
 
     const consultarMeusFavoritos = async () => {
         try{
@@ -63,7 +64,7 @@ export default function Home(props){
                         <tbody>
                             {meusFavoritos.map(item =>
                                 <tr>
-                                    <td>{item.titulo}</td>
+                                    <td><Link to={{ pathname: "/Anuncio", state: infos}}>{item.titulo}</Link></td>
                                     <td>{item.preco}</td>
                                 </tr>    
                             )}

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import '../../components/Cabecalho/cabecalho.css'
-import '../Excluir anuncio/style.css'
+import '../Desativar/style.css'
 
 import Logo from '../../assets/image/Capturar.PNG'
 
@@ -18,13 +18,12 @@ export default function ExcluirAnuncio(props){
 
     const [infosUser, setInfosUser] = useState(props.location.state);
     const [meusanuncios, setMeusAnuncios] = useState([]);
+    console.log(infosUser);
 
-    const deletarAnuncio = async () => {
+    const inativarAnuncio = async () => {
         try{
-            const resp = await api.deletarAnuncio(infosUser.item.idAnuncio, infosUser.item.idUsuario);
-            console.log(infosUser)
+            const resp = await api.inativarAnuncio(infosUser.item.idAnuncio)
             navegacao.goBack();
-            toast.success("Anuncio deletado com sucesso")
         }
         catch (e){
 
@@ -67,12 +66,12 @@ export default function ExcluirAnuncio(props){
             </div>
             
             <div className="nan">
-                <h5 className="nat">Tem certeza que deseja excluir o anuncio: <h5><b>{meusanuncios.titulo}</b></h5></h5> 
-                <h5 className="nat">publicado em <h5><b>{meusanuncios.publicacao}</b></h5></h5>
+                <h5>O anuncio: <b>{meusanuncios.titulo}</b> será inativado</h5>
+                <h5>Tem certeza disso?</h5> 
 
                 <div className="sahaha">
                     <Link to={{ pathname: "/MeusAnuncios", state: infosUser.infos}}><button className="botoxo">Não</button></Link>
-                    <button className="botoxo" onClick={deletarAnuncio}>Sim</button>
+                    <button className="botoxo" onClick={inativarAnuncio}>Sim</button>
                 </div>
             </div>
         </div>

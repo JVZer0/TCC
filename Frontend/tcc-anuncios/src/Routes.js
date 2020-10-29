@@ -13,7 +13,9 @@ import Senha from './pages/Senha'
 import MeusAnuncios from './pages/Meus anuncios'
 import MeusFavoritos from './pages/Meus Favoritos'
 import ExcluirAnuncio from './pages/Excluir anuncio'
-import InativarAnuncio from './pages/Inativar anuncio'
+import Desativar from './pages/Desativar'
+import Anunciar from './pages/Inserir anuncio'
+
 
 export default function Routes(){
     return(
@@ -30,7 +32,8 @@ export default function Routes(){
                 <Route path="/MeusAnuncios" component={MeusAnuncios}></Route>
                 <Route path="/MeusFavoritos" component={MeusFavoritos}></Route>
                 <Route path="/ExcluirAnuncio" component={ExcluirAnuncio}></Route>
-                <Route path="/InativarAnuncio" componet={InativarAnuncio}></Route>
+                <Route path="/Desativar" component={Desativar}></Route>
+                <Route path="/Anunciar" component={Anunciar}></Route>
             </Switch>
         </BrowserRouter>
     )
