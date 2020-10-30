@@ -128,6 +128,8 @@ export default function Home(props){
                         </select>
                     </div>
                 </div>
+
+                <div className="loco">
                     {anuncios.map(x =>
                         <div className="flow">
                             <div className="quadradin"> 
@@ -140,7 +142,7 @@ export default function Home(props){
                                 <div className="alin">
                                     <h5>
                                         <Link to={{ pathname: "/Anuncio", state: {x,infos}}}>
-                                            Titulo:&nbsp;{x.titulo}
+                                            {x.titulo}
                                         </Link>
                                     </h5>
                                     <h6>Preço:&nbsp;{x.preco}</h6>
@@ -152,7 +154,7 @@ export default function Home(props){
                             </div> 
                         </div>
                     )}
-
+                </div>
             </div>
         </div>
     )
