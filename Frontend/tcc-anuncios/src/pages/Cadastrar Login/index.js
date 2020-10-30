@@ -72,7 +72,7 @@ export default function CadastrarLogin(){
         <div>
             <div className="cabecalho">
                 <div>
-                    <Link className="hihi" to="/" ><img class="logo" src={Logo} width="150" height="27px"/></Link>
+                    <Link className="hihi" to="/" ><img class="logo" src={Logo} width="180" height="34px"/></Link>
                 </div>
                 <div className="barraPesquisa"></div>
                 <div className="meio"></div>

@@ -20,7 +20,7 @@ export default function Senha(props){
         <div className="in">
             <div className="cabecalho">
                 <div>
-                    <Link className="hihi" to="/" ><img class="logo" src={Logo} width="150" height="27px" alt=''/></Link>
+                    <Link className="hihi" to="/" ><img class="logo" src={Logo} width="180" height="34px" alt=''/></Link>
                 </div>
                 <div className="barraPesquisa"></div>
                 <div className="meio"></div>

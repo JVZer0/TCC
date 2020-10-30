@@ -42,7 +42,7 @@ export default function Anuncio(props){
         <div>
             <div className="cabecalho">
                 <div>
-                    <Link className="hihi" to={{pathname:"/Home", state: infos.infos}} ><img class="logo" src={Logo} width="150" height="27px" alt=''/></Link>
+                    <Link className="hihi" to={{pathname:"/Home", state: infos.infos}} ><img class="logo" src={Logo} width="180" height="34px" alt=''/></Link>
                 </div> 
 
                 <div className="barraPesquisa hihi">
