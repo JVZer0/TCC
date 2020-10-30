@@ -44,7 +44,8 @@
 }
 
 .ihia{
-    margin-top: 150px;
+
+    margin-top: 70px;
     
 }
 
@@ -74,6 +75,7 @@
 .kkkk{
     display: flex;
     flex-direction: column;
+    width: 1300px;
 }
 
 .uin{
