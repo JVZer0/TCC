@@ -18,16 +18,16 @@ export default function Anuncio(props){
 
     const [infos, setInfos] = useState(props.location.state);
     const [anuncioDetalhado, setAnuncioDetalhado] = useState(props.location.state);
+    const [perguntasERespotas, setPerguntasERespotas] = useState([props.location.state]);
     const [imagem1, setImagens1] = useState();
     const [pergunta, setPergunta] = useState('');
-    console.log(infos)
 
     const consultarAnuncioDetalhado = async () => {
         try{
             const resp = await api.consultarAnuncioDetalhado(infos.x.idAnuncio);
             setAnuncioDetalhado(resp);
             setImagens1(resp.imagens[0].textoImagem);
-            console.log(resp)
+            setPerguntasERespotas(resp.perguntasERespotas)
 
         }
         catch (e) {
@@ -35,15 +35,20 @@ export default function Anuncio(props){
         }
     }
 
+    console.log(infos)
+
     const perguntar = async (idDonoAnuncio) => {
         try{
             const modelo = {
                 Texto: pergunta,
-                IdUsuarioPerguntador: infos.idUsuario,
+                IdUsuarioPerguntador: infos.infos.idUsuario,
                 IdUsuarioRespondedor: idDonoAnuncio,
-                IdAnuncio: infos.idAnuncio
+                IdAnuncio: infos.x.idAnuncio
             };
+            console.log(modelo)
             const resp = await api.perguntar(modelo);
+            console.log(resp)
+            window.location.reload();
         }
         catch (e) {
 
@@ -131,10 +136,17 @@ export default function Anuncio(props){
 
                 <h3 className="vaiamerda">Perguntas</h3>
                 
-                <div className="ham">
-                    <label className="him">Pergunta: {pergunta}</label>
-                    <label className="him">Resposta:</label>
-                </div>
+                {
+                    perguntasERespotas.map(dale =>
+                        <div className="ham">
+                            <label className="him">Pergunta: {dale.pergunta}</label>
+                            <label className="him">Resposta: {dale.respondida == true ?
+                                dale.resposta
+                                :
+                                <Link>Responder</Link>
+                            }</label>
+                        </div>
+                )}
             </div>
 
             <div className="rodape">

@@ -49,7 +49,6 @@ export default class anuncioAPI{
 
     async consultarMeusAnuncios(idUsuario){
         const resp = await api.get(`/Anuncio/MeusAnuncios/${idUsuario}`);
-        console.log(resp.data);
         return resp.data;
     }
 
