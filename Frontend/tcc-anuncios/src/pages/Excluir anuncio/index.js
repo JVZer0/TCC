@@ -17,8 +17,7 @@ export default function ExcluirAnuncio(props){
     const navegacao = useHistory();
 
     const [infosUser, setInfosUser] = useState(props.location.state);
-    const [meusanuncios, setMeusAnuncios] = useState([]);
-
+    
     const deletarAnuncio = async () => {
         try{
             const resp = await api.deletarAnuncio(infosUser.x.idAnuncio, infosUser.x.idUsuario);

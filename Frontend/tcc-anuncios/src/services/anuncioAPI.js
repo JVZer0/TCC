@@ -69,12 +69,32 @@ export default class anuncioAPI{
     }
 
     async anuncioVendido(idAnuncio){
-        const resp = await api.put(`Anuncio/AnuncioVendido/${idAnuncio}`);
+        const resp = await api.put(`/Anuncio/AnuncioVendido/${idAnuncio}`);
         return resp.data;
     }
 
     async ativarAnuncio(idAnuncio){
-        const resp = await api.put(`Anuncio/AtivarAnuncio/${idAnuncio}`);
+        const resp = await api.put(`/Anuncio/AtivarAnuncio/${idAnuncio}`);
+        return resp.data;
+    }
+
+    async excluirFavorito(idAnuncio, idUsuario){
+        const resp = await api.delete(`/Favorito/DeletarFavorito/${idAnuncio}/${idUsuario}`);
+        return resp.data;
+    }
+
+    async favoritarAnuncio(idAnuncio, idUsuario){
+        const resp = await api.post(`/Favorito/FavoritarAnuncio/${idAnuncio}/${idUsuario}`);
+        return resp.data;
+    }
+
+    async perguntar(req){
+        const resp = await api.post(`/Anuncio/Perguntar/`, req);
+        return resp.data;
+    }
+
+    async responder(req){
+        const resp = await api.post(`/Anuncio/Responder/`, req);
         return resp.data;
     }
 }

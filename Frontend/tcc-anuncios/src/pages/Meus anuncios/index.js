@@ -20,6 +20,7 @@ export default function MeusAnuncios(props){
     const anuncioVendido = async (idAnuncio) => {
         try{
             const resp = await api.anuncioVendido(idAnuncio);      
+            window.location.reload();
         }
         catch (e){
 
@@ -29,6 +30,7 @@ export default function MeusAnuncios(props){
     const ativarAnuncio = async (idAnuncio) => {
         try{
             const resp = await api.ativarAnuncio(idAnuncio);
+            window.location.reload();
         }
         catch (e){
 
@@ -44,6 +46,7 @@ export default function MeusAnuncios(props){
 
         }
     }
+
     useEffect(() => {
         consultarMeusAnuncios();
       }, []);

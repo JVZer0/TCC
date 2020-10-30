@@ -16,6 +16,7 @@ import ExcluirAnuncio from './pages/Excluir anuncio'
 import Desativar from './pages/Desativar'
 import Anunciar from './pages/Inserir anuncio'
 import AlterarAnuncio from './pages/Alterar anuncio'
+import Responder from './pages/Responder'
 
 
 export default function Routes(){
@@ -36,6 +37,7 @@ export default function Routes(){
                 <Route path="/Desativar" component={Desativar}></Route>
                 <Route path="/Anunciar" component={Anunciar}></Route>
                 <Route path="/AlterarAnuncio" component={AlterarAnuncio}></Route>
+                <Route path="/Responder" component={Responder}></Route>
             </Switch>
         </BrowserRouter>
     )

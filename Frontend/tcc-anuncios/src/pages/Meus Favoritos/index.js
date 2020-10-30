@@ -15,10 +15,21 @@ export default function Home(props){
     const [infos, setInfos] = useState(props.location.state);
     const [meusFavoritos, setMeusFavoritos] = useState([]);
 
+
     const consultarMeusFavoritos = async () => {
         try{
-            const resp = await api.consultarMeusFavoritos(props.location.state.idUsuario);
+            const resp = await api.consultarMeusFavoritos(infos.idUsuario);
             setMeusFavoritos(resp);
+        }
+        catch (e){
+
+        }
+    }
+
+    const excluirFavorito = async (idAnuncio) => {
+        try{
+            const resp = await api.excluirFavorito(idAnuncio, infos.idUsuario);
+            window.location.reload();
         }
         catch (e){
 
@@ -57,6 +68,7 @@ export default function Home(props){
                             <tr>
                                 <th>Titulo</th>
                                 <th>Preço</th>
+                                <th></th>
                             </tr>
                         </thead>
 
@@ -65,6 +77,8 @@ export default function Home(props){
                                 <tr>
                                     <td><Link to={{ pathname: "/Anuncio", state: {infos, x}}}>{x.titulo}</Link></td>
                                     <td>{x.preco}</td>
+                                    {console.log(x)}
+                                    <td><button className="oia" onClick={() => excluirFavorito(x.idAnuncio)}>Excluir</button></td>
                                 </tr>    
                             )}
                         </tbody>

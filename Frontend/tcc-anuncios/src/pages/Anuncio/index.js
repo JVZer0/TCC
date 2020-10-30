@@ -19,16 +19,34 @@ export default function Anuncio(props){
     const [infos, setInfos] = useState(props.location.state);
     const [anuncioDetalhado, setAnuncioDetalhado] = useState(props.location.state);
     const [imagem1, setImagens1] = useState();
-    const [barraPesquisa, setBarraPesquisa] = useState('');
-    
+    const [pergunta, setPergunta] = useState('');
+    console.log(infos)
 
     const consultarAnuncioDetalhado = async () => {
         try{
             const resp = await api.consultarAnuncioDetalhado(infos.x.idAnuncio);
             setAnuncioDetalhado(resp);
             setImagens1(resp.imagens[0].textoImagem);
+            console.log(resp)
+
         }
         catch (e) {
+
+        }
+    }
+
+    const perguntar = async (idDonoAnuncio) => {
+        try{
+            const modelo = {
+                Texto: pergunta,
+                IdUsuarioPerguntador: infos.idUsuario,
+                IdUsuarioRespondedor: idDonoAnuncio,
+                IdAnuncio: infos.idAnuncio
+            };
+            const resp = await api.perguntar(modelo);
+        }
+        catch (e) {
+
         }
     }
 
@@ -106,15 +124,15 @@ export default function Anuncio(props){
                 <div className="hum">
                     <div>
                         <label className="an">Dúvida:</label>
-                        <input className="caixa" type="text"></input>
-                        <button className="de">Perguntar</button>
+                        <input className="caixa" type="text" value={pergunta} onChange={e => setPergunta(e.target.value)}></input>
+                        <button className="de" onClick={() => perguntar(anuncioDetalhado.idDonoAnuncio)}>Perguntar</button>
                     </div>
                 </div>
 
                 <h3 className="vaiamerda">Perguntas</h3>
-
+                
                 <div className="ham">
-                    <label className="him">Pergunta:</label>
+                    <label className="him">Pergunta: {pergunta}</label>
                     <label className="him">Resposta:</label>
                 </div>
             </div>

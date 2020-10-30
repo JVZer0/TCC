@@ -28,7 +28,7 @@ export default function InserirAnuncio(props){
                 </div>
             </div>
 
-            <h5>Responder</h5>
+            <h5>InserirAnuncio</h5>
         </div>
     )
 }
