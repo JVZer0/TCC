@@ -82,11 +82,6 @@ export default class anuncioAPI{
         return resp.data;
     }
 
-    async favoritarAnuncio(idAnuncio, idUsuario){
-        const resp = await api.post(`/Favorito/FavoritarAnuncio/${idAnuncio}/${idUsuario}`);
-        return resp.data;
-    }
-
     async perguntar(req){
         const resp = await api.post(`/Anuncio/Perguntar/`, req);
         return resp.data;
@@ -94,6 +89,11 @@ export default class anuncioAPI{
 
     async responder(req){
         const resp = await api.post(`/Anuncio/Responder/`, req);
+        return resp.data;
+    }
+
+    async favoritarAnuncio(idAnuncio, idUsuario){
+        const resp = await api.post(`/Favorito/FavoritarAnuncio/${idAnuncio}/${idUsuario}`);
         return resp.data;
     }
 }

@@ -1,0 +1,28 @@
+.criolo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.cali{
+    width: 500px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.calix{
+    border: 2px solid  #fe8d27;
+    box-shadow: black;
+    padding: 6px 24px;
+    color: #fe8d27;
+    border-radius: 3px;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    background:  white;
+    font-size: 14px;
+    height: 40px;
+    width: 170px;
+}

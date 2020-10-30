@@ -27,15 +27,12 @@ export default function Anuncio(props){
             const resp = await api.consultarAnuncioDetalhado(infos.x.idAnuncio);
             setAnuncioDetalhado(resp);
             setImagens1(resp.imagens[0].textoImagem);
-            setPerguntasERespotas(resp.perguntasERespotas)
-
+            setPerguntasERespotas(resp.perguntasERespotas);
         }
         catch (e) {
 
         }
     }
-
-    console.log(infos)
 
     const perguntar = async (idDonoAnuncio) => {
         try{
@@ -45,9 +42,7 @@ export default function Anuncio(props){
                 IdUsuarioRespondedor: idDonoAnuncio,
                 IdAnuncio: infos.x.idAnuncio
             };
-            console.log(modelo)
             const resp = await api.perguntar(modelo);
-            console.log(resp)
             window.location.reload();
         }
         catch (e) {
@@ -137,13 +132,13 @@ export default function Anuncio(props){
                 <h3 className="vaiamerda">Perguntas</h3>
                 
                 {
-                    perguntasERespotas.map(dale =>
+                    perguntasERespotas.map(x =>
                         <div className="ham">
-                            <label className="him">Pergunta: {dale.pergunta}</label>
-                            <label className="him">Resposta: {dale.respondida == true ?
-                                dale.resposta
-                                :
-                                <Link>Responder</Link>
+                            <label className="him">Pergunta: {x.pergunta}</label>
+                            {console.log(x)}
+                            <label className="him">Resposta: {x.respondida == true && x.resposta != null 
+                                ? x.resposta 
+                                : <Link to={{ pathname: "/Responder", state: {x, infos}}}>Responder</Link>
                             }</label>
                         </div>
                 )}
