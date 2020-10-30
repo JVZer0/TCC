@@ -90,11 +90,11 @@ export default function MeusAnuncios(props){
                         <tbody>
                             {meusAnuncios.map(x =>
                                 <tr>
-                                    <td ><Link to={{ pathname: "/Anuncio", state: {x,infos}}}>{x.titulo}</Link></td>
+                                    <td ><Link to={{ pathname: "/Anuncio", state: {infos, x}}}>{x.titulo}</Link></td>
                                     <td>{x.preco}</td>
                                     <td>{x.dataDePublicacao.substring(0,10)}</td>
                                     <td>{x.situacao}</td>
-                                    <td>Editar</td>
+                                    <td><Link to={{ pathname: "/AlterarAnuncio", state: {infos, x}}}>Editar</Link></td>
                                     <td><Link to={{ pathname: "/ExcluirAnuncio", state: {infos, x}}}>Excluir</Link></td>
                                     <td>
                                         {

@@ -63,7 +63,7 @@ export default function Home(props){
                         <tbody>
                             {meusFavoritos.map(x =>
                                 <tr>
-                                    <td><Link to={{ pathname: "/Anuncio", state: {x,infos}}}>{x.titulo}</Link></td>
+                                    <td><Link to={{ pathname: "/Anuncio", state: {infos, x}}}>{x.titulo}</Link></td>
                                     <td>{x.preco}</td>
                                 </tr>    
                             )}

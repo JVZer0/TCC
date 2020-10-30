@@ -15,6 +15,7 @@ import MeusFavoritos from './pages/Meus Favoritos'
 import ExcluirAnuncio from './pages/Excluir anuncio'
 import Desativar from './pages/Desativar'
 import Anunciar from './pages/Inserir anuncio'
+import AlterarAnuncio from './pages/Alterar anuncio'
 
 
 export default function Routes(){
@@ -34,6 +35,7 @@ export default function Routes(){
                 <Route path="/ExcluirAnuncio" component={ExcluirAnuncio}></Route>
                 <Route path="/Desativar" component={Desativar}></Route>
                 <Route path="/Anunciar" component={Anunciar}></Route>
+                <Route path="/AlterarAnuncio" component={AlterarAnuncio}></Route>
             </Switch>
         </BrowserRouter>
     )
