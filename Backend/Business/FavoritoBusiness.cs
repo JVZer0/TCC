@@ -29,5 +29,13 @@ namespace Backend.Business
             validadores.ValidarId(IdAnuncio);
             return databaseFavorito.ConsultarFavorito(IdAnuncio);
         }
+        public Models.TbFavorito DeletarFavorito(int IdAnuncio, int IdUsuario)
+        {
+            validadores.ValidarId(IdAnuncio);
+            validadores.ValidarId(IdUsuario);
+            Models.TbFavorito resp = databaseFavorito.DeletarFavorito(IdAnuncio, IdUsuario);
+            if(resp == null) throw new ArgumentException("Esse anuncio ainda não foi favoritado para ser exluido dos seus favoritos.");
+            return resp;
+        }
     }
 }

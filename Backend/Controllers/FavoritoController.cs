@@ -56,5 +56,18 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(400, ex.Message));
             }
         }
+        [HttpDelete("DeletarFavorito/{IdAnuncio}/{IdUsuario}")]
+        public ActionResult<Models.Response.AnuncioRoupasResponse.Anuncio> DeletarFavorito(int IdAnuncio, int IdUsuario)
+        {
+            try
+            {
+                Models.TbFavorito resp = businessFavorito.DeletarFavorito(IdAnuncio, IdUsuario);
+                return conversorFavorito.FavoritoParaResponse(resp);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new Models.Response.Erro(400, ex.Message));
+            }
+        }
     }
 }

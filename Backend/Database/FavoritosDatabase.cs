@@ -42,5 +42,13 @@ namespace Backend.Database
                                                    .FirstOrDefault(x => x.IdFavorito == IdFavorito);
             return resp;
         }
+        public Models.TbFavorito DeletarFavorito(int IdAnuncio, int IdUsuario)
+        {
+            Models.TbFavorito resp = ctx.TbFavorito.Include(x => x.IdAnuncioNavigation)
+                                                   .FirstOrDefault(x => x.IdAnuncio == IdAnuncio && x.IdUsuario == IdUsuario);
+            ctx.Remove(resp);
+            ctx.SaveChanges();
+            return resp;
+        }
     }
 }
