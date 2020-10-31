@@ -17,6 +17,12 @@
 .aha{
     display: flex;
     flex-direction: column;
+    border: 1px solid black;
+}
+
+.aha div{
+    max-width: 500px;
+    max-height: 600px;
 }
 
 .linin{

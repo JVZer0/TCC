@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ReactDOM from 'react-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 import '../../components/Cabecalho/cabecalho.css';
 import '../Anuncio/style.css';
@@ -21,6 +24,7 @@ export default function Anuncio(props){
     const [perguntasERespotas, setPerguntasERespotas] = useState([props.location.state]);
     const [imagem1, setImagens1] = useState();
     const [pergunta, setPergunta] = useState('');
+    const [imagens, setImagens] = useState([]);
 
     const consultarAnuncioDetalhado = async () => {
         try{
@@ -28,11 +32,14 @@ export default function Anuncio(props){
             setAnuncioDetalhado(resp);
             setImagens1(resp.imagens[0].textoImagem);
             setPerguntasERespotas(resp.perguntasERespotas);
+            setImagens(resp.imagens)
         }
         catch (e) {
 
         }
     }
+
+    console.log(imagens)
 
     const perguntar = async (idDonoAnuncio) => {
         try{
@@ -80,9 +87,11 @@ export default function Anuncio(props){
                 
                     <div className="patota1">
                         <div className="aha">
-                            <div className="linin">
-                                <img src={api.consultarImagem(imagem1)} width='100%' height='100%' alt=''></img>
-                            </div>
+                            <Carousel className="aha" style={{maxWidth:"350px"}}>
+                                {imagens.map(x =>
+                                    <img src={api.consultarImagem(x.textoImagem)} alt=""></img>
+                                )}
+                            </Carousel>
                         </div>
 
                         <div className="lin">
