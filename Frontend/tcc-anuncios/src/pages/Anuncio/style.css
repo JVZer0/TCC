@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     max-width: 100vw;
-    height: 80vh;
+    height: 100vh;
     padding-right: 2cm;
 }
 
@@ -17,8 +17,8 @@
 .aha{
     border: 1px solid black;
     box-shadow: 2px 2px 35px rgba(204, 204, 204, 0.952);
-    max-width: 500px;
-    max-height: 600px;
+    max-width: 400px;
+    max-height: 400px;
     display: flex;
 }
 

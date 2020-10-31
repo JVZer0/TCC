@@ -17,6 +17,7 @@ export default function Responder(props){
 
     const [infos, setInfos] = useState(props.location.state);
     const [resposta, setResposta] = useState('');
+    console.log(infos)
     
     const responder = async () => {
         try{
@@ -37,17 +38,17 @@ export default function Responder(props){
         <div>
             <div className="cabecalho">
                 <div>
-                    <Link className="hihi" to={{pathname:"/Home", state: infos}} ><img class="logo" src={Logo} width="180" height="34px" alt=''/></Link>
+                    <Link className="hihi" to={{pathname:"/Home", state: infos.infos.infos}} ><img class="logo" src={Logo} width="180" height="34px" alt=''/></Link>
                 </div> 
 
                 <div className="barraPesquisa hihi">
-                    <Link to={{pathname:"/Home", state: infos}}>Fazer novas consultas</Link>
+                    <Link to={{pathname:"/Home", state: infos.infos.infos}}>Fazer novas consultas</Link>
                 </div>
                 
                 <div className="meio"> 
-                    <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infos }}>Meus Anuncios</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusFavoritos", state: infos }}>Meus Favoritos</Link>
+                    <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos.infos.infos }}>Meu perfil</Link>
+                    <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infos.infos.infos }}>Meus Anuncios</Link>
+                    <Link class="hihi meio" to={{ pathname: "/MeusFavoritos", state: infos.infos.infos }}>Meus Favoritos</Link>
                 </div>
                 <div>
                     <Link  class="hihi" to="/Anunciar"><button class="botao">Anunciar</button></Link>
