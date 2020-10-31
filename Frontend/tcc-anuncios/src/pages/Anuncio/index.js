@@ -87,7 +87,7 @@ export default function Anuncio(props){
                 
                     <div className="patota1">
                         <div className="aha">
-                            <Carousel className="aha" style={{maxWidth:"350px"}}>
+                            <Carousel style={{maxWidth:"350px"}}>
                                 {imagens.map(x =>
                                     <img src={api.consultarImagem(x.textoImagem)} alt=""></img>
                                 )}
