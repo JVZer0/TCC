@@ -88,7 +88,8 @@ export default class anuncioAPI{
     }
 
     async responder(req){
-        const resp = await api.post(`/Anuncio/Responder/`, req);
+        const resp = await api.put(`/Anuncio/Responder/`, req);
+        console.log(resp)
         return resp.data;
     }
 

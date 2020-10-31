@@ -135,10 +135,11 @@ export default function Anuncio(props){
                     perguntasERespotas.map(x =>
                         <div className="ham">
                             <label className="him">Pergunta: {x.pergunta}</label>
-                            {console.log(x)}
-                            <label className="him">Resposta: {x.respondida == true && x.resposta != null 
+                            <label className="himb">Resposta: {x.respondida == true && x.resposta != null 
                                 ? x.resposta 
-                                : <Link to={{ pathname: "/Responder", state: {x, infos}}}>Responder</Link>
+                                :   anuncioDetalhado.idDonoAnuncio == infos.infos.idUsuario 
+                                    ? <Link to={{ pathname: "/Responder", state: {infos, x}}}>Responder</Link> 
+                                    : <p style={{color:"#fe8d27"}}>Ainda não respondida</p>
                             }</label>
                         </div>
                 )}

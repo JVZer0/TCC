@@ -97,13 +97,20 @@ export default function MeusAnuncios(props){
                                     <td>{x.preco}</td>
                                     <td>{x.dataDePublicacao.substring(0,10)}</td>
                                     <td>{x.situacao}</td>
-                                    <td><Link to={{ pathname: "/AlterarAnuncio", state: {infos, x}}}>Editar</Link></td>
+                                    <td>
+                                        {x.situacao == "Vendido"
+                                            ? <div style={{color:"red"}}>Já vendido</div>
+                                            : <Link to={{ pathname: "/AlterarAnuncio", state: {infos, x}}}>Editar</Link>
+                                        }
+                                        </td>
                                     <td><Link to={{ pathname: "/ExcluirAnuncio", state: {infos, x}}}>Excluir</Link></td>
                                     <td>
                                         {
                                             x.situacao == "Publicado" 
                                             ? <Link to={{ pathname: "/Desativar", state: {infos, x}}}>Inativar</Link>
-                                            : <button className="fanda" onClick={() => ativarAnuncio(x.idAnuncio)}>Ativar</button>
+                                            :   x.situacao == "Vendido"
+                                                ? <div style={{color:"red"}}>Já vendido</div>
+                                                : <button className="fanda" onClick={() => ativarAnuncio(x.idAnuncio)}>Ativar</button>
                                         }
                                     </td>
                                     <td><button className="fanda" onClick={() => anuncioVendido(x.idAnuncio)}>Já vendi</button></td>

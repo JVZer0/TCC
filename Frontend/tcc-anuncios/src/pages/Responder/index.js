@@ -8,6 +8,7 @@ import '../Responder/style.css';
 import Logo from '../../assets/image/Capturar.PNG';
 
 import anuncioAPI from '../../services/anuncioAPI';
+import { toast } from "react-toastify";
 const api = new anuncioAPI();
 
 
@@ -16,21 +17,19 @@ export default function Responder(props){
 
     const [infos, setInfos] = useState(props.location.state);
     const [resposta, setResposta] = useState('');
-    console.log(infos)
-
     
     const responder = async () => {
         try{
             const model = {
                 Texto: resposta,
-                IdUsuarioRespondedor: infos.x.idRespondedor,
-                IdPerguntaResposta: infos.x.idPerguntador
+                IdUsuarioRespondedor: infos.infos.infos.idUsuario,
+                IdPerguntaResposta: infos.x.idPerguntaResposta
             }
             const resp = await api.responder(model);
             navegacao.goBack();
         }
         catch (e){
-
+            toast.error(e.response)
         }
     }
 
