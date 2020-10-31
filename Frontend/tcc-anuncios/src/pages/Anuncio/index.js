@@ -39,8 +39,6 @@ export default function Anuncio(props){
         }
     }
 
-    console.log(imagens)
-
     const perguntar = async (idDonoAnuncio) => {
         try{
             const modelo = {
@@ -87,19 +85,11 @@ export default function Anuncio(props){
                 
                     <div className="patota1">
                         <div className="aha">
-                            <Carousel style={{maxWidth:"350px"}}>
+                            <Carousel>
                                 {imagens.map(x =>
                                     <img src={api.consultarImagem(x.textoImagem)} alt=""></img>
                                 )}
                             </Carousel>
-                        </div>
-
-                        <div className="lin">
-                            <h6>Marca: {anuncioDetalhado.marca}</h6>
-                            <h6>Tamanho: {anuncioDetalhado.tamanho}</h6>
-                            <h6>Gênero: {anuncioDetalhado.genero}</h6>
-                            <h6>Condição: {anuncioDetalhado.condicao}</h6>
-                            <h6>Tipo de produto: {anuncioDetalhado.produto}</h6>
                         </div>
                     </div>
 
@@ -110,6 +100,7 @@ export default function Anuncio(props){
                                 <h5>Preço: {anuncioDetalhado.preco}</h5>
                                 <h5>Descrição: {anuncioDetalhado.descricao}</h5>
                             </div>
+                            
                             <div className="uin">
                                 {
                                     favorito == true ? <div className="ain"><img class="imag" src={CoracaoPreto} width="50px" height="45px" alt=''/></div>
@@ -117,8 +108,17 @@ export default function Anuncio(props){
                                 }
                             </div>
                         </div>
+                        <div className="lin">
+                            <h6>Marca: {anuncioDetalhado.marca}</h6>
+                            <h6>Tamanho: {anuncioDetalhado.tamanho}</h6>
+                            <h6>Gênero: {anuncioDetalhado.genero}</h6>
+                            <h6>Condição: {anuncioDetalhado.condicao}</h6>
+                            <h6>Tipo de produto: {anuncioDetalhado.produto}</h6>
+                        </div>
 
-                        <h5 className="ihia">Informações do anunciante</h5>
+                        <hr style={{height:"0.8px",width:"100%", color:"black", background:"black", margin:"0"}}></hr>
+
+                        <h4 className="ihia">Informações do anunciante</h4>
 
                         <div className="oho">             
                             <h6>Celular: {anuncioDetalhado.celularVendedor}</h6>
