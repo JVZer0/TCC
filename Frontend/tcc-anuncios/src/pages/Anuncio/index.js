@@ -124,7 +124,7 @@ export default function Anuncio(props){
                             
                             <div className="uin">
                                 {
-                                    favorito == true ? <div className="ain"><img class="imag" src={CoracaoPreto} width="50px" height="45px" alt=''/></div>
+                                    favorito == true ? <div className="ain"><img class="imag" src={CoracaoPreto} width="55px" height="45px" alt=''/></div>
                                                     :   <button className="ain" onClick={favoritar} ><img class="imag" src={CoracaoBranco} width="50px" height="45px" alt=''></img></button>
                                 }
                             </div>
