@@ -10,7 +10,7 @@ namespace Backend.Database
     public class FavoritosDatabase
     {
         Models.anuncioRoupaContext ctx = new Models.anuncioRoupaContext();
-        public bool? ConsultarSeOAnuncioEstaFavoritado(int IdAnuncio, int IdUsuario)
+        public bool? ConsultarSeOAnuncioEstaFavoritado(int? IdAnuncio, int? IdUsuario)
         {
             Models.TbFavorito resp = ctx.TbFavorito.FirstOrDefault(x => x.IdAnuncio == IdAnuncio && x.IdUsuario == IdUsuario);
             bool? a = false;
