@@ -96,24 +96,41 @@ export default function MeusAnuncios(props){
                                     <td ><Link to={{ pathname: "/Anuncio", state: {infos, x}}}>{x.titulo}</Link></td>
                                     <td>{x.preco}</td>
                                     <td>{x.dataDePublicacao.substring(0,10)}</td>
-                                    <td>{x.situacao}</td>
                                     <td>
-                                        {x.situacao == "Vendido"
-                                            ? <div style={{color:"red"}}>Já vendido</div>
-                                            : <Link to={{ pathname: "/AlterarAnuncio", state: {infos, x}}}>Editar</Link>
+                                        { x.vendido == false
+                                            
+                                            ?   x.situacao
+                                            :   "Vendido"
+                                        }
+                                    </td>
+                                    <td>
+                                        {   x.vendido == false
+                                            ?   x.situacao == "Vendido"
+                                                    ? <div style={{color:"red"}}>Já vendido</div>
+                                                    : <Link to={{ pathname: "/AlterarAnuncio", state: {infos, x}}}>Editar</Link>
+                                            :   <div></div>
                                         }
                                         </td>
                                     <td><Link to={{ pathname: "/ExcluirAnuncio", state: {infos, x}}}>Excluir</Link></td>
+                                    {console.log(x)}
                                     <td>
                                         {
-                                            x.situacao == "Publicado" 
-                                            ? <Link to={{ pathname: "/Desativar", state: {infos, x}}}>Inativar</Link>
-                                            :   x.situacao == "Vendido"
-                                                ? <div style={{color:"red"}}>Já vendido</div>
-                                                : <button className="fanda" onClick={() => ativarAnuncio(x.idAnuncio)}>Ativar</button>
+                                            x.vendido == false
+                                            ?   x.situacao == "Publicado" 
+                                                ? <Link to={{ pathname: "/Desativar", state: {infos, x}}}>Inativar</Link>
+                                                :   x.situacao == "Vendido"
+                                                    ? <div style={{color:"red"}}>Já vendido</div>
+                                                    : <button className="fanda" onClick={() => ativarAnuncio(x.idAnuncio)}>Ativar</button>
+                                            :   <div></div>
                                         }
                                     </td>
-                                    <td><button className="fanda" onClick={() => anuncioVendido(x.idAnuncio)}>Já vendi</button></td>
+                                    <td>
+                                        {
+                                            x.vendido == false
+                                            ?   <button className="fanda" onClick={() => anuncioVendido(x.idAnuncio)}>Já vendi</button>
+                                            :   <div style={{color:"red"}}>Já vendido</div>
+                                        }
+                                    </td>
                                 </tr>    
                             )}
                         </tbody>
