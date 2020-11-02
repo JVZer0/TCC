@@ -7,7 +7,7 @@ namespace Backend.Business
     {
         Database.FavoritosDatabase databaseFavorito = new Database.FavoritosDatabase();
         Validadores validadores = new Validadores();
-        public bool? ConsultarSeOAnuncioEstaFavoritado(int IdAnuncio, int IdUsuario)
+        public bool? ConsultarSeOAnuncioEstaFavoritado(int? IdAnuncio, int? IdUsuario)
         {
             validadores.ValidarId(IdAnuncio);
             validadores.ValidarId(IdUsuario);
@@ -22,6 +22,8 @@ namespace Backend.Business
         {
             validadores.ValidarId(req.IdAnuncio);
             validadores.ValidarId(req.IdUsuario);
+            bool? xama = this.ConsultarSeOAnuncioEstaFavoritado(req.IdAnuncio, req.IdUsuario);
+            if(xama == true) throw new ArgumentException("Esse anuncio já foi favoritado.");
             return databaseFavorito.FavoritarAnuncio(req);
         }
         public Models.TbFavorito ConsultarFavorito(int IdAnuncio)
