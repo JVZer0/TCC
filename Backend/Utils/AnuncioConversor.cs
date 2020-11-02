@@ -186,6 +186,7 @@ namespace Backend.Utils
             resp.Situacao = req.DsSituacao;
             resp.Titulo = req.DsTitulo;
             resp.DataDePublicacao = req.DtPublicacao;
+            resp.Vendido = req.BtVendido;
             return resp;
         }
         public List<Models.Response.AnuncioRoupasResponse.MeusAnuncios> ConversorVariosMeusAnunciosParaResponse(List<Models.TbAnuncio> req)

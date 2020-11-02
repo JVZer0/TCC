@@ -120,6 +120,7 @@ namespace Backend.Models.Response
             public decimal? Preco { get; set; }
             public string Situacao { get; set; }
             public DateTime? DataDePublicacao { get; set; }
+            public bool? Vendido { get; set; }
         }
         public class AnuncioVendido
         {
