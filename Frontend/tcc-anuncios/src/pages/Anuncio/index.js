@@ -25,7 +25,8 @@ export default function Anuncio(props){
     const [imagem1, setImagens1] = useState();
     const [pergunta, setPergunta] = useState('');
     const [imagens, setImagens] = useState([]);
-
+    const [favorito, setFavorito] = useState(false);
+    
     const consultarAnuncioDetalhado = async () => {
         try{
             const resp = await api.consultarAnuncioDetalhado(infos.x.idAnuncio);
@@ -55,11 +56,31 @@ export default function Anuncio(props){
         }
     }
 
+    const favoritar = async () => {
+        try{
+            const resp = await api.favoritarAnuncio(infos.x.idAnuncio, infos.infos.idUsuario);
+        }
+        catch (e){
+
+        }
+    }
+
+    const favoritado = async () => {
+        try{
+            const resp = await api.favoritado(infos.x.idAnuncio, infos.infos.idUsuario);
+            setFavorito(resp);
+            console.log(resp)
+        }   
+        catch (e){
+
+        }
+    }
+
+
     useEffect(() => {
         consultarAnuncioDetalhado();
+        favoritado();
       }, []);
-
-    const [favorito, setFavorito] = useState(false);
 
     return(
         <div>
@@ -104,7 +125,7 @@ export default function Anuncio(props){
                             <div className="uin">
                                 {
                                     favorito == true ? <div className="ain"><img class="imag" src={CoracaoPreto} width="50px" height="45px" alt=''/></div>
-                                                    :   <button className="ain"><img class="imag" src={CoracaoBranco} width="50px" height="45px" alt=''></img></button>
+                                                    :   <button className="ain" onClick={favoritar} onClick={favoritado} ><img class="imag" src={CoracaoBranco} width="50px" height="45px" alt=''></img></button>
                                 }
                             </div>
                         </div>

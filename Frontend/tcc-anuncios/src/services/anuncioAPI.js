@@ -97,4 +97,9 @@ export default class anuncioAPI{
         const resp = await api.post(`/Favorito/FavoritarAnuncio/${idAnuncio}/${idUsuario}`);
         return resp.data;
     }
+
+    async favoritado(idAnuncio, idUsuario){
+        const resp = await api.get(`/Favorito/Favorito/${idAnuncio}/${idUsuario}`);
+        return resp.data;
+    }
 }
