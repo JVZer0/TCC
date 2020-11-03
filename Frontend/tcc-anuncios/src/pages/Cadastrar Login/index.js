@@ -36,9 +36,10 @@ export default function CadastrarLogin(){
 
     const salvarClick = async() => {
         try {
-            let celularMask = `(${celular.substring(0,2)}) ${celular.substring(2,7)}-${celular.substring(8,12)}`;
+            let celularMask = `(${celular.substring(0,2)}) ${celular.substring(2,7)}-${celular.substring(7,12)}`;
             let cepMask = `${cep.substring(0,5)}-${cep.substring(5,8)}`;
             let cpfMask = `${cpf.substring(0,3)}.${cpf.substring(3,6)}.${cpf.substring(6,9)}-${cpf.substring(9,11)}`;
+            let rgMask = `${rg.substring(0,2)}.${rg.substring(2,5)}.${rg.substring(5,8)}-${rg.substring(8,10)}`;
 
             const modelo = {
                 NomeUsuario: nome,
@@ -49,7 +50,7 @@ export default function CadastrarLogin(){
                 DataDeNascimento: nascimento,
                 Sexo: sexo,
                 CPF: cpfMask,
-                RG: rg,
+                RG: rgMask,
                 Celular: celularMask,
                 Estado: estado,
                 Cidade: cidade,
