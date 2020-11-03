@@ -59,7 +59,7 @@ export default function Anuncio(props){
     const favoritar = async () => {
         try{
             const resp = await api.favoritarAnuncio(infos.x.idAnuncio, infos.infos.idUsuario);
-            window.location.reload();
+            setFavorito(true);
         }
         catch (e){
 
