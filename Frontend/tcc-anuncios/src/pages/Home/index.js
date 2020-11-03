@@ -47,14 +47,10 @@ export default function Home(props){
 
     return(
         <div className="matheus">
-            <div className="cabecalho">
+            <div className="cabecalho1">
                 <div>
                     <Link className="hihi" to="/" ><button class="botao">Sair</button></Link>
                 </div> 
-                <div className="barraPesquisa">
-                    <input className="koko2 form-control" type="text" placeholder="Pesquisa" value={barraPesquisa} onChange={(e) => setBarraPesquisa(e.target.value)}></input>
-                    <button className="botao1" onClick={consultarAnuncios}>Consultar</button>
-                </div>
                 <div className="meio"> 
                     <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
                     <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infos}}>Meus Anuncios</Link>
@@ -69,6 +65,11 @@ export default function Home(props){
             <div className="pedroga">
                
                 <div className="pedrin">
+
+                    <div className="pedrox">
+                        <label className="matiolas">Pesquisar:</label>
+                        <input className="koko12 form-control" type="text" placeholder="Pesquisar" onChange={(e) => setBarraPesquisa(e.target.value)}></input>
+                    </div>
 
                     <div className="pedrox">
                         <label className="matiolas">Estado:</label>
@@ -127,6 +128,7 @@ export default function Home(props){
                             <option value="Usado">Usado</option>
                         </select>
                     </div>
+                    <button className="botao1" onClick={consultarAnuncios}>Filtrar</button>
                 </div>
 
                 <div className="loco">
