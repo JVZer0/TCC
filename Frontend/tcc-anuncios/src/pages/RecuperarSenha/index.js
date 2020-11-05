@@ -21,10 +21,11 @@ export default function RecuperarSenha(){
         e.preventDefault();
         try{
             let cpfMask = `${cpf.substring(0,3)}.${cpf.substring(3,6)}.${cpf.substring(6,9)}-${cpf.substring(9,11)}`;
+            let rgMask = `${rg.substring(0,2)}.${rg.substring(2,5)}.${rg.substring(5,8)}-${rg.substring(8,10)}`;
             
             const modelo = {
                 CPF: cpfMask,
-                RG: rg
+                RG: rgMask
             };
             const resp = await api.recuperar(modelo);
             console.log(resp)
@@ -52,12 +53,12 @@ export default function RecuperarSenha(){
                         <label className="v1">Digite o seu CPF e seu RG para recuperar sua senha</label>
 
                         <div>
-                        <label className="mama1">CPF:</label>
+                        <label className="mama1">CPF: (Somente números)</label>
                         <input className="v25" type="text" value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="CPF"></input>
                         </div>
                         
                         <div>
-                        <label className="mama2">RG:</label>
+                        <label className="mama2">RG: (Somente números)</label>
                         <input className="v2" type="text" value={rg} onChange={(e) => setRg(e.target.value)} placeholder="RG"></input>
                         </div>
 

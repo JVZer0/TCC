@@ -95,15 +95,12 @@ export default function Anuncio(props){
     return(
         <div>
             <div className="cabecalho">
-                <div>
+                <div style={{marginRight:"10%"}}>
                     <Link className="hihi" to={{pathname:"/Home", state: infos.infos}} ><img class="logo" src={Logo} width="180" height="34px" alt=''/></Link>
-                </div> 
-
-                <div className="barraPesquisa hihi">
-                    <Link to={{pathname:"/Home", state: infos.infos}}>Fazer novas consultas</Link>
                 </div>
                 
-                <div className="meio"> 
+                <div className="meio">
+                    <Link to={{pathname:"/Home", state: infos.infos}}>Fazer novas consultas</Link>
                     <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos.infos }}>Meu perfil</Link>
                     <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infos.infos }}>Meus Anuncios</Link>
                     <Link class="hihi meio" to={{ pathname: "/MeusFavoritos", state: infos.infos }}>Meus Favoritos</Link>
@@ -169,7 +166,7 @@ export default function Anuncio(props){
                     </div>
                 </div>
 
-                <h3 className="vaiamerda">Perguntas</h3>
+                <h3 className="vaiamerda">Perguntas:</h3>
                 
                 {
                     perguntasERespotas.map(x =>

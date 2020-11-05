@@ -29,7 +29,7 @@ export default function Home(props){
     const excluirFavorito = async (idAnuncio) => {
         try{
             const resp = await api.excluirFavorito(idAnuncio, infos.idUsuario);
-            window.location.reload();
+            consultarMeusFavoritos();
         }
         catch (e){
 
