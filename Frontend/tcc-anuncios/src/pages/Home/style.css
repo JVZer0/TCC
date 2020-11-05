@@ -52,7 +52,7 @@
     flex-direction: column;
     border-right: 1px solid rgba(0, 0, 0, 0.151);
     max-width: 27vw;
-    min-height: 100%;
+    min-height: 90vh;
 }
 
 .loco{
