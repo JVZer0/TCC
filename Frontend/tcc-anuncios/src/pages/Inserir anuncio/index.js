@@ -188,6 +188,7 @@ export default function InserirAnuncio(props){
                     <h5>Site criado pelo time TK Soluções de Informática. Todos os direitos reservados</h5>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     )
 }
