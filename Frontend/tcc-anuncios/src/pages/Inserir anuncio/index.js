@@ -174,7 +174,7 @@ export default function InserirAnuncio(props){
                 </div>
 
                 <div className="cerara">
-                    <input type="file" onChange={e => setImagens(e.target.files.[0])} placeholder="Inserir foto" className="form-control-file"></input>
+                    <input type="file" onChange={e => setImagens(e.target.files[0])} placeholder="Inserir foto" className="form-control-file"></input>
                 </div>
 
                 <div className="tem">
