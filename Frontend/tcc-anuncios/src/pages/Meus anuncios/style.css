@@ -22,3 +22,8 @@
     border: 0px;
     color: #0085ff;
 }
+
+.fanda:hover{
+    background-color: white;
+    color:  #0085ff;
+}

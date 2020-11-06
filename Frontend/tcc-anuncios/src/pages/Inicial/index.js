@@ -16,7 +16,7 @@ export default function Inicial(){
                 <div className="barraPesquisa"></div>
                 <div className="meio"></div>
                 <div>
-                    <Link  class="hihi" to="/Login"><button class="botao">Entrar</button></Link>
+                    <Link  class="hihi" to="/Login"><button class="botaoo">Entrar</button></Link>
                 </div>
             </div>
 

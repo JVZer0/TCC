@@ -49,3 +49,14 @@
     position: relative;
     top: 25px;
 }
+
+.botao2:hover{
+    color:  #fe8d27;
+    background-color: white;
+    border: 1px solid  #fe8d27;
+}
+
+.botaoo:hover{
+    color:  #fe8d27;
+    background-color: white;
+}

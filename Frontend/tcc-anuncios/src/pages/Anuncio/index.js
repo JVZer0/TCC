@@ -106,7 +106,7 @@ export default function Anuncio(props){
                     <Link class="hihi meio" to={{ pathname: "/MeusFavoritos", state: infos.infos }}>Meus Favoritos</Link>
                 </div>
                 <div>
-                    <Link  class="hihi" to={{pathname: "/Anunciar", state: infos.infos}}><button class="botao">Anunciar</button></Link>
+                    <Link  class="hihi" to={{pathname: "/Anunciar", state: infos.infos}}><button class="botaoo">Anunciar</button></Link>
                 </div>
             </div>
                 <div className="patota">
@@ -132,7 +132,7 @@ export default function Anuncio(props){
                             <div className="uin">
                                 {
                                     favorito == true ? <button className="ain" onClick={desfavoritar}><img class="imag" src={CoracaoPreto} width="55px" height="45px" alt=''/></button>
-                                                    :   <button className="ain" onClick={favoritar} ><img class="imag" src={CoracaoBranco} width="50px" height="45px" alt=''></img></button>
+                                                    :   <button className="ain" onClick={favoritar} ><img class="imag" src={CoracaoBranco} width="52px" height="45px" alt=''></img></button>
                                 }
                             </div>
                         </div>

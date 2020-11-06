@@ -49,8 +49,7 @@ export default function Home(props){
         <div className="matheus">
             <div className="cabecalho1">
                 <div>
-                    <Link className="hihi" to="/Home" ><img class="logo" src={Logo} width="180" height="34px" alt=''/></Link>
-                    <Link className="hihi" to="/" ><button class="botao">Sair</button></Link>
+                    <Link className="hihi" to="/" ><button class="botaoo">Sair</button></Link>
                 </div> 
                 <div className="meio"> 
                     <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
@@ -58,7 +57,7 @@ export default function Home(props){
                     <Link class="hihi meio" to={{pathname: "/MeusFavoritos", state: infos}}>Meus Favoritos</Link>
                 </div>
                 <div>
-                    <Link  class="hihi" to={{pathname: "/Anunciar", state: infos}}><button class="botao">Anunciar</button></Link>
+                    <Link  class="hihi" to={{pathname: "/Anunciar", state: infos}}><button class="botaoo">Anunciar</button></Link>
                 </div>
             </div>
 

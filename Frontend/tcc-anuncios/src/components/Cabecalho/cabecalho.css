@@ -33,7 +33,7 @@ body{
     justify-content: space-evenly;
 }
 
-.botao{
+.botaoo{
     border: 2px solid  white;
     box-shadow: black;
     padding: 6px 24px;
@@ -45,4 +45,15 @@ body{
     background:  #fe8d27;
     color: white;
     font-size: 13px;
+}
+
+button:focus{
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+}
+
+button:hover{
+    color: rgb(255, 255, 255);
+    background-color: #fe8d27;
+    border: 0px;
 }

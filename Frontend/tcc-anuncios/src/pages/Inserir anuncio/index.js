@@ -14,8 +14,14 @@ import AnuncioAPI from '../../services/anuncioAPI'
 const api = new AnuncioAPI();
 
 export default function InserirAnuncio(props){
+
+    const navegacao = useHistory();
+
+    const voltar = async() => {
+        navegacao.goBack();
+    }
+
     const [infos, setInfos] = useState(props.location.state);
-    console.log(infos)
 
     const [titulo, setTitulo] = useState();
     const [descricao, setDescricao] = useState();
@@ -28,7 +34,7 @@ export default function InserirAnuncio(props){
     const [estado, setEstado] = useState();
     const [cidade, setCidade] = useState();
     const [cep, setCep] = useState();
-    const [imagens, setImagens] = useState([]);
+    const [imagens, setImagens] = useState();
 
     const anunciar = async() => {
         try{
@@ -50,10 +56,16 @@ export default function InserirAnuncio(props){
                 Imagens: imagens
             }
             const resp = await api.inserirAnuncio(modelo);
+            console.log(resp)
             toast.success("Anunciado com sucesso");
         }
         catch (e){
-            toast.error(e.response.data.mensagem);
+            if (e.response) {
+                toast.error(e.response.data.mensagem);
+              } else {
+                console.log(e);
+                toast.error("Ocorreu um erro. Verifique os campos.");
+              }
         }
     }
 
@@ -178,7 +190,7 @@ export default function InserirAnuncio(props){
                 </div>
 
                 <div className="tem">
-                    <button className="tim">Cancelar</button>
+                    <button className="tim" onClick={voltar}>Cancelar</button>
                     <button className="tim" onClick={anunciar}>Anúnciar</button>
                 </div>
             </div>
