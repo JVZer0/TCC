@@ -1,0 +1,65 @@
+Get "Anuncio/{BarraPesquisa}/{Estado}/{Cidade}/{Genero}/{Condicao}" = Consultar Anuncios
+
+Get "Anuncio/AnuncioDetalhado/{IdAnuncio}" = Consultar Anuncio Detalhado
+
+Post "Anuncio/Perguntar" = Perguntar
+
+Put "Anuncio/Responder" = Responder
+
+Post "Anuncio/Anunciar" = Anunciar
+
+Get "Anuncio/MeusAnuncios/{IdUsuario}" = ConsultarMeusAnuncios
+
+Delete "Anuncio/DeletarAnuncio/{IdAnuncio}/{IdUsuario}" = Deletar Anuncio
+
+Put "Anuncio/InativarAnuncio/{IdAnuncio}" = Inativar Anuncio
+
+Put "Anuncio/AnuncioVendido/{IdAnuncio}" = Anuncio Vendido
+
+Put "Anuncio/AlterarAnuncio" = Alterar Anuncio
+
+Put "Anuncio/AtivarAnuncio/{IdAnuncio}" = Ativar Anuncio
+
+
+
+Get "Favorito/Favorito/{IdAnuncio}/{IdUsuario}" = Consultar Se O Anuncio Esta Favoritado
+
+Get "Favorito/MeusFavoritos/{IdUsuario}" = Consultar Meus Favoritos
+
+Post "Favorito/FavoritarAnuncio/{IdAnuncio}/{IdUsuario}" = Favoritar Anuncio
+
+Delete "Favorito/DeletarFavorito/{IdAnuncio}/{IdUsuario}" = Deletar Favorito
+
+
+
+Delete "Imagem/{IdImagem}/{IdAnuncio}" = Excluir Imagem
+
+Post "Imagem/{IdAnuncio}" = Adicionar Imagem
+
+Get "Imagem/BuscarImagem/{nome}" = Buscar Imagem
+
+Post "Imagem/AdicionarVariasImagens/{IdAnuncio}" = Adicionar Varias Imagem
+
+
+
+Post "Login/" = Logar
+
+Post "Login/Criarlogin" = Cadastrar Login
+
+
+
+Get "Relatorios/AnunciosPorDia" = AnunciosPorDia
+
+Get "Relatorios/AnunciosPorMes" = AnunciosPorMes
+
+Get "Relatorios/Top10Clientes" = Top10Clientes
+
+Get "Relatorios/Top10Produtos" = Top10Produtos
+
+
+
+Put "Usuario/" = Alterar
+
+Get "Usuario/{IdUsuario}" = Consultar Infomacoes Do Usuario
+
+Post "Usuario/RecuperarSenha" = RecuperarSenha
