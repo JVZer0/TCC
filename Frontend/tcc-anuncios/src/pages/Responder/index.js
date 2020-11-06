@@ -51,7 +51,7 @@ export default function Responder(props){
                     <Link class="hihi meio" to={{ pathname: "/MeusFavoritos", state: infos.infos.infos }}>Meus Favoritos</Link>
                 </div>
                 <div>
-                    <Link  class="hihi" to="/Anunciar"><button class="botao">Anunciar</button></Link>
+                    <Link  class="hihi" to={{pathname: "/Anunciar", state: infos.infos.infos}}><button class="botao">Anunciar</button></Link>
                 </div>
             </div>
 

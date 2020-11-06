@@ -68,7 +68,7 @@ export default function MeusAnuncios(props){
                     <Link class="hihi meio" to={{pathname: "/MeusFavoritos", state: infos}}>Meus Favoritos</Link>
                 </div>
                 <div>
-                    <Link  class="hihi" to="/Anunciar"><button class="botao">Anunciar</button></Link>
+                    <Link  class="hihi" to={{pathname: "/Anunciar", state: infos}}><button class="botao">Anunciar</button></Link>
                 </div>
             </div>
             

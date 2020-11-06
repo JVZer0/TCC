@@ -1,0 +1,70 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 40px;
+}
+
+.cururu{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.carara{
+    display: flex;
+    flex-direction: column;
+}
+
+.cerara{
+    margin-top: 35px;
+}
+
+.ciriri{
+    margin-top: 20px;
+}
+
+.p{
+    height: 30px;
+}
+
+.c{
+    margin-left: 9px;
+    width: 140px;
+}
+
+.kill{
+    height: 30px;
+}
+
+.mimi{
+    position: relative;
+    left: 10px;
+}
+
+.tem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.tim{
+    border: 1px solid #fe8d27;
+    height: 30px;
+    width: 150px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:  #fe8d27;
+    color: white;  
+}
+
+.caca{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

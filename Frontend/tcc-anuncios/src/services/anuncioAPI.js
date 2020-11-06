@@ -102,4 +102,9 @@ export default class anuncioAPI{
         const resp = await api.get(`/Favorito/Favorito/${idAnuncio}/${idUsuario}`);
         return resp.data;
     }
+
+    async inserirAnuncio(model){
+        const resp = await api.post(`/Anuncio/Anunciar`, model);
+        return resp.data;
+    }
 }
