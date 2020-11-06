@@ -28,7 +28,7 @@ export default function InserirAnuncio(props){
     const [estado, setEstado] = useState();
     const [cidade, setCidade] = useState();
     const [cep, setCep] = useState();
-    const [imagens, setImagens] = useState();
+    const [imagens, setImagens] = useState([]);
 
     const anunciar = async() => {
         try{
@@ -55,7 +55,7 @@ export default function InserirAnuncio(props){
         catch (e){
             toast.error(e.response.data.mensagem);
         }
-    } 
+    }
 
     return(
         <div>
@@ -174,7 +174,7 @@ export default function InserirAnuncio(props){
                 </div>
 
                 <div className="cerara">
-                    <input type="file" onChange={e => setImagens(e.target.files[0])} placeholder="Inserir foto" className="form-control-file"></input>
+                    <input type="file" onChange={e => setImagens(e.target.files)} placeholder="Inserir foto" className="form-control-file" multiple></input>
                 </div>
 
                 <div className="tem">
