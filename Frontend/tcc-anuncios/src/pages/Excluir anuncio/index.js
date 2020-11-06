@@ -21,7 +21,6 @@ export default function ExcluirAnuncio(props){
     const deletarAnuncio = async () => {
         try{
             const resp = await api.deletarAnuncio(infosUser.x.idAnuncio, infosUser.x.idUsuario);
-            console.log(infosUser)
             navegacao.goBack();
         }
         catch (e){

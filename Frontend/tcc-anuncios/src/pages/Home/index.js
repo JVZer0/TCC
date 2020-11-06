@@ -49,6 +49,7 @@ export default function Home(props){
         <div className="matheus">
             <div className="cabecalho1">
                 <div>
+                    <Link className="hihi" to="/Home" ><img class="logo" src={Logo} width="180" height="34px" alt=''/></Link>
                     <Link className="hihi" to="/" ><button class="botao">Sair</button></Link>
                 </div> 
                 <div className="meio"> 

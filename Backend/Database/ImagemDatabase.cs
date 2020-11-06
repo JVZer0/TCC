@@ -28,5 +28,11 @@ namespace Backend.Database
             ctx.SaveChanges();
             return req;
         }
+        public List<Models.TbImagem> InserirVariasImagens(List<Models.TbImagem> req)
+        {
+            ctx.AddRange(req);
+            ctx.SaveChanges();
+            return req;
+        }
     }
 }

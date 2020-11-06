@@ -14,8 +14,6 @@ export default function Senha(props){
 
     const [senha, setSenha] = useState(props.location.state);
 
-    console.log(senha)
-
     return(
         <div className="in">
             <div className="cabecalho">

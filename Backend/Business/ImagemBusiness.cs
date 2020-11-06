@@ -35,6 +35,13 @@ namespace Backend.Business
             if(val.TbImagem.Count() >= 10) throw new ArgumentException("Você só pode inserir 10 imagens por anuncio.");
             return databaseImagem.InserirImagem(req);
         }
+        public List<Models.TbImagem> InserirVariasImagens(List<Models.TbImagem> req)
+        {
+            if(req.Count >= 10) throw new ArgumentException("Você só pode inserir 10 imagens por anuncio.");
+            Models.TbAnuncio val = businessAnuncio.ConsultadoAnuncioDetalhado(req.FirstOrDefault().IdAnuncio);
+            if(val.TbImagem.Count() >= 10) throw new ArgumentException("Você só pode inserir 10 imagens por anuncio.");
+            return databaseImagem.InserirVariasImagens(req);
+        }
         
     }
 }
