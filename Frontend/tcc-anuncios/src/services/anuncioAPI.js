@@ -37,11 +37,6 @@ export default class anuncioAPI{
         return resp.data;
     }
 
-    consultarImagem(imagem) {
-        const modeloImagem = api.defaults.baseURL + "/Imagem/BuscarImagem/" + imagem;
-        return modeloImagem;
-    }
-
     async consultarAnuncioDetalhado(idAnuncio){
         const resp = await api.get(`/Anuncio/AnuncioDetalhado/${idAnuncio}`);
         return resp.data;
@@ -110,6 +105,16 @@ export default class anuncioAPI{
 
     async alterarInfos(req){
         const resp = await api.put(`/Anuncio/AlterarAnuncio`, req);
+        return resp.data;
+    }
+
+    consultarImagem(imagem) {
+        const modeloImagem = api.defaults.baseURL + "/Imagem/BuscarImagem/" + imagem;
+        return modeloImagem;
+    }
+
+    async adicionarImagem(idAnuncio, imagens) {
+        const resp = await api.post(`/Imagem/Adicionar/VariasImagens/${idAnuncio}`, imagens);
         return resp.data;
     }
 }

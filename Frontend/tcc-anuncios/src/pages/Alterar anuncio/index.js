@@ -38,6 +38,7 @@ export default function AlterarAnuncio(props){
     const [cidade, setCidade] = useState();
     const [cep, setCep] = useState();
     const [imagens, setImagens] = useState([]);
+    const [addImagem, setAddImagem] = useState([]);
 
     const consultarInfosAnuncio = async () => {
         try{
@@ -79,6 +80,7 @@ export default function AlterarAnuncio(props){
                 CEP: cep
             };
             const resp = await api.alterarInfos(modelo);
+            const respo = await api.adicionarImagem(infos.x.idAnuncio, addImagem)
             toast.success("Alterado com sucesso");
         }
         catch (e){
@@ -153,7 +155,7 @@ export default function AlterarAnuncio(props){
 
                         <div className="carara">
                             <label className="ciriri">Preço:</label>
-                            <input type="number" value={preco} onChange={e => setPreco(e.target.value)}></input>
+                            <input type="number" value={preco} onChange={e => setPreco(Number(e.target.value))}></input>
                         </div>
 
                         <div className="cururu">
@@ -212,7 +214,7 @@ export default function AlterarAnuncio(props){
                             </Carousel>
                         </div>
                         <div className="ceraraa">
-                            <input type="file" onChange={e => setImagens(e.target.files)} placeholder="Inserir foto" className="form-control-file" multiple></input>
+                            <input type="file" onChange={e => setAddImagem(e.target.files)} placeholder="Inserir foto" className="form-control-file" multiple></input>
                         </div>
 
                         <div className="temi">
