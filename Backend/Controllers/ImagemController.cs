@@ -64,7 +64,7 @@ namespace Backend.Controllers
             }
         }
         [HttpPost("AdicionarVariasImagens/{IdAnuncio}")]
-        public ActionResult<List<Models.Response.AnuncioRoupasResponse.Imagem>> AdicionarVariasImagem([FromForm] List<IFormFile> imagens, int IdAnuncio)
+        public ActionResult<List<Models.Response.AnuncioRoupasResponse.Imagem>> AdicionarVariasImagem(int IdAnuncio, [FromForm] List<IFormFile> imagens)
         {
             try
             {

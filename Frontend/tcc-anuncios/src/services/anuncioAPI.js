@@ -113,8 +113,13 @@ export default class anuncioAPI{
         return modeloImagem;
     }
 
-    async adicionarImagem(idAnuncio, imagens) {
-        const resp = await api.post(`/Imagem/Adicionar/VariasImagens/${idAnuncio}`, imagens);
+    async adicionarImagem(idAnuncio, addImagens) {
+
+        let formData = new FormData();
+        formData.append('imagens', addImagens)
+        const resp = await api.post(`/Imagem/AdicionarVariasImagens/${idAnuncio}`,formData, {
+            headers: { 'content-type': 'multipart/form-data' }
+        });
         return resp.data;
     }
 }
