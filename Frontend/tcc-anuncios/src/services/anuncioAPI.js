@@ -107,4 +107,9 @@ export default class anuncioAPI{
         const resp = await api.post(`/Anuncio/Anunciar`, model);
         return resp.data;
     }
+
+    async alterarInfos(req){
+        const resp = await api.put(`/Anuncio/AlterarAnuncio`, req);
+        return resp.data;
+    }
 }

@@ -63,6 +63,13 @@
     color: white;  
 }
 
+.tim:hover{
+    color:  #fe8d27;
+    background-color: white;
+    border: 1px solid  #fe8d27;
+}
+
+
 .caca{
     text-align: center;
     margin-top: 30px;
