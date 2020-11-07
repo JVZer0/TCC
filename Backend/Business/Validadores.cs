@@ -108,12 +108,16 @@ namespace Backend.Business
             ValidarTexto(anuncio.DsTamanho);
             ValidarTexto(anuncio.DsGenero);
             ValidarTexto(anuncio.NmMarca);
+            ValidarPreco(anuncio.VlPreco);
         }
 
 
 
 
-
+        public void ValidarPreco(decimal? preco)
+        {
+            if(preco == null || preco == 0.00m) throw new ArgumentException("Verifique o preço.");    
+        }
         public void ValidarData(DateTime? data)
         {
             if(data == new DateTime()) throw new ArgumentException("Data incorreta.");    

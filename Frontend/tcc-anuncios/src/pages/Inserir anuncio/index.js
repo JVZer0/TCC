@@ -34,7 +34,7 @@ export default function InserirAnuncio(props){
     const [estado, setEstado] = useState();
     const [cidade, setCidade] = useState();
     const [cep, setCep] = useState();
-    const [imagens, setImagens] = useState();
+    const [imagens, setImagens] = useState([]);
 
     const anunciar = async() => {
         try{

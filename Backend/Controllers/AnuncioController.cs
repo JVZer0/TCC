@@ -148,7 +148,7 @@ namespace Backend.Controllers
             }
             catch (System.Exception ex)
             {
-                return NotFound(new Models.Response.Erro(404, ex.Message));
+                return BadRequest(new Models.Response.Erro(400, ex.Message));
             }
         }
         [HttpPut("AtivarAnuncio/{IdAnuncio}")]
