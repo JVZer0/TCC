@@ -82,7 +82,7 @@ export default function AlterarAnuncio(props){
             toast.success("Alterado com sucesso");
         }
         catch (e){
-
+            toast.error(e.response.data.mensagem);
         }
     }
 
