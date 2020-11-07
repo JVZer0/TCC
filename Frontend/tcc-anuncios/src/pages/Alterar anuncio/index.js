@@ -61,7 +61,7 @@ export default function AlterarAnuncio(props){
             
         }
     }
-
+console.log(addImagem)
     const alterarInfos = async () => {
         try{
             const modelo = {

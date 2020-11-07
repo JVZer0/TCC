@@ -113,7 +113,7 @@ export default class anuncioAPI{
         return modeloImagem;
     }
 
-    async adicionarImagem(idAnuncio, addImagens) {
+    async test(idAnuncio, addImagens) {
 
         let formData = new FormData();
         formData.append('imagens', addImagens)
@@ -121,5 +121,19 @@ export default class anuncioAPI{
             headers: { 'content-type': 'multipart/form-data' }
         });
         return resp.data;
+    }
+
+    async adicionarImagem(idAnuncio, addImagens) {
+
+        let formData = new FormData();
+        console.log(addImagens.length)
+        for (let x = 0; x < addImagens.length; x++) {
+            console.log(x)
+            formData.append('imagem', addImagens[x])
+            const resp = await api.post(`/Imagem/${idAnuncio}`,formData, {
+                headers: { 'content-type': 'multipart/form-data' }
+            });  
+        }
+        return "Imagens adicionadas com sucesso";
     }
 }
