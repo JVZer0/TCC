@@ -24,7 +24,6 @@ export default function AlterarAnuncio(props){
     }
 
     const [infos, setInfos] = useState(props.location.state);
-    console.log(infos)
 
     const [titulo, setTitulo] = useState();
     const [descricao, setDescricao] = useState();
@@ -61,7 +60,7 @@ export default function AlterarAnuncio(props){
             
         }
     }
-console.log(addImagem)
+
     const alterarInfos = async () => {
         try{
             const modelo = {
@@ -80,8 +79,12 @@ console.log(addImagem)
                 CEP: cep
             };
             const resp = await api.alterarInfos(modelo);
-            const respo = await api.adicionarImagem(infos.x.idAnuncio, addImagem)
-            toast.success("Alterado com sucesso");
+            if(addImagem.length + imagens.length > 10) toast.error("Você so pode ter 10 imagens por anuncio")
+            else{
+                const respo = await api.adicionarImagem(infos.x.idAnuncio, addImagem);
+                navegacao.goBack();
+            }
+
         }
         catch (e){
             toast.error(e.response.data.mensagem);
@@ -207,11 +210,15 @@ console.log(addImagem)
 
                     <div className="comc">
                         <div className="gena">
-                            <Carousel>
-                                {imagens.map(x =>
-                                    <img src={api.consultarImagem(x.textoImagem)} alt=""></img>
-                                )}
-                            </Carousel>
+                            <p style={{textAlign:"center", color:"gray"}}>Você pode adicionar no máximo 10 imagens</p>
+                            {imagens.map(x =>
+                                x.textoImagem == "semimagem.png"
+                                ? <div style={{width:"100%", textAlign:"center"}}>Produto ainda sem imagens</div>
+                                : <div>
+                                    <img src={api.consultarImagem(x.textoImagem)} alt="" width="130px"></img>
+                                    <button style={{width:"130px", marginTop:"5px"}}>Excluir Imagem</button>
+                                  </div>
+                            )}
                         </div>
                         <div className="ceraraa">
                             <input type="file" onChange={e => setAddImagem(e.target.files)} placeholder="Inserir foto" className="form-control-file" multiple></input>

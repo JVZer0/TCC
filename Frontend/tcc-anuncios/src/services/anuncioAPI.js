@@ -1,6 +1,6 @@
 import axios from 'axios';
 const api = axios.create({
-    baseURL: "http://3.84.250.220:5000"
+    baseURL: "http://localhost:5000"
   });
 
 
@@ -126,10 +126,11 @@ export default class anuncioAPI{
     async adicionarImagem(idAnuncio, addImagens) {
 
         let formData = new FormData();
-        console.log(addImagens.length)
+        console.log(addImagens)
         for (let x = 0; x < addImagens.length; x++) {
             console.log(x)
-            formData.append('imagem', addImagens[x])
+            console.log(addImagens[x])
+            formData.set('imagem', addImagens[x])
             const resp = await api.post(`/Imagem/${idAnuncio}`,formData, {
                 headers: { 'content-type': 'multipart/form-data' }
             });  

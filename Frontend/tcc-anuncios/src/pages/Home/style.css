@@ -150,6 +150,11 @@
     border: 1px solid rgb(0, 0, 0);
 }
 
+.ima img{
+    width: 100%;
+    height: auto;
+}
+
 .alin{
     position: relative;
     height: 200px;
