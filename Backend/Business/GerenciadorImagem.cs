@@ -32,7 +32,7 @@ namespace Backend.Business
         public string GerarNovoNome(IFormFile i)
         {
             if(i == null){
-                return "semimagem.PNG";
+                return "semimagem.png";
             }
             else{
                 string novoNome = Guid.NewGuid().ToString();
@@ -47,7 +47,7 @@ namespace Backend.Business
             {
                 foreach (Models.TbImagem item in nomes)
                 {
-                    SalvarImagem(item.ImgAnuncio,null);
+                    SalvarImagem(item.ImgAnuncio, null);
                 }
             }
             else{
@@ -62,7 +62,7 @@ namespace Backend.Business
         }
         public void SalvarImagem(string nome, IFormFile imagem)
         {
-            if(nome == "semimagem.PNG")
+            if(nome == "semimagem.png")
             {
                 return;
             }
