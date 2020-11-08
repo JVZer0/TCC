@@ -80,7 +80,7 @@ namespace Backend.Models.Request
             public string Genero { get; set; }
             public string Marca { get; set; }
             public string Tamanho { get; set; }
-            public decimal Preco { get; set; }
+            public decimal? Preco { get; set; }
             public string Estado { get; set; }
             public string Cidade { get; set; }
             public string CEP { get; set; }

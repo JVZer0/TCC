@@ -1,6 +1,6 @@
 import axios from 'axios';
 const api = axios.create({
-    baseURL: "http://3.84.250.220:5000"
+    baseURL: "http://localhost:5000"
   });
 
 
@@ -99,7 +99,24 @@ export default class anuncioAPI{
     }
 
     async inserirAnuncio(model){
-        const resp = await api.post(`/Anuncio/Anunciar`, model);
+        let formData = new FormData();
+        console.log(model.Imagens)
+        formData.append('Titulo', model.Titulo);
+        formData.append('Descricao', model.Descricao);
+        formData.append('TipoDoProduto', model.TipoDoProduto);
+        formData.append('Condicao', model.Condicao);
+        formData.append('Genero', model.Genero);
+        formData.append('Marca', model.Marca);
+        formData.append('Tamanho', model.Tamanho);
+        formData.append('Preco', model.Preco);
+        formData.append('Estado', model.Estado);
+        formData.append('Cidade', model.Cidade);
+        formData.append('CEP', model.CEP);
+        formData.append('IdUsuario', model.IdUsuario);
+        formData.append('Imagens', model.Imagens);
+        const resp = await api.post(`/Anuncio/Anunciar`, formData, {
+            headers: { 'content-type': 'multipart/form-data' }
+        });
         return resp.data;
     }
 
@@ -108,12 +125,12 @@ export default class anuncioAPI{
         return resp.data;
     }
 
-    consultarImagem(imagem) {
+    consultarImagem(imagem){
         const modeloImagem = api.defaults.baseURL + "/Imagem/BuscarImagem/" + imagem;
         return modeloImagem;
     }
 
-    async test(idAnuncio, addImagens) {
+    async test(idAnuncio, addImagens){
 
         let formData = new FormData();
         formData.append('imagens', addImagens)
@@ -123,8 +140,7 @@ export default class anuncioAPI{
         return resp.data;
     }
 
-    async adicionarImagem(idAnuncio, addImagens) {
-
+    async adicionarImagem(idAnuncio, addImagens){
         let formData = new FormData();
         console.log(addImagens)
         for (let x = 0; x < addImagens.length; x++) {

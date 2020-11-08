@@ -36,6 +36,10 @@ export default function InserirAnuncio(props){
     const [cep, setCep] = useState();
     const [imagens, setImagens] = useState([]);
 
+    console.log([].slice.call(imagens))
+
+    console.log(Number(preco))
+
     const anunciar = async() => {
         try{
             let cepMask = `${cep.substring(0,5)}-${cep.substring(5,8)}`;
@@ -48,13 +52,14 @@ export default function InserirAnuncio(props){
                 Genero: genero,
                 Marca: marca, 
                 Tamanho: tamanho,
-                Preco: preco,
+                Preco: Number(preco),
                 Estado: estado,
                 Cidade: cidade,
                 CEP: cepMask,
                 IdUsuario: infos.idUsuario,
                 Imagens: imagens
             }
+            console.log(modelo)
             const resp = await api.inserirAnuncio(modelo);
             console.log(resp)
             toast.success("Anunciado com sucesso");
