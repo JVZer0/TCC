@@ -10,7 +10,7 @@ namespace Backend.Database
     public class ImagemDatabase
     {
         Models.anuncioRoupaContext ctx = new Models.anuncioRoupaContext();
-        public Models.TbImagem ApagarImagem(int IdImagem, int IdAnuncio)
+        public Models.TbImagem ApagarImagem(int IdImagem, int? IdAnuncio)
         {
             Models.TbImagem resp = ctx.TbImagem.FirstOrDefault(x => x.IdImagem == IdImagem && x.IdAnuncio == IdAnuncio);
             ctx.Remove(resp);

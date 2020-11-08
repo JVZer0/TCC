@@ -32,7 +32,10 @@ namespace Backend.Business
         public Models.TbImagem InserirImagem(Models.TbImagem req)
         {
             Models.TbAnuncio val = businessAnuncio.ConsultadoAnuncioDetalhado(req.IdAnuncio);
-            if(val.TbImagem.Count() >= 10) throw new ArgumentException("Você só pode inserir 10 imagens por anuncio.");
+            if(val.TbImagem.Count() > 10) throw new ArgumentException("Você só pode inserir 10 imagens por anuncio.");
+            if(val.TbImagem.Count() == 1 && val.TbImagem.First().ImgAnuncio == "semimagem.PNG") 
+                                            databaseImagem.ApagarImagem(val.TbImagem.FirstOrDefault().IdImagem, val.TbImagem.FirstOrDefault().IdAnuncio);
+                                            
             return databaseImagem.InserirImagem(req);
         }
         public List<Models.TbImagem> InserirVariasImagens(List<Models.TbImagem> req)
