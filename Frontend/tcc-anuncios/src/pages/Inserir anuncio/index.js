@@ -35,6 +35,7 @@ export default function InserirAnuncio(props){
     const [cidade, setCidade] = useState();
     const [cep, setCep] = useState();
     const [imagens, setImagens] = useState([]);
+    const [addImagem, setAddImagem] = useState([]);
 
     const anunciar = async() => {
         try{
@@ -56,7 +57,7 @@ export default function InserirAnuncio(props){
                 Imagens: imagens
             }
             const resp = await api.inserirAnuncio(modelo);
-            console.log(resp)
+            console.log(resp)            
             toast.success("Anunciado com sucesso");
         }
         catch (e){
