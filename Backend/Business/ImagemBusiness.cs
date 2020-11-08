@@ -9,6 +9,7 @@ namespace Backend.Business
 {
     public class ImagemBusiness
     {
+        private const int V = 1;
         Database.ImagemDatabase databaseImagem = new Database.ImagemDatabase();
         Business.AnuncioBusiness businessAnuncio = new Business.AnuncioBusiness();
         Business.GerenciadorImagem gerenciadorImagem = new Business.GerenciadorImagem();
@@ -23,7 +24,7 @@ namespace Backend.Business
             if(anuncio.TbImagem.Count() <= 1)
             {
                 Models.TbImagem a = new Models.TbImagem();
-                a.ImgAnuncio = "semimagem.PNG";
+                a.ImgAnuncio = "semimagem.png";
                 a.IdAnuncio = IdAnuncio;
                 databaseImagem.InserirImagem(a);
             }
@@ -32,17 +33,17 @@ namespace Backend.Business
         public Models.TbImagem InserirImagem(Models.TbImagem req)
         {
             Models.TbAnuncio val = businessAnuncio.ConsultadoAnuncioDetalhado(req.IdAnuncio);
-            if(val.TbImagem.Count() > 10) throw new ArgumentException("Você só pode inserir 10 imagens por anuncio.");
-            if(val.TbImagem.Count() == 1 && val.TbImagem.First().ImgAnuncio == "semimagem.PNG") 
+            if(val.TbImagem.Count > 10) throw new ArgumentException("Você só pode inserir 10 imagens por anuncio.");
+            if(val.TbImagem.Count == 1 && val.TbImagem.ToList()[0].ImgAnuncio == "semimagem.png")
                                             databaseImagem.ApagarImagem(val.TbImagem.FirstOrDefault().IdImagem, val.TbImagem.FirstOrDefault().IdAnuncio);
-                                            
+
             return databaseImagem.InserirImagem(req);
         }
         public List<Models.TbImagem> InserirVariasImagens(List<Models.TbImagem> req)
         {
             if(req.Count >= 10) throw new ArgumentException("Você só pode inserir 10 imagens por anuncio.");
             Models.TbAnuncio val = businessAnuncio.ConsultadoAnuncioDetalhado(req.FirstOrDefault().IdAnuncio);
-            if(val.TbImagem.Count() >= 10) throw new ArgumentException("Você só pode inserir 10 imagens por anuncio.");
+            if(val.TbImagem.Count >= 10) throw new ArgumentException("Você só pode inserir 10 imagens por anuncio.");
             return databaseImagem.InserirVariasImagens(req);
         }
         

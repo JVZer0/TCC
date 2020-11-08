@@ -32,7 +32,7 @@ namespace Backend.Business
         public string GerarNovoNome(IFormFile i)
         {
             if(i == null){
-                return "semimagem.PNG";
+                return "semimagem.png";
             }
             else{
                 string novoNome = Guid.NewGuid().ToString();
