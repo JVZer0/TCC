@@ -42,7 +42,6 @@ export default function AlterarAnuncio(props){
     const consultarInfosAnuncio = async () => {
         try{
             const resp = await api.consultarAnuncioDetalhado(infos.x.idAnuncio);
-            console.log(resp)
             setTitulo(resp.titulo);
             setDescricao(resp.descricao);
             setTipoDeProduto(resp.produto);
@@ -57,7 +56,7 @@ export default function AlterarAnuncio(props){
             setImagens(resp.imagens);
         }
         catch (e){
-            
+            toast.error(e.response.data.mensagem);
         }
     }
 
@@ -83,6 +82,7 @@ export default function AlterarAnuncio(props){
             else{
                 const respo = await api.adicionarImagem(infos.x.idAnuncio, addImagem);
                 console.log(addImagem)
+                consultarInfosAnuncio();
                 toast.success("Alterado com sucesso")
             }
 
@@ -92,13 +92,14 @@ export default function AlterarAnuncio(props){
         }
     }
     
-    const excluirImagem = async () => {
-        try{
-            const resp = await api.consultarAnuncioDetalhado(infos.x.idAnuncio);
-            const respo = await api.excluirImagem(infos.x.idImagem, infos.x.idAnuncio);
+    const excluirImagem = async (IdImagem, IdAnuncio) => {
+        try{;
+            const respo = await api.excluirImagem(IdImagem, IdAnuncio);
+            toast.success("Conseguimos");
+            consultarInfosAnuncio();
         }
         catch (e){
-
+            toast.error(e.response.data.mensagem);
         }
     }
 
@@ -227,7 +228,7 @@ export default function AlterarAnuncio(props){
                                 ? <div style={{width:"100%", textAlign:"center"}}>Produto ainda sem imagens</div>
                                 : <div>
                                     <img src={api.consultarImagem(x.textoImagem)} alt="" width="130px"></img>
-                                    <button onClick={excluirImagem} className="botoxe" style={{width:"130px", marginTop:"5px"}}>Excluir Imagem</button>
+                                    <button onClick={() => excluirImagem(x.idImagem, x.idDoAnuncio)} className="botoxe" style={{width:"130px", marginTop:"5px"}}>Excluir Imagem</button>
                                   </div>
                             )}
                         </div>
