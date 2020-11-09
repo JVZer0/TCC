@@ -6,6 +6,7 @@ namespace Backend.Utils
 {
     public class RelatorioConversor
     {
+        Models.anuncioRoupaContext ctx = new Models.anuncioRoupaContext();
         public List<Models.Response.RelatorioResponse.AnunciosPorDia> ConversorAnunciosPorDia(List<Models.TbAnuncio> a)
         {
             List<Models.Response.RelatorioResponse.AnunciosPorDia> porDia = new List<Models.Response.RelatorioResponse.AnunciosPorDia>();
@@ -60,7 +61,33 @@ namespace Backend.Utils
         }
         public List<Models.Response.RelatorioResponse.Top10ProdutosMaisAnunciados> ConversorTop10ProdutosMaisAnunciados(List<Models.TbAnuncio> a)
         {
-            return null;
+            List<Models.Response.RelatorioResponse.Top10ProdutosMaisAnunciados> resp = new List<Models.Response.RelatorioResponse.Top10ProdutosMaisAnunciados>();
+            foreach(Models.TbAnuncio item in a)
+            {
+                Models.Response.RelatorioResponse.Top10ProdutosMaisAnunciados topProdutos = new Models.Response.RelatorioResponse.Top10ProdutosMaisAnunciados();
+
+                List<Models.TbAnuncio> xama = ctx.TbAnuncio.Where(x => x.TpProduto == item.TpProduto).ToList();
+
+                topProdutos.Nome = item.TpProduto;
+                topProdutos.QtdAnunciada = xama.Count;
+                topProdutos.TotalGasto = xama.Sum(x => x.VlPreco);
+                List<bool> verdade = new List<bool>();
+                foreach (Models.Response.RelatorioResponse.Top10ProdutosMaisAnunciados dale in resp)
+                {
+                    if(dale.Nome != item.TpProduto)
+                    {
+                        verdade.Add(true);
+                    } 
+                    else
+                    {
+                        verdade.Add(false);
+                    };
+                }
+                if(verdade.All(x => x == true)) resp.Add(topProdutos);
+            }
+            resp = resp.OrderByDescending(x => x.QtdAnunciada).ToList();
+
+            return resp.Take(10).ToList();
         }
         public List<Models.Response.RelatorioResponse.Top5EstadosComMaisAnuncios> ConversorTop5EstadosComMaisAnuncios(List<Models.TbAnuncio> a)
         {
