@@ -5,6 +5,7 @@ import '../../components/Cabecalho/cabecalho.css'
 import '../Home/style.css';
 
 import Logo from '../../assets/image/Capturar.PNG'
+import menu from '../../assets/image/menu.png'
 
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -48,13 +49,21 @@ export default function Home(props){
     return(
         <div className="matheus">
             <div className="cabecalho1">
-                <div>
-                    <Link className="hihi" to="/" ><button class="botaoo">Sair</button></Link>
-                </div> 
+
+                <nav class="senta">
+                    <ul>
+                        <li><img src={menu} width="40" height="40px"></img>
+                            <ul>
+                                <li><Link class="mago" to={{ pathname: "/MeuPerfil", state: infos}}>Meu perfil</Link></li>
+                                <li><Link className="mago" to="/" >Sair</Link></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
                 <div className="meio"> 
-                    <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infos}}>Meus Anuncios</Link>
-                    <Link class="hihi meio" to={{pathname: "/MeusFavoritos", state: infos}}>Meus Favoritos</Link>
+                    <Link class="tango" to={{ pathname: "/MeusAnuncios", state: infos}}>Meus Anuncios</Link>
+                    <Link class="tango" to={{pathname: "/MeusFavoritos", state: infos}}>Meus Favoritos</Link>
                 </div>
                 <div>
                     <Link  class="hihi" to={{pathname: "/Anunciar", state: infos}}><button class="botaoo">Anunciar</button></Link>

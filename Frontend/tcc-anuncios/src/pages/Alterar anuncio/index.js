@@ -227,7 +227,7 @@ export default function AlterarAnuncio(props){
                                 ? <div style={{width:"100%", textAlign:"center"}}>Produto ainda sem imagens</div>
                                 : <div>
                                     <img src={api.consultarImagem(x.textoImagem)} alt="" width="130px"></img>
-                                    <button onClick={excluirImagem} style={{width:"130px", marginTop:"5px"}}>Excluir Imagem</button>
+                                    <button onClick={excluirImagem} className="botoxe" style={{width:"130px", marginTop:"5px"}}>Excluir Imagem</button>
                                   </div>
                             )}
                         </div>

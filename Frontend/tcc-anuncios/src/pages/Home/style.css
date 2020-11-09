@@ -11,6 +11,59 @@
     padding-left: 2cm;
 }
 
+.tango{
+    margin-left: 270px;
+}
+
+.senta ul ul{
+    display: none;
+}
+
+.senta{
+    position: relative;
+    top: 10px;
+}
+
+.senta ul li{
+    position: relative;
+    top: 3px;
+    width: 70px;
+    height: 50px;
+}
+
+.senta ul li ul li{
+    z-index: 1;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: -25px;
+    margin-left: 5px;
+}
+
+.senta ul li{
+    background-color:  #fe8d27;
+}
+
+.mago{
+    color: white;
+}
+
+.senta ul ul{
+    margin-top: -30px;
+    color: white;
+}
+
+.senta ul li{
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+}
+
+.senta ul li:hover > ul {
+    display: block;
+}
+
 .menuLogin{
     display: flex;
     flex-direction: column;
