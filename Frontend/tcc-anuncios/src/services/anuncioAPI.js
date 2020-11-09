@@ -153,4 +153,9 @@ export default class anuncioAPI{
         }
         return "Imagens adicionadas com sucesso";
     }
+
+    async excluirImagem(idImagem, idAnuncio){
+        const resp = await api.delete(`/Imagem/${idImagem}/${idAnuncio}`);
+        return resp.data;
+    }
 }

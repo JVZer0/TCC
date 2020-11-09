@@ -38,8 +38,8 @@ export default function InserirAnuncio(props){
     const [addImagem, setAddImagem] = useState([]);
 
     console.log([].slice.call(imagens))
-
     console.log(Number(preco))
+    console.log(Number(preco).toFixed(2))
 
     const anunciar = async() => {
         try{
@@ -62,6 +62,9 @@ export default function InserirAnuncio(props){
             }
             console.log(modelo)
             const resp = await api.inserirAnuncio(modelo);
+            const respo = await api.adicionarImagem(infos.resp.idAnuncio, addImagem);
+            navegacao.goBack();
+
             console.log(resp)            
             toast.success("Anunciado com sucesso");
         }
@@ -192,7 +195,7 @@ export default function InserirAnuncio(props){
                 </div>
 
                 <div className="cerara">
-                    <input type="file" onChange={e => setImagens(e.target.files)} placeholder="Inserir foto" className="form-control-file" multiple></input>
+                    <input type="file" onChange={e => setAddImagem(e.target.files)} placeholder="Inserir foto" className="form-control-file" multiple></input>
                 </div>
 
                 <div className="tem">

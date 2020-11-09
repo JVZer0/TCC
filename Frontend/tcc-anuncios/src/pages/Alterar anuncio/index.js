@@ -82,12 +82,23 @@ export default function AlterarAnuncio(props){
             if(addImagem.length + imagens.length > 10) toast.error("Você so pode ter 10 imagens por anuncio")
             else{
                 const respo = await api.adicionarImagem(infos.x.idAnuncio, addImagem);
-                navegacao.goBack();
+                console.log(addImagem)
+                toast.success("Alterado com sucesso")
             }
 
         }
         catch (e){
             toast.error(e.response.data.mensagem);
+        }
+    }
+    
+    const excluirImagem = async () => {
+        try{
+            const resp = await api.consultarAnuncioDetalhado(infos.x.idAnuncio);
+            const respo = await api.excluirImagem(infos.x.idImagem, infos.x.idAnuncio);
+        }
+        catch (e){
+
         }
     }
 
@@ -216,7 +227,7 @@ export default function AlterarAnuncio(props){
                                 ? <div style={{width:"100%", textAlign:"center"}}>Produto ainda sem imagens</div>
                                 : <div>
                                     <img src={api.consultarImagem(x.textoImagem)} alt="" width="130px"></img>
-                                    <button style={{width:"130px", marginTop:"5px"}}>Excluir Imagem</button>
+                                    <button onClick={excluirImagem} style={{width:"130px", marginTop:"5px"}}>Excluir Imagem</button>
                                   </div>
                             )}
                         </div>
