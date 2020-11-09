@@ -74,7 +74,7 @@ namespace Backend.Utils
                 List<bool> verdade = new List<bool>();
                 foreach (Models.Response.RelatorioResponse.Top10ProdutosMaisAnunciados dale in resp)
                 {
-                    if(dale.Nome != item.TpProduto)
+                    if(dale.Nome.ToLower() != item.TpProduto.ToLower())
                     {
                         verdade.Add(true);
                     } 
