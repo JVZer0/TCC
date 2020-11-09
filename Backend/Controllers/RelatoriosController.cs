@@ -23,12 +23,13 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(400,ex.Message));
             }
         }
-        [HttpGet("AnunciosPorMes/{mesInicio}/{mesFim}")]
+        [HttpGet("AnunciosPorMes")]
         public ActionResult<List<Models.Response.RelatorioResponse.AnunciosPorMes>> AnunciosPorMes(DateTime mesInicio, DateTime mesFim)
         {
             try
             {
-                return null;
+                List<Models.TbAnuncio> a = businessRelatorio.AnunciosPorMes(mesInicio, mesFim);
+                return conversor.ConversorAnunciosPorMes(mesInicio, mesFim, a);
             }
             catch (System.Exception ex)
             {
@@ -59,8 +60,8 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(400,ex.Message));
             }
         }
-        [HttpGet("Top5EstadosComMaisAnuncios/{Estados}")]
-        public ActionResult<List<Models.Response.RelatorioResponse.Top5EstadosComMaisAnuncios>> Top5EstadosComMaisAnuncios(string Estados)
+        [HttpGet("Top5EstadosComMaisAnuncios/{Estado}")]
+        public ActionResult<List<Models.Response.RelatorioResponse.Top5EstadosComMaisAnuncios>> Top5EstadosComMaisAnuncios(string Estado)
         {
             try
             {

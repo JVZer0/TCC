@@ -19,7 +19,8 @@ namespace Backend.Database
         public List<Models.TbAnuncio> AnunciosPorMes(DateTime mesInicio, DateTime mesFim)
         {
             List<Models.TbAnuncio> anuncios = ctx.TbAnuncio
-                    .Where(x => x.DtPublicacao >= mesInicio && x.DtPublicacao <= mesFim).ToList();
+                    .Where(x => x.DtPublicacao.Value.Month >= mesInicio.Month 
+                        && x.DtPublicacao.Value.Month <= mesFim.Month).ToList();
             return anuncios;
         }
         public List<Models.TbUsuario> Top10Anunciantes()

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Backend.Utils
 {
@@ -19,9 +20,22 @@ namespace Backend.Utils
             }
             return porDia;
         }
-        public List<Models.Response.RelatorioResponse.AnunciosPorMes> ConversorAnunciosPorMes(List<Models.TbAnuncio> a)
+        public List<Models.Response.RelatorioResponse.AnunciosPorMes> ConversorAnunciosPorMes(DateTime mesIncio, DateTime mesFim, List<Models.TbAnuncio> a)
         {
-            return null;
+            List<Models.Response.RelatorioResponse.AnunciosPorMes> resp = new List<Models.Response.RelatorioResponse.AnunciosPorMes>();
+            for(int i = mesIncio.Month; i <= mesFim.Month; i++)
+            {
+                Models.Response.RelatorioResponse.AnunciosPorMes relatorioResponse = new Models.Response.RelatorioResponse.AnunciosPorMes();
+
+                List<Models.TbAnuncio> consultasSeparasPorMes = a.Where(x => x.DtPublicacao.Value.Month == i).ToList();
+
+                relatorioResponse.Mes = i;
+                relatorioResponse.QtdAnuncios = consultasSeparasPorMes.Count;
+                relatorioResponse.SomaDosPrecoDosAnuncios = consultasSeparasPorMes.Sum(x => x.VlPreco);
+
+                resp.Add(relatorioResponse);  
+            }
+            return resp;
         }
         public List<Models.Response.RelatorioResponse.Top10Anunciantes> ConversorTop10Anunciantes(List<Models.TbUsuario> a)
         {
