@@ -50,15 +50,15 @@ insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_gene
 
 insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('bermuda bmw bordado masculino','bermuda bmw bordado masculino tamanhos: m, g, gg, xxl.diversas cores: segue fotos.', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'Rio Grande do Sul', 'Porto Alegre','53625-213',false,'Publicado','2020-09-25',3);
 
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('test01','teste desc01', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'RS', 'Porto Alegre','53625-213',false,'Publicado','2020-09-25',3);
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('test01','teste desc01', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'Rio Grande do Sul', 'Porto Alegre','53625-213',false,'Publicado','2020-09-25',3);
 
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('test02','teste desc02', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'RS', 'Porto Alegre','53625-213',false,'Publicado','2020-09-25',3);
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('test02','teste desc02', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'Rio Grande do Sul', 'Porto Alegre','53625-213',false,'Publicado','2020-09-25',3);
 
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('test03','teste desc03', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'RS', 'Porto Alegre','53625-213',false,'Publicado','2020-09-25',3);
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('test03','teste desc03', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'Rio Grande do Sul', 'Porto Alegre','53625-213',false,'Publicado','2020-09-25',3);
 
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('test04','teste desc04', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'RS', 'Porto Alegre','53625-213',false,'Publicado','2020-09-25',3);
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('test04','teste desc04', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'Rio Grande do Sul', 'Porto Alegre','53625-213',false,'Publicado','2020-09-25',3);
 
-insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('test05','teste desc05', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'RS', 'Porto Alegre','53625-213',false,'Publicado','2020-09-25',3);
+insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('test05','teste desc05', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'Rio Grande do Sul', 'Porto Alegre','53625-213',false,'Publicado','2020-09-25',3);
 
 
 
