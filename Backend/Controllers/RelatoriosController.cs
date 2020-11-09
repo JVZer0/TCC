@@ -1,5 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Backend.Controllers
 {
@@ -9,48 +10,61 @@ namespace Backend.Controllers
     {
         Business.RelatorioBusiness businessRelatorio = new Business.RelatorioBusiness();
         Utils.RelatorioConversor conversor = new Utils.RelatorioConversor();
-        [HttpGet("AnunciosPorDia")]
-        public ActionResult<string> AnunciosPorDia(DateTime dia)
+        [HttpGet("AnunciosPorDia/{dia}")]
+        public ActionResult<List<Models.Response.RelatorioResponse.AnunciosPorDia>> AnunciosPorDia(DateTime dia)
         {
             try
             {
-                return "AnunciosPorDia";
+
+                return null;
             }
             catch (System.Exception ex)
             {
                 return BadRequest(new Models.Response.Erro(400,ex.Message));
             }
         }
-        [HttpGet("AnunciosPorMes")]
-        public ActionResult<string> AnunciosPorMes(DateTime mesInicio, DateTime mesFim)
+        [HttpGet("AnunciosPorMes/{mesInicio}/{mesFim}")]
+        public ActionResult<List<Models.Response.RelatorioResponse.AnunciosPorMes>> AnunciosPorMes(DateTime mesInicio, DateTime mesFim)
         {
             try
             {
-                return "AnunciosPorMes";
+                return null;
             }
             catch (System.Exception ex)
             {
                 return BadRequest(new Models.Response.Erro(400,ex.Message));
             }
         }
-        [HttpGet("Top10Clientes")]
-        public ActionResult<string> Top10Clientes()
+        [HttpGet("Top10Anunciantes")]
+        public ActionResult<List<Models.Response.RelatorioResponse.Top10Anunciantes>> Top10Anunciantes()
         {
             try
             {
-                return "Top10Clientes";
+                return null;
             }
             catch (System.Exception ex)
             {
                 return BadRequest(new Models.Response.Erro(400,ex.Message));
             }
         }
-        [HttpGet("Top10Produtos")]
-        public ActionResult<string> Top10Produtos()
+        [HttpGet("Top10ProdutosMaisAnunciados")]
+        public ActionResult<List<Models.Response.RelatorioResponse.Top10ProdutosMaisAnunciados>> Top10ProdutosMaisAnunciados()
         {
             try
             {
-                return "Top10Produtos";
+                return null;
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new Models.Response.Erro(400,ex.Message));
+            }
+        }
+        [HttpGet("Top5EstadosComMaisAnuncios/{Estados}")]
+        public ActionResult<List<Models.Response.RelatorioResponse.Top5EstadosComMaisAnuncios>> Top5EstadosComMaisAnuncios(string Estados)
+        {
+            try
+            {
+                return null;
             }
             catch (System.Exception ex)
             {
