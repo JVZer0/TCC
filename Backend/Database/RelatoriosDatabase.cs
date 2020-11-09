@@ -33,10 +33,9 @@ namespace Backend.Database
             List<Models.TbAnuncio> anuncios = ctx.TbAnuncio.ToList();
             return anuncios;
         }
-        public List<Models.TbAnuncio> Top5EstadosComMaisAnuncios(string Estado)
+        public List<Models.TbAnuncio> QtdAnunciosPorEstado()
         {
-            List<Models.TbAnuncio> anuncios = ctx.TbAnuncio
-                    .Where(x => x.DsEstado.ToLower() == Estado.ToLower()).ToList();
+            List<Models.TbAnuncio> anuncios = ctx.TbAnuncio.ToList();
             return anuncios;
         }
     }

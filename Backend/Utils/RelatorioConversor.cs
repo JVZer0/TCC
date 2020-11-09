@@ -89,7 +89,7 @@ namespace Backend.Utils
 
             return resp.Take(10).ToList();
         }
-        public List<Models.Response.RelatorioResponse.Top5EstadosComMaisAnuncios> ConversorTop5EstadosComMaisAnuncios(List<Models.TbAnuncio> a)
+        public List<Models.Response.RelatorioResponse.Top5EstadosComMaisAnuncios> ConversorQtdAnunciosPorEstado(List<Models.TbAnuncio> a)
         {
             return null;
         }
