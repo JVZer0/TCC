@@ -95,7 +95,7 @@ export default function AlterarAnuncio(props){
     const excluirImagem = async (IdImagem, IdAnuncio) => {
         try{;
             const respo = await api.excluirImagem(IdImagem, IdAnuncio);
-            toast.success("Conseguimos");
+            toast.success("Imagem excluida");
             consultarInfosAnuncio();
         }
         catch (e){
@@ -218,6 +218,15 @@ export default function AlterarAnuncio(props){
                                 <input type="text" className="c" value={cep} onChange={e => setCep(e.target.value)}></input>
                             </div>
                         </div>
+
+                        <div className="ceraraaa">
+                            <input type="file" onChange={e => setAddImagem(e.target.files)} placeholder="Inserir foto" className="form-control-file" multiple></input>
+                        </div>
+
+                        <div className="temi">
+                            <button className="timi" onClick={voltar}>Voltar</button>
+                            <button className="timi" onClick={alterarInfos}>Alterar</button>
+                        </div>
                     </div>
 
                     <div className="comc">
@@ -231,14 +240,6 @@ export default function AlterarAnuncio(props){
                                     <button onClick={() => excluirImagem(x.idImagem, x.idDoAnuncio)} className="botoxe" style={{width:"130px", marginTop:"5px"}}>Excluir Imagem</button>
                                   </div>
                             )}
-                        </div>
-                        <div className="ceraraa">
-                            <input type="file" onChange={e => setAddImagem(e.target.files)} placeholder="Inserir foto" className="form-control-file" multiple></input>
-                        </div>
-
-                        <div className="temi">
-                            <button className="timi" onClick={voltar}>Voltar</button>
-                            <button className="timi" onClick={alterarInfos}>Alterar</button>
                         </div>
                     </div>
                 </div>
