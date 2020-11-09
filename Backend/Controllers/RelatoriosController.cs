@@ -41,7 +41,8 @@ namespace Backend.Controllers
         {
             try
             {
-                return null;
+                List<Models.TbUsuario> users = businessRelatorio.Top10Anunciantes();
+                return conversor.ConversorTop10Anunciantes(users);
             }
             catch (System.Exception ex)
             {
@@ -53,7 +54,8 @@ namespace Backend.Controllers
         {
             try
             {
-                return null;
+                List<Models.TbAnuncio> a = businessRelatorio.Top10ProdutosMaisAnunciados();
+                return conversor.ConversorTop10ProdutosMaisAnunciados(a);
             }
             catch (System.Exception ex)
             {
@@ -65,7 +67,8 @@ namespace Backend.Controllers
         {
             try
             {
-                return null;
+                List<Models.TbAnuncio> a = businessRelatorio.Top5EstadosComMaisAnuncios(Estado);
+                return conversor.ConversorTop5EstadosComMaisAnuncios(a);
             }
             catch (System.Exception ex)
             {

@@ -39,7 +39,24 @@ namespace Backend.Utils
         }
         public List<Models.Response.RelatorioResponse.Top10Anunciantes> ConversorTop10Anunciantes(List<Models.TbUsuario> a)
         {
-            return null;
+            List<Models.Response.RelatorioResponse.Top10Anunciantes> relatorioTopClientes = new List<Models.Response.RelatorioResponse.Top10Anunciantes>();
+
+            foreach(Models.TbUsuario item in a)
+            {
+                Models.Response.RelatorioResponse.Top10Anunciantes topClientes = new Models.Response.RelatorioResponse.Top10Anunciantes();
+
+                topClientes.Email = item.DsEmail;
+                topClientes.Nome = item.NmUsuario;
+                if(item.TbAnuncio.Count == 0) continue;
+                topClientes.QtdAnuncios = item.TbAnuncio.Count;
+                topClientes.Celular = item.DsCelular;
+                topClientes.SomaDosPrecoDosAnuncios = item.TbAnuncio.Sum(x => x.VlPreco);
+
+                relatorioTopClientes.Add(topClientes);
+            }
+
+            relatorioTopClientes = relatorioTopClientes.OrderByDescending(x => x.QtdAnuncios).ToList();
+            return relatorioTopClientes.Take(10).ToList();
         }
         public List<Models.Response.RelatorioResponse.Top10ProdutosMaisAnunciados> ConversorTop10ProdutosMaisAnunciados(List<Models.TbAnuncio> a)
         {

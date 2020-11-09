@@ -23,9 +23,9 @@ namespace Backend.Models.Response
         {
             public string Nome { get; set; }
             public string Email { get; set; }
-            public string Telefone { get; set; }
-            public string QtdAnuncios { get; set; }
-            public decimal SomaDosPrecoDosAnuncios { get; set; }
+            public string Celular { get; set; }
+            public int QtdAnuncios { get; set; }
+            public decimal? SomaDosPrecoDosAnuncios { get; set; }
         }
         public class Top10ProdutosMaisAnunciados
         {
