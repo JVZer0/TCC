@@ -89,9 +89,36 @@ namespace Backend.Utils
 
             return resp.Take(10).ToList();
         }
-        public List<Models.Response.RelatorioResponse.Top5EstadosComMaisAnuncios> ConversorQtdAnunciosPorEstado(List<Models.TbAnuncio> a)
+        public List<Models.Response.RelatorioResponse.EstadosComMaisAnuncios> ConversorQtdAnunciosPorEstado(List<Models.TbAnuncio> a)
         {
-            return null;
+            List<Models.Response.RelatorioResponse.EstadosComMaisAnuncios> resp = new List<Models.Response.RelatorioResponse.EstadosComMaisAnuncios>();
+            foreach(Models.TbAnuncio item in a)
+            {
+                Models.Response.RelatorioResponse.EstadosComMaisAnuncios AnunciosEstados = new Models.Response.RelatorioResponse.EstadosComMaisAnuncios();
+
+                List<Models.TbAnuncio> xama = ctx.TbAnuncio.Where(x => x.DsEstado == item.DsEstado).ToList();
+                List<Models.TbAnuncio> blicadeila = xama.Where(x => x.BtVendido == true).ToList();
+
+                AnunciosEstados.Estado = item.DsEstado;
+                AnunciosEstados.QtdAnuncio = xama.Count;
+                AnunciosEstados.QtdVendido = blicadeila.Count;
+                List<bool> verdade = new List<bool>();
+                foreach (Models.Response.RelatorioResponse.EstadosComMaisAnuncios dale in resp)
+                {
+                    if(dale.Estado != item.DsEstado)
+                    {
+                        verdade.Add(true);
+                    } 
+                    else
+                    {
+                        verdade.Add(false);
+                    };
+                }
+                if(verdade.All(x => x == true)) resp.Add(AnunciosEstados);
+            }
+            resp = resp.OrderByDescending(x => x.QtdAnuncio).ToList();
+
+            return resp.ToList();
         }
     }
 }

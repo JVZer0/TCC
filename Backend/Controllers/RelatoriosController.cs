@@ -63,7 +63,7 @@ namespace Backend.Controllers
             }
         }
         [HttpGet("QtdAnunciosPorEstado")]
-        public ActionResult<List<Models.Response.RelatorioResponse.Top5EstadosComMaisAnuncios>> QtdAnunciosPorEstado()
+        public ActionResult<List<Models.Response.RelatorioResponse.EstadosComMaisAnuncios>> QtdAnunciosPorEstado()
         {
             try
             {
