@@ -62,10 +62,9 @@ export default function InserirAnuncio(props){
             }
             console.log(modelo)
             const resp = await api.inserirAnuncio(modelo);
-            const respo = await api.adicionarImagem(infos.resp.idAnuncio, addImagem);
+            
             navegacao.goBack();
 
-            console.log(resp)            
             toast.success("Anunciado com sucesso");
         }
         catch (e){
