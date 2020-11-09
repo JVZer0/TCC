@@ -1,5 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Backend.Controllers
 {
@@ -10,11 +11,12 @@ namespace Backend.Controllers
         Business.RelatorioBusiness businessRelatorio = new Business.RelatorioBusiness();
         Utils.RelatorioConversor conversor = new Utils.RelatorioConversor();
         [HttpGet("AnunciosPorDia")]
-        public ActionResult<string> AnunciosPorDia(DateTime dia)
+        public ActionResult<List<Models.Response.RelatorioResponse.AnunciosPorDia>> AnunciosPorDia(DateTime dia)
         {
             try
             {
-                return "AnunciosPorDia";
+                List<Models.TbAnuncio> a = businessRelatorio.AnunciosPorDia(dia);
+                return conversor.ConversorAnunciosPorDia(a);
             }
             catch (System.Exception ex)
             {
@@ -22,35 +24,51 @@ namespace Backend.Controllers
             }
         }
         [HttpGet("AnunciosPorMes")]
-        public ActionResult<string> AnunciosPorMes(DateTime mesInicio, DateTime mesFim)
+        public ActionResult<List<Models.Response.RelatorioResponse.AnunciosPorMes>> AnunciosPorMes(DateTime mesInicio, DateTime mesFim)
         {
             try
             {
-                return "AnunciosPorMes";
+                List<Models.TbAnuncio> a = businessRelatorio.AnunciosPorMes(mesInicio, mesFim);
+                return conversor.ConversorAnunciosPorMes(mesInicio, mesFim, a);
             }
             catch (System.Exception ex)
             {
                 return BadRequest(new Models.Response.Erro(400,ex.Message));
             }
         }
-        [HttpGet("Top10Clientes")]
-        public ActionResult<string> Top10Clientes()
+        [HttpGet("Top10Anunciantes")]
+        public ActionResult<List<Models.Response.RelatorioResponse.Top10Anunciantes>> Top10Anunciantes()
         {
             try
             {
-                return "Top10Clientes";
+                List<Models.TbUsuario> users = businessRelatorio.Top10Anunciantes();
+                return conversor.ConversorTop10Anunciantes(users);
             }
             catch (System.Exception ex)
             {
                 return BadRequest(new Models.Response.Erro(400,ex.Message));
             }
         }
-        [HttpGet("Top10Produtos")]
-        public ActionResult<string> Top10Produtos()
+        [HttpGet("Top10ProdutosMaisAnunciados")]
+        public ActionResult<List<Models.Response.RelatorioResponse.Top10ProdutosMaisAnunciados>> Top10ProdutosMaisAnunciados()
         {
             try
             {
-                return "Top10Produtos";
+                List<Models.TbAnuncio> a = businessRelatorio.Top10ProdutosMaisAnunciados();
+                return conversor.ConversorTop10ProdutosMaisAnunciados(a);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new Models.Response.Erro(400,ex.Message));
+            }
+        }
+        [HttpGet("Top5EstadosComMaisAnuncios/{Estado}")]
+        public ActionResult<List<Models.Response.RelatorioResponse.Top5EstadosComMaisAnuncios>> Top5EstadosComMaisAnuncios(string Estado)
+        {
+            try
+            {
+                List<Models.TbAnuncio> a = businessRelatorio.Top5EstadosComMaisAnuncios(Estado);
+                return conversor.ConversorTop5EstadosComMaisAnuncios(a);
             }
             catch (System.Exception ex)
             {
