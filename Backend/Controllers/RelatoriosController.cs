@@ -10,13 +10,13 @@ namespace Backend.Controllers
     {
         Business.RelatorioBusiness businessRelatorio = new Business.RelatorioBusiness();
         Utils.RelatorioConversor conversor = new Utils.RelatorioConversor();
-        [HttpGet("AnunciosPorDia/{dia}")]
+        [HttpGet("AnunciosPorDia")]
         public ActionResult<List<Models.Response.RelatorioResponse.AnunciosPorDia>> AnunciosPorDia(DateTime dia)
         {
             try
             {
-
-                return null;
+                List<Models.TbAnuncio> a = businessRelatorio.AnunciosPorDia(dia);
+                return conversor.ConversorAnunciosPorDia(a);
             }
             catch (System.Exception ex)
             {

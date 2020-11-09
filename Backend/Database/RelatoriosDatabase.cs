@@ -11,7 +11,9 @@ namespace Backend.Database
         public List<Models.TbAnuncio> AnunciosPorDia(DateTime dia)
         {
             List<Models.TbAnuncio> anuncios = ctx.TbAnuncio.Include(x => x.IdUsuarioNavigation)
-                                                           .Where(x => x.DtPublicacao == dia).ToList();
+                                                           .Where(x => x.DtPublicacao.Value.Day == dia.Day 
+                                                                  &&   x.DtPublicacao.Value.Month == dia.Month
+                                                                  &&   x.DtPublicacao.Value.Year == dia.Year).ToList();
             return anuncios;
         }
         public List<Models.TbAnuncio> AnunciosPorMes(DateTime mesInicio, DateTime mesFim)

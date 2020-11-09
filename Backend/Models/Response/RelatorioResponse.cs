@@ -8,10 +8,10 @@ namespace Backend.Models.Response
     {
         public class AnunciosPorDia
         {
-            public DateTime Dia { get; set; }
+            public DateTime? Dia { get; set; }
             public string Cliente { get; set; }
-            public decimal Preco { get; set; }
-            public DateTime Hora { get; set; }
+            public string TipoProduto { get; set; }
+            public decimal? Preco { get; set; }
         }
         public class AnunciosPorMes
         {

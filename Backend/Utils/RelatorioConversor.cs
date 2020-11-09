@@ -7,7 +7,17 @@ namespace Backend.Utils
     {
         public List<Models.Response.RelatorioResponse.AnunciosPorDia> ConversorAnunciosPorDia(List<Models.TbAnuncio> a)
         {
-            return null;
+            List<Models.Response.RelatorioResponse.AnunciosPorDia> porDia = new List<Models.Response.RelatorioResponse.AnunciosPorDia>();
+            foreach (Models.TbAnuncio item in a)
+            {
+                Models.Response.RelatorioResponse.AnunciosPorDia sim = new Models.Response.RelatorioResponse.AnunciosPorDia();
+                sim.Cliente = item.IdUsuarioNavigation.NmUsuario;
+                sim.Dia = item.DtPublicacao;
+                sim.Preco = item.VlPreco;
+                sim.TipoProduto = item.TpProduto;
+                porDia.Add(sim);
+            }
+            return porDia;
         }
         public List<Models.Response.RelatorioResponse.AnunciosPorMes> ConversorAnunciosPorMes(List<Models.TbAnuncio> a)
         {
