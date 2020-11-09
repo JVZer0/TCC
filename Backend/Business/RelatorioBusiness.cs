@@ -30,10 +30,9 @@ namespace Backend.Business
             List<Models.TbAnuncio> anuncios = databaseRelatorios.Top10ProdutosMaisAnunciados();
             return anuncios;
         }
-        public List<Models.TbAnuncio> Top5EstadosComMaisAnuncios(string Estado)
+        public List<Models.TbAnuncio> QtdAnunciosPorEstado()
         {
-            validadores.ValidarTexto(Estado);
-            List<Models.TbAnuncio> anuncios = databaseRelatorios.Top5EstadosComMaisAnuncios(Estado);
+            List<Models.TbAnuncio> anuncios = databaseRelatorios.QtdAnunciosPorEstado();
             return anuncios;
         }
     }

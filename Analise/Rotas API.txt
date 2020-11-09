@@ -48,13 +48,15 @@ Post "Login/Criarlogin" = Cadastrar Login
 
 
 
-Get "Relatorios/AnunciosPorDia" = AnunciosPorDia
+Get "Relatorios/AnunciosPorDia" = Anuncios Por Dia
 
-Get "Relatorios/AnunciosPorMes" = AnunciosPorMes
+Get "Relatorios/AnunciosPorMes" = Anuncios Por Mes
 
-Get "Relatorios/Top10Clientes" = Top10Clientes
+Get "Relatorios/Top10Anunciantes" = Top10 Anunciantes
 
-Get "Relatorios/Top10Produtos" = Top10Produtos
+Get "Relatorios/Top10ProdutosMaisAnunciados" = Top10 Produtos Mais Anunciados
+
+Get "Relatorios/QtdAnunciosPorEstado" = Qtd Anuncios Por Estado
 
 
 
@@ -63,3 +65,5 @@ Put "Usuario/" = Alterar
 Get "Usuario/{IdUsuario}" = Consultar Infomacoes Do Usuario
 
 Post "Usuario/RecuperarSenha" = RecuperarSenha
+
+

@@ -62,13 +62,13 @@ namespace Backend.Controllers
                 return BadRequest(new Models.Response.Erro(400,ex.Message));
             }
         }
-        [HttpGet("Top5EstadosComMaisAnuncios/{Estado}")]
-        public ActionResult<List<Models.Response.RelatorioResponse.Top5EstadosComMaisAnuncios>> Top5EstadosComMaisAnuncios(string Estado)
+        [HttpGet("QtdAnunciosPorEstado")]
+        public ActionResult<List<Models.Response.RelatorioResponse.Top5EstadosComMaisAnuncios>> QtdAnunciosPorEstado()
         {
             try
             {
-                List<Models.TbAnuncio> a = businessRelatorio.Top5EstadosComMaisAnuncios(Estado);
-                return conversor.ConversorTop5EstadosComMaisAnuncios(a);
+                List<Models.TbAnuncio> a = businessRelatorio.QtdAnunciosPorEstado();
+                return conversor.ConversorQtdAnunciosPorEstado(a);
             }
             catch (System.Exception ex)
             {
