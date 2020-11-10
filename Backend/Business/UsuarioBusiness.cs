@@ -14,6 +14,26 @@ namespace Backend.Business
         public Models.TbUsuario Alterar(Models.TbUsuario usuario)
         {
             validadores.Alterar(usuario);
+            try
+            {
+                int cep = Convert.ToInt32(usuario.DsCep.Replace("-","").Replace(" ",""));
+            }
+            catch (System.Exception)
+            {
+                throw new ArgumentException("CEP não pode ter letras nem simbolos.");
+            }
+
+            try
+            {
+                long celular = Convert.ToInt64(usuario.DsCelular.Replace("(","").Replace(")","").Replace(" ","").Replace("-",""));
+            }
+            catch (System.Exception)
+            {
+                throw new ArgumentException("CPF não pode ter letras nem símbolos.");
+            }
+
+            if(usuario.DsCep.Contains(" ")) throw new ArgumentException("O CEP não pode ter espaços.");
+            if(usuario.DtNascimento >= DateTime.Now.AddYears(-5)) throw new ArgumentException("Data de nascimento errada."); 
             return databaseUsuario.Alterar(usuario);
         }
         public Models.TbUsuario ConsultarUsuario(int IdUsuario)

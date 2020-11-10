@@ -46,6 +46,7 @@ namespace Backend.Business
             validadores.Anunciar(anuncio);
             if(anuncio.TbImagem.Count > 10) throw new ArgumentException("Você só pode colocar 10 imagens no anuncio.");
             if(anuncio.VlPreco <= 0) throw new ArgumentException("O valor não pode ser 0 ou negativo");
+            if(anuncio.DsCep.Contains(" ")) throw new ArgumentException("O CEP não pode ter espaços.");
             return databaseAnuncio.Anunciar(anuncio);
         }
         public List<Models.TbAnuncio> ConsultarMeusAnuncios(int IdUsuario)

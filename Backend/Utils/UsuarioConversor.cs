@@ -14,22 +14,21 @@ namespace Backend.Utils
             Models.TbUsuario usuario = new Models.TbUsuario();
             usuario.IdUsuario = req.IdUsuario;
             usuario.IdLoginNavigation = new Models.TbLogin(){
-                DsSenha = req.Senha,
-                DsUsername = req.Username
+                DsSenha = req.Senha.Trim(),
+                DsUsername = req.Username.Trim()
             };
-            usuario.NmUsuario = req.NomeUsuario;
+            usuario.NmUsuario = req.NomeUsuario.Trim();
             usuario.DtNascimento = req.DataDeNascimento;
-            usuario.DsSexo = req.Sexo;
-            usuario.DsEmail = req.Email;
-            usuario.DsCelular = req.Celular;
-            usuario.DsEstado = req.Estado;
-            usuario.DsCidade = req.Cidade;
-            usuario.DsCep = req.CEP;
-            usuario.DsEndereco = req.Endereco;
-            usuario.DsBairro = req.Bairro;
-            usuario.DsNEndereco = req.N_Endereco;
-            usuario.DsComplementoEndereco = req.ComplementoEndereco;
-            usuario.BtConcordoTermos = req.ConcordoTermos;
+            usuario.DsSexo = req.Sexo.Trim();
+            usuario.DsEmail = req.Email.Trim();
+            usuario.DsCelular = req.Celular.Trim();
+            usuario.DsEstado = req.Estado.Trim();
+            usuario.DsCidade = req.Cidade.Trim();
+            usuario.DsCep = req.CEP.Trim();
+            usuario.DsEndereco = req.Endereco.Trim();
+            usuario.DsBairro = req.Bairro.Trim();
+            usuario.DsNEndereco = req.N_Endereco.Trim();
+            usuario.DsComplementoEndereco = req.ComplementoEndereco.Trim();
 
             return usuario;
         }
