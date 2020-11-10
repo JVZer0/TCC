@@ -1,4 +1,4 @@
-Get "Anuncio/{BarraPesquisa}/{Estado}/{Cidade}/{Genero}/{Condicao}" = Consultar Anuncios
+Get "Anuncio/{BarraPesquisa}/{Estado}/{Cidade}/{Genero}/{Condicao}/{NPagina}" = Consultar Anuncios
 
 Get "Anuncio/AnuncioDetalhado/{IdAnuncio}" = Consultar Anuncio Detalhado
 
@@ -19,6 +19,8 @@ Put "Anuncio/AnuncioVendido/{IdAnuncio}" = Anuncio Vendido
 Put "Anuncio/AlterarAnuncio" = Alterar Anuncio
 
 Put "Anuncio/AtivarAnuncio/{IdAnuncio}" = Ativar Anuncio
+
+Get "Anuncio/ConsultarNPaginas" = Consultar Numero de Paginas
 
 
 

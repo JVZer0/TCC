@@ -15,13 +15,16 @@ namespace Backend.Controllers
         Utils.AnuncioConversor conversorAnuncio = new Utils.AnuncioConversor();
         Business.GerenciadorImagem gerenciadorImagem = new Business.GerenciadorImagem();
 
-        [HttpGet("{BarraPesquisa}/{Estado}/{Cidade}/{Genero}/{Condicao}")]
-        public ActionResult<List<Models.Response.AnuncioRoupasResponse.Anuncio>> ConsultarAnuncios(string BarraPesquisa, string Estado, string Cidade, string Genero, string Condicao)
+        [HttpGet("{BarraPesquisa}/{Estado}/{Cidade}/{Genero}/{Condicao}/{NPagina}")]
+        public ActionResult<List<Models.Response.AnuncioRoupasResponse.Anuncio>> ConsultarAnuncios(string BarraPesquisa, string Estado, string Cidade, string Genero, string Condicao, int NPagina)
         {
             try
             {
-                List<Models.TbAnuncio> anuncios = businessAnuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Genero, Condicao);
-                return conversorAnuncio.ConversorAnuncioListaResponse(anuncios);
+                List<Models.TbAnuncio> anuncios = businessAnuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Genero, Condicao, NPagina);
+                int a = NPagina -1;
+                if(a == 0) a = 1;
+                List<Models.Response.AnuncioRoupasResponse.Anuncio> resp = conversorAnuncio.ConversorAnuncioListaResponse(anuncios);
+                return resp.Skip(a).Take(6).OrderByDescending(x => x.DataPublicacao).ToList();
             }
             catch (System.Exception ex)
             {
@@ -158,6 +161,18 @@ namespace Backend.Controllers
             {
                 Models.TbAnuncio resp = businessAnuncio.AtivarAnuncio(IdAnuncio);
                 return conversorAnuncio.ConversorMeusAnunciosParaResponse(resp);
+            }
+            catch (System.Exception ex)
+            {
+                return NotFound(new Models.Response.Erro(404, ex.Message));
+            }
+        }
+        [HttpGet("ConsultarNPaginas")]
+        public ActionResult<decimal> ConsultarNPaginas()
+        {
+            try
+            {
+                return businessAnuncio.ConsultarNPaginas();
             }
             catch (System.Exception ex)
             {

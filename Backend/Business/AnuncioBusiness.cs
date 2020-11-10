@@ -11,15 +11,17 @@ namespace Backend.Business
     {
         Database.AnuncioDatabase databaseAnuncio = new Database.AnuncioDatabase();
         Validadores validadores = new Validadores();
-        public List<Models.TbAnuncio> ConsultarAnuncios(string BarraPesquisa, string Estado, string Cidade, string Genero, string Condicao)
+        public List<Models.TbAnuncio> ConsultarAnuncios(string BarraPesquisa, string Estado, string Cidade, string Genero, string Condicao, int NPagina)
         {
             if(string.IsNullOrEmpty(BarraPesquisa) || BarraPesquisa == "BarraPesquisa") { BarraPesquisa = "";};
             if(string.IsNullOrEmpty(Estado) || Estado == "Estado") { Estado = "";};
             if(string.IsNullOrEmpty(Cidade) || Cidade == "Cidade") { Cidade = "";};
             if(string.IsNullOrEmpty(Genero) || Genero == "Genero" || Genero == "Gênero") { Genero = "";};
             if(string.IsNullOrEmpty(Condicao) || Condicao == "Condicao") { Condicao = "";};
+            if(NPagina < 0) throw new ArgumentException("Página não disponível.");
 
             List<Models.TbAnuncio> anuncios = databaseAnuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Genero, Condicao);
+            if(Math.Ceiling(Convert.ToDecimal(anuncios.Count()/NPagina)) < NPagina) throw new ArgumentException("Página não disponível.");
             return anuncios;
         }
         public Models.TbAnuncio ConsultadoAnuncioDetalhado(int? IdAnuncio)
@@ -106,6 +108,24 @@ namespace Backend.Business
         {
             validadores.ValidarId(IdAnuncio);
             return databaseAnuncio.AtivarAnuncio(IdAnuncio);
+        }
+
+        public decimal ConsultarNPaginas()
+        {
+            string BarraPesquisa = "BarraPesquisa";
+            string Estado = "Estado";
+            string Cidade = "Cidade";
+            string Genero = "Genero";
+            string Condicao = "Condicao";
+            if(string.IsNullOrEmpty(BarraPesquisa) || BarraPesquisa == "BarraPesquisa") { BarraPesquisa = "";};
+            if(string.IsNullOrEmpty(Estado) || Estado == "Estado") { Estado = "";};
+            if(string.IsNullOrEmpty(Cidade) || Cidade == "Cidade") { Cidade = "";};
+            if(string.IsNullOrEmpty(Genero) || Genero == "Genero" || Genero == "Gênero") { Genero = "";};
+            if(string.IsNullOrEmpty(Condicao) || Condicao == "Condicao") { Condicao = "";};
+
+            List<Models.TbAnuncio> anuncios = databaseAnuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Genero, Condicao);
+            decimal a = Math.Ceiling(Convert.ToDecimal(anuncios.Count()/6.0));
+            return a;
         }
     }
 }
