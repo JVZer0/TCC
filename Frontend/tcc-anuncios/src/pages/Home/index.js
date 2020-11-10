@@ -22,6 +22,8 @@ export default function Home(props){
     const [condicao, setCondicao] = useState('');
     const [barraPesquisa, setBarraPesquisa] = useState('');
     const [anuncios, setAnuncios] = useState([]);
+    const [numeroDaPage, setNumeroDaPage] = useState(1);
+    const [maxPage, setMaxPage] = useState([]);
 
     const consultarAnuncios = async () => {
         try{
@@ -35,8 +37,41 @@ export default function Home(props){
             if(cidade == "") {ci = "Cidade"} else {ci = cidade};
             if(genero == "") {g = "Genero"} else {g = genero};
             if(condicao == "") {cond = "Condicao"} else {cond = condicao};
-            const resp = await api.consultarAnuncios(barra,e,ci,g,cond);
+            const resp = await api.consultarAnuncios(barra,e,ci,g,cond,numeroDaPage);
             setAnuncios(resp);
+            consultarMaxPage();
+        }
+        catch (e) {
+        }
+    }
+
+    console.log(numeroDaPage)
+
+    const consultarMaxPage = async () => {
+        try{
+
+            const resp = await api.consultarNumeroDePaginas();
+            setMaxPage(resp);
+        }
+        catch (e) {
+        }
+    }
+
+    const mudarPage = async (NumPage) => {
+        try{
+            console.log("numPga "+ NumPage)
+            setNumeroDaPage(NumPage);
+            console.log("numeroDaPage "+numeroDaPage);
+            consultarAnuncios();
+            mudarPage2(NumPage)
+        }
+        catch (e) {
+        }
+    }
+
+    const mudarPage2 = async (NumPage) => {
+        try{
+            consultarAnuncios();
         }
         catch (e) {
         }
@@ -44,6 +79,7 @@ export default function Home(props){
 
     useEffect(() => {
         consultarAnuncios();
+        consultarMaxPage();
       }, [])
 
     return(
@@ -138,6 +174,11 @@ export default function Home(props){
                         </select>
                     </div>
                     <button className="botao1" onClick={consultarAnuncios}>Filtrar</button>
+                    <div className="d-flex" style={{height:"30px", justifyContent:"center", display:"flex", marginTop:"15%"}}>
+                        {maxPage.map(x =>
+                            <button onClick={() => mudarPage(x)}  style={{marginLeft:"7px"}}>{x}</button>
+                        )}
+                    </div>
                 </div>
 
                 <div className="loco">

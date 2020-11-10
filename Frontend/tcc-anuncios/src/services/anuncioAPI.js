@@ -1,6 +1,6 @@
 import axios from 'axios';
 const api = axios.create({
-    baseURL: "http://3.84.250.220:5000"
+    baseURL: "http://localhost:5000"
   });
 
 
@@ -32,8 +32,8 @@ export default class anuncioAPI{
         return resp;
     }
 
-    async consultarAnuncios(BarraPesquisa, Estado, Cidade, Genero, Condicao){
-        const resp = await api.get(`/Anuncio/${BarraPesquisa}/${Estado}/${Cidade}/${Genero}/${Condicao}`);
+    async consultarAnuncios(BarraPesquisa, Estado, Cidade, Genero, Condicao, NPagina){
+        const resp = await api.get(`/Anuncio/${BarraPesquisa}/${Estado}/${Cidade}/${Genero}/${Condicao}/${NPagina}`);
         return resp.data;
     }
 
@@ -156,6 +156,11 @@ export default class anuncioAPI{
 
     async excluirImagem(idImagem, idAnuncio){
         const resp = await api.delete(`/Imagem/${idImagem}/${idAnuncio}`);
+        return resp.data;
+    }
+
+    async consultarNumeroDePaginas(){
+        const resp = await api.get(`/Anuncio/ConsultarNPaginas`);
         return resp.data;
     }
 }

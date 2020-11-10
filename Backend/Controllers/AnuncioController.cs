@@ -22,9 +22,13 @@ namespace Backend.Controllers
             {
                 List<Models.TbAnuncio> anuncios = businessAnuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Genero, Condicao, NPagina);
                 int a = NPagina -1;
-                if(a == 0) a = 1;
                 List<Models.Response.AnuncioRoupasResponse.Anuncio> resp = conversorAnuncio.ConversorAnuncioListaResponse(anuncios);
-                return resp.Skip(a).Take(6).OrderByDescending(x => x.DataPublicacao).ToList();
+                int b = a*6;
+                if(b == 0) 
+                {
+                    return resp.Take(6).OrderByDescending(x => x.DataPublicacao).ToList();
+                }
+                return resp.Skip(b).Take(6).OrderByDescending(x => x.DataPublicacao).ToList();
             }
             catch (System.Exception ex)
             {
@@ -168,11 +172,16 @@ namespace Backend.Controllers
             }
         }
         [HttpGet("ConsultarNPaginas")]
-        public ActionResult<decimal> ConsultarNPaginas()
+        public ActionResult<List<decimal>> ConsultarNPaginas()
         {
             try
-            {
-                return businessAnuncio.ConsultarNPaginas();
+            {   int a = Convert.ToInt32(businessAnuncio.ConsultarNPaginas());
+                List<decimal> resp = new List<decimal>();
+                for (int i = 1; i <= a; i++)
+                {
+                    resp.Add(i);
+                }
+                return resp;
             }
             catch (System.Exception ex)
             {
