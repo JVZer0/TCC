@@ -29,9 +29,9 @@ namespace Backend.Business
             }
             catch (System.Exception)
             {
-                throw new ArgumentException("CPF não pode ter letras nem símbolos.");
+                throw new ArgumentException("Celular não pode ter letras nem símbolos.");
             }
-
+            if(usuario.DsEmail.Contains("@") == false && usuario.DsEmail.Contains(".") == false) throw new ArgumentException("Email incorreto.");
             if(usuario.DsCep.Contains(" ")) throw new ArgumentException("O CEP não pode ter espaços.");
             if(usuario.DtNascimento >= DateTime.Now.AddYears(-5)) throw new ArgumentException("Data de nascimento errada."); 
             return databaseUsuario.Alterar(usuario);

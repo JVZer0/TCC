@@ -8,6 +8,8 @@ import '../RecuperarSenha/style.css'
 import Logo from '../../assets/image/Capturar.PNG';
 import { ToastContainer, toast } from 'react-toastify';
 
+import InputMask from 'react-input-mask';
+
 import anuncioAPI from '../../services/anuncioAPI';
 const api = new anuncioAPI();
 
@@ -20,11 +22,10 @@ export default function RecuperarSenha(){
     const recuperar = async (e) => {
         e.preventDefault();
         try{
-            let cpfMask = `${cpf.substring(0,3)}.${cpf.substring(3,6)}.${cpf.substring(6,9)}-${cpf.substring(9,11)}`;
             let rgMask = `${rg.substring(0,2)}.${rg.substring(2,5)}.${rg.substring(5,8)}-${rg.substring(8,10)}`;
             
             const modelo = {
-                CPF: cpfMask,
+                CPF: cpf,
                 RG: rgMask
             };
             const resp = await api.recuperar(modelo);
@@ -53,13 +54,13 @@ export default function RecuperarSenha(){
                         <label className="v1">Digite o seu CPF e seu RG para recuperar sua senha</label>
 
                         <div>
-                        <label className="mama1">CPF: (Somente números)</label>
-                        <input className="v25" type="text" value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="CPF"></input>
+                            <label className="mama1">CPF:</label>
+                            <InputMask className="v25" value={cpf} mask="999.999.999-99" onChange={(e) => setCpf(e.target.value)} placeholder="CPF"/>
                         </div>
                         
                         <div>
-                        <label className="mama2">RG: (Somente números)</label>
-                        <input className="v2" type="text" value={rg} onChange={(e) => setRg(e.target.value)} placeholder="RG"></input>
+                            <label className="mama2">RG: (Somente números)</label>
+                            <input className="v2" type="text" value={rg} onChange={(e) => setRg(e.target.value)} placeholder="RG"></input>
                         </div>
 
                         <button className="v3" onClick={recuperar}>Verificar</button>

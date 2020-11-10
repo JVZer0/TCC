@@ -10,11 +10,15 @@ import Logo from '../../assets/image/Capturar.PNG'
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
+import InputMask from 'react-input-mask';
+
 import AnuncioAPI from '../../services/anuncioAPI'
 const api = new AnuncioAPI();
 
 
 export default function CadastrarLogin(){
+    const navegacao = useHistory();
+
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
@@ -36,9 +40,6 @@ export default function CadastrarLogin(){
 
     const salvarClick = async() => {
         try {
-            let celularMask = `(${celular.substring(0,2)}) ${celular.substring(2,7)}-${celular.substring(7,12)}`;
-            let cepMask = `${cep.substring(0,5)}-${cep.substring(5,8)}`;
-            let cpfMask = `${cpf.substring(0,3)}.${cpf.substring(3,6)}.${cpf.substring(6,9)}-${cpf.substring(9,11)}`;
             let rgMask = `${rg.substring(0,2)}.${rg.substring(2,5)}.${rg.substring(5,8)}-${rg.substring(8,10)}`;
 
             const modelo = {
@@ -49,12 +50,12 @@ export default function CadastrarLogin(){
                 ConfirmarSenha: confirmar,
                 DataDeNascimento: nascimento,
                 Sexo: sexo,
-                CPF: cpfMask,
+                CPF: cpf,
                 RG: rgMask,
-                Celular: celularMask,
+                Celular: celular,
                 Estado: estado,
                 Cidade: cidade,
-                CEP: cepMask,
+                CEP: cep,
                 Bairro: bairro,
                 N_Endereco: numero,
                 Endereco: endereco,
@@ -63,7 +64,7 @@ export default function CadastrarLogin(){
             };
             const resp = await
             api.cadastrar(modelo);
-            toast.success("Cadastrado com sucesso.")
+            navegacao.push("/Login");
         } catch (e) {
             toast.error(e.response.data.mensagem)
         }
@@ -124,8 +125,8 @@ export default function CadastrarLogin(){
                 </div>
 
                 <div className="a">
-                    <label  className="b1">CPF (Somente números)</label>
-                    <input className="koko" type="text" value={cpf} onChange={e => setCpf(e.target.value)} placeholder="CPF"></input>
+                    <label  className="b1">CPF</label>
+                    <InputMask className="koko" value={cpf} mask="999.999.999-99" onChange={e => setCpf(e.target.value)} placeholder="CPF"/>
                 </div>
 
                 <div className="a">
@@ -135,7 +136,7 @@ export default function CadastrarLogin(){
 
                 <div className="a">
                     <label  className="b1">Número de celular com DDD</label>
-                    <input className="koko" type="text" value={celular} onChange={e => setCelular(e.target.value)} placeholder="Número de celular"></input>
+                    <InputMask className="koko" value={celular} mask="(99) 99999-9999" onChange={e => setCelular(e.target.value)} placeholder="Número de celular"/>
                 </div>
 
                 <div className="a">
@@ -180,8 +181,8 @@ export default function CadastrarLogin(){
                 <div className="ki1">
 
                     <div className="a">
-                        <label  className="b13">CEP</label> 
-                        <input className="kruso1" type="text" value={cep} onChange={e => setCep(e.target.value)} placeholder="CEP"></input>
+                        <label  className="b13">CEP</label>
+                        <InputMask className="kruso1" value={cep} mask="99999-999" onChange={e => setCep(e.target.value)} placeholder="CEP"/>
                     </div>
                     
                     <div className="a">

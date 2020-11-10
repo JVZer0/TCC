@@ -7,6 +7,8 @@ import '../Inserir anuncio/style.css'
 
 import Logo from '../../assets/image/Capturar.PNG'
 
+import InputMask from 'react-input-mask';
+
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -43,8 +45,6 @@ export default function InserirAnuncio(props){
 
     const anunciar = async() => {
         try{
-            let cepMask = `${cep.substring(0,5)}-${cep.substring(5,8)}`;
-
             const modelo = {
                 Titulo: titulo,
                 Descricao: descricao,
@@ -56,7 +56,7 @@ export default function InserirAnuncio(props){
                 Preco: Number(preco),
                 Estado: estado,
                 Cidade: cidade,
-                CEP: cepMask,
+                CEP: cep,
                 IdUsuario: infos.idUsuario,
                 Imagens: imagens
             }
@@ -188,8 +188,8 @@ export default function InserirAnuncio(props){
                     </div>
 
                     <div className="carara">
-                        <label className="mimi">CEP: (Números)</label>
-                        <input type="text" className="c" value={cep} onChange={e => setCep(e.target.value)}></input>
+                        <label className="mimi">CEP:</label>
+                        <InputMask className="c" value={cep} mask="99999-999" onChange={e => setCep(e.target.value)} placeholder="CEP"/>
                     </div>
                 </div>
 

@@ -21,6 +21,8 @@ namespace Backend.Business
 
         public Models.TbLogin Cadastrar(Models.TbLogin request, string ConfirmarSenha)
         {
+            if(request.TbUsuario.FirstOrDefault().DsEmail.Contains("@") == false) throw new ArgumentException("Email incorreto.");
+            if(request.TbUsuario.FirstOrDefault().DsEmail.Contains(".") == false) throw new ArgumentException("Email incorreto.");
             validadores.Cadastrar(request, ConfirmarSenha);
             try
             {
@@ -46,9 +48,8 @@ namespace Backend.Business
             }
             catch (System.Exception)
             {
-                throw new ArgumentException("CPF não pode ter letras nem símbolos.");
+                throw new ArgumentException("Celular não pode ter letras nem símbolos.");
             }
-
             if(request.TbUsuario.FirstOrDefault().DsCep.Contains(" ")) throw new ArgumentException("O CEP não pode ter espaços.");
             if(request.TbUsuario.FirstOrDefault().DsRg.Contains(" ")) throw new ArgumentException("O RG não pode ter espaços.");
             if(request.TbUsuario.FirstOrDefault().DsCpf.Contains(" ")) throw new ArgumentException("O CPF não pode ter espaços.");

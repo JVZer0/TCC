@@ -9,6 +9,8 @@ import '../Alterar anuncio/style.css'
 
 import Logo from '../../assets/image/Capturar.PNG'
 
+import InputMask from 'react-input-mask';
+
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -215,7 +217,7 @@ export default function AlterarAnuncio(props){
 
                             <div className="carara">
                                 <label className="mimi">CEP: (Números)</label>
-                                <input type="text" className="c" value={cep} onChange={e => setCep(e.target.value)}></input>
+                                <InputMask className="c" value={cep} mask="99999-999" onChange={e => setCep(e.target.value)} placeholder="CEP"/>
                             </div>
                         </div>
 
