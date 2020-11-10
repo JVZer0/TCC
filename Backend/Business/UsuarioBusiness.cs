@@ -14,6 +14,8 @@ namespace Backend.Business
         public Models.TbUsuario Alterar(Models.TbUsuario usuario)
         {
             validadores.Alterar(usuario);
+            if(usuario.DsEmail.Contains("@") == false) throw new ArgumentException("Email incorreto.");
+            if(usuario.DsEmail.Contains(".com") == false) throw new ArgumentException("Email incorreto.");
             try
             {
                 int cep = Convert.ToInt32(usuario.DsCep.Replace("-","").Replace(" ",""));
@@ -31,7 +33,6 @@ namespace Backend.Business
             {
                 throw new ArgumentException("Celular não pode ter letras nem símbolos.");
             }
-            if(usuario.DsEmail.Contains("@") == false && usuario.DsEmail.Contains(".") == false) throw new ArgumentException("Email incorreto.");
             if(usuario.DsCep.Contains(" ")) throw new ArgumentException("O CEP não pode ter espaços.");
             if(usuario.DtNascimento >= DateTime.Now.AddYears(-5)) throw new ArgumentException("Data de nascimento errada."); 
             return databaseUsuario.Alterar(usuario);

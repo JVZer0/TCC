@@ -21,9 +21,9 @@ namespace Backend.Business
 
         public Models.TbLogin Cadastrar(Models.TbLogin request, string ConfirmarSenha)
         {
-            if(request.TbUsuario.FirstOrDefault().DsEmail.Contains("@") == false) throw new ArgumentException("Email incorreto.");
-            if(request.TbUsuario.FirstOrDefault().DsEmail.Contains(".") == false) throw new ArgumentException("Email incorreto.");
             validadores.Cadastrar(request, ConfirmarSenha);
+            if(request.TbUsuario.FirstOrDefault().DsEmail.Contains("@") == false) throw new ArgumentException("Email incorreto.");
+            if(request.TbUsuario.FirstOrDefault().DsEmail.Contains(".com") == false) throw new ArgumentException("Email incorreto.");
             try
             {
                 int cep = Convert.ToInt32(request.TbUsuario.FirstOrDefault().DsCep.Replace("-","").Replace(" ",""));
