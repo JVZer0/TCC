@@ -33,6 +33,7 @@ namespace Backend.Business
             ValidarId(usuario.IdUsuario);
             ValidarTexto(usuario.IdLoginNavigation.DsSenha);
             ValidarTexto(usuario.IdLoginNavigation.DsUsername);
+            if(usuario.DsCep.Length != 9) throw new ArgumentException("CEP incorreto.");
         }
         public void Cadastrar(Models.TbLogin req, string ConfirmarSenha)
         {
@@ -53,8 +54,8 @@ namespace Backend.Business
             ValidarTexto(req.TbUsuario.FirstOrDefault().DsNEndereco);
             ValidarTexto(req.TbUsuario.FirstOrDefault().DsEndereco);
             ValidarTermos(req.TbUsuario.FirstOrDefault().BtConcordoTermos);
-            if(req.TbUsuario.FirstOrDefault().DsCpf.Length > 14 && req.TbUsuario.FirstOrDefault().DsCpf.Length < 14) throw new ArgumentException("CPF incorreto.");
-            if(req.TbUsuario.FirstOrDefault().DsCep.Length > 6 && req.TbUsuario.FirstOrDefault().DsCep.Length < 6) throw new ArgumentException("CEP incorreto.");
+            if(req.TbUsuario.FirstOrDefault().DsCpf.Length != 14) throw new ArgumentException("CPF incorreto.");
+            if(req.TbUsuario.FirstOrDefault().DsCep.Length != 9) throw new ArgumentException("CEP incorreto.");
         }
         public void RecuperarSenha(string CPF, string RG)
         {
@@ -89,6 +90,7 @@ namespace Backend.Business
             ValidarTexto(anuncio.DsTamanho);
             ValidarTexto(anuncio.DsGenero);
             ValidarTexto(anuncio.NmMarca);
+            if(anuncio.DsCep.Length != 9) throw new ArgumentException("CEP incorreto.");
         }
         public void InativarAnuncio(Models.TbAnuncio Anuncios)
         {
@@ -109,6 +111,7 @@ namespace Backend.Business
             ValidarTexto(anuncio.DsGenero);
             ValidarTexto(anuncio.NmMarca);
             ValidarPreco(anuncio.VlPreco);
+            if(anuncio.DsCep.Length != 9) throw new ArgumentException("CEP incorreto.");
         }
 
 

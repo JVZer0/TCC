@@ -89,7 +89,7 @@ namespace Backend.Utils
         {
             Models.TbPerguntaResposta resp = new Models.TbPerguntaResposta();
             resp.BtRespondida = false;
-            resp.DsPergunta = req.Texto;
+            resp.DsPergunta = req.Texto.Trim();
             resp.DtPergunta = DateTime.Now;
             resp.IdAnuncio = req.IdAnuncio;
             resp.IdPerguntador = req.IdUsuarioPerguntador;
@@ -116,7 +116,7 @@ namespace Backend.Utils
             Models.TbPerguntaResposta resp = new Models.TbPerguntaResposta();
             resp.IdRespondedor = req.IdUsuarioRespondedor;
             resp.IdPerguntaResposta = req.IdPerguntaResposta;
-            resp.DsResposta = req.Texto;
+            resp.DsResposta = req.Texto.Trim();
             resp.BtRespondida = true;
             return resp;
         }
@@ -215,19 +215,17 @@ namespace Backend.Utils
         public Models.TbAnuncio AlterarAnuncioParaTabela(Models.Request.AnuncioRoupasRequest.AlterarAnuncio anuncio)
         {
             Models.TbAnuncio resp = new Models.TbAnuncio();
-            resp.NmMarca = anuncio.Marca;
-            resp.TpProduto = anuncio.TipoDoProduto;
+            resp.NmMarca = anuncio.Marca.Trim();
+            resp.TpProduto = anuncio.TipoDoProduto.Trim();
             resp.VlPreco = anuncio.Preco;
-            resp.BtVendido = false;
-            resp.DsCep = anuncio.CEP;
-            resp.DsCidade = anuncio.Cidade;
-            resp.DsCondicao = anuncio.Condicao;
-            resp.DsDescricao = anuncio.Descricao;
-            resp.DsEstado = anuncio.Estado;
-            resp.DsGenero = anuncio.Genero;
-            resp.DsSituacao = "Publicado";
-            resp.DsTamanho = anuncio.Tamanho;
-            resp.DsTitulo = anuncio.Titulo;
+            resp.DsCep = anuncio.CEP.Trim();
+            resp.DsCidade = anuncio.Cidade.Trim();
+            resp.DsCondicao = anuncio.Condicao.Trim();
+            resp.DsDescricao = anuncio.Descricao.Trim();
+            resp.DsEstado = anuncio.Estado.Trim();
+            resp.DsGenero = anuncio.Genero.Trim();
+            resp.DsTamanho = anuncio.Tamanho.Trim();
+            resp.DsTitulo = anuncio.Titulo.Trim();
             resp.IdUsuario = anuncio.IdUsuario;
             resp.IdAnuncio = anuncio.IdAnuncio;
             return resp;

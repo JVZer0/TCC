@@ -94,14 +94,12 @@ namespace Backend.Database
             Models.TbAnuncio anuncio = ctx.TbAnuncio
                                           .Include(x => x.TbImagem)
                                           .First(x => x.IdAnuncio == NovoAnuncio.IdAnuncio && x.IdUsuario == NovoAnuncio.IdUsuario);
-            anuncio.BtVendido = NovoAnuncio.BtVendido;
             anuncio.DsCep = NovoAnuncio.DsCep;
             anuncio.DsCidade = NovoAnuncio.DsCidade;
             anuncio.DsCondicao = NovoAnuncio.DsCondicao;
             anuncio.DsDescricao = NovoAnuncio.DsDescricao;
             anuncio.DsEstado = NovoAnuncio.DsEstado;
             anuncio.DsGenero = NovoAnuncio.DsGenero;
-            anuncio.DsSituacao = NovoAnuncio.DsSituacao;
             anuncio.DsTamanho = NovoAnuncio.DsTamanho;
             anuncio.DsTitulo = NovoAnuncio.DsTitulo;
             anuncio.NmMarca = NovoAnuncio.NmMarca;

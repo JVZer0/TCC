@@ -32,6 +32,7 @@ namespace Backend.Business
         public Models.TbPerguntaResposta Perguntar(Models.TbPerguntaResposta req)
         {
             validadores.Perguntar(req);
+            if(req.DsPergunta == "") throw new ArgumentException("Verifique a sua pergunta.");
             return databaseAnuncio.Perguntar(req);
         }
         public Models.TbPerguntaResposta Responder(Models.TbPerguntaResposta req)
@@ -39,6 +40,7 @@ namespace Backend.Business
             validadores.Responder(req);
             Models.TbPerguntaResposta paraValidarRespondedor = databaseAnuncio.ConsultarTBPergundaERespota(req.IdPerguntaResposta);
             if(paraValidarRespondedor.IdRespondedor != req.IdRespondedor) throw new ArgumentException("Você não é o dono desse anuncio. Você não pode responder perguntas dele.");
+            if(req.DsResposta == "") throw new ArgumentException("Verifique a sua resposta.");
             return databaseAnuncio.Responder(req);
         }
         public Models.TbAnuncio Anunciar(Models.TbAnuncio anuncio)
@@ -46,6 +48,14 @@ namespace Backend.Business
             validadores.Anunciar(anuncio);
             if(anuncio.TbImagem.Count > 10) throw new ArgumentException("Você só pode colocar 10 imagens no anuncio.");
             if(anuncio.VlPreco <= 0) throw new ArgumentException("O valor não pode ser 0 ou negativo");
+            try
+            {
+                int cep = Convert.ToInt32(anuncio.DsCep.Replace("-","").Replace(" ",""));
+            }
+            catch (System.Exception)
+            {
+                throw new ArgumentException("CEP não pode ter letras nem simbolos.");
+            }
             if(anuncio.DsCep.Contains(" ")) throw new ArgumentException("O CEP não pode ter espaços.");
             return databaseAnuncio.Anunciar(anuncio);
         }
@@ -78,6 +88,17 @@ namespace Backend.Business
             Models.TbAnuncio resp = databaseAnuncio.ConsultarAnuncioDetalhado(NovoAnuncio.IdAnuncio);
             if(resp == null) throw new ArgumentException("Você não é o dono desse anuncio.");
             if(resp.IdUsuario != NovoAnuncio.IdUsuario)throw new ArgumentException("Você não é o dono desse anuncio.");
+            if(NovoAnuncio.TbImagem.Count > 10) throw new ArgumentException("Você só pode colocar 10 imagens no anuncio.");
+            if(NovoAnuncio.VlPreco <= 0) throw new ArgumentException("O valor não pode ser 0 ou negativo");
+            try
+            {
+                int cep = Convert.ToInt32(NovoAnuncio.DsCep.Replace("-","").Replace(" ",""));
+            }
+            catch (System.Exception)
+            {
+                throw new ArgumentException("CEP não pode ter letras nem simbolos.");
+            }
+            if(NovoAnuncio.DsCep.Contains(" ")) throw new ArgumentException("O CEP não pode ter espaços.");
             resp = databaseAnuncio.AlterarAnuncio(NovoAnuncio);
             return resp;
         }
