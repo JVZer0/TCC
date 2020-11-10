@@ -33,24 +33,24 @@ namespace Backend.Utils
         public Models.TbLogin ConversorTabelaLoginRequestCadastrar(Models.Request.AnuncioRoupasRequest.Cadastro req)
         {
             Models.TbLogin resp = new Models.TbLogin();
-            resp.DsUsername = req.Username;
-            resp.DsSenha = req.Senha;
+            resp.DsUsername = req.Username.Trim();
+            resp.DsSenha = req.Senha.Trim();
             
             Models.TbUsuario user = new Models.TbUsuario();
-            user.NmUsuario = req.NomeUsuario;
-            user.DsEmail = req.Email;
+            user.NmUsuario = req.NomeUsuario.Trim();
+            user.DsEmail = req.Email.Trim();
             user.DtNascimento = req.DataDeNascimento;
-            user.DsSexo = req.Sexo;
-            user.DsCpf = req.CPF;
-            user.DsRg = req.RG;
-            user.DsCelular = req.Celular;
-            user.DsEstado = req.Estado;
-            user.DsCidade = req.Cidade;
-            user.DsCep = req.CEP;
-            user.DsBairro = req.Bairro;
-            user.DsNEndereco = req.N_Endereco;
-            user.DsEndereco = req.Endereco;
-            user.DsComplementoEndereco = req.ComplementoEndereco;
+            user.DsSexo = req.Sexo.Trim();
+            user.DsCpf = req.CPF.Trim();
+            user.DsRg = req.RG.Trim();
+            user.DsCelular = req.Celular.Trim();
+            user.DsEstado = req.Estado.Trim();
+            user.DsCidade = req.Cidade.Trim();
+            user.DsCep = req.CEP.Trim();
+            user.DsBairro = req.Bairro.Trim();
+            user.DsNEndereco = req.N_Endereco.Trim();
+            user.DsEndereco = req.Endereco.Trim();
+            user.DsComplementoEndereco = req.ComplementoEndereco.Trim();
             user.BtConcordoTermos = req.ConcordoTermos;
 
             resp.TbUsuario.Add(user);

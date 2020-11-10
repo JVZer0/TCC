@@ -22,10 +22,37 @@ namespace Backend.Business
         public Models.TbLogin Cadastrar(Models.TbLogin request, string ConfirmarSenha)
         {
             validadores.Cadastrar(request, ConfirmarSenha);
-            int cep = Convert.ToInt32(request.TbUsuario.FirstOrDefault().DsCep.Replace("-",""));
-            long cpf = Convert.ToInt64(request.TbUsuario.FirstOrDefault().DsCpf.Replace(".","").Replace("/","").Replace("-",""));
-            int celular = Convert.ToInt32(request.TbUsuario.FirstOrDefault().DsCelular.Replace("(","").Replace(")","").Replace(" ","").Replace("-",""));
-            if(request.TbUsuario.FirstOrDefault().DtNascimento >= DateTime.Now) throw new ArgumentException("Data de nascimento errada."); 
+            try
+            {
+                int cep = Convert.ToInt32(request.TbUsuario.FirstOrDefault().DsCep.Replace("-","").Replace(" ",""));
+            }
+            catch (System.Exception)
+            {
+                throw new ArgumentException("CEP não pode ter letras nem simbolos.");
+            }
+
+            try
+            {
+                long cpf = Convert.ToInt64(request.TbUsuario.FirstOrDefault().DsCpf.Replace(".","").Replace("/","").Replace("-","").Replace(" ",""));
+            }
+            catch (System.Exception)
+            {
+                throw new ArgumentException("CPF não pode ter letras nem símbolos.");
+            }
+
+            try
+            {
+                long celular = Convert.ToInt64(request.TbUsuario.FirstOrDefault().DsCelular.Replace("(","").Replace(")","").Replace(" ","").Replace("-",""));
+            }
+            catch (System.Exception)
+            {
+                throw new ArgumentException("CPF não pode ter letras nem símbolos.");
+            }
+
+            if(request.TbUsuario.FirstOrDefault().DsCep.Contains(" ")) throw new ArgumentException("O CEP não pode ter espaços.");
+            if(request.TbUsuario.FirstOrDefault().DsRg.Contains(" ")) throw new ArgumentException("O RG não pode ter espaços.");
+            if(request.TbUsuario.FirstOrDefault().DsCpf.Contains(" ")) throw new ArgumentException("O CPF não pode ter espaços.");
+            if(request.TbUsuario.FirstOrDefault().DtNascimento >= DateTime.Now.AddYears(-5)) throw new ArgumentException("Data de nascimento errada."); 
             return databaseLogin.Cadastrar(request);
         }
     }

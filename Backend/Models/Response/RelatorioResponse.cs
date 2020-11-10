@@ -15,7 +15,7 @@ namespace Backend.Models.Response
         }
         public class AnunciosPorMes
         {
-            public int Mes { get; set; }
+            public string Mes { get; set; }
             public int QtdAnuncios { get; set; }
             public decimal? SomaDosPrecoDosAnuncios { get; set; }
         }
