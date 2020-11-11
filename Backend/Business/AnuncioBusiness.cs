@@ -21,6 +21,7 @@ namespace Backend.Business
             if(NPagina < 0) throw new ArgumentException("Página não disponível.");
 
             List<Models.TbAnuncio> anuncios = databaseAnuncio.ConsultarAnuncios(BarraPesquisa, Estado, Cidade, Genero, Condicao);
+            if(anuncios.Count == 0) throw new ArgumentException("Nenhum anuncio encontrado.");
             if(Math.Ceiling(Convert.ToDecimal(anuncios.Count()/NPagina)) < NPagina) throw new ArgumentException("Página não disponível.");
             return anuncios;
         }
@@ -110,13 +111,8 @@ namespace Backend.Business
             return databaseAnuncio.AtivarAnuncio(IdAnuncio);
         }
 
-        public decimal ConsultarNPaginas()
+        public decimal ConsultarNPaginas(string BarraPesquisa, string Estado, string Cidade, string Genero, string Condicao)
         {
-            string BarraPesquisa = "BarraPesquisa";
-            string Estado = "Estado";
-            string Cidade = "Cidade";
-            string Genero = "Genero";
-            string Condicao = "Condicao";
             if(string.IsNullOrEmpty(BarraPesquisa) || BarraPesquisa == "BarraPesquisa") { BarraPesquisa = "";};
             if(string.IsNullOrEmpty(Estado) || Estado == "Estado") { Estado = "";};
             if(string.IsNullOrEmpty(Cidade) || Cidade == "Cidade") { Cidade = "";};

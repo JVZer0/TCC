@@ -20,7 +20,7 @@ Put "Anuncio/AlterarAnuncio" = Alterar Anuncio
 
 Put "Anuncio/AtivarAnuncio/{IdAnuncio}" = Ativar Anuncio
 
-Get "Anuncio/ConsultarNPaginas" = Consultar Numero de Paginas
+Get "Anuncio/ConsultarNPaginas/{BarraPesquisa}/{Estado}/{Cidade}/{Genero}/{Condicao}" = Consultar Numero de Paginas
 
 
 

@@ -42,15 +42,53 @@ export default function Home(props){
             consultarMaxPage();
         }
         catch (e) {
+            toast.error(e.response.data.mensagem)
         }
     }
 
-    console.log(numeroDaPage)
+    const consultarAnuncios2 = async (NP) => {
+        try{
+            let e = "";
+            let ci = "";
+            let cond = "";
+            let barra = "";
+            let g = "";
+            if(barraPesquisa == "") {barra = "BarraPesquisa"} else {barra = barraPesquisa};
+            if(estado == "") {e = "Estado"} else {e = estado};
+            if(cidade == "") {ci = "Cidade"} else {ci = cidade};
+            if(genero == "") {g = "Genero"} else {g = genero};
+            if(condicao == "") {cond = "Condicao"} else {cond = condicao};
+            const resp = await api.consultarAnuncios(barra,e,ci,g,cond,NP);
+            setAnuncios(resp);
+            consultarMaxPage();
+        }
+        catch (e) {
+            toast.error(e.response.data.mensagem)
+        }
+    }
+
+    const filtrarAnuncios = async () => {
+        try{
+            consultarMaxPage();
+            consultarAnuncios();
+        }
+        catch (e) {
+        }
+    }
 
     const consultarMaxPage = async () => {
         try{
-
-            const resp = await api.consultarNumeroDePaginas();
+            let e = "";
+            let ci = "";
+            let cond = "";
+            let barra = "";
+            let g = "";
+            if(barraPesquisa == "") {barra = "BarraPesquisa"} else {barra = barraPesquisa};
+            if(estado == "") {e = "Estado"} else {e = estado};
+            if(cidade == "") {ci = "Cidade"} else {ci = cidade};
+            if(genero == "") {g = "Genero"} else {g = genero};
+            if(condicao == "") {cond = "Condicao"} else {cond = condicao};
+            const resp = await api.consultarNumeroDePaginas(barra,e,ci,g,cond);
             setMaxPage(resp);
         }
         catch (e) {
@@ -59,19 +97,8 @@ export default function Home(props){
 
     const mudarPage = async (NumPage) => {
         try{
-            console.log("numPga "+ NumPage)
             setNumeroDaPage(NumPage);
-            console.log("numeroDaPage "+numeroDaPage);
-            consultarAnuncios();
-            mudarPage2(NumPage)
-        }
-        catch (e) {
-        }
-    }
-
-    const mudarPage2 = async (NumPage) => {
-        try{
-            consultarAnuncios();
+            consultarAnuncios2(NumPage);
         }
         catch (e) {
         }
@@ -173,7 +200,7 @@ export default function Home(props){
                             <option value="Usado">Usado</option>
                         </select>
                     </div>
-                    <button className="botao1" onClick={consultarAnuncios}>Filtrar</button>
+                    <button className="botao1" onClick={filtrarAnuncios}>Filtrar</button>
                     <div className="d-flex" style={{height:"30px", justifyContent:"center", display:"flex", marginTop:"15%"}}>
                         {maxPage.map(x =>
                             <button onClick={() => mudarPage(x)}  style={{marginLeft:"7px"}}>{x}</button>
@@ -208,6 +235,7 @@ export default function Home(props){
                     )}
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     )
 }

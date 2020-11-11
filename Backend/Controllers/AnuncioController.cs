@@ -171,11 +171,11 @@ namespace Backend.Controllers
                 return NotFound(new Models.Response.Erro(404, ex.Message));
             }
         }
-        [HttpGet("ConsultarNPaginas")]
-        public ActionResult<List<decimal>> ConsultarNPaginas()
+        [HttpGet("ConsultarNPaginas/{BarraPesquisa}/{Estado}/{Cidade}/{Genero}/{Condicao}")]
+        public ActionResult<List<decimal>> ConsultarNPaginas(string BarraPesquisa, string Estado, string Cidade, string Genero, string Condicao)
         {
             try
-            {   int a = Convert.ToInt32(businessAnuncio.ConsultarNPaginas());
+            {   int a = Convert.ToInt32(businessAnuncio.ConsultarNPaginas(BarraPesquisa, Estado, Cidade, Genero, Condicao));
                 List<decimal> resp = new List<decimal>();
                 for (int i = 1; i <= a; i++)
                 {

@@ -159,8 +159,8 @@ export default class anuncioAPI{
         return resp.data;
     }
 
-    async consultarNumeroDePaginas(){
-        const resp = await api.get(`/Anuncio/ConsultarNPaginas`);
+    async consultarNumeroDePaginas(BarraPesquisa, Estado, Cidade, Genero, Condicao){
+        const resp = await api.get(`/Anuncio/ConsultarNPaginas/${BarraPesquisa}/${Estado}/${Cidade}/${Genero}/${Condicao}`);
         return resp.data;
     }
 }
