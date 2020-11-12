@@ -24,6 +24,7 @@ export default function Home(props){
     const [anuncios, setAnuncios] = useState([]);
     const [numeroDaPage, setNumeroDaPage] = useState(1);
     const [maxPage, setMaxPage] = useState([]);
+    console.log(infos)
 
     const consultarAnuncios = async () => {
         try{
@@ -124,7 +125,8 @@ export default function Home(props){
                     </ul>
                 </nav>
 
-                <div className="meio"> 
+                <div className="meio">
+                    <Link class="tango" to={{ pathname: "/Relatorio", state: infos}}>Relatorios</Link>
                     <Link class="tango" to={{ pathname: "/MeusAnuncios", state: infos}}>Meus Anuncios</Link>
                     <Link class="tango" to={{pathname: "/MeusFavoritos", state: infos}}>Meus Favoritos</Link>
                 </div>

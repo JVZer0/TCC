@@ -163,4 +163,14 @@ export default class anuncioAPI{
         const resp = await api.get(`/Anuncio/ConsultarNPaginas/${BarraPesquisa}/${Estado}/${Cidade}/${Genero}/${Condicao}`);
         return resp.data;
     }
+    
+    async relatoriosTopAnunciantes() {
+        const resp = await api.get(`/Relatorios/Top10Anunciantes`);
+        return resp.data;
+    }
+
+    async relatoriosTopProdutos() {
+        const resp = await api.get(`/Relatorios/Top10ProdutosMaisAnunciados`);
+        return resp.data;
+    }
 }

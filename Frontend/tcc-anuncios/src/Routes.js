@@ -17,6 +17,13 @@ import Desativar from './pages/Desativar'
 import Anunciar from './pages/Inserir anuncio'
 import AlterarAnuncio from './pages/Alterar anuncio'
 import Responder from './pages/Responder'
+import Relatorio from './pages/Relatorio'
+import RelatorioUm from './pages/RelatorioUm'
+import RelatorioDois from './pages/RelatorioDois'
+import RelatorioTres from './pages/RelatorioTres'
+import RelatorioQuatro from './pages/RelatorioQuatro'
+import RelatorioCinco from './pages/RelatorioCinco'
+
 
 
 export default function Routes(){
@@ -38,6 +45,12 @@ export default function Routes(){
                 <Route path="/Anunciar" component={Anunciar}></Route>
                 <Route path="/AlterarAnuncio" component={AlterarAnuncio}></Route>
                 <Route path="/Responder" component={Responder}></Route>
+                <Route path="/RelatorioUm" component={RelatorioUm}></Route>
+                <Route path="/RelatorioDois" component={RelatorioDois}></Route>
+                <Route path="/RelatorioTres" component={RelatorioTres}></Route>
+                <Route path="/RelatorioQuatro" component={RelatorioQuatro}></Route>
+                <Route path="/RelatorioCinco" component={RelatorioCinco}></Route>
+                <Route path="/Relatorio" component={Relatorio}></Route>
             </Switch>
         </BrowserRouter>
     )
