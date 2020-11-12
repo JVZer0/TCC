@@ -164,8 +164,8 @@ export default class anuncioAPI{
         return resp.data;
     }
 
-    async anunciosDia() {
-        const resp = await api.get(`/Relatorios/AnunciosPorDia?dia=2020-09-25`);
+    async anunciosDia(dia) {
+        const resp = await api.get(`/Relatorios/AnunciosPorDia?dia=${dia}`);
         return resp.data;
     }
 

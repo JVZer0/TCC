@@ -14,9 +14,10 @@ export default function Home(props){
 
     const [infos, setInfos] = useState(props.location.state);
     const [anunciosDia, setAnunciosDia] = useState([]);
+    const [dia, setDia] = useState(new Date);
 
     const anunciosPorDia = async () => {
-        const resp = await api.anunciosDia();
+        const resp = await api.anunciosDia(dia.toISOString().substr(0,10));
         setAnunciosDia(resp);
     }
 
