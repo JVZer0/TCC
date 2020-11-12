@@ -40,7 +40,7 @@ export default function Home(props){
                             <tr>
                                 <th>Nome</th>
                                 <th>Qtd. Anunciadas</th>
-                                <th>Total Gasto</th>
+                                <th>Total Comprado</th>
                             </tr>
                         </thead>
 
@@ -49,7 +49,7 @@ export default function Home(props){
                             <tr>
                                 <td>{x.nome}</td>
                                 <td>{x.qtdAnunciada}</td>
-                                <td>{x.totalGasto}</td>
+                                <td>{x.totalComprado}</td>
                             </tr>
                             )} 
                         </tbody>
