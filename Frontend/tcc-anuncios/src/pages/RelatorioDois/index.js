@@ -13,6 +13,17 @@ const api = new anuncioAPI();
 export default function Home(props){
 
     const [infos, setInfos] = useState(props.location.state);
+    const [anunciosMes, setAnunciosMes] = useState([]);
+
+    const anunciosPorMes = async () => {
+        const resp = await api.anunciosMes();
+        setAnunciosMes(resp);
+    }
+
+    useEffect(() => {
+        anunciosPorMes();
+      }, []);
+
 
     return(
         <div className="eiei">
@@ -35,11 +46,13 @@ export default function Home(props){
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>    
+                            {anunciosMes.map(x =>
+                                <tr>
+                                    <td>{x.mes}</td>
+                                    <td>{x.qtdAnuncios}</td>
+                                    <td>{x.somaDosPrecoDosAnuncios}</td>
+                                </tr>
+                            )}      
                         </tbody>
                     </table>
                 </div>

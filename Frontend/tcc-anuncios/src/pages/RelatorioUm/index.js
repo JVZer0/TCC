@@ -13,6 +13,17 @@ const api = new anuncioAPI();
 export default function Home(props){
 
     const [infos, setInfos] = useState(props.location.state);
+    const [anunciosDia, setAnunciosDia] = useState([]);
+
+    const anunciosPorDia = async () => {
+        const resp = await api.anunciosDia();
+        setAnunciosDia(resp);
+    }
+
+    useEffect(() => {
+        anunciosPorDia();
+      }, []);
+
 
     return(
         <div className="eiei">
@@ -22,6 +33,7 @@ export default function Home(props){
                 </div>
             </div>
 
+            
 
             <div class="tabela1">
                 <div className="shit1">
@@ -30,17 +42,20 @@ export default function Home(props){
                             <tr>
                                 <th>Dia</th>
                                 <th>Cliente</th>
-                                <th>Total Anuncios</th>
-                                <th>Hora</th>
+                                <th>Tipo de Produto</th>
+                                <th>Preço</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>    
+                            {anunciosDia.map(x =>
+                                <tr>
+                                    <td>{x.dia.substring(0,10)}</td>
+                                    <td>{x.cliente}</td>
+                                    <td>{x.tipoProduto}</td>
+                                    <td>{x.preco}</td>
+                                </tr>
+                            )}    
                         </tbody>
                     </table>
                 </div>

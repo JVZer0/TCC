@@ -163,6 +163,16 @@ export default class anuncioAPI{
         const resp = await api.get(`/Anuncio/ConsultarNPaginas/${BarraPesquisa}/${Estado}/${Cidade}/${Genero}/${Condicao}`);
         return resp.data;
     }
+
+    async anunciosDia() {
+        const resp = await api.get(`/Relatorios/AnunciosPorDia?dia=2020-09-25`);
+        return resp.data;
+    }
+
+    async anunciosMes() {
+        const resp = await api.get(`/Relatorios/AnunciosPorMes?mesInicio=2020-08-23&&mesFim=2020-12-24`);
+        return resp.data;
+    }
     
     async relatoriosTopAnunciantes() {
         const resp = await api.get(`/Relatorios/Top10Anunciantes`);
