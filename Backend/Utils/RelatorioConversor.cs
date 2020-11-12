@@ -87,7 +87,7 @@ namespace Backend.Utils
 
                 top10Anuncios.Nome = item.TpProduto;
                 top10Anuncios.QtdAnunciada = xama.Count;
-                top10Anuncios.TotalGasto = xama.Sum(x => x.VlPreco);
+                top10Anuncios.TotalComprado= xama.Where(x => x.BtVendido == true).Count();
                 List<bool> verdade = new List<bool>();
                 foreach (Models.Response.RelatorioResponse.Top10ProdutosMaisAnunciados dale in resp)
                 {

@@ -31,7 +31,7 @@ namespace Backend.Models.Response
         {
             public string Nome { get; set; }
             public int QtdAnunciada { get; set; }
-            public decimal? TotalGasto { get; set; }
+            public int TotalComprado { get; set; }
         }
         public class EstadosComMaisAnuncios
         {
