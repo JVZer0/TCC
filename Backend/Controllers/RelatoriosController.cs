@@ -20,7 +20,7 @@ namespace Backend.Controllers
             }
             catch (System.Exception ex)
             {
-                return BadRequest(new Models.Response.Erro(400,ex.Message));
+                return BadRequest(new Models.Response.Erro(404,ex.Message));
             }
         }
         [HttpGet("AnunciosPorMes")]
@@ -33,7 +33,7 @@ namespace Backend.Controllers
             }
             catch (System.Exception ex)
             {
-                return BadRequest(new Models.Response.Erro(400,ex.Message));
+                return BadRequest(new Models.Response.Erro(404,ex.Message));
             }
         }
         [HttpGet("Top10Anunciantes")]
@@ -46,7 +46,7 @@ namespace Backend.Controllers
             }
             catch (System.Exception ex)
             {
-                return BadRequest(new Models.Response.Erro(400,ex.Message));
+                return BadRequest(new Models.Response.Erro(404,ex.Message));
             }
         }
         [HttpGet("Top10ProdutosMaisAnunciados")]
@@ -59,7 +59,7 @@ namespace Backend.Controllers
             }
             catch (System.Exception ex)
             {
-                return BadRequest(new Models.Response.Erro(400,ex.Message));
+                return BadRequest(new Models.Response.Erro(404,ex.Message));
             }
         }
         [HttpGet("QtdAnunciosPorEstado")]
@@ -72,7 +72,7 @@ namespace Backend.Controllers
             }
             catch (System.Exception ex)
             {
-                return BadRequest(new Models.Response.Erro(400,ex.Message));
+                return BadRequest(new Models.Response.Erro(404,ex.Message));
             }
         }
     }
