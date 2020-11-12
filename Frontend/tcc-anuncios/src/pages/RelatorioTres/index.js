@@ -40,7 +40,7 @@ export default function Home(props){
                             <tr>
                                 <th>Nome</th>
                                 <th>E-mail</th>
-                                <th>Telefone</th>
+                                <th style={{minWidth:"200px"}}>Celular</th>
                                 <th>Qtd. Anuncios postados</th>
                                 <th>Soma dos preços anunciados</th>
                             </tr>
