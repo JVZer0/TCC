@@ -169,8 +169,8 @@ export default class anuncioAPI{
         return resp.data;
     }
 
-    async anunciosMes() {
-        const resp = await api.get(`/Relatorios/AnunciosPorMes?mesInicio=2020-08-23&&mesFim=2020-12-24`);
+    async anunciosMes(mesInicio, mesFim) {
+        const resp = await api.get(`/Relatorios/AnunciosPorMes?mesInicio=${mesInicio}&&mesFim=${mesFim}`);
         return resp.data;
     }
     
@@ -181,6 +181,11 @@ export default class anuncioAPI{
 
     async relatoriosTopProdutos() {
         const resp = await api.get(`/Relatorios/Top10ProdutosMaisAnunciados`);
+        return resp.data;
+    }
+
+    async anunciosPorEstado() {
+        const resp = await api.get(`/Relatorios/QtdAnunciosPorEstado`);
         return resp.data;
     }
 }

@@ -58,3 +58,18 @@ button:hover{
     background-color: #fe8d27;
     border: 0px;
 }
+
+.labelRelatorio{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+    margin-left: 500px;
+    position: relative;
+}
+
+.rulf{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

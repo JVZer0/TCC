@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Chart from "react-google-charts";
 
 import '../../components/Cabecalho/cabecalho.css'
 import '../Meus Favoritos/style.css';
@@ -13,6 +14,17 @@ const api = new anuncioAPI();
 export default function Home(props){
 
     const [infos, setInfos] = useState(props.location.state);
+    const [estadoAnuncio, setEstadoAnuncio] = useState([]);
+
+    const anunciosPorEstado = async () =>{
+        const resp = await api.anunciosPorEstado();
+        setEstadoAnuncio(resp);
+    }
+
+    useEffect(() => {
+        anunciosPorEstado();
+      }, []);
+
 
     return(
         <div className="eiei">
@@ -22,28 +34,31 @@ export default function Home(props){
                 </div>
             </div>
 
+            <div className="rulf">
 
-            <div class="tabela1">
-                <div className="shit1">
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Titulo</th>
-                                <th>Preço</th>
-                                <th></th>
-                            </tr>
-                        </thead>
+                <Chart
+                    width={"700px"}
+                    height={"400px"}
+                    chartType="Bar"
+                    loader={<div>Loading Chart</div>}
+                    rows={estadoAnuncio.map((x) => (
+                    [String(x.estado), x.qtdAnuncio, x.qtdVendido]
+                    ))}
 
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>    
-                        </tbody>
-                    </table>
-                </div>
+                    columns={["Estados", "Anuncios publicados", "Anuncios vendidos"]}
+                
+                    options={{
+                    // Material design options
+                    chart: {
+                        title: "Anuncios por estados",
+                    },
+                    }}
+                    // For tests
+                    rootProps={{ "data-testid": "2" }}
+                />
             </div>
+
+            
 
             <div className="rodape">
                     <div className="tey">

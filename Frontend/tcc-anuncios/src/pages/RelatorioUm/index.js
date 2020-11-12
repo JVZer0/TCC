@@ -16,8 +16,8 @@ export default function Home(props){
     const [anunciosDia, setAnunciosDia] = useState([]);
     const [dia, setDia] = useState(new Date);
 
-    const anunciosPorDia = async () => {
-        const resp = await api.anunciosDia(dia.toISOString().substr(0,10));
+    const anunciosPorDia = async (dia) => {
+        const resp = await api.anunciosDia(dia);
         setAnunciosDia(resp);
     }
 
@@ -33,7 +33,17 @@ export default function Home(props){
                     <Link className="hihi" to={{pathname: "/Relatorio", state: infos}} ><img class="logo" src={Logo} width="180" height="34px" alt=''/></Link>
                 </div>
             </div>
+            
 
+            <label className="labelRelatorio">
+              Escolha uma data
+              <input
+                value={anunciosDia}
+                onChange={(e) => anunciosPorDia(e.target.value)}
+                type="date"
+                className="form-control"
+              />
+            </label>
             
 
             <div class="tabela1">
