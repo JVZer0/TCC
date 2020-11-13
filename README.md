@@ -76,12 +76,13 @@ https://github.com/JVZer0/TCC)
 
 >01. Voce Podera ver Seus Anuncios , conferi-los .
 
-01.1 Podendo filtrar por Genero , para uma  facil Localização , de seu anuncio.
+>>01.1 Podendo filtrar por Genero , para uma  facil Localização , de seu anuncio.
 	
-01.2 Podendo filtrar por tamanho , Caso seja Algo ja Definido.
+>>01.2 Podendo filtrar por tamanho , Caso seja Algo ja Definido.
 	
-01.3 A barra de Pesquisa , Para uma pesquisa rapida , e precisa , caso esteja com pressa :laughing: 
+>>01.3 A barra de Pesquisa , Para uma pesquisa rapida , e precisa , caso esteja com pressa :laughing: 
 
+>02. Ver Anuncios Favoritados
 
 ---
 
