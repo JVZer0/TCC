@@ -36,7 +36,7 @@ export default function Home(props){
             
 
             <label className="labelRelatorio">
-              Escolha uma data
+            Filtrar por data
               <input
                 value={anunciosDia}
                 onChange={(e) => anunciosPorDia(e.target.value)}
