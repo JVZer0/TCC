@@ -70,8 +70,59 @@ button:hover{
     width: 300px;
 }
 
+.InputsRelatoriosPorMes{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .rulf{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.botoxa{
+    border: 2px solid  #fe8d27;
+    box-shadow: black;
+    padding: 6px 24px;
+    color: #fe8d27;
+    border-radius: 3px;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    background:  white;
+    font-size: 14px;
+    height: 35px;
+    margin-left: 5px;
+    width: 130px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 9px;
+}
+
+.labelRelatorio1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 325px;
+}
+
+.labelRelatorio2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 325px
+}
+
+.zepo1{
+    width: 300px;
+}
+
+.zepo2{
+    width: 300px;
 }

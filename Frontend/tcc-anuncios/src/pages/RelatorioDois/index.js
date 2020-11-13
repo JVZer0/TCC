@@ -41,9 +41,9 @@ export default function Home(props){
 
             <div className="InputsRelatoriosPorMes">
 
-                <label className="labelRelatorio">
+                <label className="labelRelatorio1">
                     Mês inicial
-                    <select value={mesI} onChange={(e) => setMesI(e.target.value)} type="number" className="form-control">
+                    <select value={mesI} onChange={(e) => setMesI(e.target.value)} type="number" className="zepo1 form-control">
                         <option value="01">Janeiro</option>
                         <option value="02">Fevereiro</option>
                         <option value="03">Março</option>
@@ -59,26 +59,26 @@ export default function Home(props){
                     </select>
                 </label>
 
-                <label className="labelRelatorio">
+                <label className="labelRelatorio2">
                     Mês final
-                    <select value={mesF} onChange={(e) => setMesF(Number(e.target.value))} type="number" className="form-control">
-                        <option value="01">Janeiro</option>
-                        <option value="02">Fevereiro</option>
-                        <option value="03">Março</option>
-                        <option value="04">Abril</option>
-                        <option value="05">Maio</option>
-                        <option value="06">Junho</option>
-                        <option value="07">Julho</option>
-                        <option value="08">Agosto</option>
-                        <option value="09">Setembro</option>
+                    <select value={mesF} onChange={(e) => setMesF(Number(e.target.value))} type="number" className="zepo2 form-control">
+                        <option value="1">Janeiro</option>
+                        <option value="2">Fevereiro</option>
+                        <option value="3">Março</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Maio</option>
+                        <option value="6">Junho</option>
+                        <option value="7">Julho</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Setembro</option>
                         <option value="10">Outubro</option>
                         <option value="11">Novembro</option>
                         <option value="12">Dezembro</option>
                     </select>
                 </label>
 
-                <button onClick={anunciosPorMes} className="fas fa-search">Filtrar</button>
-          </div>
+                <button onClick={anunciosPorMes} className="botoxa">Filtrar</button>
+            </div>
 
 
             <div class="tabela1">

@@ -5,6 +5,7 @@ import '../../components/Cabecalho/cabecalho.css'
 import '../Meus Favoritos/style.css';
 
 import Logo from '../../assets/image/Capturar.PNG'
+import '../Relatorio/style.css'
 
 import anuncioAPI from '../../services/anuncioAPI';
 const api = new anuncioAPI();
@@ -22,11 +23,13 @@ export default function Home(props){
                 </div>
             </div>
 
-            <Link class="tango" to={{ pathname: "/RelatorioUm", state: infos}}>RelatorioUm</Link>
-            <Link class="tango" to={{ pathname: "/RelatorioDois", state: infos}}>RelatorioDois</Link>
-            <Link class="tango" to={{ pathname: "/RelatorioTres", state: infos}}>RelatorioTres</Link>
-            <Link class="tango" to={{ pathname: "/RelatorioQuatro", state: infos}}>RelatorioQuatro</Link>
-            <Link class="tango" to={{ pathname: "/RelatorioCinco", state: infos}}>RelatorioCinco</Link>
+            <div class="tange">
+                <Link to={{ pathname: "/RelatorioUm", state: infos}}><button className="botoxi">Relatorio Um</button></Link>
+                <Link to={{ pathname: "/RelatorioDois", state: infos}}><button className="botoxi">Relatorio Dois</button></Link>   
+                <Link to={{ pathname: "/RelatorioTres", state: infos}}><button className="botoxi">Relatorio Três</button></Link>
+                <Link to={{ pathname: "/RelatorioQuatro", state: infos}}><button className="botoxi">Relatorio Quatro</button></Link>
+                <Link to={{ pathname: "/RelatorioCinco", state: infos}}><button className="botoxi">Relatorio Cinco</button></Link>                
+            </div>
 
             <div className="rodape">
                     <div className="tey">
