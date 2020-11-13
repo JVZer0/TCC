@@ -54,31 +54,35 @@ https://github.com/JVZer0/TCC)
 
 ## Casos de Uso ##
 
-![Meus Anuncios](https://i.imgur.com/krToJfc.png)"
+![Meus Anuncios](https://i.imgur.com/krToJfc.png)
 
 > 01. O Usuario podera Adicionar seus Anuncios , mandando seus dados .
 > 02. O Usuario podera Visualizar seus Anuncios e de Outros usuario .
 > 03. O Usuario podera Alterar , Editar seus Anuncios , Caso esteja Errado o deseja ser Atualizado.
-> 04. O Usuario podera Deletar seus Anuncios , ==Caso não queira anunciar mais seu Produto==.
-> 05. O Usuario tera o direito de inativar seus Anuncios ou seja, deixar ele ==Invisivel para outros usuarios .==
+> 04. O Usuario podera Deletar seus Anuncios ,  Caso não queira anunciar mais seu Produto .
+> 05. O Usuario tera o direito de inativar seus Anuncios ou seja, deixar ele  Invisivel para outros usuarios .
 
 ![Cadastrar](https://i.imgur.com/yHpwPGV.png)
 
 > 01. Para o Usuario ter acesso ao Seu perfil , devera fazer o login.
+
 > 02. Para que ele fiuque com uma conta no Sistema ele devera Cadastrar seu login.
-> 03 . Caso o usuario queira mudar , alguma informação sobre ele , podera aterar seu login.
+
+> 03. Caso o usuario queira mudar , alguma informação sobre ele , podera aterar seu login.
 
 
+![Anuncios 2](https://i.imgur.com/v8cwHIo.png)
 
-![Anuncios](https://i.imgur.com/v8cwHIo.png)
+
+>01. Voce Podera ver Seus Anuncios , conferi-los .
+
+01.1 Podendo filtrar por Genero , para uma  facil Localização , de seu anuncio.
+	
+01.2 Podendo filtrar por tamanho , Caso seja Algo ja Definido.
+	
+01.3 A barra de Pesquisa , Para uma pesquisa rapida , e precisa , caso esteja com pressa :laughing: 
 
 
-> 01. Voce Podera ver Seus Anuncios , conferi-los .
-    >>01.1 Podendo filtrar por Genero , para uma ==facil Localização , de seu anuncio.==
-    >>01.2 Podendo filtrar por tamanho , Caso seja Algo ja Definido.
-    >>01.3 A barra de Pesquisa , Para uma pesquisa rapida ==, e precisa , caso esteja com pressa :laughing:==
-
----
 ---
 
 ## Excel Class
@@ -374,7 +378,7 @@ where ds_descricao like '%%' and a.ds_estado like '%%' and a.ds_tamanho like '%%
 
 ## Rotas API
 ```
-Get "Anuncio/{BarraPesquisa}/{Estado}/{Cidade}/{Genero}/{Condicao}" = Consultar Anuncios
+Get "Anuncio/{BarraPesquisa}/{Estado}/{Cidade}/{Genero}/{Condicao}/{NPagina}" = Consultar Anuncios
 
 Get "Anuncio/AnuncioDetalhado/{IdAnuncio}" = Consultar Anuncio Detalhado
 
@@ -395,6 +399,8 @@ Put "Anuncio/AnuncioVendido/{IdAnuncio}" = Anuncio Vendido
 Put "Anuncio/AlterarAnuncio" = Alterar Anuncio
 
 Put "Anuncio/AtivarAnuncio/{IdAnuncio}" = Ativar Anuncio
+
+Get "Anuncio/ConsultarNPaginas/{BarraPesquisa}/{Estado}/{Cidade}/{Genero}/{Condicao}" = Consultar Numero de Paginas
 
 
 
@@ -424,13 +430,15 @@ Post "Login/Criarlogin" = Cadastrar Login
 
 
 
-Get "Relatorios/AnunciosPorDia" = AnunciosPorDia
+Get "Relatorios/AnunciosPorDia" = Anuncios Por Dia
 
-Get "Relatorios/AnunciosPorMes" = AnunciosPorMes
+Get "Relatorios/AnunciosPorMes" = Anuncios Por Mes
 
-Get "Relatorios/Top10Clientes" = Top10Clientes
+Get "Relatorios/Top10Anunciantes" = Top10 Anunciantes
 
-Get "Relatorios/Top10Produtos" = Top10Produtos
+Get "Relatorios/Top10ProdutosMaisAnunciados" = Top10 Produtos Mais Anunciados
+
+Get "Relatorios/QtdAnunciosPorEstado" = Qtd Anuncios Por Estado
 
 
 
@@ -439,6 +447,32 @@ Put "Usuario/" = Alterar
 Get "Usuario/{IdUsuario}" = Consultar Infomacoes Do Usuario
 
 Post "Usuario/RecuperarSenha" = RecuperarSenha
-```
 
 ---
+
+```
+
+## Teste POSTMAN
+
+[Teste em Documento para DownLoad](https://github.com/JVZer0/TCC/blob/master/Analise/Documento%20de%20testes%20no%20Postman.docx?raw=true)
+
+![](https://i.imgur.com/XbEKMwr.png)
+![](https://i.imgur.com/uxfkgTA.png)
+![](https://i.imgur.com/HWG4aDL.png)
+![](https://i.imgur.com/YqumYKL.png)
+![](https://i.imgur.com/DsHLyz4.png)
+![](https://i.imgur.com/W594qVS.png)
+![](https://i.imgur.com/POROly3.png)
+![](https://i.imgur.com/qGJrHyw.png)
+![](https://i.imgur.com/MJWtY8L.png)
+![](https://i.imgur.com/c5CMPdY.png)
+![](https://i.imgur.com/ckpKoSW.png)
+![](https://i.imgur.com/BkAn1Ii.png)
+![](https://i.imgur.com/7ZeoHoc.png)
+![](https://i.imgur.com/Ryc285T.png)
+![](https://i.imgur.com/c1clyxr.png)
+![](https://i.imgur.com/0relHzX.png)
+![](https://i.imgur.com/d0iiOMO.png)
+![](https://i.imgur.com/q4afyAJ.png)
+
+
