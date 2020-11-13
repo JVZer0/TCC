@@ -63,7 +63,7 @@ export default function Home(props){
                         <tbody>
                             {anunciosDia.map(x =>
                                 <tr>
-                                    <td>{x.dia.substring(0,10)}</td>
+                                    <td>{x.dia.substring(8,10)}/{x.dia.substring(5,7)}/{x.dia.substring(0,4)}</td>
                                     <td>{x.cliente}</td>
                                     <td>{x.tipoProduto}</td>
                                     <td>{x.preco}</td>
