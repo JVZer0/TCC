@@ -14,10 +14,10 @@ namespace Backend.Business
             if(anuncios == null || anuncios.Count == 0) throw new ArgumentException("Nenhum anuncio encontrado.");
             return anuncios;
         }
-        public List<Models.TbAnuncio> AnunciosPorMes(DateTime mesInicio, DateTime mesFim)
+        public List<Models.TbAnuncio> AnunciosPorMes(int mesInicio, int mesFim)
         {
-            validadores.ValidarData(mesInicio);
-            validadores.ValidarData(mesFim);
+            if(mesInicio <= 0) throw new ArgumentException("O mês não pode ser menor ou igual a zero.");
+            if(mesFim <= 0) throw new ArgumentException("O mês não pode ser menor ou igual a zero.");
             List<Models.TbAnuncio> anuncios = databaseRelatorios.AnunciosPorMes(mesInicio, mesFim);
             if(anuncios == null || anuncios.Count == 0) throw new ArgumentException("Nenhum anuncio encontrado.");
             return anuncios;

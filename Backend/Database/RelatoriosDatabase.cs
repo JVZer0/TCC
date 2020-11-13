@@ -16,11 +16,10 @@ namespace Backend.Database
                                                                   &&   x.DtPublicacao.Value.Year == dia.Year).ToList();
             return anuncios;
         }
-        public List<Models.TbAnuncio> AnunciosPorMes(DateTime mesInicio, DateTime mesFim)
+        public List<Models.TbAnuncio> AnunciosPorMes(int mesInicio, int mesFim)
         {
-            List<Models.TbAnuncio> anuncios = ctx.TbAnuncio
-                    .Where(x => x.DtPublicacao.Value.Month >= mesInicio.Month 
-                        && x.DtPublicacao.Value.Month <= mesFim.Month).ToList();
+            List<Models.TbAnuncio> anuncios = ctx.TbAnuncio.Where(x => x.DtPublicacao.Value.Month >= mesInicio
+                        && x.DtPublicacao.Value.Month <= mesFim).ToList();
             return anuncios;
         }
         public List<Models.TbUsuario> Top10Anunciantes()

@@ -24,7 +24,7 @@ namespace Backend.Controllers
             }
         }
         [HttpGet("AnunciosPorMes")]
-        public ActionResult<List<Models.Response.RelatorioResponse.AnunciosPorMes>> AnunciosPorMes(DateTime mesInicio, DateTime mesFim)
+        public ActionResult<List<Models.Response.RelatorioResponse.AnunciosPorMes>> AnunciosPorMes(int mesInicio, int mesFim)
         {
             try
             {

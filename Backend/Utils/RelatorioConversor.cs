@@ -21,10 +21,10 @@ namespace Backend.Utils
             }
             return porDia;
         }
-        public List<Models.Response.RelatorioResponse.AnunciosPorMes> ConversorAnunciosPorMes(DateTime mesIncio, DateTime mesFim, List<Models.TbAnuncio> a)
+        public List<Models.Response.RelatorioResponse.AnunciosPorMes> ConversorAnunciosPorMes(int mesIncio, int mesFim, List<Models.TbAnuncio> a)
         {
             List<Models.Response.RelatorioResponse.AnunciosPorMes> resp = new List<Models.Response.RelatorioResponse.AnunciosPorMes>();
-            for(int i = mesIncio.Month; i <= mesFim.Month; i++)
+            for(int i = mesIncio; i <= mesFim; i++)
             {
                 Models.Response.RelatorioResponse.AnunciosPorMes relatorioResponse = new Models.Response.RelatorioResponse.AnunciosPorMes();
 
