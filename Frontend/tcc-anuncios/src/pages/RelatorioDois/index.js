@@ -83,7 +83,7 @@ export default function Home(props){
                 </select>
                 </label>
 
-                <button onClick={anunciosPorMes} className="fas fa-search">Aperta fdp</button>
+                <button onClick={anunciosPorMes} className="fas fa-search">Filtrar</button>
           </div>
 
 
