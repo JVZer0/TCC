@@ -98,7 +98,6 @@ export default function Home(props){
                                     <td>{x.mes}</td>
                                     <td>{x.qtdAnuncios}</td>
                                     <td>{x.somaDosPrecoDosAnuncios}</td>
-                                    <td>{x.totalVendido}</td>
                                 </tr>
                             )}      
                         </tbody>
