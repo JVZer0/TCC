@@ -20,8 +20,12 @@ export default function Home(props){
     const anunciosPorMes = async () => {
         const resp = await api.anunciosMes(mesI, mesF);
         setAnunciosMes(resp);
+        console.log(resp)
     }
 
+    useEffect(() => {
+        anunciosPorMes();
+      }, []);
 
     return(
         <div className="eiei">
@@ -32,50 +36,54 @@ export default function Home(props){
             </div>
 
             <div className="InputsRelatoriosPorMes">
-            <label className="labelRelatorio">
-              Escolha um mês inicial
-              <select
-                onChange={(e) => setMesI(Number(e.target.value))}
-                className="form-control"
-              >
-                <option value="01">Janeiro</option>
-                <option value="02">Fevereiro</option>
-                <option value="03">Março</option>
-                <option value="04">Abril</option>
-                <option value="05">Maio</option>
-                <option value="06">Junho</option>
-                <option value="07">Julho</option>
-                <option value="08">Agosto</option>
-                <option value="09">Setembro</option>
-                <option value="10">Outubro</option>
-                <option value="11">Novembro</option>
-                <option value="12">Dezembro</option>
-              </select>
-            </label>
 
-            <label className="labelRelatorio">
-              Escolha um mês final
-              <select
-                onChange={(e) => setMesF(Number(e.target.value))}
-                type="number"
-                className="form-control"
-              >
-                <option value="01">Janeiro</option>
-                <option value="02">Fevereiro</option>
-                <option value="03">Março</option>
-                <option value="04">Abril</option>
-                <option value="05">Maio</option>
-                <option value="06">Junho</option>
-                <option value="07">Julho</option>
-                <option value="08">Agosto</option>
-                <option value="09">Setembro</option>
-                <option value="10">Outubro</option>
-                <option value="11">Novembro</option>
-                <option value="12">Dezembro</option>
-              </select>
-            </label>
+                <label className="labelRelatorio">
+                Mês inicial
+                <select
+                    value={mesI}
+                    onChange={(e) => setMesI(Number(e.target.value))}
+                    type="number"
+                    className="form-control"
+                >
+                    <option value="01">Janeiro</option>
+                    <option value="02">Fevereiro</option>
+                    <option value="03">Março</option>
+                    <option value="04">Abril</option>
+                    <option value="05">Maio</option>
+                    <option value="06">Junho</option>
+                    <option value="07">Julho</option>
+                    <option value="08">Agosto</option>
+                    <option value="09">Setembro</option>
+                    <option value="10">Outubro</option>
+                    <option value="11">Novembro</option>
+                    <option value="12">Dezembro</option>
+                </select>
+                </label>
 
-            <button onClick={anunciosPorMes} className="fas fa-search">Aperta fdp</button>
+                <label className="labelRelatorio">
+                Mês final
+                <select
+                    value={mesF}
+                    onChange={(e) => setMesF(Number(e.target.value))}
+                    type="number"
+                    className="form-control"
+                >
+                    <option value="01">Janeiro</option>
+                    <option value="02">Fevereiro</option>
+                    <option value="03">Março</option>
+                    <option value="04">Abril</option>
+                    <option value="05">Maio</option>
+                    <option value="06">Junho</option>
+                    <option value="07">Julho</option>
+                    <option value="08">Agosto</option>
+                    <option value="09">Setembro</option>
+                    <option value="10">Outubro</option>
+                    <option value="11">Novembro</option>
+                    <option value="12">Dezembro</option>
+                </select>
+                </label>
+
+                <button onClick={anunciosPorMes} className="fas fa-search">Aperta fdp</button>
           </div>
 
 
