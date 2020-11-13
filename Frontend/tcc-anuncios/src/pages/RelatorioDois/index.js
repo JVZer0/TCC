@@ -88,7 +88,7 @@ export default function Home(props){
                             <tr>
                                 <th>Mês</th>
                                 <th>Qtd. Anuncios</th>
-                                <th>Total Anuncios</th>
+                                <th>Soma Total do Preço Anuncios</th>
                             </tr>
                         </thead>
 
