@@ -5,11 +5,14 @@ import Chart from "react-google-charts";
 import '../../components/Cabecalho/cabecalho.css'
 import '../Meus Favoritos/style.css';
 
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 import Logo from '../../assets/image/Capturar.PNG'
 
 import anuncioAPI from '../../services/anuncioAPI';
-const api = new anuncioAPI();
 
+const api = new anuncioAPI();
 
 export default function Home(props){
 
@@ -17,14 +20,17 @@ export default function Home(props){
     const [estadoAnuncio, setEstadoAnuncio] = useState([]);
 
     const anunciosPorEstado = async () =>{
-        const resp = await api.anunciosPorEstado();
-        setEstadoAnuncio(resp);
+        try {
+            const resp = await api.anunciosPorEstado();
+            setEstadoAnuncio(resp);
+        } catch (e) {
+            toast.error(e.response.data.mensagem)
+        }
     }
 
     useEffect(() => {
         anunciosPorEstado();
       }, []);
-
 
     return(
         <div className="eiei">
@@ -42,8 +48,7 @@ export default function Home(props){
                     chartType="Bar"
                     loader={<div>Loading Chart</div>}
                     rows={estadoAnuncio.map((x) => (
-                    [String(x.estado), x.qtdAnuncio, x.qtdVendido]
-                    ))}
+                    [String(x.estado), x.qtdAnuncio, x.qtdVendido]))}
 
                     columns={["Estados", "Anuncios publicados", "Anuncios vendidos"]}
                 
@@ -57,9 +62,7 @@ export default function Home(props){
                     rootProps={{ "data-testid": "2" }}
                 />
             </div>
-
-            
-
+            <ToastContainer/>
             <div className="rodape">
                     <div className="tey">
                         <h4>Site criado pelo time TK Soluções de Informática. Todos os direitos reservados</h4>

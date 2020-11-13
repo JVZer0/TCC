@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 import '../../components/Cabecalho/cabecalho.css'
 import '../Meus Favoritos/style.css';
 
@@ -9,15 +12,18 @@ import Logo from '../../assets/image/Capturar.PNG'
 import anuncioAPI from '../../services/anuncioAPI';
 const api = new anuncioAPI();
 
-
 export default function Home(props){
 
     const [infos, setInfos] = useState(props.location.state);
     const [produtosTop, setProdutosTop] = useState([]);
 
     const consulte = async () => {
-        const resp = await api.relatoriosTopProdutos();
-        setProdutosTop(resp);
+        try {
+            const resp = await api.relatoriosTopProdutos();
+            setProdutosTop(resp);
+        } catch (e) {
+            toast.error(e.response.data.mensagem)
+        }
     }
 
     useEffect(() => {
@@ -56,7 +62,7 @@ export default function Home(props){
                     </table>
                 </div>
             </div>
-
+            <ToastContainer/>
             <div className="rodape">
                     <div className="tey">
                         <h4>Site criado pelo time TK Soluções de Informática. Todos os direitos reservados</h4>

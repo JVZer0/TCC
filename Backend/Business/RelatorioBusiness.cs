@@ -18,8 +18,9 @@ namespace Backend.Business
         {
             if(mesInicio <= 0) throw new ArgumentException("O mês não pode ser menor ou igual a zero.");
             if(mesFim <= 0) throw new ArgumentException("O mês não pode ser menor ou igual a zero.");
+            if(mesFim < mesInicio) throw new ArgumentException("O mês de inicio não pode ser maior que o mês final na pesquisa.");
             List<Models.TbAnuncio> anuncios = databaseRelatorios.AnunciosPorMes(mesInicio, mesFim);
-            if(anuncios == null || anuncios.Count == 0) throw new ArgumentException("Nenhum anuncio encontrado.");
+            if(anuncios.Count == 0) throw new ArgumentException("Nenhum anuncio encontrado.");
             return anuncios;
         }
         public List<Models.TbUsuario> Top10Anunciantes()

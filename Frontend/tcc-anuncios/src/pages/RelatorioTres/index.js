@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 import '../../components/Cabecalho/cabecalho.css'
 import '../Meus Favoritos/style.css';
 
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 import Logo from '../../assets/image/Capturar.PNG'
 
 import anuncioAPI from '../../services/anuncioAPI';
+
 const api = new anuncioAPI();
 
 
@@ -16,8 +20,12 @@ export default function Home(props){
     const [anunciantesTop, setAnunciantesTop] = useState([]);
 
     const consultar = async () => {
-        const resp = await api.relatoriosTopAnunciantes();
-        setAnunciantesTop(resp);
+        try {
+            const resp = await api.relatoriosTopAnunciantes();
+            setAnunciantesTop(resp);
+        } catch (e) {
+            toast.error(e.response.data.mensagem)
+        }
     }
 
     useEffect(() => {
@@ -60,7 +68,7 @@ export default function Home(props){
                     </table>
                 </div>
             </div>
-
+            <ToastContainer/>
             <div className="rodape">
                     <div className="tey">
                         <h4>Site criado pelo time TK Soluções de Informática. Todos os direitos reservados</h4>
