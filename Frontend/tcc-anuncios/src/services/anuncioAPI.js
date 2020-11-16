@@ -113,7 +113,11 @@ export default class anuncioAPI{
         formData.append('Cidade', model.Cidade);
         formData.append('CEP', model.CEP);
         formData.append('IdUsuario', model.IdUsuario);
-        formData.append('Imagens', model.Imagens);
+
+        for (let item of model.Imagens) {
+            formData.append('Imagens', item);
+        }
+
         const resp = await api.post(`/Anuncio/Anunciar`, formData, {
             headers: { 'content-type': 'multipart/form-data' }
         });

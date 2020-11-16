@@ -51,12 +51,9 @@ namespace Backend.Business
                 }
             }
             else{
-                foreach (IFormFile imagem in req)
+                for(int xama = 0; xama < req.Count; xama++)
                 {
-                    foreach (Models.TbImagem item in nomes)
-                    {
-                        SalvarImagem(item.ImgAnuncio,imagem);
-                    }
+                    SalvarImagem(nomes[xama].ImgAnuncio, req[xama]);
                 }
             };
         }

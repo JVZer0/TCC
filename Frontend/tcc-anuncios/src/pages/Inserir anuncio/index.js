@@ -36,12 +36,8 @@ export default function InserirAnuncio(props){
     const [estado, setEstado] = useState();
     const [cidade, setCidade] = useState();
     const [cep, setCep] = useState();
-    const [imagens, setImagens] = useState([]);
     const [addImagem, setAddImagem] = useState([]);
 
-    console.log([].slice.call(imagens))
-    console.log(Number(preco))
-    console.log(Number(preco).toFixed(2))
 
     const anunciar = async() => {
         try{
@@ -58,22 +54,19 @@ export default function InserirAnuncio(props){
                 Cidade: cidade,
                 CEP: cep,
                 IdUsuario: infos.idUsuario,
-                Imagens: imagens
+                Imagens: addImagem
             }
-            console.log(modelo)
             const resp = await api.inserirAnuncio(modelo);
             
             navegacao.goBack();
-
-            toast.success("Anunciado com sucesso");
         }
         catch (e){
             if (e.response) {
                 toast.error(e.response.data.mensagem);
-              } else {
+            } else {
                 console.log(e);
                 toast.error("Ocorreu um erro. Verifique os campos.");
-              }
+            }
         }
     }
 
