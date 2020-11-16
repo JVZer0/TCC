@@ -109,5 +109,10 @@ namespace Backend.Models.Request
             public string Cidade { get; set; }
             public string CEP { get; set; }
         }
+        public class AdicVariasImagens
+        {
+            public List<IFormFile> Imagens { get; set; }
+            public int IdAnuncio { get; set; }
+        }
     }
 }

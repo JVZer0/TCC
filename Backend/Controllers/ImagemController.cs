@@ -63,21 +63,21 @@ namespace Backend.Controllers
                 return NotFound(new Models.Response.Erro(404, ex.Message));
             }
         }
-        [HttpPost("AdicionarVariasImagens/{IdAnuncio}")]
-        public ActionResult<List<Models.Response.AnuncioRoupasResponse.Imagem>> AdicionarVariasImagem(int IdAnuncio, [FromForm] List<IFormFile> imagens)
+        [HttpPost("AdicionarVariasImagens")]
+        public ActionResult<List<Models.Response.AnuncioRoupasResponse.Imagem>> AdicionarVariasImagem( [FromForm] Models.Request.AnuncioRoupasRequest.AdicVariasImagens req)
         {
             try
             {
                 List<Models.TbImagem> dale = new List<Models.TbImagem>();
-                foreach (IFormFile item in imagens)
+                foreach (IFormFile item in req.Imagens)
                 {
                     Models.TbImagem resp = new Models.TbImagem();
-                    resp.IdAnuncio = IdAnuncio;
+                    resp.IdAnuncio = req.IdAnuncio;
                     resp.ImgAnuncio = gerenciadorImagem.GerarNovoNome(item);
                     dale.Add(resp);
                 }
                 businessImagem.InserirVariasImagens(dale);
-                gerenciadorImagem.SalvarVariasImagens(imagens, dale);
+                gerenciadorImagem.SalvarVariasImagens(req.Imagens, dale);
                 return conversorImagem.ConverterVariasImagensParaResponse(dale);
             }
             catch (System.Exception ex)

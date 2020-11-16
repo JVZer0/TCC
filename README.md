@@ -257,7 +257,7 @@ Post "Imagem/{IdAnuncio}" = Adicionar Imagem
 
 Get "Imagem/BuscarImagem/{nome}" = Buscar Imagem
 
-Post "Imagem/AdicionarVariasImagens/{IdAnuncio}" = Adicionar Varias Imagem
+Post "Imagem/AdicionarVariasImagens" = Adicionar Varias Imagem
 
 
 
