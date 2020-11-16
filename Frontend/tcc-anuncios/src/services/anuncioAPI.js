@@ -1,6 +1,6 @@
 import axios from 'axios';
 const api = axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: "http://3.84.250.220:5000"
   });
 
 
@@ -134,7 +134,7 @@ export default class anuncioAPI{
         return modeloImagem;
     }
 
-    async test(idAnuncio, addImagens){
+    async adicionarVariasImagens(idAnuncio, addImagens){
 
         let formData = new FormData();
         formData.append('IdAnuncio', idAnuncio);
