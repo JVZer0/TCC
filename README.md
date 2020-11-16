@@ -12,7 +12,7 @@ TK Soluçõees de infórmatica
 
 - Samuel Fiuza 
 - Kaun Cardoso Da Mata 
-- João Victor Mnedes
+- João Victor Mendes de Souza
 - Matheus Silva De Carvalho
 - Pedro Costa de Carvalho
 
