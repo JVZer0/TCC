@@ -16,6 +16,10 @@ namespace Backend.Business
             validadores.Alterar(usuario);
             if(usuario.DsEmail.Contains("@") == false) throw new ArgumentException("Email incorreto.");
             if(usuario.DsEmail.Contains(".com") == false) throw new ArgumentException("Email incorreto.");
+            if(usuario.NmUsuario.Length > 255) throw new ArgumentException("O nome não pode ter mais de 255 caracteres.");
+            if(usuario.DsEmail.Length > 255) throw new ArgumentException("O email não pode ter mais de 255 caracteres.");
+            if(usuario.DsCidade.Length > 130) throw new ArgumentException("A cidade não pode ter mais de 130 caracteres.");
+            if(usuario.DsEndereco.Length > 255) throw new ArgumentException("A endereço não pode ter mais de 255 caracteres.");
             try
             {
                 int cep = Convert.ToInt32(usuario.DsCep.Replace("-","").Replace(" ",""));

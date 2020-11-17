@@ -24,6 +24,10 @@ namespace Backend.Business
             validadores.Cadastrar(request, ConfirmarSenha);
             if(request.TbUsuario.FirstOrDefault().DsEmail.Contains("@") == false) throw new ArgumentException("Email incorreto.");
             if(request.TbUsuario.FirstOrDefault().DsEmail.Contains(".com") == false) throw new ArgumentException("Email incorreto.");
+            if(request.TbUsuario.FirstOrDefault().NmUsuario.Length > 255) throw new ArgumentException("O nome não pode ter mais de 255 caracteres.");
+            if(request.TbUsuario.FirstOrDefault().DsEmail.Length > 255) throw new ArgumentException("O email não pode ter mais de 255 caracteres.");
+            if(request.TbUsuario.FirstOrDefault().DsCidade.Length > 130) throw new ArgumentException("A cidade não pode ter mais de 130 caracteres.");
+            if(request.TbUsuario.FirstOrDefault().DsEndereco.Length > 255) throw new ArgumentException("A endereço não pode ter mais de 255 caracteres.");
             try
             {
                 int cep = Convert.ToInt32(request.TbUsuario.FirstOrDefault().DsCep.Replace("-","").Replace(" ",""));

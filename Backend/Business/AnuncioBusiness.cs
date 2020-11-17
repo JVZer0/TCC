@@ -36,6 +36,7 @@ namespace Backend.Business
         {
             validadores.Perguntar(req);
             if(req.DsPergunta == "") throw new ArgumentException("Verifique a sua pergunta.");
+            if(req.DsPergunta.Length > 255) throw new ArgumentException("A pergunta não pode ter mais que 255 caracteres.");
             return databaseAnuncio.Perguntar(req);
         }
         public Models.TbPerguntaResposta Responder(Models.TbPerguntaResposta req)
@@ -44,6 +45,7 @@ namespace Backend.Business
             Models.TbPerguntaResposta paraValidarRespondedor = databaseAnuncio.ConsultarTBPergundaERespota(req.IdPerguntaResposta);
             if(paraValidarRespondedor.IdRespondedor != req.IdRespondedor) throw new ArgumentException("Você não é o dono desse anuncio. Você não pode responder perguntas dele.");
             if(req.DsResposta == "") throw new ArgumentException("Verifique a sua resposta.");
+            if(req.DsResposta.Length > 255) throw new ArgumentException("A resposta não pode ter mais que 255 caracteres.");
             return databaseAnuncio.Responder(req);
         }
         public Models.TbAnuncio Anunciar(Models.TbAnuncio anuncio)
@@ -52,6 +54,11 @@ namespace Backend.Business
             if(anuncio.TbImagem.Count > 10) throw new ArgumentException("Você só pode colocar 10 imagens no anuncio.");
             if(anuncio.VlPreco <= 0) throw new ArgumentException("O valor não pode ser 0 ou negativo");
             if(anuncio.DsTitulo.Length > 100) throw new ArgumentException("O título não pode ter mais de 100 caracteres.");
+            if(anuncio.DsDescricao.Length > 255) throw new ArgumentException("A descrição não pode ter mais de 255 caracteres.");
+            if(anuncio.TpProduto.Length > 20) throw new ArgumentException("O tipo do produto não pode ter mais de 20 caracteres.");
+            if(anuncio.NmMarca.Length > 70) throw new ArgumentException("A marca não pode ter mais de 70 caracteres.");
+            if(anuncio.DsTamanho.Length > 50) throw new ArgumentException("O tamanho não pode ter mais de 50 caracteres.");
+            if(anuncio.DsCidade.Length > 130) throw new ArgumentException("A cidade não pode ter mais de 130 caracteres.");
             try
             {
                 int cep = Convert.ToInt32(anuncio.DsCep.Replace("-","").Replace(" ",""));
@@ -94,6 +101,12 @@ namespace Backend.Business
             if(resp.IdUsuario != NovoAnuncio.IdUsuario)throw new ArgumentException("Você não é o dono desse anuncio.");
             if(NovoAnuncio.TbImagem.Count > 10) throw new ArgumentException("Você só pode colocar 10 imagens no anuncio.");
             if(NovoAnuncio.VlPreco <= 0) throw new ArgumentException("O valor não pode ser 0 ou negativo");
+            if(NovoAnuncio.DsTitulo.Length > 100) throw new ArgumentException("O título não pode ter mais de 100 caracteres.");
+            if(NovoAnuncio.DsDescricao.Length > 255) throw new ArgumentException("A descrição não pode ter mais de 255 caracteres.");
+            if(NovoAnuncio.TpProduto.Length > 20) throw new ArgumentException("O tipo do produto não pode ter mais de 20 caracteres.");
+            if(NovoAnuncio.NmMarca.Length > 70) throw new ArgumentException("A marca não pode ter mais de 70 caracteres.");
+            if(NovoAnuncio.DsTamanho.Length > 50) throw new ArgumentException("O tamanho não pode ter mais de 50 caracteres.");
+            if(NovoAnuncio.DsCidade.Length > 130) throw new ArgumentException("A cidade não pode ter mais de 50 caracteres.");
             try
             {
                 int cep = Convert.ToInt32(NovoAnuncio.DsCep.Replace("-","").Replace(" ",""));
