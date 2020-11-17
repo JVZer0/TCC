@@ -11,7 +11,7 @@ TK Soluçõees de infórmatica
 ## Equipe:sunglasses:
 
 - Samuel Fiuza 
-- Kaun Cardoso Da Mata 
+- Kauã Cardoso Da Mata 
 - João Victor Mendes de Souza
 - Matheus Silva De Carvalho
 - Pedro Costa de Carvalho
