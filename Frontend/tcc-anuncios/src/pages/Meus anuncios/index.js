@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 import '../../components/Cabecalho/cabecalho.css'
 import '../Meus anuncios/style.css'
@@ -127,7 +129,15 @@ export default function MeusAnuncios(props){
                                     <td>
                                         {
                                             x.vendido == false
-                                            ?   <button className="fanda" onClick={() => anuncioVendido(x.idAnuncio)}>Já vendi</button>
+                                            ?   <Popup trigger={<button className="fanda">Já vendi</button>} position="left center">
+                                                    <div>
+                                                        <div className="mecj">Deseja confirmar a venda?</div>
+                                                        <button className="fanda" onClick={() => anuncioVendido(x.idAnuncio)}>
+                                                            Confirmar  
+                                                        </button>
+                                                    </div>
+                                                </Popup>
+                                            
                                             :   <div style={{color:"red"}}>Já vendido</div>
                                         }
                                     </td>
