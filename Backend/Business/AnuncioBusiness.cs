@@ -59,6 +59,7 @@ namespace Backend.Business
             if(anuncio.NmMarca.Length > 70) throw new ArgumentException("A marca não pode ter mais de 70 caracteres.");
             if(anuncio.DsTamanho.Length > 50) throw new ArgumentException("O tamanho não pode ter mais de 50 caracteres.");
             if(anuncio.DsCidade.Length > 130) throw new ArgumentException("A cidade não pode ter mais de 130 caracteres.");
+            if(anuncio.VlPreco > 100000000) throw new ArgumentException("O preço tem que ser menor que 10 milhões.");
             try
             {
                 int cep = Convert.ToInt32(anuncio.DsCep.Replace("-","").Replace(" ",""));
@@ -107,6 +108,7 @@ namespace Backend.Business
             if(NovoAnuncio.NmMarca.Length > 70) throw new ArgumentException("A marca não pode ter mais de 70 caracteres.");
             if(NovoAnuncio.DsTamanho.Length > 50) throw new ArgumentException("O tamanho não pode ter mais de 50 caracteres.");
             if(NovoAnuncio.DsCidade.Length > 130) throw new ArgumentException("A cidade não pode ter mais de 50 caracteres.");
+            if(NovoAnuncio.VlPreco > 100000000) throw new ArgumentException("O preço tem que ser menor que 10 milhões.");
             try
             {
                 int cep = Convert.ToInt32(NovoAnuncio.DsCep.Replace("-","").Replace(" ",""));
