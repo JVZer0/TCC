@@ -27,3 +27,11 @@
     background-color: white;
     color:  #0085ff;
 }
+
+#cherolaine{
+    background-color: violet;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    display: none;
+}

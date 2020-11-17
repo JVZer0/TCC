@@ -60,12 +60,12 @@ export default function MeusAnuncios(props){
                 </div>
 
                 <div className="barraPesquisa hihi">
-                    <Link to={{pathname:"/Home", state: infos}}>Fazer novas consultas</Link>
+                    <Link class="tangi4" to={{pathname:"/Home", state: infos}}>Fazer novas consultas</Link>
                 </div>
 
                 <div className="meio"> 
-                    <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos}}>Meu perfil</Link>
-                    <Link class="hihi meio" to={{pathname: "/MeusFavoritos", state: infos}}>Meus Favoritos</Link>
+                    <Link class="tangi2" to={{ pathname: "/MeuPerfil", state: infos}}>Meu perfil</Link>
+                    <Link class="tangi3" to={{pathname: "/MeusFavoritos", state: infos}}>Meus Favoritos</Link>
                 </div>
                 <div>
                     <Link  class="hihi" to={{pathname: "/Anunciar", state: infos}}><button class="botaoo">Anunciar</button></Link>
@@ -95,7 +95,7 @@ export default function MeusAnuncios(props){
                                 <tr>
                                     <td ><Link to={{ pathname: "/Anuncio", state: {infos, x}}}>{x.titulo}</Link></td>
                                     <td>{x.preco}</td>
-                                    <td>{x.dataDePublicacao.substring(0,10)}</td>
+                                    <td>{x.dataDePublicacao.substring(8,10)}/{x.dataDePublicacao.substring(5,7)}/{x.dataDePublicacao.substring(0,4)}</td>
                                     <td>
                                         { x.vendido == false
                                             

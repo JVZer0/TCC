@@ -93,7 +93,6 @@
     background-color: transparent;
 }
 
-
 .pedroga{
     display: flex;
     flex-direction: row;
@@ -188,8 +187,8 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    height: 520px;
-    width: 310px;
+    min-height: 520px;
+    min-width: 310px;
     border: 1px solid rgba(0, 0, 0, 0.26);
 }
 
@@ -236,4 +235,21 @@
     position: relative;
     margin-top: 80px;
     left: 110px;
+}
+
+.apaivei{
+    border: 2px solid  #fe8d27;
+    box-shadow: black;
+    padding: 6px 24px;
+    color: #fe8d27;
+    border-radius: 3px;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    background:  white;
+    font-size: 16px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

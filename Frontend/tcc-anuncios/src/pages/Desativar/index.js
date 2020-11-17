@@ -38,13 +38,13 @@ export default function ExcluirAnuncio(props){
                 </div> 
 
                 <div className="barraPesquisa hihi">
-                    <Link to={{pathname:"/Home", state: infosUser.infos}}>Fazer novas consultas</Link>
+                    <Link class="tangi4" to={{pathname:"/Home", state: infosUser.infos}}>Fazer novas consultas</Link>
                 </div>
                 
                 <div className="meio"> 
-                    <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infosUser.infos}}>Meu perfil</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infosUser.infos }}>Meus Anuncios</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusFavoritos", state: infosUser.infos }}>Meus Favoritos</Link>
+                    <Link class="tangi5" to={{ pathname: "/MeuPerfil", state: infosUser.infos}}>Meu perfil</Link>
+                    <Link class="tangi6" to={{ pathname: "/MeusAnuncios", state: infosUser.infos }}>Meus Anuncios</Link>
+                    <Link class="tangi7" to={{ pathname: "/MeusFavoritos", state: infosUser.infos }}>Meus Favoritos</Link>
                 </div>
                 <div>
                     <Link  class="hihi" to={{pathname: "/Anunciar", state: infosUser.infos}}><button class="botaoo">Anunciar</button></Link>

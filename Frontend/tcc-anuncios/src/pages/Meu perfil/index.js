@@ -10,6 +10,8 @@ import Logo from '../../assets/image/Capturar.PNG'
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
+import InputMask from 'react-input-mask';
+
 import anuncioAPI from '../../services/anuncioAPI';
 const api = new anuncioAPI();
 
@@ -56,6 +58,8 @@ export default function MeuPerfil(props){
             setSenha(resp.data.senha);
             setNascimento(resp.data.dataDeNascimento.substring(0,10));
             setSexo(resp.data.sexo);
+            setCpf(resp.data.cpf);
+            setRg(resp.data.rg);
             setCelular(resp.data.celular);
             setEstado(resp.data.estado);
             setCidade(resp.data.cidade);
@@ -83,6 +87,8 @@ export default function MeuPerfil(props){
     const [senha, setSenha] = useState();
     const [nascimento, setNascimento] = useState();
     const [sexo, setSexo] = useState();
+    const [cpf, setCpf] = useState('');
+    const [rg, setRg] = useState('');
     const [celular, setCelular] = useState();
     const [estado, setEstado] = useState();
     const [cidade, setCidade] = useState();
@@ -149,6 +155,20 @@ export default function MeuPerfil(props){
                                 <option value="Feminino">Feminino</option>
                                 <option value="Não quero informar">Não quero informar</option>
                             </select>
+                        </div>
+                    </div>
+
+                    <div className='form-group row d-flex justify-content-between align-items-center'>
+                        <label  className='col-sm-2 col-form-label'>CPF:</label>
+                        <div className='col-sm-8'>
+                            {cpf} 
+                        </div>
+                    </div>
+
+                    <div className='form-group row d-flex justify-content-between align-items-center'>
+                        <label  className='col-sm-2 col-form-label'>RG (Número)</label>
+                        <div className='col-sm-8'>
+                            {rg}
                         </div>
                     </div>
 

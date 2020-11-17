@@ -78,13 +78,13 @@ export default function InserirAnuncio(props){
                 </div> 
 
                 <div className="barraPesquisa hihi">
-                    <Link to={{pathname:"/Home", state: infos}}>Fazer novas consultas</Link>
+                    <Link class="tangi4" to={{pathname:"/Home", state: infos}}>Fazer novas consultas</Link>
                 </div>
                 
                 <div className="meio"> 
-                    <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infos }}>Meus Anuncios</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusFavoritos", state: infos }}>Meus Favoritos</Link>
+                    <Link class="tangi5" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
+                    <Link class="tangi6" to={{ pathname: "/MeusAnuncios", state: infos }}>Meus Anuncios</Link>
+                    <Link class="tangi7" to={{ pathname: "/MeusFavoritos", state: infos }}>Meus Favoritos</Link>
                 </div>
             </div>
 

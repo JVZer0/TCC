@@ -48,6 +48,44 @@ body{
     font-size: 13px;
 }
 
+.tangi1{
+    position: relative;
+    left: 35%;
+}
+
+.tangi2{
+    position: relative;
+    left: 23%;
+}
+
+.tangi3{
+    position: relative;
+    left: 12%;
+}
+
+.tangi4{
+    position: relative;
+    right: 20%;
+}
+
+.tangi5{
+    position: relative;
+    left: 9%;
+}
+
+.tangi6{
+    position: relative;
+    left: 5%;
+}
+
+.tangi7{
+    position: relative;
+    left: 1.5%;
+}
+
+
+
+
 button:focus{
     outline: thin dotted;
     outline: 0px auto -webkit-focus-ring-color;

@@ -126,9 +126,9 @@ export default function Home(props){
                 </nav>
 
                 <div className="meio">
-                    <Link class="tango" to={{ pathname: "/Relatorio", state: infos}}>Relatorios</Link>
-                    <Link class="tango" to={{ pathname: "/MeusAnuncios", state: infos}}>Meus Anuncios</Link>
-                    <Link class="tango" to={{pathname: "/MeusFavoritos", state: infos}}>Meus Favoritos</Link>
+                    <Link class="tangi1" to={{ pathname: "/Relatorio", state: infos}}>Relatorios</Link>
+                    <Link class="tangi2" to={{ pathname: "/MeusAnuncios", state: infos}}>Meus Anuncios</Link>
+                    <Link class="tangi3" to={{pathname: "/MeusFavoritos", state: infos}}>Meus Favoritos</Link>
                 </div>
                 <div>
                     <Link  class="hihi" to={{pathname: "/Anunciar", state: infos}}><button class="botaoo">Anunciar</button></Link>
@@ -205,7 +205,7 @@ export default function Home(props){
                     <button className="botao1" onClick={filtrarAnuncios}>Filtrar</button>
                     <div className="d-flex" style={{height:"30px", justifyContent:"center", display:"flex", marginTop:"15%"}}>
                         {maxPage.map(x =>
-                            <button onClick={() => mudarPage(x)}  style={{marginLeft:"7px"}}>{x}</button>
+                            <button className="apaivei" onClick={() => mudarPage(x)}  style={{marginLeft:"7px"}}>{x}</button>
                         )}
                     </div>
                 </div>

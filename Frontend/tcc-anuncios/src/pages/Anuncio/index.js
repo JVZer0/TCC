@@ -100,10 +100,10 @@ export default function Anuncio(props){
                 </div>
                 
                 <div className="meio">
-                    <Link to={{pathname:"/Home", state: infos.infos}}>Fazer novas consultas</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos.infos }}>Meu perfil</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infos.infos }}>Meus Anuncios</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusFavoritos", state: infos.infos }}>Meus Favoritos</Link>
+                    <Link class="tangi4" to={{pathname:"/Home", state: infos.infos}}>Fazer novas consultas</Link>
+                    <Link class="tangi5" to={{ pathname: "/MeuPerfil", state: infos.infos }}>Meu perfil</Link>
+                    <Link class="tangi6" to={{ pathname: "/MeusAnuncios", state: infos.infos }}>Meus Anuncios</Link>
+                    <Link class="tangi7" to={{ pathname: "/MeusFavoritos", state: infos.infos }}>Meus Favoritos</Link>
                 </div>
                 <div>
                     <Link  class="hihi" to={{pathname: "/Anunciar", state: infos.infos}}><button class="botaoo">Anunciar</button></Link>
@@ -124,7 +124,7 @@ export default function Anuncio(props){
                     <div className="ehe">
                         <div className="uhu">
                             <div className="kkkk">
-                                <h3>Titulo: {anuncioDetalhado.titulo}</h3>
+                                <h4>Titulo: {anuncioDetalhado.titulo}</h4>
                                 <h5>Preço: {anuncioDetalhado.preco}</h5>
                                 <h5>Descrição: {anuncioDetalhado.descricao}</h5>
                             </div>

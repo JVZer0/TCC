@@ -48,12 +48,12 @@ export default function Home(props){
                 </div>
 
                 <div className="barraPesquisa hihi">
-                    <Link to={{pathname:"/Home", state: infos}}>Fazer novas consultas</Link>
+                    <Link class="tangi4" to={{pathname:"/Home", state: infos}}>Fazer novas consultas</Link>
                 </div>
 
                 <div className="meio"> 
-                    <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
-                    <Link class="hihi meio" to={{pathname: "/MeusAnuncios", state: infos}}>Meus Anuncios</Link>
+                    <Link class="tangi2" to={{ pathname: "/MeuPerfil", state: infos }}>Meu perfil</Link>
+                    <Link class="tangi3" to={{pathname: "/MeusAnuncios", state: infos}}>Meus Anuncios</Link>
                 </div>
                 <div>
                     <Link  class="hihi" to={{pathname: "/Anunciar", state: infos}}><button class="botaoo">Anunciar</button></Link>

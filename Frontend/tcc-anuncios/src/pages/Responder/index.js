@@ -42,13 +42,13 @@ export default function Responder(props){
                 </div> 
 
                 <div className="barraPesquisa hihi">
-                    <Link to={{pathname:"/Home", state: infos.infos.infos}}>Fazer novas consultas</Link>
+                    <Link class="tangi4" to={{pathname:"/Home", state: infos.infos.infos}}>Fazer novas consultas</Link>
                 </div>
                 
                 <div className="meio"> 
-                    <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infos.infos.infos }}>Meu perfil</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infos.infos.infos }}>Meus Anuncios</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusFavoritos", state: infos.infos.infos }}>Meus Favoritos</Link>
+                    <Link class="tangi5" to={{ pathname: "/MeuPerfil", state: infos.infos.infos }}>Meu perfil</Link>
+                    <Link class="tangi6" to={{ pathname: "/MeusAnuncios", state: infos.infos.infos }}>Meus Anuncios</Link>
+                    <Link class="tangi7" to={{ pathname: "/MeusFavoritos", state: infos.infos.infos }}>Meus Favoritos</Link>
                 </div>
                 <div>
                     <Link  class="hihi" to={{pathname: "/Anunciar", state: infos.infos.infos}}><button class="botaoo">Anunciar</button></Link>

@@ -36,13 +36,13 @@ export default function ExcluirAnuncio(props){
                 </div> 
 
                 <div className="barraPesquisa hihi">
-                    <Link to={{pathname:"/Home", state: infosUser.infos}}>Fazer novas consultas</Link>
+                    <Link class="tangi4" to={{pathname:"/Home", state: infosUser.infos}}>Fazer novas consultas</Link>
                 </div>
                 
                 <div className="meio"> 
-                    <Link class="hihi meio" to={{ pathname: "/MeuPerfil", state: infosUser.infos}}>Meu perfil</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusAnuncios", state: infosUser.infos }}>Meus Anuncios</Link>
-                    <Link class="hihi meio" to={{ pathname: "/MeusFavoritos", state: infosUser.infos }}>Meus Favoritos</Link>
+                    <Link class="tangi5" to={{ pathname: "/MeuPerfil", state: infosUser.infos}}>Meu perfil</Link>
+                    <Link class="tangi6" to={{ pathname: "/MeusAnuncios", state: infosUser.infos }}>Meus Anuncios</Link>
+                    <Link class="tangi7" to={{ pathname: "/MeusFavoritos", state: infosUser.infos }}>Meus Favoritos</Link>
                 </div>
                 <div>
                     <Link  class="hihi" to={{pathname: "/Anunciar", state: infosUser.infos}}><button class="botaoo">Anunciar</button></Link>
@@ -51,7 +51,7 @@ export default function ExcluirAnuncio(props){
             
             <div className="nan">
                 <h5 className="nat">Tem certeza que deseja excluir o anuncio: <h5><b>{infosUser.x.titulo}</b></h5></h5> 
-                <h5 className="nat">publicado em <h5><b>{infosUser.x.dataDePublicacao}</b></h5></h5>
+                <h5 className="nat">publicado em <h5><b>{infosUser.x.dataDePublicacao.substring(8,10)}/{infosUser.x.dataDePublicacao.substring(5,7)}/{infosUser.x.dataDePublicacao.substring(0,4)}</b></h5></h5>
 
                 <div className="sahaha">
                     <Link to={{ pathname: "/MeusAnuncios", state: infosUser.infos}}><button className="botoxo">Não</button></Link>
