@@ -49,7 +49,7 @@ Filtrar por condição.
  [Link GitHub](
 https://github.com/JVZer0/TCC)
 
- [AWS IP = 3.84.250.220:3000]
+ AWS IP = 3.84.250.220:3000
 
 
 
