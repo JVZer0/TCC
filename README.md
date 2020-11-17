@@ -127,18 +127,12 @@ create table tb_favorito(id_favorito int primary key auto_increment, bt_favorito
 create table tb_pergunta_resposta(id_pergunta_resposta int primary key auto_increment, ds_pergunta varchar(255), dt_pergunta datetime, bt_respondida bool, ds_resposta varchar(255), id_anuncio int, id_perguntador int, id_respondedor int, foreign key (id_anuncio) references tb_anuncio(id_anuncio), foreign key (id_perguntador) references tb_usuario(id_usuario));
 
 
-
-
-
 insert into tb_login(ds_username, ds_senha) values('admin','1234');
 insert into tb_login(ds_username, ds_senha) values('IanHV','FHPutWujpe');
 insert into tb_login(ds_username, ds_senha) values('Lamorte','1234La');
 insert into tb_login(ds_username, ds_senha) values('DeanW','1234super');
 
-
-
-
-              
+       
 insert into tb_usuario(nm_usuario, dt_nascimento, ds_sexo, ds_cpf, ds_rg, ds_email, ds_celular, ds_estado, ds_cidade, ds_cep, ds_endereco, ds_bairro, ds_n_endereco, ds_complemento_endereco, bt_concordo_termos, id_login) values('Ian Heitor Vieira','1946-11-19','Masculino','730.736.610-00','14.228.859-7','ianheitorvieira__ianheitorvieira@pibnet.com.br','(51) 99765-5038', 'RS', 'Porto Alegre','90640-002','Rua Vicente da Fontoura','Rio Branco','284','',true,1);
 
 insert into tb_usuario(nm_usuario, dt_nascimento, ds_sexo, ds_cpf, ds_rg, ds_email, ds_celular, ds_estado, ds_cidade, ds_cep, ds_endereco, ds_bairro, ds_n_endereco, ds_complemento_endereco, bt_concordo_termos, id_login) values('Paulo Fábio Ferreira','1972-10-14','Masculino','692.843.165-29','13.624.425-7','ppaulofabioferreira@pelozo.com.br','(68) 98215-6571', 'AC', 'Rio Branco','69915-314','Rua C','Conjunto Habitacional Vila Betel 2','150','',true,2);
@@ -146,10 +140,6 @@ insert into tb_usuario(nm_usuario, dt_nascimento, ds_sexo, ds_cpf, ds_rg, ds_ema
 insert into tb_usuario(nm_usuario, dt_nascimento, ds_sexo, ds_cpf, ds_rg, ds_email, ds_celular, ds_estado, ds_cidade, ds_cep, ds_endereco, ds_bairro, ds_n_endereco, ds_complemento_endereco, bt_concordo_termos, id_login) values('Sophia Lara Antônia Almeida','1953-05-21','Feminino','608.726.034-07','48.846.719-6','sophialaraantoniaalmeida-72@thibe.com.br','(81) 99273-0238', 'PE', 'Igarassu','53625-213','2ª Travessa Jacob Pinto de Freitas','Cruz do Rebouças','523','',true,3);
 
 insert into tb_usuario(nm_usuario, dt_nascimento, ds_sexo, ds_cpf, ds_rg, ds_email, ds_celular, ds_estado, ds_cidade, ds_cep, ds_endereco, ds_bairro, ds_n_endereco, ds_complemento_endereco, bt_concordo_termos, id_login) values('José Cauã Nogueira','2002-05-12','Masculino','062.491.408-91','21.588.358-5','josecauanogueira-87@avantii.com.br','(92) 98783-4441', 'AM', 'Manaus','69090-799','Rua Doutor Solon Pinheiro','Cidade Nova','423','',true,4);
-
-
-
-
 
                 
 insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('bermuda obey camuflada','bermuda tamanho m obey camuflada, vai na altura do joelho um pouco pra cima','Bermuda','Usado','Masculino','obey','M',149.00, 'PE'	, 'Recife', '90640-002',false,'Publicado','2020-09-25',1);
@@ -170,8 +160,6 @@ insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_gene
 
 insert into tb_anuncio(ds_titulo, ds_descricao, tp_produto, ds_condicao, ds_genero, nm_marca, ds_tamanho, vl_preco, ds_estado, ds_cidade, ds_cep, bt_vendido, ds_situacao, dt_publicacao, id_usuario) values('test05','teste desc05', 'Bermuda','Novo','Masculino','Puma','Diversos',145.00, 'RS', 'Porto Alegre','53625-213',false,'Publicado','2020-09-25',3);
 
-
-
                 
 insert into tb_imagem(img_anuncio, id_anuncio) values('semimagem.png',1);
 insert into tb_imagem(img_anuncio, id_anuncio) values('semimagem.png',1);
@@ -188,16 +176,10 @@ insert into tb_imagem(img_anuncio, id_anuncio) values('semimagem.png',8);
 insert into tb_imagem(img_anuncio, id_anuncio) values('semimagem.png',9);
 
 
-
-
-
-               
 insert into tb_favorito(bt_favorito, id_usuario, id_anuncio) values(true,1,1);
 insert into tb_favorito(bt_favorito, id_usuario, id_anuncio) values(true,1,3);
 insert into tb_favorito(bt_favorito, id_usuario, id_anuncio) values(true,3,2);
 insert into tb_favorito(bt_favorito, id_usuario, id_anuncio) values(true,3,4);
-
-
 
                   
 insert into tb_pergunta_resposta(ds_pergunta, dt_pergunta, bt_respondida, ds_resposta, id_perguntador, 	id_anuncio, id_respondedor) values('Oi, tudo bem? É original?','2020-10-16',true,'Sim é original.',3,4,3);
