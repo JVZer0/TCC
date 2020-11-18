@@ -6,6 +6,7 @@
 TK Soluçõees de infórmatica
 :::
 
+
 ***
 
 ## Equipe:sunglasses:
@@ -102,6 +103,30 @@ https://github.com/JVZer0/TCC)
 [Prototipação Detalhada via GitHub](https://github.com/JVZer0/TCC/blob/master/Analise/Prototipa%C3%A7%C3%A3o/Prototipacao.bmpr)
 
 ## Modelagem MER
+
+#### TB - LOGIN 
+
+> Armazena os dados do usuario , guardando os dados do usuario para que ele possa entrar no sistema e executar os eventos.
+
+#### TB - USUARIO
+
+> Armazena todas as informações de ==Cadastro== do Usuario , tudo oque o sistema precisa saber sobre quem esta usando o sistema.
+
+#### TB - FAVORITO
+
+> A Tabela de Favorito ira armazenar todos os Anuncios que foram selecionados como favoritos pelo usuario , durante o uso do Sistema.
+
+#### TB - ANUNCIO
+
+> A Tabela Anuncio ira Armazenar todos os Anuncios dos usuarios , todos os dados para que tenha uma localização precisa .
+
+#### TB - PERGUNTA_RESPOSTA 
+
+> Essa tabela é onde sera armazenado a interação de perguntas e respostas dos usuarios , ==caso tenha duvidas sobre o produto anuciado .==
+
+#### TB - IMAGEM
+
+> A Tabela onde sera armazenada o salvamentos das Imagens (jpeg , jpg) , para que os usuarios tenha fotos sobre o produto .
 
 ![dbDesign](https://i.imgur.com/rkbcpbM.png)
 
