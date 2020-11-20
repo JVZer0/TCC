@@ -175,10 +175,9 @@
 }
 
 .flow{
-    display: flex;
-    flex-direction: row;
     justify-content: center;
     margin-top: 33px;
+    min-height: 520px;
 }
 
 .quadradin{
