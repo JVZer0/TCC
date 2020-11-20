@@ -82,7 +82,7 @@ export default function AlterarAnuncio(props){
             const resp = await api.alterarInfos(modelo);
             if(addImagem.length + imagens.length > 10) toast.error("Você so pode ter 10 imagens por anuncio")
             else{
-                if(addImagem >= 1){
+                if(addImagem.length >= 1){
                     const test = await api.adicionarVariasImagens(infos.x.idAnuncio, addImagem)
                     console.log(addImagem)
                     consultarInfosAnuncio();
