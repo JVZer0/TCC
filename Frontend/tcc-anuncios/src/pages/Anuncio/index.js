@@ -49,6 +49,7 @@ export default function Anuncio(props){
                 IdAnuncio: infos.x.idAnuncio
             };
             const resp = await api.perguntar(modelo);
+            setPergunta('');
             consultarAnuncioDetalhado();
         }
         catch (e) {
