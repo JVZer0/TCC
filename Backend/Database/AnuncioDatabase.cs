@@ -14,7 +14,7 @@ namespace Backend.Database
         public List<Models.TbAnuncio> ConsultarAnuncios(string BarraPesquisa, string Estado, string Cidade, string Genero, string Condicao)
         {
             List<Models.TbAnuncio> anuncios = ctx.TbAnuncio.Include(x => x.TbImagem)
-                                                           .Where(x => x.BtVendido == false && x.DsSituacao == "Publicado" && (x.DsTitulo.ToLower().Contains(BarraPesquisa.ToLower())
+                                                           .Where(x => x.BtVendido == false && x.DsSituacao == "Publicado" && (x.TpProduto.ToLower().Contains(BarraPesquisa.ToLower())
                                                                   || x.DsTitulo.ToLower().Contains(BarraPesquisa.ToLower()))
                                                                   && x.DsEstado.ToLower().Contains(Estado.ToLower()) && x.DsCidade.ToLower().Contains(Cidade.ToLower())
                                                                   && x.DsGenero.ToLower().Contains(Genero.ToLower()) && x.DsCondicao.ToLower().Contains(Condicao.ToLower()))
