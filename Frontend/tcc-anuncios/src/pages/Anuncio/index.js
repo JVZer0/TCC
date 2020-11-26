@@ -117,7 +117,7 @@ export default function Anuncio(props){
                             <Carousel dynamicHeight={true}>
                                     {imagens.map(x =>
                                         <div key="slide">
-                                            <img src={api.consultarImagem(x.textoImagem)} alt=""></img>
+                                            <img className="nunu" src={api.consultarImagem(x.textoImagem)} alt=""></img>
                                         </div>
                                     )}
                             </Carousel>
