@@ -60,6 +60,8 @@ namespace Backend.Business
             if(anuncio.DsTamanho.Length > 50) throw new ArgumentException("O tamanho não pode ter mais de 50 caracteres.");
             if(anuncio.DsCidade.Length > 130) throw new ArgumentException("A cidade não pode ter mais de 130 caracteres.");
             if(anuncio.VlPreco > 100000000) throw new ArgumentException("O preço tem que ser menor que 10 milhões.");
+            if(anuncio.NmMarca == "undefined") anuncio.NmMarca = "Sem marca";
+            if(anuncio.DsDescricao == "undefined") anuncio.DsDescricao = "";
             try
             {
                 int cep = Convert.ToInt32(anuncio.DsCep.Replace("-","").Replace(" ",""));
