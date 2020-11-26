@@ -114,10 +114,12 @@ export default function Anuncio(props){
                 
                     <div className="patota1">
                         <div className="aha">
-                            <Carousel>
-                                {imagens.map(x =>
-                                    <img src={api.consultarImagem(x.textoImagem)} alt=""></img>
-                                )}
+                            <Carousel dynamicHeight={true}>
+                                    {imagens.map(x =>
+                                        <div key="slide">
+                                            <img src={api.consultarImagem(x.textoImagem)} alt=""></img>
+                                        </div>
+                                    )}
                             </Carousel>
                         </div>
                     </div>
