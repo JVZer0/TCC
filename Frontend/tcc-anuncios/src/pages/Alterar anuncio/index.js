@@ -84,10 +84,10 @@ export default function AlterarAnuncio(props){
             else{
                 if(addImagem.length >= 1){
                     const test = await api.adicionarVariasImagens(infos.x.idAnuncio, addImagem)
-                    console.log(addImagem)
-                    consultarInfosAnuncio();
-                    toast.success("Alterado com sucesso")
                 }
+                console.log(addImagem)
+                consultarInfosAnuncio();
+                toast.success("Alterado com sucesso")
             }
         }
         catch (e){
