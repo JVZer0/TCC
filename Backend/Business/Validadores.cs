@@ -89,7 +89,6 @@ namespace Backend.Business
             ValidarTexto(anuncio.DsEstado);
             ValidarTexto(anuncio.DsTamanho);
             ValidarTexto(anuncio.DsGenero);
-            ValidarTexto(anuncio.NmMarca);
             if(anuncio.DsCep.Length != 9) throw new ArgumentException("CEP incorreto.");
         }
         public void InativarAnuncio(Models.TbAnuncio Anuncios)
@@ -109,7 +108,6 @@ namespace Backend.Business
             ValidarTexto(anuncio.DsEstado);
             ValidarTexto(anuncio.DsTamanho);
             ValidarTexto(anuncio.DsGenero);
-            ValidarTexto(anuncio.NmMarca);
             ValidarPreco(anuncio.VlPreco);
             if(anuncio.DsCep.Length != 9) throw new ArgumentException("CEP incorreto.");
         }
