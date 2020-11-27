@@ -1,4 +1,4 @@
-![](https://i.imgur.com/IJbxAed.jpg)
+
 
 # Relatório e Analise do Sistema de Anuncios.
 
