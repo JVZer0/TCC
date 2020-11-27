@@ -2,9 +2,9 @@
 
 # Relatório e Analise do Sistema de Anuncios.
 
-:::info
-TK Soluçõees de infórmatica
-:::
+
+TK Soluçõees de informática
+
 
 
 ***
