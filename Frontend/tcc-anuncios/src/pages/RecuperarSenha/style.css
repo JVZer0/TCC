@@ -27,12 +27,6 @@
     height: 35px;
     font-size: 17px;
     padding-left: 10px;
-    margin-top: 10px;
-}
-
-.v25{
-    position: relative;
-    left: -5px;
 }
 
 .v3{
@@ -49,10 +43,20 @@
 .mama1, .mama2{
     font-size: 17px;
     margin-right: 25px;
+    margin-bottom: 0px;
+    height: 35px;
+    display: flex;
+    align-items: center;
 }
 
-.mama2{
-    position: relative;
-    left: -3px;
+.labels1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+.aaaa{
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+}

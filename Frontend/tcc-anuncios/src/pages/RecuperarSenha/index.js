@@ -53,7 +53,18 @@ export default function RecuperarSenha(){
 
                         <label className="v1">Digite o seu CPF e seu RG para recuperar sua senha</label>
 
-                        <div>
+                        <div className="aaaa">
+                            <div className="labels1">
+                                <label className="mama1">CPF:</label>
+                                <label className="mama2">RG: (Somente números)</label>
+                            </div>
+                            <div className="labels1">
+                                <InputMask className="v25" value={cpf} mask="999.999.999-99" onChange={(e) => setCpf(e.target.value)} placeholder="CPF"/>
+                                <input className="v2" type="text" value={rg} onChange={(e) => setRg(e.target.value)} placeholder="RG"></input>
+                            </div>
+                        </div>
+
+                        {/* <div>
                             <label className="mama1">CPF:</label>
                             <InputMask className="v25" value={cpf} mask="999.999.999-99" onChange={(e) => setCpf(e.target.value)} placeholder="CPF"/>
                         </div>
@@ -61,7 +72,7 @@ export default function RecuperarSenha(){
                         <div>
                             <label className="mama2">RG: (Somente números)</label>
                             <input className="v2" type="text" value={rg} onChange={(e) => setRg(e.target.value)} placeholder="RG"></input>
-                        </div>
+                        </div> */}
 
                         <button className="v3" onClick={recuperar}>Verificar</button>
                     </div>
